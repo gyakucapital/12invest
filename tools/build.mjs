@@ -150,16 +150,23 @@ const CANDLES = (() => {
   ma.forEach((v, i) => line.push(i ? `H${i * 10} V${y(v) - 3}` : `M0 ${y(v) - 3}`));
   line.push(`H${W}`);
   const svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" shape-rendering="crispEdges" aria-hidden="true">${out.join("")}<path d="${line.join(" ")}" class="ma" fill="none"/></svg>`;
-  // dancing 8-bit coin mascot (2 frames: arms/legs swap) beside the moving chart, plus blinking sparkles
-  const BODY = ["....GGGG....", "..GGYYYYGG..", ".GYYYYYYYYG.", ".GYKYYYYKYG.", "GYYYYYYYYYYG", "GYYKYYYYKYYG", ".GYYKKKKYYG.", ".GYYYYYYYYG.", "..GGYYYYGG..", "....GGGG...."];
-  const cls = { G: "mg", Y: "my", K: "mk" };
-  const body = BODY.flatMap((r, y) => [...r].map((c, x) => c === "." ? "" : `<rect x="${x + 2}" y="${y}" width="1" height="1" class="${cls[c]}"/>`)).join("");
-  const dot = pts => pts.map(([x, y]) => `<rect x="${x}" y="${y}" width="1" height="1" class="ma2"/>`).join("");
-  const fA = dot([[0, 2], [1, 3], [1, 4], [14, 6], [15, 7], [5, 10], [5, 11], [10, 10], [11, 11]]);
-  const fB = dot([[1, 6], [0, 7], [15, 2], [14, 3], [14, 4], [5, 10], [4, 11], [10, 10], [10, 11]]);
-  const mascot = `<svg class="mascot" viewBox="0 0 16 12" width="48" height="36" shape-rendering="crispEdges" aria-hidden="true"><g class="mbody">${body}</g><g class="mfA">${fA}</g><g class="mfB">${fB}</g></svg>`;
+  // dancing mascot: bull if the previous trading day's KLCI closed up, bear if it closed down (from the latest daily edition)
+  const lastMk = (NEWS.find(d => d.kind !== "weekly" && d.market && d.market.change) || {}).market;
+  const down = lastMk ? /^[-−]/.test(lastMk.change) : false;
+  const SPR = down
+    ? ["..EE........EE..", ".EEEBBBBBBBBEEE.", "..BBBBBBBBBBBB..", "..BBBBBBBBBBBB..", "..BBKBBBBBBKBB..", "..BBBBBBBBBBBB..", "...BBBSSSSBBB...", "...BBSSKKSSBB...", "....BBSSSSBB....", "......BBBB......"]
+    : ["H..............H", "HH............HH", ".HHBBBBBBBBBBHH.", "...BBBBBBBBBB...", "...BKBBBBBBKB...", "...BBBBBBBBBB...", "....SSSSSSSS....", "....SNSSSSNS....", ".....SSSSSS.....", "......BBBB......"];
+  const cls = { H: "mh", E: "me", B: "mb", K: "mk", S: "msn", N: "mk" };
+  const body = SPR.flatMap((r, y) => [...r].map((c, x) => c === "." ? "" : `<rect x="${x}" y="${y}" width="1" height="1" class="${cls[c]}"/>`)).join("");
+  const dot = pts => pts.map(([x, y]) => `<rect x="${x}" y="${y}" width="1" height="1" class="mlimb"/>`).join("");
+  const fA = dot([[0, 4], [1, 5], [1, 6], [14, 7], [15, 8], [5, 10], [5, 11], [10, 10], [11, 11]]);
+  const fB = dot([[1, 7], [0, 8], [15, 4], [14, 5], [14, 6], [5, 10], [4, 11], [10, 10], [10, 11]]);
+  const mood = down ? "bear" : "bull";
+  const pct = lastMk && (lastMk.change.match(/[（(]\s*([-−+]?[\d.]+%)\s*[）)]/) || [])[1];
+  const mlabel = lastMk ? `KLCI ${pct || lastMk.change.replace(/（.*$/, "").trim()}` : "";
+  const mascot = `<svg class="mascot ${mood}" viewBox="0 0 16 12" width="48" height="36" shape-rendering="crispEdges" aria-hidden="true"><g>${body}</g><g class="mfA">${fA}</g><g class="mfB">${fB}</g></svg>`;
   const spark = k => `<svg class="spark s${k}" viewBox="0 0 5 5" width="10" height="10" shape-rendering="crispEdges" aria-hidden="true"><rect x="2" y="0" width="1" height="5" class="ms"/><rect x="0" y="2" width="5" height="1" class="ms"/></svg>`;
-  return `<div class="mticker" aria-hidden="true"><div class="mt-vp"><div class="mt-track">${svg}${svg}${svg}${svg}</div>${[1, 2, 3].map(spark).join("")}</div><div class="mt-dance">${mascot}<span class="mt-up">▲</span></div></div>`;
+  return `<div class="mticker" aria-hidden="true"><div class="mt-vp"><div class="mt-track">${svg}${svg}${svg}${svg}</div>${[1, 2, 3].map(spark).join("")}</div><div class="mt-dance ${mood}" title="${lastMk ? `上一交易日 FBM KLCI ${esc(lastMk.change)}` : ""}">${mascot}${mlabel ? `<span class="mt-lbl">${down ? "▼" : "▲"} ${esc(mlabel.replace(/^KLCI\s*/, ""))}</span>` : ""}</div></div>`;
 })();
 const DEFAULT_DESC = "12Invest：马股新股与上市公司解读，IPO 速读、估值与风险一次看懂。";
 

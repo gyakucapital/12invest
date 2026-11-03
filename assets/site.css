@@ -580,3 +580,12 @@ label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--g
   .mascot{width:40px;height:30px}
 }
 @media (prefers-reduced-motion:reduce){.mascot,.mfA,.mfB,.spark,.mt-up{animation:none}.mfB{opacity:0}}
+/* bull / bear mascot by previous day's KLCI move */
+.mt-dance{flex-direction:column;align-items:center;justify-content:center;width:auto;min-width:48px;height:52px;gap:0}
+.mascot.bull .mb{fill:#7CD992}.mascot.bull .mh{fill:#FFE7A3}.mascot.bull .msn{fill:#C8F2D2}
+.mascot.bear .mb{fill:#FF7A66}.mascot.bear .me{fill:#B84A3C}.mascot.bear .msn{fill:#FFC2B8}
+.mk{fill:#081230}.mlimb{fill:#FFE7A3}
+.mt-lbl{font-family:var(--font-pixel);font-size:10px;line-height:1;letter-spacing:.04em;white-space:nowrap;margin-top:2px}
+.mt-dance.bull .mt-lbl{color:#7CD992}.mt-dance.bear .mt-lbl{color:var(--signal)}
+.mt-up{display:none}
+@media (max-width:860px){ .mt-dance{height:40px;min-width:40px} .mascot{width:36px;height:27px} .mt-lbl{font-size:9px} }
