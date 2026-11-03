@@ -33,6 +33,9 @@ const postFor = i => posts.find(p => p.ticker === i.ticker);
 const addDays = (d, n) => new Date(Date.parse(d + "T00:00:00Z") + n * 864e5).toISOString().slice(0, 10);
 // calendar window: anything not yet listed, plus IPOs listed in the last 30 days
 const CAL = IPOS.filter(i => !i.listing || i.listing >= addDays(TODAY, -30));
+const slug = t => String(t).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const TICKERS = [...new Set([...IPOS.map(i => i.ticker), ...posts.map(p => p.ticker).filter(Boolean)])];
+const SOCIAL = [["Facebook", CFG.social && CFG.social.facebook], ["moomoo", CFG.social && CFG.social.moomoo], ["Telegram", CFG.social && CFG.social.telegram]].filter(([, u]) => u);
 
 /* ---------- helpers ---------- */
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -55,7 +58,12 @@ function imgSize(rel){
   }
   return [0, 0];
 }
-const img = (rel, alt, eager = false) => { const [w, h] = imgSize(rel); return `<img src="${REL(rel)}" alt="${esc(alt)}" width="${w}" height="${h}" loading="${eager ? "eager" : "lazy"}" decoding="async">`; };
+const img = (rel, alt, eager = false) => {
+  const [w, h] = imgSize(rel);
+  const tag = `<img src="${REL(rel)}" alt="${esc(alt)}" width="${w}" height="${h}" loading="${eager ? "eager" : "lazy"}" decoding="async">`;
+  const webp = rel.replace(/\.(jpe?g|png)$/i, ".webp"); // made by tools/images.py; smaller for phones
+  return webp !== rel && fs.existsSync(path.join(ROOT, webp)) ? `<picture><source srcset="${REL(webp)}" type="image/webp">${tag}</picture>` : tag;
+};
 function write(rel, html){ const f = path.join(ROOT, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html); }
 
 /* ---------- article body markup ---------- */
@@ -105,7 +113,7 @@ const badge = i => { const [s, t] = ipoStatus(i); return `<span class="badge" da
 const dclass = d => d < TODAY ? " past" : d === TODAY ? " today" : "";
 const events = CAL.flatMap(i => STEPS.filter(([k]) => i[k]).map(([k, label]) => ({ d: i[k], label, i, p: postFor(i) })))
   .sort((a, b) => a.d.localeCompare(b.d) || a.i.name.localeCompare(b.i.name));
-const evLi = e => { const { md, wd } = day(e.d); const who = e.p ? `<a href="${REL(`p/${e.p.id}/`)}">${esc(e.i.name)}</a>` : esc(e.i.name);
+const evLi = e => { const { md, wd } = day(e.d); const who = `<a href="${REL(e.p ? `p/${e.p.id}/` : `c/${slug(e.i.ticker)}/`)}">${esc(e.i.name)}</a>`;
   return `<li class="ev${dclass(e.d)}" data-d="${e.d}"><time datetime="${e.d}">${md}${wd}</time><span class="kind">${e.label}</span><span class="who">${who} <small>${esc(e.i.board)}</small></span></li>`; };
 const stepsHTML = i => `<ol class="steps">${STEPS.filter(([k]) => i[k]).map(([k, , s]) => { const { md } = day(i[k]); return `<li class="step${dclass(i[k])}" data-d="${i[k]}"><i></i><b>${md}</b><span>${s}</span></li>`; }).join("")}</ol>`;
 
@@ -151,7 +159,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${esc(url)}">${ogImg}
 <meta name="twitter:card" content="${og.image ? "summary_large_image" : "summary"}">
-<meta name="theme-color" content="#081230">
+<meta name="theme-color" content="#081230">${CFG.googleVerification ? `\n<meta name="google-site-verification" content="${esc(CFG.googleVerification)}">` : ""}
 <link rel="icon" href="${FAVICON}">
 <link rel="alternate" type="application/rss+xml" title="12Invest" href="${REL("feed.xml")}">
 <link rel="preload" href="${REL("fonts/silkscreen-700.woff2")}" as="font" type="font/woff2" crossorigin>
@@ -170,11 +178,55 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 ${body}
 </main>
 <footer><div class="wrap"><span class="brand">12INVEST</span><span>本站内容仅供参考及教育用途，并不构成任何买卖建议。投资涉及风险，请自行判断。</span>
+${SOCIAL.length ? `<nav class="fsocial" aria-label="关注 12Invest"><span>关注 12Invest：</span>${SOCIAL.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("")}</nav>` : ""}
 <nav aria-label="Legal"><a href="${REL("privacy/")}">隐私政策 Privacy Notice</a><a href="${REL("disclaimer/")}">免责声明 Disclaimer</a><a href="${REL("terms/")}">使用条款 Terms of Use</a><a href="${REL("feed.xml")}">RSS</a><span>© ${TODAY.slice(0, 4)} Gyaku Capital Sdn. Bhd. (201901044631)</span></nav></div></footer>
 <div class="toast" id="toast" role="status" hidden></div>
 </body>
 </html>
 `;
+}
+
+/* ---------- follow box ---------- */
+const follow = () => SOCIAL.length ? `<aside class="follow" aria-label="关注 12Invest"><div class="follow-t"><b>关注 12Invest</b><span>新股解读、IPO 日程与上市表现，第一时间更新</span></div><div class="follow-b">${SOCIAL.map(([n, u]) => `<a class="btn primary" href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("")}</div></aside>` : "";
+
+/* ---------- IPO results ---------- */
+const num = v => typeof v === "number" ? v : parseFloat(String(v ?? "").replace(/[^\d.]/g, ""));
+const rm = v => { const n = num(v); return isNaN(n) ? "" : "RM" + (Math.round(n * 1000) % 10 ? n.toFixed(3) : n.toFixed(2)); };
+const finalPrice = i => num((i.result && i.result.final) ?? i.price);
+function premium(i){
+  const r = i.result || {}, fp = finalPrice(i), c = num(r.close);
+  if (!fp || isNaN(c)) return null;
+  const v = (c / fp - 1) * 100; return { v, txt: (v > 0 ? "+" : "") + v.toFixed(1) + "%", cls: v > 0 ? "up" : v < 0 ? "down" : "flat" };
+}
+const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
+function resultRow(i){
+  const r = i.result; if (!r) return "";
+  const pr = premium(i), bits = [];
+  if (r.oversub != null) bits.push(`<span>公众超额认购 <b>${esc(num(r.oversub).toFixed(2))} 倍</b></span>`);
+  if (r.close != null) bits.push(`<span>首日收 <b>${rm(r.close)}</b>${pr ? ` <em class="${pr.cls}">${pr.txt}</em>` : ""}</span>`);
+  return bits.length ? `<div class="ipo-res">${bits.join("")}</div>` : "";
+}
+function ipoCard(i, opts = {}){
+  const p = postFor(i), s = (i.sources || [])[0];
+  const kv = [["板块", i.board], ["发售价", i.price], ["上市市值", i.cap], ["股票代号", i.code]].filter(([, v]) => v)
+    .map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
+  const nameHTML = `${esc(i.name)}${i.ticker !== i.name.toUpperCase() ? ` <small>${esc(i.ticker)}</small>` : ""}`;
+  return `<article class="ipo px" id="${esc(slug(i.ticker))}">
+  <div class="ipo-top"><h2>${opts.noLink ? nameHTML : `<a href="${REL(`c/${slug(i.ticker)}/`)}">${nameHTML}</a>`}</h2>${badge(i)}</div>
+  <dl class="ipo-kv">${kv}</dl>
+  ${stepsHTML(i)}
+  ${resultRow(i)}
+  <div class="gfoot">${s ? `<a class="gtime src" href="${esc(s)}" target="_blank" rel="noopener noreferrer">来源：${esc(host(s))} ↗</a>` : "<span></span>"}${p ? `<a class="btn primary" href="${REL(`p/${p.id}/`)}">阅读解读 →</a>` : `<span class="note">暂无解读</span>`}</div>
+</article>`;
+}
+function scoreboard(){
+  const done = IPOS.filter(i => i.result && (i.result.close != null || i.result.oversub != null))
+    .sort((a, b) => (b.listing || "").localeCompare(a.listing || "")).slice(0, 40);
+  if (!done.length) return `<div class="sec">上市表现</div><div class="empty px">新股挂牌后，这里会列出公众超额认购倍数与首日表现。</div>`;
+  return `<div class="sec">上市表现</div>
+<div class="tbl"><table class="score"><thead><tr><th>公司</th><th>板块</th><th>挂牌日</th><th>IPO 价</th><th>公众超购</th><th>首日开</th><th>首日收</th><th>首日涨跌</th></tr></thead><tbody>
+${done.map(i => { const r = i.result, pr = premium(i); return `<tr><td><a href="${REL(`c/${slug(i.ticker)}/`)}">${esc(i.name)}</a></td><td>${esc(i.board)}</td><td>${i.listing ? day(i.listing).md : ""}</td><td>${rm(finalPrice(i))}</td><td>${r.oversub != null ? esc(num(r.oversub).toFixed(2)) + " 倍" : "—"}</td><td>${r.open != null ? rm(r.open) : "—"}</td><td>${r.close != null ? rm(r.close) : "—"}</td><td>${pr ? `<em class="${pr.cls}">${pr.txt}</em>` : "—"}</td></tr>`; }).join("\n")}
+</tbody></table></div>`;
 }
 
 /* ---------- views ---------- */
@@ -204,7 +256,8 @@ function home(){
   <input class="search" id="q" type="search" placeholder="搜索公司、主题…" aria-label="搜索文章" autocomplete="off"></div>
 <div class="sec">一眼看懂 · <span id="count">${posts.length}</span> 篇</div>
 <div class="glances">${posts.map((p, i) => glance(p, i)).join("\n")}</div>
-<div class="empty px" id="nores" hidden><h3>没有符合的文章</h3>换个关键词或分类试试。</div>`;
+<div class="empty px" id="nores" hidden><h3>没有符合的文章</h3>换个关键词或分类试试。</div>
+${follow()}`;
   return page({ path: "", title: "12Invest · 马股新股与上市公司解读", nav: "home", body,
     og: { image: posts[0] && ogImage(posts[0]).src, w: posts[0] && ogImage(posts[0]).w, h: posts[0] && ogImage(posts[0]).h } });
 }
@@ -239,12 +292,13 @@ function article(p){
   <a class="back" href="${BASE}">← 返回首页</a>
   <div class="cat">【${esc(p.category || "未分类")}】</div>
   <h1>${esc(p.title)}</h1>
-  <div class="meta"><span>${fmtPub(p.publishedAt)}</span><span>12Invest</span>${p.ipo ? badge(p.ipo) : ""}</div>
+  <div class="meta"><span>${fmtPub(p.publishedAt)}</span><span>12Invest</span>${p.ipo ? badge(p.ipo) : ""}${p.ticker ? `<a class="tick" href="${REL(`c/${slug(p.ticker)}/`)}">${esc(p.ticker)} 公司页 →</a>` : ""}</div>
   ${facts.length ? `<dl class="facts"><div class="hd">关键资料<span>KEY FACTS</span></div>${facts.map(f => `<div class="fact"><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join("")}</dl>` : ""}
   <div class="body">${render(p.body)}</div>
   <p class="disc"><strong>免责声明：</strong>${DISC}</p>
   ${(p.tags || []).length ? `<div class="tags">${p.tags.map(t => `<span>#${esc(t)}</span>`).join("")}</div>` : ""}
   ${shareHTML(p)}
+  ${follow()}
   <div class="tools"><button class="btn" type="button" data-copy-full>复制全文</button><span class="note">${[...txt].length.toLocaleString("en")} 字符 · 纯文字，可直接贴到 Facebook</span></div>
   <textarea class="copysrc" id="copysrc" hidden readonly aria-label="全文纯文字">${esc(txt)}</textarea>
   ${others.length ? `<section class="more"><div class="sec">更多文章</div><div class="list">${others.map(x => `<a class="item" href="${REL(`p/${x.id}/`)}"><div class="cover">${cover(x)}</div><div class="minw0"><div class="cat">【${esc(x.category)}】</div><h3>${esc(x.title)}</h3><div class="meta"><span>${fmtPub(x.publishedAt)}</span></div></div></a>`).join("")}</div></section>` : ""}
@@ -255,21 +309,26 @@ function article(p){
 }
 function calendar(){
   const ipos = CAL.slice().sort((a, b) => (a.listing || "9999").localeCompare(b.listing || "9999"));
-  const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
-  const kv = i => [["板块", i.board], ["发售价", i.price], ["上市市值", i.cap], ["股票代号", i.code]].filter(([, v]) => v)
-    .map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
   const body = `<div class="page-hd"><div class="cat">IPO CALENDAR</div><h1>IPO 日历</h1><p>12Invest 追踪中的马股新股。日期为马来西亚时间，以招股书为准；招股一般在截止日下午5点结束。</p></div>
 <div class="sec">关键日期</div>
 <ol class="events">${events.map(evLi).join("")}</ol>
 <div class="sec">新股一览</div>
-<div class="ipos">${ipos.map(i => { const p = postFor(i), s = (i.sources || [])[0]; return `<article class="ipo px" id="${esc(i.ticker.toLowerCase())}">
-  <div class="ipo-top"><h2>${esc(i.name)}${i.ticker !== i.name.toUpperCase() ? ` <small>${esc(i.ticker)}</small>` : ""}</h2>${badge(i)}</div>
-  <dl class="ipo-kv">${kv(i)}</dl>
-  ${stepsHTML(i)}
-  <div class="gfoot">${s ? `<a class="gtime src" href="${esc(s)}" target="_blank" rel="noopener noreferrer">来源：${esc(host(s))} ↗</a>` : "<span></span>"}${p ? `<a class="btn primary" href="${REL(`p/${p.id}/`)}">阅读解读 →</a>` : `<span class="note">暂无解读</span>`}</div>
-</article>`; }).join("\n")}</div>
-<p class="note">资料取自招股书、公司新闻稿及媒体报道，每日更新${ipoData.updated ? `（最后更新：${esc(ipoData.updated)}）` : ""}。日期如有更改，以 Bursa Malaysia 公告为准。</p>`;
+<div class="ipos">${ipos.map(i => ipoCard(i)).join("\n")}</div>
+<p class="note">资料取自招股书、公司新闻稿及媒体报道，每日更新${ipoData.updated ? `（最后更新：${esc(ipoData.updated)}）` : ""}。日期如有更改，以 Bursa Malaysia 公告为准。</p>
+${scoreboard()}
+<p class="note">首日涨跌以首日收市价对比最终 IPO 价计算，仅供参考。</p>`;
   return page({ path: "ipo/", title: "IPO 日历 · 12Invest", desc: "马股新股招股、抽签与挂牌日期一览，附 12Invest 新股解读。", nav: "ipo", body });
+}
+function company(t){
+  const i = byTicker[t], arts = posts.filter(p => p.ticker === t);
+  const name = (i && i.name) || (arts[0] && arts[0].ticker) || t;
+  const sub = [i && i.company, i && i.board, i && i.code && `股票代号 ${i.code}`].filter(Boolean).join(" · ");
+  const body = `<div class="page-hd"><div class="cat">COMPANY · ${esc(t)}</div><h1>${esc(name)}</h1>${sub ? `<p>${esc(sub)}</p>` : ""}</div>
+${i ? `<div class="sec">IPO</div><div class="ipos one">${ipoCard(i, { noLink: true })}</div>` : ""}
+<div class="sec">12Invest 解读 · ${arts.length} 篇</div>
+${arts.length ? `<div class="glances">${arts.map((p, k) => glance(p, k)).join("\n")}</div>` : `<div class="empty px">暂时还没有这家公司的解读。</div>`}
+${follow()}`;
+  return page({ path: `c/${slug(t)}/`, title: `${name}（${t}）· 12Invest`, desc: `${name}${i && i.company ? `（${i.company}）` : ""}的 IPO 日程与 12Invest 解读。`, body, noindex: !arts.length });
 }
 function legal(key){
   const doc = LEGAL[key];
@@ -310,6 +369,7 @@ for (const p of posts){
   write(`p/${p.id}/index.html`, article(p)); urls.push([`p/${p.id}/`, (p.updatedAt || p.publishedAt).slice(0, 10)]);
   for (const old of p.oldIds || []) if (/^[a-z0-9-]+$/.test(old) && old !== p.id) write(`p/${old}/index.html`, redirect(`p/${p.id}/`)); // keep old shared links working
 }
+for (const tk of TICKERS){ write(`c/${slug(tk)}/index.html`, company(tk)); if (posts.some(p => p.ticker === tk)) urls.push([`c/${slug(tk)}/`, data.updated]); }
 for (const k of Object.keys(LEGAL)){ write(`${k}/index.html`, legal(k)); urls.push([`${k}/`, null]); }
 write("404.html", notFound());
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>

@@ -1,0 +1,36 @@
+# Rebuilds the site whenever posts.json, data/, img/ or the build tools change on main,
+# so an article can be published by editing posts.json in GitHub's web editor.
+name: Build site
+on:
+  push:
+    branches: [main]
+    paths: ["posts.json", "data/**", "img/**", "tools/**", "assets/**"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: { group: build, cancel-in-progress: false }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Share images and WebP copies
+        run: |
+          pip install pillow
+          npm install --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y fonts-noto-cjk
+          python3 tools/images.py
+          node tools/og.mjs
+      - name: Build pages
+        run: node tools/build.mjs
+      - name: Commit generated files
+        run: |
+          git config user.name "12Invest"
+          git config user.email "kyzen@gyakucapital.com"
+          git add -A
+          git diff --cached --quiet || (git commit -m "Build site [automated]" && git push)

@@ -3,5 +3,11 @@
   "base": "/12invest/",
   "siteName": "12Invest",
   "contact": "kyzen@gyakucapital.com",
-  "goatcounter": null
+  "goatcounter": null,
+  "social": {
+    "facebook": "https://www.facebook.com/share/18ofQH787S/",
+    "moomoo": "https://www.moomoo.com/community/profile/102311682?share_code=05drLG",
+    "telegram": null
+  },
+  "googleVerification": null
 }

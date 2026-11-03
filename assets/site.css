@@ -283,3 +283,40 @@ footer .brand{font-family:var(--font-pixel);color:var(--gold);font-size:13px}
 .gtime.src{text-decoration:none}
 .gtime.src:hover{color:var(--gold);text-decoration:underline}
 .ipos+.note{margin-top:24px}
+
+/* v3: follow, results, company pages */
+picture{display:contents}
+.follow{display:flex;justify-content:space-between;align-items:center;gap:16px 24px;flex-wrap:wrap;margin-top:40px;padding:20px 24px;background:var(--surface2);
+  box-shadow:0 -4px 0 0 var(--gold),0 4px 0 0 var(--gold),-4px 0 0 0 var(--gold),4px 0 0 0 var(--gold),8px 12px 0 0 var(--shadow)}
+.follow-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.follow-t b{font-size:18px;font-weight:900}
+.follow-t span{font-size:14px;color:var(--muted)}
+.follow-b{display:flex;gap:14px;flex-wrap:wrap}
+.follow-b .btn{text-transform:none;font-family:var(--font-body);font-weight:700;font-size:14px}
+.fsocial{display:flex;gap:6px 16px;flex-wrap:wrap;width:100%;font-size:12px}
+.fsocial a{color:var(--gold);text-decoration:none}
+.fsocial a:hover{text-decoration:underline}
+.tick{font-family:var(--font-pixel);font-size:12px;color:var(--gold);text-decoration:none;letter-spacing:.04em}
+.tick:hover{text-decoration:underline}
+.ipo h2 a{text-decoration:none}
+.ipo h2 a:hover{color:var(--gold)}
+.ipos.one{grid-template-columns:minmax(0,640px)}
+.ipo-res{display:flex;gap:8px 24px;flex-wrap:wrap;padding:10px 14px;background:var(--bg2);font-size:14px;color:var(--muted)}
+.ipo-res b{color:var(--ink);font-variant-numeric:tabular-nums}
+em.up,em.down,em.flat{font-style:normal;font-weight:700;font-variant-numeric:tabular-nums}
+em.up{color:var(--gold)}
+em.down{color:var(--signal)}
+em.flat{color:var(--muted)}
+.tbl{overflow-x:auto;box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
+.score{width:100%;border-collapse:collapse;font-size:14px;white-space:nowrap;background:var(--surface)}
+.score th{font-weight:500;font-size:12px;color:var(--muted);text-align:right;padding:10px 14px;background:var(--surface2)}
+.score td{text-align:right;padding:10px 14px;border-top:2px solid var(--line);font-variant-numeric:tabular-nums}
+.score th:first-child,.score td:first-child,.score th:nth-child(2),.score td:nth-child(2){text-align:left}
+.score td:first-child a{font-weight:700;text-decoration:none}
+.score td:first-child a:hover{color:var(--gold)}
+.ipos+.note+.sec{margin-top:48px}
+@media (max-width:560px){
+  .follow{padding:16px}
+  .follow-b{width:100%}
+  .follow-b .btn{flex:1 1 0;justify-content:center}
+}
