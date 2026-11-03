@@ -424,3 +424,24 @@ em.flat{color:var(--muted)}
   .nlist a{grid-template-columns:1fr;gap:2px}
 }
 .nitem .ntag{align-self:start}
+
+/* rolling news banner (home) */
+.roll{display:flex;align-items:stretch;margin:0 0 28px;background:var(--bg2);overflow:hidden;
+  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
+.roll-lbl{flex:0 0 auto;display:flex;flex-direction:column;justify-content:center;gap:0;padding:8px 16px;background:var(--gold);color:var(--gold-ink);
+  font-weight:900;font-size:14px;text-decoration:none;line-height:1.3;z-index:1}
+.roll-lbl small{font-family:var(--font-pixel);font-size:10px;font-weight:400;letter-spacing:.06em}
+.roll-vp{flex:1;min-width:0;overflow:hidden;display:flex;align-items:center;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
+.roll-track{display:flex;width:max-content;animation:roll 90s linear infinite}
+.roll-track a,.roll-dup{display:flex;align-items:center}
+.roll-track a{gap:8px;padding:10px 28px 10px 0;margin-left:28px;white-space:nowrap;font-size:14px;color:var(--ink);text-decoration:none;
+  border-right:2px dotted var(--line)}
+.roll-track a:hover{color:var(--gold)}
+.roll:hover .roll-track,.roll:focus-within .roll-track{animation-play-state:paused}
+@keyframes roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .roll-track{animation:none!important}
+  .roll-vp{overflow-x:auto}
+  .roll-dup{display:none}
+}

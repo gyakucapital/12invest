@@ -312,7 +312,11 @@ function home(){
   ${nd.market ? `<div class="nb-mkt"><b>${esc(nd.market.index || "FBM KLCI")} ${esc(nd.market.close)}</b>${nd.market.date && nd.market.date !== nd.date ? `<small class="note">${day(nd.market.date).md}收市</small>` : ""}<em class="${/^[-−]/.test(nd.market.change || "") ? "down" : "up"}">${esc(nd.market.change)}</em></div>` : ""}
   <ul>${nd.items.slice(0, 4).map(it => `<li><span class="ntag">${esc(it.tag || "焦点")}</span>${esc(it.title)}</li>`).join("")}</ul>
   <a class="btn primary" href="${REL(`news/${nd.date}/`)}">阅读完整速报 →</a></section>` : "";
-  const body = `${band}${upcoming.length ? `<section class="upc" data-upcoming><div class="sec"><span>近期 IPO 日程</span><a href="${REL("ipo/")}">完整日历 →</a></div><ol class="events" data-limit="4">${upcoming.map(evLi).join("")}</ol></section>` : ""}
+  // rolling banner: latest edition's headlines, scrolling right to left (pauses on hover; static for reduced motion)
+  const rollItems = nd ? nd.items.map(it => `<a href="${REL(`news/${nd.date}/`)}"><span class="ntag">${esc(it.tag || "焦点")}</span>${esc(it.title)}</a>`).join("") : "";
+  const roll = nd ? `<div class="roll" role="region" aria-label="最新快讯"><a class="roll-lbl" href="${REL(`news/${nd.date}/`)}">最新快讯<small>${day(nd.date).md}</small></a>
+  <div class="roll-vp"><div class="roll-track">${rollItems}<span class="roll-dup" aria-hidden="true">${rollItems.replace(/<a /g, '<a tabindex="-1" ')}</span></div></div></div>` : "";
+  const body = `${roll}${band}${upcoming.length ? `<section class="upc" data-upcoming><div class="sec"><span>近期 IPO 日程</span><a href="${REL("ipo/")}">完整日历 →</a></div><ol class="events" data-limit="4">${upcoming.map(evLi).join("")}</ol></section>` : ""}
 <div class="filters" id="filters" hidden>${cats.map(c => `<button class="chip" type="button" data-cat="${esc(c)}" aria-pressed="${c === "全部"}">${esc(c)}</button>`).join("")}
   <input class="search" id="q" type="search" placeholder="搜索公司、主题…" aria-label="搜索文章" autocomplete="off"></div>
 <div class="sec">一眼看懂 · <span id="count">${posts.length}</span> 篇</div>
