@@ -22,6 +22,7 @@ if (process.env.TELEGRAM_TEST === "true"){ // manual check from GitHub → Actio
 const stateFile = path.join(ROOT, "data/telegram.json");
 const state = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, "utf8")) : { posted: [] };
 const { posts } = JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8"));
+const IPOS = fs.existsSync(path.join(ROOT, "data/ipos.json")) ? JSON.parse(fs.readFileSync(path.join(ROOT, "data/ipos.json"), "utf8")).ipos : [];
 const todo = posts.filter(p => p.id && !state.posted.includes(p.id) && !p.noTelegram)
   .sort((a, b) => String(a.publishedAt).localeCompare(String(b.publishedAt)));
 if (!todo.length) { console.log("Telegram: nothing new."); process.exit(0); }
@@ -45,7 +46,13 @@ function summary(p){
 function caption(p){
   const tickerTag = p.ticker ? "#" + String(p.ticker).toUpperCase().replace(/[^A-Z0-9_]/g, "") : "";
   const tags = [tickerTag, "#12Invest"].filter(Boolean).join(" ");
-  const ref = CFG.moomooReferral && p.ticker && /IPO/i.test(String(p.category || "") + (p.tags || []).join(" ")) ? `\n📲 用 moomoo 申购（推荐链接）：${CFG.moomooReferral}` : "";
+  const ipo = (IPOS || []).find(i => i.ticker === p.ticker);
+  const today = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10);
+  const md = d => `${+d.slice(5, 7)}月${+d.slice(8, 10)}日`;
+  const isIpo = p.ticker && (ipo || /IPO/i.test(String(p.category || "") + (p.tags || []).join(" ")));
+  const prompt = !ipo || !ipo.close ? `📢 立即申购 ${p.ticker} IPO` : today > ipo.close ? "📢 下一只新股，用 moomoo 申购"
+    : `📢 立即申购 ${ipo.name} IPO（${md(ipo.close)}下午5点截止）`;
+  const ref = CFG.moomooReferral && isIpo ? `\n${prompt}：${CFG.moomooReferral}` : "";
   const link = `👉 阅读全文：${url(p.id)}${ref}`;
   let text = p.telegram ? String(p.telegram) : summary(p);
   const room = 1000 - [...link].length - [...tags].length - 4;

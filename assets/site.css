@@ -382,3 +382,6 @@ em.flat{color:var(--muted)}
 .mm-full{display:flex;justify-content:center;text-transform:none;font-family:var(--font-body);font-weight:700;font-size:14px}
 .s-mm .note{display:block;margin-top:10px;text-align:center}
 @media (max-width:560px){ .mmcta .btn,.gbtns{width:100%} .gbtns .btn{flex:1 1 0;justify-content:center} }
+.mm-open{list-style:none;margin:8px 0 14px;padding:0;display:grid;gap:6px}
+.mm-open li{display:flex;justify-content:space-between;gap:10px;font-size:14px}
+.mm-open small{color:var(--gold);font-weight:700}

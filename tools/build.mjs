@@ -197,12 +197,24 @@ const follow = () => SOCIAL.length ? `<aside class="follow" aria-label="关注 1
 /* ---------- moomoo referral CTA (shown on every IPO) ---------- */
 const REF = CFG.moomooReferral;
 const isListed = i => i && i.listing && i.listing <= TODAY;
+// Apply-for-IPO prompt, worded by stage: open → apply now (with deadline), upcoming → get ready, closed/listed → next IPO
+function ipoStage(i){
+  if (!i) return null;
+  if (i.close && TODAY > i.close) return "done";
+  if (i.open && TODAY < i.open) return "soon";
+  return "open";
+}
 function moomooCTA(i, mode = "box"){
   if (!REF || !i) return "";
-  const verb = isListed(i) ? "开户交易" : "开户申购";
-  if (mode === "btn") return `<a class="btn mm" href="${esc(REF)}" target="_blank" rel="sponsored noopener">moomoo ${verb}</a>`;
-  return `<aside class="mmcta" aria-label="moomoo 推荐链接"><div class="mm-t"><b>${isListed(i) ? `在 moomoo 交易 ${esc(i.name)}` : `用 moomoo 申购 ${esc(i.name)} IPO`}</b>
-  <span>一键申购新股，开户即可参与。推荐链接 · 合作推广，非投资建议。</span></div><a class="btn primary" href="${esc(REF)}" target="_blank" rel="sponsored noopener">moomoo ${verb} →</a></aside>`;
+  const st = ipoStage(i), a = `href="${esc(REF)}" target="_blank" rel="sponsored noopener"`;
+  const close = i.close ? `${day(i.close).md}下午5点截止` : "";
+  const btn = st === "open" ? "立即申购 IPO →" : st === "soon" ? "提前开户，准备申购 →" : "申购下一只新股 →";
+  if (mode === "btn") return `<a class="btn mm" ${a}>${st === "open" ? "立即申购" : st === "soon" ? "准备申购" : "申购新股"}</a>`;
+  const head = st === "open" ? `${esc(i.name)} 正在招股${close ? `，${close}` : ""}，立即申购！`
+    : st === "soon" ? `${esc(i.name)} 将于${day(i.open).md}开放申购，先开户做好准备`
+    : `错过了 ${esc(i.name)}？下一只新股别再错过`;
+  return `<aside class="mmcta" aria-label="申购 IPO"><div class="mm-t"><b>📢 ${head}</b>
+  <span>通过 moomoo 一键申购马股新股。推荐链接 · 合作推广，非投资建议，投资前请细阅招股书。</span></div><a class="btn primary" ${a}>${btn}</a></aside>`;
 }
 
 /* ---------- IPO results ---------- */
@@ -258,7 +270,10 @@ function sidebar(){
     <ol class="slist">${upIpos.map(i => { const nx = nextStep(i); return `<li class="sipo"><span><a href="${link(i)}">${esc(i.name)}</a><small>${esc(i.board)}${i.listing && nx && nx.d !== i.listing ? ` · ${day(i.listing).md}挂牌` : ""}</small></span><span class="snext">${badge(i)}${nx ? `<small data-next>${day(nx.d).md} ${nx.label}</small>` : ""}</span></li>`; }).join("")}</ol></section>` : ""}
   ${res.length ? `<section class="sbox"><div class="sh"><span>上市首日表现</span><a href="${REL("ipo/")}">更多 →</a></div>
     <ol class="slist">${res.map(i => { const pr = premium(i); return `<li><span><a href="${REL(`c/${slug(i.ticker)}/`)}">${esc(i.name)}</a><small>${esc(i.board)} · ${day(i.listing).md}</small></span>${pr ? `<em class="${pr.cls}">${pr.txt}</em>` : ""}</li>`; }).join("")}</ol></section>` : ""}
-  ${REF ? `<section class="sbox s-mm"><div class="sh"><span>申购新股</span></div><p class="mm-side">用 moomoo 一键申购马股 IPO。</p><a class="btn primary mm-full" href="${esc(REF)}" target="_blank" rel="sponsored noopener">moomoo 开户申购 →</a><small class="note">推荐链接 · 合作推广</small></section>` : ""}
+  ${REF ? (() => { const openNow = CAL.filter(i => ipoStage(i) === "open" && i.close).sort((x, y) => x.close.localeCompare(y.close));
+    return `<section class="sbox s-mm"><div class="sh"><span>📢 立即申购 IPO</span></div>
+    ${openNow.length ? `<ul class="mm-open">${openNow.map(i => `<li><b>${esc(i.name)}</b><small>${day(i.close).md} 截止</small></li>`).join("")}</ul>` : `<p class="mm-side">下一只新股开放申购时，第一时间用 moomoo 申购。</p>`}
+    <a class="btn primary mm-full" href="${esc(REF)}" target="_blank" rel="sponsored noopener">用 moomoo 立即申购 →</a><small class="note">推荐链接 · 合作推广</small></section>`; })() : ""}
   ${SOCIAL.length ? `<section class="sbox s-follow"><div class="sh"><span>关注 12Invest</span></div><div class="ssocial">${SOCIAL.map(([n, u]) => `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("")}</div></section>` : ""}
 </aside>`;
 }
