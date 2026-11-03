@@ -236,12 +236,15 @@ ${done.map(i => { const r = i.result, pr = premium(i); return `<tr><td><a href="
 
 /* ---------- sidebar (wide screens: beside the content; phones: below it) ---------- */
 function sidebar(){
-  const up = events.filter(e => e.d >= TODAY).slice(0, 8);
+  // one row per IPO that has not listed yet, ordered by its next key date
+  const nextStep = i => STEPS.filter(([k]) => i[k] && i[k] >= TODAY).map(([k, label]) => ({ d: i[k], label }))[0];
+  const upIpos = CAL.filter(i => !i.listing || i.listing >= TODAY).filter(nextStep)
+    .sort((a, b) => nextStep(a).d.localeCompare(nextStep(b).d)).slice(0, 6);
   const res = IPOS.filter(i => i.result && i.result.close != null).sort((a, b) => (b.listing || "").localeCompare(a.listing || "")).slice(0, 5);
   const link = i => REL(postFor(i) ? `p/${postFor(i).id}/` : `c/${slug(i.ticker)}/`);
   return `<aside class="side" aria-label="IPO 动态">
-  ${up.length ? `<section class="sbox s-events"><div class="sh"><span>IPO 日程</span><a href="${REL("ipo/")}">全部 →</a></div>
-    <ol class="slist" data-limit="5">${up.map(e => `<li data-d="${e.d}"><time datetime="${e.d}">${day(e.d).md}</time><span><a href="${link(e.i)}">${esc(e.i.name)}</a><small>${e.label}</small></span></li>`).join("")}</ol></section>` : ""}
+  ${upIpos.length ? `<section class="sbox s-events"><div class="sh"><span>IPO 日程</span><a href="${REL("ipo/")}">全部 →</a></div>
+    <ol class="slist">${upIpos.map(i => { const nx = nextStep(i); return `<li class="sipo"><span><a href="${link(i)}">${esc(i.name)}</a><small>${esc(i.board)}${i.listing && nx && nx.d !== i.listing ? ` · ${day(i.listing).md}挂牌` : ""}</small></span><span class="snext">${badge(i)}${nx ? `<small data-next>${day(nx.d).md} ${nx.label}</small>` : ""}</span></li>`; }).join("")}</ol></section>` : ""}
   ${res.length ? `<section class="sbox"><div class="sh"><span>上市首日表现</span><a href="${REL("ipo/")}">更多 →</a></div>
     <ol class="slist">${res.map(i => { const pr = premium(i); return `<li><span><a href="${REL(`c/${slug(i.ticker)}/`)}">${esc(i.name)}</a><small>${esc(i.board)} · ${day(i.listing).md}</small></span>${pr ? `<em class="${pr.cls}">${pr.txt}</em>` : ""}</li>`; }).join("")}</ol></section>` : ""}
   ${SOCIAL.length ? `<section class="sbox s-follow"><div class="sh"><span>关注 12Invest</span></div><div class="ssocial">${SOCIAL.map(([n, u]) => `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("")}</div></section>` : ""}

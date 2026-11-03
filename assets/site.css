@@ -363,3 +363,7 @@ em.flat{color:var(--muted)}
   .layout .upc{display:none}
   .main-col .article{margin:0;max-width:none}
 }
+.slist li.sipo{align-items:center}
+.snext{flex:0 0 auto!important;align-items:flex-end;gap:4px;text-align:right}
+.snext .badge{font-size:11px;padding:2px 7px}
+.snext small{color:var(--gold)!important;white-space:nowrap}
