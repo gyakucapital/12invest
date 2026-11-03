@@ -133,6 +133,25 @@ const CSP = [
 ].join("; ");
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Crect x='1' y='2' width='10' height='8' fill='%23F4C24F'/%3E%3Crect x='3' y='1' width='6' height='10' fill='%23F4C24F'/%3E%3Crect x='3' y='7' width='1' height='2' fill='%23081230'/%3E%3Crect x='5' y='5' width='1' height='4' fill='%23081230'/%3E%3Crect x='7' y='3' width='1' height='6' fill='%23081230'/%3E%3C/svg%3E";
 const LOGO = `<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="3" y="0" width="6" height="1" fill="#B8861A"/><rect x="1" y="1" width="2" height="1" fill="#B8861A"/><rect x="9" y="1" width="2" height="1" fill="#B8861A"/><rect x="0" y="3" width="1" height="6" fill="#B8861A"/><rect x="11" y="3" width="1" height="6" fill="#B8861A"/><rect x="1" y="2" width="10" height="8" fill="#F4C24F"/><rect x="3" y="1" width="6" height="10" fill="#F4C24F"/><rect x="1" y="10" width="2" height="1" fill="#B8861A"/><rect x="9" y="10" width="2" height="1" fill="#B8861A"/><rect x="3" y="11" width="6" height="1" fill="#B8861A"/><rect x="3" y="7" width="1" height="2" fill="#081230"/><rect x="5" y="5" width="1" height="4" fill="#081230"/><rect x="7" y="3" width="1" height="6" fill="#081230"/><rect x="2" y="3" width="1" height="1" fill="#FFE7A3"/></svg>`;
+// 8-bit candlestick strip for the header (decorative, not real prices): fixed pseudo-random walk, drawn twice for a seamless scroll
+const CANDLES = (() => {
+  // periodic walk (last close = first open) so the two copies join without a jump
+  let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+  const W = 240, H = 40, n = 24, closes = [];
+  for (let i = 0; i < n; i++) closes.push(Math.round(19 + 7 * Math.sin(2 * Math.PI * i / n) + 3 * Math.sin(4 * Math.PI * i / n + 1) + (rnd() - 0.5) * 11));
+  const out = [], line = [], y = v => H - 3 - v;
+  closes.forEach((c, i) => {
+    const o = closes[(i + n - 1) % n], up = c >= o, x = i * 10 + 3;
+    const hi = Math.max(o, c) + 1 + Math.round(rnd() * 3), lo = Math.max(1, Math.min(o, c) - 1 - Math.round(rnd() * 3));
+    out.push(`<rect x="${x + 2}" y="${y(hi)}" width="1" height="${hi - lo}" class="${up ? "cu" : "cd"}"/><rect x="${x}" y="${y(Math.max(o, c))}" width="5" height="${Math.max(2, Math.abs(c - o))}" class="${up ? "cu" : "cd"}"/>`);
+  });
+  // stepped 3-period moving average, also periodic
+  const ma = closes.map((_, i) => Math.round((closes[i] + closes[(i + n - 1) % n] + closes[(i + n - 2) % n]) / 3));
+  ma.forEach((v, i) => line.push(i ? `H${i * 10} V${y(v) - 3}` : `M0 ${y(v) - 3}`));
+  line.push(`H${W}`);
+  const svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" shape-rendering="crispEdges" aria-hidden="true">${out.join("")}<path d="${line.join(" ")}" class="ma" fill="none"/></svg>`;
+  return `<div class="mticker" aria-hidden="true"><div class="mt-vp"><div class="mt-track">${svg}${svg}</div></div><span class="mt-cur"></span></div>`;
+})();
 const DEFAULT_DESC = "12Invest：马股新股与上市公司解读，IPO 速读、估值与风险一次看懂。";
 
 function tape(){
@@ -180,6 +199,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <header class="mast">
   <div class="wrap">
     <a class="logo" href="${BASE}" aria-label="12Invest 首页">${LOGO}<span><span class="word">12<b>INVEST</b></span><small>马股 · IPO · 公司解读</small></span></a>
+    ${CANDLES}
     <nav aria-label="主导航"><a href="${BASE}"${nav === "home" ? ' aria-current="page"' : ""}>文章</a>${NEWS.length ? `<a href="${REL("news/")}"${nav === "news" ? ' aria-current="page"' : ""}>速报</a>` : ""}<a href="${REL("ipo/")}"${nav === "ipo" ? ' aria-current="page"' : ""}>IPO</a>${RESULTS.length ? `<a href="${REL("results/")}"${nav === "results" ? ' aria-current="page"' : ""}>业绩</a>` : ""}<a class="nsearch" href="${REL("search/")}" aria-label="搜索"${nav === "search" ? ' aria-current="page"' : ""}><svg viewBox="0 0 10 10" aria-hidden="true" shape-rendering="crispEdges"><path d="M2 1h4v1H2zM1 2h1v4H1zM6 2h1v4H6zM2 6h4v1H2zM6 7h1v1H6zM7 8h1v1H7zM8 9h1v1H8z" fill="currentColor"/></svg></a></nav>
   </div>
   <div class="tape"><div class="wrap">${tape()}</div></div>
