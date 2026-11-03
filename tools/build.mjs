@@ -308,7 +308,10 @@ function article(p){
     head: `\n<meta property="article:published_time" content="${esc(p.publishedAt)}">\n<script type="application/ld+json">${ld}</script>` });
 }
 function calendar(){
-  const ipos = CAL.slice().sort((a, b) => (a.listing || "9999").localeCompare(b.listing || "9999"));
+  // not yet listed first (soonest listing first), then recently listed (newest first)
+  const pending = CAL.filter(i => !i.listing || i.listing > TODAY).sort((a, b) => (a.listing || "9999").localeCompare(b.listing || "9999"));
+  const listed = CAL.filter(i => i.listing && i.listing <= TODAY).sort((a, b) => b.listing.localeCompare(a.listing));
+  const ipos = [...pending, ...listed];
   const body = `<div class="page-hd"><div class="cat">IPO CALENDAR</div><h1>IPO 日历</h1><p>12Invest 追踪中的马股新股。日期为马来西亚时间，以招股书为准；招股一般在截止日下午5点结束。</p></div>
 <div class="sec">关键日期</div>
 <ol class="events">${events.map(evLi).join("")}</ol>

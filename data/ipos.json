@@ -3,6 +3,106 @@
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
+   "ticker": "GBBOND",
+   "name": "GB Bond",
+   "company": "GB Bond Holdings Berhad",
+   "board": "ACE Market",
+   "price": "RM0.25",
+   "listing": "2026-10-01",
+   "sources": [
+    "https://www.bernamabiz.com/news.php?id=2610439"
+   ],
+   "result": {
+    "oversub": 8.22,
+    "open": 0.255,
+    "sources": [
+     "https://www.bernamabiz.com/news.php?id=2610439",
+     "https://www.businesstoday.com.my/2026/10/01/gb-bond-gains-2-on-ace-market-debut/"
+    ]
+   },
+   "checked": "2026-11-03"
+  },
+  {
+   "ticker": "ECOSYS",
+   "name": "EcoSys",
+   "company": "EcoSys (Malaysia) Berhad",
+   "board": "ACE Market",
+   "price": "RM0.27",
+   "listing": "2026-10-14",
+   "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/09/24/ecosys-to-raise-rm3934mil-via-ace-market-ipo"
+   ],
+   "result": {
+    "oversub": 206.7,
+    "open": 0.7,
+    "close": 0.8,
+    "sources": [
+     "https://www.thestar.com.my/business/business-news/2026/10/01/ecosys-malaysia-ipo-public-portion-oversubscribed-2067-times",
+     "https://www.thestar.com.my/business/business-news/2026/10/15/ecosys-makes-strong-debut-on-ace-market"
+    ]
+   },
+   "checked": "2026-11-03"
+  },
+  {
+   "ticker": "EGH",
+   "name": "EGH International",
+   "company": "EGH International Berhad",
+   "board": "ACE Market",
+   "price": "RM0.16",
+   "listing": "2026-10-16",
+   "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/09/25/egh-international-launches-ipo-prospectus-ahead-of-ace-market-listing"
+   ],
+   "result": {
+    "oversub": 2.63,
+    "sources": [
+     "https://www.thestar.com.my/business/business-news/2026/10/07/egh-international-ipo-oversubscribed-263-times",
+     "https://www.thestar.com.my/business/business-news/2026/10/16/egh-international-makes-subdued-ace-market-debut"
+    ]
+   },
+   "checked": "2026-11-03"
+  },
+  {
+   "ticker": "NWEBHD",
+   "name": "NWE Resources",
+   "company": "NWE Resources Group Berhad",
+   "board": "ACE Market",
+   "price": "RM0.20",
+   "listing": "2026-10-21",
+   "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/09/29/nwe-resources-to-raise-rm286mil-from-ace-market-ipo"
+   ],
+   "result": {
+    "oversub": 2.82,
+    "open": 0.225,
+    "sources": [
+     "https://www.thestar.com.my/business/business-news/2026/10/14/nwes-ipo-public-portion-oversubscribed-by-282-times",
+     "https://www.thestar.com.my/business/business-news/2026/10/21/nwe-resources-shares-rise-125-on-trading-debut"
+    ]
+   },
+   "checked": "2026-11-03"
+  },
+  {
+   "ticker": "REDPLANET",
+   "name": "RedPlanet",
+   "company": "RedPlanet Berhad",
+   "board": "ACE Market",
+   "price": "RM0.19",
+   "listing": "2026-10-22",
+   "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/10/22/redplanet-extends-gains-to-526-on-ace-market-debut"
+   ],
+   "result": {
+    "open": 0.27,
+    "close": 0.26,
+    "sources": [
+     "https://www.thestar.com.my/business/business-news/2026/10/22/redplanet-extends-gains-to-526-on-ace-market-debut",
+     "https://www.businesstoday.com.my/2026/10/22/ipo-debut-redplanet-closes-ace-market-debut-36-84-higher-at-26-sen/"
+    ]
+   },
+   "checked": "2026-11-03"
+  },
+  {
    "ticker": "KEB",
    "name": "KEB",
    "company": "KEB Berhad",
