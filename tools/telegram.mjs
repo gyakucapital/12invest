@@ -30,17 +30,17 @@ const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const url = id => CFG.origin + CFG.base + `p/${id}/`;
 
-// Telegram photo captions are limited to 1024 characters (after entity parsing)
+// Telegram post = caption + article URL + ticker hashtag.
+// The caption comes from the post's "telegram" field (written when the article is approved);
+// if missing, it falls back to the headline and summary. Photo captions are limited to 1024 characters.
 function caption(p){
-  const g = p.glance || {};
-  const stats = (g.stats || []).slice(0, 4).map(s => `${s.k}：${s.v}`).join("｜");
-  const tags = (p.tags || []).slice(0, 6).map(t => "#" + String(t).replace(/\s+/g, "")).join(" ");
-  const head = `<b>${esc(p.title)}</b>`;
-  const tail = [stats && esc(stats), g.timeline && "🗓 " + esc(g.timeline), `👉 阅读全文：${url(p.id)}`, tags && esc(tags)].filter(Boolean).join("\n\n");
-  let body = esc(p.excerpt || "");
-  const plainLen = s => s.replace(/<[^>]+>/g, "").replace(/&lt;|&gt;|&amp;/g, "x").length;
-  while (plainLen(`${head}\n\n${body}\n\n${tail}`) > 1000 && body.length > 20) body = body.slice(0, -10).replace(/[^\s，。]*$/, "") + "…";
-  return `${head}\n\n${body}\n\n${tail}`;
+  const tickerTag = p.ticker ? "#" + String(p.ticker).toUpperCase().replace(/[^A-Z0-9_]/g, "") : "";
+  const tags = [tickerTag, "#12Invest"].filter(Boolean).join(" ");
+  const link = `👉 阅读全文：${url(p.id)}`;
+  let text = p.telegram ? String(p.telegram) : `${p.title}\n\n${p.excerpt || ""}`;
+  const room = 1000 - link.length - tags.length - 4;
+  if ([...text].length > room) text = [...text].slice(0, room - 1).join("").replace(/[^\s，。！？]*$/, "") + "…";
+  return `${esc(text)}\n\n${link}\n\n${esc(tags)}`;
 }
 async function live(u){ // wait until GitHub Pages serves the new page (up to ~8 min)
   for (let i = 0; i < 48; i++){ try { const r = await fetch(u, { method: "HEAD" }); if (r.ok) return true; } catch {} await sleep(10000); }
