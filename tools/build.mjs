@@ -6,7 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
-import { PUB, UPDATED, LEGAL } from "./legal.mjs";
+import { PUB, UPDATED, LEGAL, ZH, PUB_ZH, UPDATED_ZH } from "./legal.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CFG = JSON.parse(fs.readFileSync(path.join(ROOT, "tools/site.config.json"), "utf8"));
@@ -137,7 +137,7 @@ function tape(){
     : posts.slice(0, 6).map(p => `<span><i>&gt;</i>${esc(p.category)} · ${esc(short(p.title).slice(0, 26))}</span>`);
   return items.join("") || `<span><i>&gt;</i>马股新股与上市公司解读</span>`;
 }
-function page({ path: rel, title, desc = DEFAULT_DESC, nav = "", body, og = {}, head = "", noindex = false }){
+function page({ path: rel, title, desc = DEFAULT_DESC, nav = "", body, og = {}, head = "", noindex = false, side = false }){
   const url = ABS(rel);
   const ogImg = og.image ? `
 <meta property="og:image" content="${esc(ABS(og.image))}">
@@ -177,7 +177,10 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
   <div class="tape"><div class="wrap">${tape()}</div></div>
 </header>
 <main class="wrap" id="main">
+${side ? `<div class="layout"><div class="main-col">
 ${body}
+</div>
+${sidebar()}</div>` : body}
 </main>
 <footer><div class="wrap"><span class="brand">12INVEST</span><span>本站内容仅供参考及教育用途，并不构成任何买卖建议。投资涉及风险，请自行判断。</span>
 ${SOCIAL.length ? `<nav class="fsocial" aria-label="关注 12Invest"><span>关注 12Invest：</span>${SOCIAL.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("")}</nav>` : ""}
@@ -231,6 +234,20 @@ ${done.map(i => { const r = i.result, pr = premium(i); return `<tr><td><a href="
 </tbody></table></div>`;
 }
 
+/* ---------- sidebar (wide screens: beside the content; phones: below it) ---------- */
+function sidebar(){
+  const up = events.filter(e => e.d >= TODAY).slice(0, 8);
+  const res = IPOS.filter(i => i.result && i.result.close != null).sort((a, b) => (b.listing || "").localeCompare(a.listing || "")).slice(0, 5);
+  const link = i => REL(postFor(i) ? `p/${postFor(i).id}/` : `c/${slug(i.ticker)}/`);
+  return `<aside class="side" aria-label="IPO 动态">
+  ${up.length ? `<section class="sbox s-events"><div class="sh"><span>IPO 日程</span><a href="${REL("ipo/")}">全部 →</a></div>
+    <ol class="slist" data-limit="5">${up.map(e => `<li data-d="${e.d}"><time datetime="${e.d}">${day(e.d).md}</time><span><a href="${link(e.i)}">${esc(e.i.name)}</a><small>${e.label}</small></span></li>`).join("")}</ol></section>` : ""}
+  ${res.length ? `<section class="sbox"><div class="sh"><span>上市首日表现</span><a href="${REL("ipo/")}">更多 →</a></div>
+    <ol class="slist">${res.map(i => { const pr = premium(i); return `<li><span><a href="${REL(`c/${slug(i.ticker)}/`)}">${esc(i.name)}</a><small>${esc(i.board)} · ${day(i.listing).md}</small></span>${pr ? `<em class="${pr.cls}">${pr.txt}</em>` : ""}</li>`; }).join("")}</ol></section>` : ""}
+  ${SOCIAL.length ? `<section class="sbox s-follow"><div class="sh"><span>关注 12Invest</span></div><div class="ssocial">${SOCIAL.map(([n, u]) => `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("")}</div></section>` : ""}
+</aside>`;
+}
+
 /* ---------- views ---------- */
 const cover = (p, eager) => { const src = safeImg(p.cover); return src ? img(src, "", eager) : `<div class="noimg">${esc(p.category || "12INVEST")}</div>`; };
 function glance(p, i){
@@ -260,7 +277,7 @@ function home(){
 <div class="glances">${posts.map((p, i) => glance(p, i)).join("\n")}</div>
 <div class="empty px" id="nores" hidden><h3>没有符合的文章</h3>换个关键词或分类试试。</div>
 ${follow()}`;
-  return page({ path: "", title: "12Invest · 马股新股与上市公司解读", nav: "home", body,
+  return page({ path: "", title: "12Invest · 马股新股与上市公司解读", nav: "home", body, side: true,
     og: { image: posts[0] && ogImage(posts[0]).src, w: posts[0] && ogImage(posts[0]).w, h: posts[0] && ogImage(posts[0]).h } });
 }
 function ogImage(p){
@@ -317,7 +334,7 @@ function article(p){
   <textarea class="copysrc" id="copysrc" hidden readonly aria-label="全文纯文字">${esc(txt)}</textarea>
   ${others.length ? `<section class="more"><div class="sec">更多文章</div><div class="list">${others.map(x => `<a class="item" href="${REL(`p/${x.id}/`)}"><div class="cover">${cover(x)}</div><div class="minw0"><div class="cat">【${esc(x.category)}】</div><h3>${esc(x.title)}</h3><div class="meta"><span>${fmtPub(x.publishedAt)}</span></div></div></a>`).join("")}</div></section>` : ""}
 </article>`;
-  return page({ path: `p/${p.id}/`, title: `${short(p.title)} · 12Invest`, desc: p.excerpt, body,
+  return page({ path: `p/${p.id}/`, title: `${short(p.title)} · 12Invest`, desc: p.excerpt, body, side: true,
     og: { type: "article", title: p.title, image: o.src, w: o.w, h: o.h },
     head: `\n<meta property="article:published_time" content="${esc(p.publishedAt)}">\n<script type="application/ld+json">${ld}</script>` });
 }
@@ -345,29 +362,35 @@ ${i ? `<div class="sec">IPO</div><div class="ipos one">${ipoCard(i, { noLink: tr
 <div class="sec">12Invest 解读 · ${arts.length} 篇</div>
 ${arts.length ? `<div class="glances">${arts.map((p, k) => glance(p, k)).join("\n")}</div>` : `<div class="empty px">暂时还没有这家公司的解读。</div>`}
 ${follow()}`;
-  return page({ path: `c/${slug(t)}/`, title: `${name}（${t}）· 12Invest`, desc: `${name}${i && i.company ? `（${i.company}）` : ""}的 IPO 日程与 12Invest 解读。`, body, noindex: !arts.length });
+  return page({ path: `c/${slug(t)}/`, title: `${name}（${t}）· 12Invest`, desc: `${name}${i && i.company ? `（${i.company}）` : ""}的 IPO 日程与 12Invest 解读。`, body, noindex: !arts.length, side: true });
 }
 function legal(key){
+  // English + Chinese on every legal page. The privacy notice also keeps Bahasa Malaysia: PDPA s.7(3) requires
+  // the notice in both the national language and English.
   const doc = LEGAL[key];
-  const sec = (L, d) => `<section class="lang-${L}" id="${L}" lang="${L === "bm" ? "ms" : "en"}">
-    <div class="langs" role="group" aria-label="Language / Bahasa"><a class="chip" href="#en" lang="en">English</a><a class="chip" href="#bm" lang="ms">Bahasa Malaysia</a></div>
+  const langs = [["en", "English", "en", doc.en, PUB.en, UPDATED.en, "Contact us", "Email"],
+    ["zh", "中文", "zh-CN", ZH[key], PUB_ZH, UPDATED_ZH, "联络我们", "电邮"],
+    ...(key === "privacy" ? [["bm", "Bahasa Malaysia", "ms", doc.bm, PUB.bm, UPDATED.bm, "Hubungi kami", "E-mel"]] : [])];
+  const tabs = `<div class="langs" role="group" aria-label="Language / 语言">${langs.map(([id, label, hl]) => `<a class="chip" href="#${id}" lang="${hl}">${label}</a>`).join("")}</div>`;
+  const others = L => Object.keys(LEGAL).filter(k => k !== key).map(k => `<a class="btn" href="${REL(k + "/")}">${esc(L === "zh" ? ZH[k].title : L === "bm" ? LEGAL[k].bm.title : LEGAL[k].en.title)}</a>`).join("");
+  const sec = ([id, , hl, d, pub, upd, contact, mail]) => `<section class="lang-${id}" id="${id}" lang="${hl}">
+    ${tabs}
     <h1>${esc(d.title)}</h1>
-    <div class="meta"><span>${esc(d.sub)}</span><span>${esc(UPDATED[L])}</span></div>
+    <div class="meta"><span>${esc(d.sub)}</span><span>${esc(upd)}</span></div>
     <div class="body">
       ${d.s.map(([h, p], i) => `<h2>${i + 1}. ${esc(h)}</h2><p>${esc(p)}</p>`).join("\n      ")}
-      <h2>${L === "bm" ? "Hubungi kami" : "Contact us"}</h2>
-      <p>${esc(PUB[L])}</p>
-      <div class="callout"><p>${L === "bm" ? "E-mel" : "Email"}: <strong class="sel">${esc(CFG.contact)}</strong></p></div>
+      <h2>${contact}</h2>
+      <p>${esc(pub)}</p>
+      <div class="callout"><p>${mail}: <strong class="sel">${esc(CFG.contact)}</strong></p></div>
     </div>
-    <div class="tools">${Object.keys(LEGAL).filter(k => k !== key).map(k => `<a class="btn" href="${REL(k + "/")}">${esc(LEGAL[k].zh)} · ${esc(LEGAL[k][L].title)}</a>`).join("")}</div>
+    <div class="tools">${others(id)}</div>
   </section>`;
   const body = `<article class="article legal">
   <a class="back" href="${BASE}">← 返回首页</a>
   <div class="cat">${esc(doc.zh)}</div>
-  ${sec("en", doc.en)}
-  ${sec("bm", doc.bm)}
+  ${langs.map(sec).join("\n  ")}
 </article>`;
-  return page({ path: key + "/", title: `${doc.en.title} · ${doc.bm.title} · 12Invest`, desc: `${doc.en.title} / ${doc.bm.title} — 12Invest (Gyaku Capital Sdn. Bhd.)`, body });
+  return page({ path: key + "/", title: `${doc.en.title} · ${ZH[key].title} · 12Invest`, desc: `${doc.en.title} / ${ZH[key].title} — 12Invest (Gyaku Capital Sdn. Bhd.)`, body });
 }
 function redirect(to){
   const u = ABS(to);

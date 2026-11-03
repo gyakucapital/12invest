@@ -21,7 +21,7 @@ export const LEGAL = {
       ["Is providing data compulsory?", "No. If you choose not to give us personal data when contacting us, we may be unable to respond to your enquiry."],
       ["Children", "The Website is not directed at persons under 18, and we do not knowingly collect their personal data."],
       ["Changes", "We may update this notice from time to time. The date of the latest update is shown at the top."],
-      ["Language", "This notice is available in English and Bahasa Malaysia. If there is any inconsistency between the two, the English version prevails."]
+      ["Language", "This notice is available in English, Chinese and Bahasa Malaysia. If there is any inconsistency between the versions, the English version prevails."]
     ]},
     bm: { title: "Notis Perlindungan Data Peribadi", sub: "Akta Perlindungan Data Peribadi 2010", s: [
       ["Siapa kami", "Laman web 12Invest (\"Laman Web\") dikendalikan oleh Gyaku Capital Sdn. Bhd., iaitu pengawal data bagi maksud Akta Perlindungan Data Peribadi 2010 (\"APDP\") sebagaimana dipinda oleh Akta Perlindungan Data Peribadi (Pindaan) 2024."],
@@ -37,7 +37,7 @@ export const LEGAL = {
       ["Adakah pemberian data wajib?", "Tidak. Jika anda memilih untuk tidak memberikan data peribadi semasa menghubungi kami, kami mungkin tidak dapat menjawab pertanyaan anda."],
       ["Kanak-kanak", "Laman Web ini tidak ditujukan kepada individu di bawah umur 18 tahun, dan kami tidak mengumpul data peribadi mereka dengan sengaja."],
       ["Perubahan", "Kami boleh mengemas kini notis ini dari semasa ke semasa. Tarikh kemas kini terkini dinyatakan di bahagian atas."],
-      ["Bahasa", "Notis ini disediakan dalam bahasa Inggeris dan Bahasa Malaysia. Sekiranya terdapat sebarang percanggahan antara kedua-duanya, versi bahasa Inggeris akan diguna pakai."]
+      ["Bahasa", "Notis ini disediakan dalam bahasa Inggeris, bahasa Cina dan Bahasa Malaysia. Sekiranya terdapat sebarang percanggahan antara versi-versi tersebut, versi bahasa Inggeris akan diguna pakai."]
     ]}
   },
   disclaimer: {
@@ -78,4 +78,42 @@ export const LEGAL = {
       ["Perubahan", "Kami boleh mengemas kini terma ini dari semasa ke semasa. Tarikh kemas kini terkini dinyatakan di bahagian atas."]
     ]}
   }
+};
+
+// Chinese (Simplified) versions. English prevails if versions differ.
+export const PUB_ZH = "12Invest 由 Gyaku Capital Sdn. Bhd.（公司注册号：201901044631 (1353961-A)）运营，地址：9-1 Jalan Prima 9, Pusat Niaga Metro Prima, Kepong, 52100 Kuala Lumpur, Malaysia。";
+export const UPDATED_ZH = "最后更新：2026年11月3日";
+export const ZH = {
+  privacy: { title: "隐私政策", sub: "2010年个人资料保护法令（PDPA）", s: [
+    ["我们是谁", "12Invest（“本网站”）由 Gyaku Capital Sdn. Bhd. 运营。根据经《2024年个人资料保护（修订）法令》修订的《2010年个人资料保护法令》（“PDPA”），本公司为资料使用者（资料控制者）。"],
+    ["我们处理的个人资料", "您无需注册或提供任何个人资料即可阅读本网站。我们不使用 Cookie、分析工具、广告追踪或任何第三方脚本，本网站也没有注册或联络表格。我们的托管服务商 GitHub Pages（GitHub, Inc.）会自动处理技术资料，例如您的 IP 地址、浏览器类型及访问时间，以安全地提供本网站。如果您通过电邮或我们的社交媒体渠道联络我们，我们会处理您提供的资料，例如姓名、联络方式及讯息内容。"],
+    ["使用目的", "我们处理个人资料，以回复您的询问与反馈；运营、保护及改进本网站；以及履行我们的法律与监管义务。"],
+    ["资料来源", "直接来自您本人，以及您访问本网站时浏览器所产生的技术资料。"],
+    ["资料披露", "我们不会出售或出租个人资料。我们只会向协助我们运营本网站或电邮的服务供应商（例如托管服务商）、我们的专业顾问，以及在法律要求下向政府或监管机构披露。"],
+    ["跨境转移", "我们的托管及电邮服务商可能将资料储存在马来西亚境外的服务器，包括美国。我们只在 PDPA 允许的情况下进行此类转移，例如接收国拥有与 PDPA 大致相似的法律，或已具备足够的保护措施。"],
+    ["保存期限", "我们只在上述目的所需或法律规定的期间内保存个人资料，之后会安全删除。"],
+    ["资料安全", "本网站只通过加密的 HTTPS 提供，采用严格的内容安全策略，不运行任何第三方代码，其系统访问权限亦受到限制。"],
+    ["您的权利", "在 PDPA 规定下，您可要求查阅及更正您的个人资料、撤回同意、限制资料处理、要求我们停止可能造成损害或困扰的处理，以及要求我们将您的资料传送给另一资料控制者（资料可携权）。请将您的要求发送至下方联络方式，我们将依照 PDPA 规定在21天内回复。"],
+    ["资料外泄", "如发生个人资料外泄事件，我们将依法通知个人资料保护专员，并在外泄可能造成重大损害时通知受影响人士。"],
+    ["是否必须提供资料？", "不是。如您选择在联络我们时不提供个人资料，我们可能无法回复您的询问。"],
+    ["未成年人", "本网站并非针对18岁以下人士，我们不会在知情的情况下收集他们的个人资料。"],
+    ["政策变更", "我们可能不时更新本政策，最新更新日期列于页首。"],
+    ["语言", "本政策提供英文、中文及马来文版本。如各版本之间有任何不一致，以英文版本为准。"]
+  ]},
+  disclaimer: { title: "免责声明", sub: "依赖任何内容前请先阅读", s: [
+    ["并非投资建议", "12Invest 上的所有内容，包括文章、图表及摘要，仅供一般参考及教育用途，并未考虑您的投资目标、财务状况或需要，亦不构成投资建议、推荐，或买卖任何证券的要约或邀请。12Invest 及 Gyaku Capital Sdn. Bhd. 均未持有资本市场服务执照（CMSL），亦未获马来西亚证券委员会发出提供投资建议的执照。"],
+    ["请自行研究", "在作出任何投资决定前，请完整阅读相关招股书、公告及其他正式文件，并考虑向持牌顾问寻求意见。投资涉及风险，包括本金亏损。过往表现（包括新股上市首日表现）并不代表未来回报。"],
+    ["资料准确性", "资料取自招股书、公司简报、马来西亚交易所公告及相信可靠的公开报告，并以发布日期为准。我们不保证资料完整、准确或最新，亦无义务更新。"],
+    ["第三方观点", "文中引用研究机构或其他第三方的目标价、合理价或预测，均为其观点，并非我们的观点。"],
+    ["独立内容与推广", "文章为我们对公开资料（例如招股书及公司公告）的自行研究。部分文章含有合作伙伴（例如券商平台）的推广内容，此类内容会在文中标明。"],
+    ["责任限制", "在法律允许的最大范围内，12Invest 及 Gyaku Capital Sdn. Bhd. 对因依赖本网站内容而产生的任何损失概不负责。"]
+  ]},
+  terms: { title: "使用条款", sub: "使用本网站的规则", s: [
+    ["接受条款", "使用本网站即表示您同意本使用条款、我们的免责声明及隐私政策。"],
+    ["知识产权", "除另有说明外，本网站内容的版权属 Gyaku Capital Sdn. Bhd. 所有。取自招股书或公司简报的公司标志、照片及图表属其各自拥有者所有，并已注明出处。您可分享链接及简短引用，但须注明出自 12Invest。未经我们书面许可，不得转载全文或作商业用途。"],
+    ["使用规范", "请勿试图干扰本网站、破坏其安全，或大规模抓取网站内容。"],
+    ["外部链接", "我们对所链接的第三方网站内容概不负责。"],
+    ["适用法律", "本条款受马来西亚法律管辖，任何争议均受马来西亚法院管辖。"],
+    ["条款变更", "我们可能不时更新本条款，最新更新日期列于页首。"]
+  ]}
 };
