@@ -67,7 +67,7 @@ const img = (rel, alt, eager = false) => {
 function write(rel, html){ const f = path.join(ROOT, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html); }
 
 /* ---------- article body markup ---------- */
-function render(body){
+function render(body, hooks = {}){
   const lines = String(body || "").replace(/\r/g, "").split("\n");
   const out = []; let para = [], ol = [], call = [];
   const flush = () => {
@@ -80,6 +80,7 @@ function render(body){
     if (!l){ flush(); continue; }
     if ((m = l.match(/^!\[(.*?)\]\((img\/[A-Za-z0-9._-]+)\)$/))){ flush(); if (safeImg(m[2])) out.push(`<figure>${img(m[2], m[1] || "图表")}${m[1] ? `<figcaption>${esc(m[1])}</figcaption>` : ""}</figure>`); continue; }
     if (l === "---"){ flush(); out.push("<hr>"); continue; }
+    if ((m = l.match(/^\{\{(\w+)\}\}$/))){ flush(); if (hooks[m[1]]) out.push(hooks[m[1]]()); continue; }
     if ((m = l.match(/^##\s+(.*)/))){ flush(); out.push("<h2>" + inline(m[1]) + "</h2>"); continue; }
     if ((m = l.match(/^>\s?(.*)/))){ if (para.length || ol.length){ const c = call; call = []; flush(); call = c; } call.push(m[1]); continue; }
     if ((m = l.match(/^\d+[.、]\s*(.*)/))){ if (para.length || call.length){ const o = ol; ol = []; flush(); ol = o; } ol.push(m[1]); continue; }
@@ -95,6 +96,7 @@ function plain(p){
     const t = l.trim();
     if (/^!\[.*\]\(img\//.test(t)) return null;
     if (t === "---") return "";
+    if (/^\{\{\w+\}\}$/.test(t)) return null;
     return t.replace(/^##\s+/, "").replace(/^>\s?/, "").replace(/\*\*/g, "");
   }).filter(x => x !== null).join("\n").replace(/\n{3,}/g, "\n\n");
   return [p.title, facts, body.trim(), "免责声明：" + DISC, (p.tags || []).map(t => "#" + t).join(" ")].filter(Boolean).join("\n\n");
@@ -278,13 +280,13 @@ function shareHTML(p){
 </div>`;
 }
 /* 8-bit financial chart (made by tools/charts.mjs) + the numbers behind it */
-function financialsHTML(p){
+function financialsHTML(p, inline = false){
   const f = p.financials; if (!f) return "";
   const chart = `img/${p.id}-fin.png`, has = fs.existsSync(path.join(ROOT, chart));
   const rows = [[f.revenueLabel || "营业额", f.revenue, v => v.toFixed(2)], [f.profitLabel || "税后盈利", f.profit, v => v.toFixed(2)],
     ...(f.margin ? [[f.marginLabel || "利润率", f.margin, v => v.toFixed(2) + "%"]] : [])];
-  return `<section class="fin"><div class="sec">财务速览</div>
-  ${has ? `<figure class="finchart">${img(chart, f.title || "财务表现")}<figcaption>资料来源：${esc(f.source || "公司招股书")}</figcaption></figure>` : ""}
+  return `<section class="fin${inline ? " inline" : ""}">${inline ? "" : `<div class="sec">财务速览</div>`}
+  ${has ? `<figure class="finchart">${img(chart, `${f.title || "财务表现"}（资料来源：${f.source || "公司招股书"}）`)}</figure>` : ""}
   <details class="findata"><summary>查看数据（${esc(f.unit || "RM m")}）</summary><div class="tbl"><table class="score"><thead><tr><th></th>${f.periods.map(x => `<th>${esc(x)}</th>`).join("")}</tr></thead>
   <tbody>${rows.map(([k, vals, fm]) => `<tr><td>${esc(k)}</td>${vals.map(v => `<td>${fm(num(v))}</td>`).join("")}</tr>`).join("")}</tbody></table></div></details></section>`;
 }
@@ -305,8 +307,8 @@ function article(p){
   <h1>${esc(p.title)}</h1>
   <div class="meta"><span>${fmtPub(p.publishedAt)}</span><span>12Invest</span>${p.ipo ? badge(p.ipo) : ""}${p.ticker ? `<a class="tick" href="${REL(`c/${slug(p.ticker)}/`)}">${esc(p.ticker)} 公司页 →</a>` : ""}</div>
   ${facts.length ? `<dl class="facts"><div class="hd">关键资料<span>KEY FACTS</span></div>${facts.map(f => `<div class="fact"><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join("")}</dl>` : ""}
-  ${financialsHTML(p)}
-  <div class="body">${render(p.body)}</div>
+  ${/\{\{financials\}\}/.test(p.body || "") ? "" : financialsHTML(p)}
+  <div class="body">${render(p.body, { financials: () => financialsHTML(p, true) })}</div>
   <p class="disc"><strong>免责声明：</strong>${DISC}</p>
   ${(p.tags || []).length ? `<div class="tags">${p.tags.map(t => `<span>#${esc(t)}</span>`).join("")}</div>` : ""}
   ${shareHTML(p)}

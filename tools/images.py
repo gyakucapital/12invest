@@ -6,8 +6,8 @@ from PIL import Image
 
 MAX_W = 1400
 for src in sorted(pathlib.Path("img").glob("*")):
-    if src.suffix.lower() not in (".jpg", ".jpeg", ".png"):
-        continue
+    if src.suffix.lower() not in (".jpg", ".jpeg", ".png") or src.stem.endswith("-fin"):
+        continue  # 8-bit charts stay PNG: already small, and lossy WebP would blur the pixel edges
     out = src.with_suffix(".webp")
     if out.exists() and out.stat().st_mtime >= src.stat().st_mtime:
         continue

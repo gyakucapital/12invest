@@ -326,3 +326,7 @@ em.flat{color:var(--muted)}
 .finchart img{width:100%;height:auto;display:block;box-shadow:0 -4px 0 0 var(--line-hi),0 4px 0 0 var(--line-hi),-4px 0 0 0 var(--line-hi),4px 0 0 0 var(--line-hi)}
 .finchart figcaption{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
 .findata summary{cursor:pointer;font-size:13px;color:var(--gold);font-weight:700;margin-bottom:10px}
+/* images keep their own proportions (width/height attributes only reserve space) */
+.body figure img,.finchart img{height:auto}
+.fin.inline{margin:1.6em 0}
+.body .fin .score td,.body .fin .score th{font-size:13px}
