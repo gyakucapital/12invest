@@ -2,6 +2,8 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-BCUDvqBkqhIQbpFMNsiZj4TDgd1vSgpl0JRflv58UoA='; style-src 'sha256-BBBIvtVD/+MJnOh+9+KoHgfzsYHQduMlONgXDgEdGbk='; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="12Invest：马股新股与上市公司解读，IPO 速读、估值与风险一次看懂。">
 <meta property="og:title" content="12Invest">
@@ -9,9 +11,9 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Crect x='1' y='2' width='10' height='8' fill='%23F4C24F'/%3E%3Crect x='3' y='1' width='6' height='10' fill='%23F4C24F'/%3E%3Crect x='3' y='7' width='1' height='2' fill='%23081230'/%3E%3Crect x='5' y='5' width='1' height='4' fill='%23081230'/%3E%3Crect x='7' y='3' width='1' height='6' fill='%23081230'/%3E%3C/svg%3E">
 <title>12Invest</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
 <style>
+@font-face{font-family:"Silkscreen";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/silkscreen-400.woff2) format("woff2")}
+@font-face{font-family:"Silkscreen";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/silkscreen-700.woff2) format("woff2")}
 /* Layout: an 8-bit market terminal — pixel-notched panels on a navy grid, gold as the single accent, CJK body kept smooth for reading */
 :root{
   --bg:#081230; --bg2:#0C1A42; --surface:#11235A; --surface2:#172D6E; --line:#2B4590; --line-hi:#3F5DB3;
@@ -88,6 +90,7 @@ main{padding-block:32px 72px}
 .lead h2{font-weight:900;font-size:clamp(23px,3.2vw,32px);line-height:1.35;margin:12px 0 12px;text-wrap:balance}
 .lead p{color:var(--muted);margin:0 0 16px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .meta{font-family:var(--font-pixel);font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;letter-spacing:.03em}
+.minw0{min-width:0}
 .list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}
 .item{display:grid;grid-template-columns:116px minmax(0,1fr);gap:18px;padding-block:20px;text-decoration:none;
   border-bottom:var(--px) dotted var(--line)}
@@ -272,7 +275,7 @@ function viewHome(){
       <div><div class="cat">【${esc(lead.category)}】</div><h2>${esc(lead.title)}</h2><p>${esc(lead.excerpt)}</p>
       <div class="meta"><span>${fmtDate(lead.publishedAt)}</span><span>${esc((lead.tags||[]).slice(0,3).map(t=>"#"+t).join(" "))}</span></div></div></a>`;
     html += (rest.length ? `<div class="sec">最新文章</div>` : "") + `<div class="list">${rest.map(p => `<a class="item" href="#p-${esc(p.id)}"><div class="cover">${coverHTML(p)}</div>
-      <div style="min-width:0"><div class="cat">【${esc(p.category)}】</div><h3>${esc(p.title)}</h3><div class="meta"><span>${fmtDate(p.publishedAt)}</span></div></div></a>`).join("")}</div>`;
+      <div class="minw0"><div class="cat">【${esc(p.category)}】</div><h3>${esc(p.title)}</h3><div class="meta"><span>${fmtDate(p.publishedAt)}</span></div></div></a>`).join("")}</div>`;
   }
   app.innerHTML = html;
   app.querySelectorAll("[data-cat]").forEach(b => b.onclick = () => { S.cat = b.dataset.cat; viewHome(); });
