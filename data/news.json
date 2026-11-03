@@ -99,7 +99,53 @@
       "url": "https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group"
      }
     }
-   ]
+   ],
+   "en": {
+    "title": "KLCI edges up 0.14% on banks; IOI's REIT priced at 96 sen, lists on Main Market on 25 Nov",
+    "note": "Gains in banking stocks lifted the index: Maybank, CIMB and Public Bank rose, while RHB Bank and AMMB each added 21 sen; Tenaga and IHH weighed on the benchmark. Decliners outnumbered gainers, a sign of cautious sentiment.",
+    "items": [
+     {
+      "tagEn": "IPO",
+      "title": "IOIPG Malaysia REIT priced at RM0.96 a unit, raising about RM2.1 billion",
+      "text": "IOI Properties' IOIPG Malaysia REIT is offering up to 2.2 billion units at RM0.96 each to raise about RM2.1 billion, with a Main Market listing expected on 25 November. The retail portion totals about 716 million units, including 110 million units for the Malaysian public. It is Malaysia's largest REIT listing in at least 13 years."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "Advance Technologies Asia signs underwriting deal ahead of ACE listing",
+      "text": "M&E engineering solutions provider Advance Technologies Asia (ATA) will issue 103.6 million new shares (22.82% of the enlarged share capital) and offer 17.4 million existing shares; 22.7 million shares go to the Malaysian public, underwritten by Malacca Securities. The company is expanding its data-centre operations and maintenance business."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "ISF Group wins four data-centre contracts worth RM83.2m",
+      "text": "ISF Group secured four contracts for a hyperscale data centre in Port Dickson worth a combined RM83.2 million, lifting its unbilled order book to RM225.5 million."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "Econpile lands RM73m piling job for Tung Shin Hospital",
+      "text": "Econpile won the piling and substructure works for a new Hospital Tung Shin building in Kuala Lumpur, worth RM73 million over 21 months."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "Signature Alliance to refurbish Underwater World Langkawi",
+      "text": "Signature Alliance Group secured a RM51.56 million contract to redevelop and refurbish Underwater World Langkawi, with 18 months of works starting 13 November."
+     },
+     {
+      "tagEn": "Energy",
+      "title": "Northern Solar wins two green-power supply awards for data centres",
+      "text": "Northern Solar received two awards under the corporate renewable energy supply scheme to supply a combined 189MWac of solar power with battery storage to data centres."
+     },
+     {
+      "tagEn": "Expansion",
+      "title": "Pekat buys Nilai industrial land for RM30.58m",
+      "text": "Pekat Group is acquiring six industrial parcels in Nilai for RM30.58 million to expand its switchgear, battery storage, transformer and substation businesses."
+     },
+     {
+      "tagEn": "Expansion",
+      "title": "Dialog expands Tanjung Langsat terminal",
+      "text": "Dialog is adding 100,000 cubic metres of storage at its Tanjung Langsat terminal in Johor, taking total capacity above 1.1 million cubic metres by mid-2029."
+     }
+    ]
+   }
   }
  ]
 }

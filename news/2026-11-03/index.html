@@ -2,7 +2,7 @@
 <html lang="zh-CN" data-base="/12invest/">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; object-src 'none'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>每日马股速报 11月3日 · 12Invest</title>
@@ -21,22 +21,25 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#081230">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Crect x='1' y='2' width='10' height='8' fill='%23F4C24F'/%3E%3Crect x='3' y='1' width='6' height='10' fill='%23F4C24F'/%3E%3Crect x='3' y='7' width='1' height='2' fill='%23081230'/%3E%3Crect x='5' y='5' width='1' height='4' fill='%23081230'/%3E%3Crect x='7' y='3' width='1' height='6' fill='%23081230'/%3E%3C/svg%3E">
+<link rel="manifest" href="/12invest/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/12invest/icons/icon-180.png">
+<meta name="apple-mobile-web-app-title" content="12Invest">
 <link rel="alternate" type="application/rss+xml" title="12Invest" href="/12invest/feed.xml">
 <link rel="preload" href="/12invest/fonts/silkscreen-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/12invest/assets/site.css?v=584e69c7">
-<script src="/12invest/assets/app.js?v=59cda65d" defer></script>
+<link rel="stylesheet" href="/12invest/assets/site.css?v=7e34e068">
+<script src="/12invest/assets/app.js?v=e6b8f38d" defer></script>
 </head>
 <body>
 <header class="mast">
   <div class="wrap">
     <a class="logo" href="/12invest/" aria-label="12Invest 首页"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="3" y="0" width="6" height="1" fill="#B8861A"/><rect x="1" y="1" width="2" height="1" fill="#B8861A"/><rect x="9" y="1" width="2" height="1" fill="#B8861A"/><rect x="0" y="3" width="1" height="6" fill="#B8861A"/><rect x="11" y="3" width="1" height="6" fill="#B8861A"/><rect x="1" y="2" width="10" height="8" fill="#F4C24F"/><rect x="3" y="1" width="6" height="10" fill="#F4C24F"/><rect x="1" y="10" width="2" height="1" fill="#B8861A"/><rect x="9" y="10" width="2" height="1" fill="#B8861A"/><rect x="3" y="11" width="6" height="1" fill="#B8861A"/><rect x="3" y="7" width="1" height="2" fill="#081230"/><rect x="5" y="5" width="1" height="4" fill="#081230"/><rect x="7" y="3" width="1" height="6" fill="#081230"/><rect x="2" y="3" width="1" height="1" fill="#FFE7A3"/></svg><span><span class="word">12<b>INVEST</b></span><small>马股 · IPO · 公司解读</small></span></a>
-    <nav aria-label="主导航"><a href="/12invest/">文章</a><a href="/12invest/news/" aria-current="page">每日速报</a><a href="/12invest/ipo/">IPO 日历</a></nav>
+    <nav aria-label="主导航"><a href="/12invest/">文章</a><a href="/12invest/news/" aria-current="page">速报</a><a href="/12invest/ipo/">IPO</a><a class="nsearch" href="/12invest/search/" aria-label="搜索"><svg viewBox="0 0 10 10" aria-hidden="true" shape-rendering="crispEdges"><path d="M2 1h4v1H2zM1 2h1v4H1zM6 2h1v4H6zM2 6h4v1H2zM6 7h1v1H6zM7 8h1v1H7zM8 9h1v1H8z" fill="currentColor"/></svg></a></nav>
   </div>
   <div class="tape"><div class="wrap"><span data-d="2026-11-04"><i>&gt;</i>11月4日 MyDCD 抽签</span><span data-d="2026-11-05"><i>&gt;</i>11月5日 Big Caring 截止申请</span><span data-d="2026-11-06"><i>&gt;</i>11月6日 Impact Capital 截止申请</span><span data-d="2026-11-10"><i>&gt;</i>11月10日 Big Caring 定价</span><span data-d="2026-11-12"><i>&gt;</i>11月12日 Impact Capital 抽签</span><span data-d="2026-11-16"><i>&gt;</i>11月16日 KEB 挂牌</span><span data-d="2026-11-17"><i>&gt;</i>11月17日 MyDCD 挂牌</span><span data-d="2026-11-19"><i>&gt;</i>11月19日 Big Caring 挂牌</span><span data-d="2026-11-24"><i>&gt;</i>11月24日 Impact Capital 挂牌</span><span data-d="2026-11-25"><i>&gt;</i>11月25日 IOIPG REIT 挂牌</span></div></div>
 </header>
 <main class="wrap" id="main">
 <div class="layout"><div class="main-col">
-<div class="article newsday"><a class="back" href="/12invest/news/">← 所有速报</a><div class="cat">每日马股速报 · DAILY</div>
+<div class="article newsday"><a class="back" href="/12invest/news/">← 所有速报</a><div class="langsw"><section class="lang" id="zh"><div class="langs" role="group" aria-label="语言 / Language"><a class="chip" href="#zh">中文</a><a class="chip" href="#en" lang="en">English</a></div><div class="cat">每日马股速报 · DAILY</div>
   <h1 class="nd-title">马股微涨0.14%，银行股撑盘；IOI 旗下 REIT 定价96仙，11月25日上主板</h1>
   <div class="meta"><span>2026年11月3日（二）</span><span>12Invest</span></div>
   <section class="mkt"><dl>
@@ -44,39 +47,110 @@
     <div><dt>涨跌</dt><dd><em class="up">+2.34（+0.14%）</em></dd></div>
     <div><dt>涨跌家数</dt><dd>涨 403 / 跌 652 / 平 502</dd></div>
     <div><dt>成交</dt><dd>26.3亿股，RM2.64 billion</dd></div>
-  </dl><p>银行股走强带动指数小涨：马银行、联昌及大众银行皆起，兴业银行与大马银行涨21仙；国能与 IHH 则拖累指数。下跌股多于上涨股，大市情绪偏谨慎。 <a class="nsrc-a" href="https://www.malaymail.com/news/money/2026/11/03/bursa-malaysia-ends-slightly-higher-on-banking-support/241858" target="_blank" rel="noopener noreferrer">来源：Malay Mail ↗</a></p></section>
+  </dl><p>银行股走强带动指数小涨：马银行、联昌及大众银行皆起，兴业银行与大马银行涨21仙；国能与 IHH 则拖累指数。下跌股多于上涨股，大市情绪偏谨慎。 <a class="nsrc-a" href="https://www.malaymail.com/news/money/2026/11/03/bursa-malaysia-ends-slightly-higher-on-banking-support/241858" target="_blank" rel="noopener noreferrer">来源: Malay Mail ↗</a></p></section>
   <ol class="nitems"><li class="nitem"><span class="ntag">IPO</span><div class="nbody">
     <h3>IOIPG Malaysia REIT 定价每单位96仙，筹资约 RM2.1 billion</h3><p>IOI Properties 旗下的 IOIPG Malaysia REIT 发售最多22亿个单位，以每单位 RM0.96 计筹资约 RM2.1 billion，预计11月25日在主板挂牌。零售部分共约7.16亿单位，其中1.1亿单位开放给大马公众。这是大马至少13年来最大的 REIT 上市。</p>
-    <div class="nsrc"><a class="tchip" href="/12invest/c/ioipgreit/">IOIPGREIT</a><a href="https://thesun.my/business/ioi-properties-to-raise-rm2-1b-from-largest-malaysian-reit-ipo/" target="_blank" rel="noopener noreferrer">来源：theSun ↗</a></div>
+    <div class="nsrc"><a class="tchip" href="/12invest/c/ioipgreit/">IOIPGREIT</a><a href="https://thesun.my/business/ioi-properties-to-raise-rm2-1b-from-largest-malaysian-reit-ipo/" target="_blank" rel="noopener noreferrer">来源： theSun ↗</a></div>
   </div></li><li class="nitem"><span class="ntag">IPO</span><div class="nbody">
     <h3>Advance Technologies Asia 签署包销协议，筹备上 ACE</h3><p>机电工程方案商 Advance Technologies Asia（ATA）将发行1.036亿新股（占扩大后股本22.82%），另献售1,740万旧股，其中2,270万股开放给大马公众，由 Malacca Securities 包销。公司正扩展数据中心运营与维护业务。</p>
-    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/02/advance-technologies-asia-signs-underwriting-agreement-for-ace-market-ipo" target="_blank" rel="noopener noreferrer">来源：The Star ↗</a></div>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/02/advance-technologies-asia-signs-underwriting-agreement-for-ace-market-ipo" target="_blank" rel="noopener noreferrer">来源： The Star ↗</a></div>
   </div></li><li class="nitem"><span class="ntag">合约</span><div class="nbody">
     <h3>ISF Group 获4份数据中心合约共 RM83.2m</h3><p>ISF Group 拿下波德申一座超大规模数据中心的4份合约，总值 RM83.2 million，未入账订单增至 RM225.5 million。</p>
-    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源：The Star ↗</a></div>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源： The Star ↗</a></div>
   </div></li><li class="nitem"><span class="ntag">合约</span><div class="nbody">
     <h3>Econpile 获东禅医院 RM73m 打桩工程</h3><p>Econpile 获颁吉隆坡东禅医院新大楼的打桩与地下结构工程，合约值 RM73 million，工期21个月。</p>
-    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源：The Star ↗</a></div>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源： The Star ↗</a></div>
   </div></li><li class="nitem"><span class="ntag">合约</span><div class="nbody">
     <h3>Signature Alliance 获浮罗交怡海底世界翻新工程</h3><p>Signature Alliance Group 获 RM51.56 million 合约，重建与翻新浮罗交怡海底世界，工程11月13日起为期18个月。</p>
-    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源：The Star ↗</a></div>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源： The Star ↗</a></div>
   </div></li><li class="nitem"><span class="ntag">能源</span><div class="nbody">
     <h3>Northern Solar 获两项数据中心绿电供应</h3><p>Northern Solar 在企业再生能源供应计划下获两项项目，为数据中心供应合共189MWac太阳能并配备储能。</p>
-    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源：The Star ↗</a></div>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源： The Star ↗</a></div>
   </div></li><li class="nitem"><span class="ntag">扩张</span><div class="nbody">
     <h3>Pekat 斥资 RM30.58m 购入汝来工业地</h3><p>Pekat Group 以 RM30.58 million 收购汝来6块工业地，扩充开关设备、电池储能、变压器与变电站业务。</p>
-    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源：The Star ↗</a></div>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源： The Star ↗</a></div>
   </div></li><li class="nitem"><span class="ntag">扩张</span><div class="nbody">
     <h3>Dialog 扩建丹绒浪莎油库</h3><p>Dialog 将在柔佛丹绒浪莎油库增加10万立方米储量，预计2029年中总储量突破110万立方米。</p>
-    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源：The Star ↗</a></div>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">来源： The Star ↗</a></div>
   </div></li></ol>
-  <p class="disc"><strong>免责声明：</strong>速报内容整理自公开新闻与公告，由 12Invest 以自己的文字撰写，仅供参考，不构成任何买卖建议。详情请参阅原文来源。</p>
+  <p class="disc"><strong>免责声明：</strong>速报内容整理自公开新闻与公告，由 12Invest 以自己的文字撰写，仅供参考，不构成任何买卖建议。详情请参阅原文来源。</p></section><section class="lang" id="en" lang="en"><div class="langs" role="group" aria-label="语言 / Language"><a class="chip" href="#zh">中文</a><a class="chip" href="#en" lang="en">English</a></div><div class="cat">12Invest Daily Bursa Brief · DAILY</div>
+  <h1 class="nd-title">KLCI edges up 0.14% on banks; IOI&#39;s REIT priced at 96 sen, lists on Main Market on 25 Nov</h1>
+  <div class="meta"><span>Tue, 3 Nov 2026</span><span>12Invest</span></div>
+  <section class="mkt"><dl>
+    <div><dt>FBM KLCI</dt><dd>1,621.85</dd></div>
+    <div><dt>Change</dt><dd><em class="up">+2.34（+0.14%）</em></dd></div>
+    
+    
+  </dl><p>Gains in banking stocks lifted the index: Maybank, CIMB and Public Bank rose, while RHB Bank and AMMB each added 21 sen; Tenaga and IHH weighed on the benchmark. Decliners outnumbered gainers, a sign of cautious sentiment. <a class="nsrc-a" href="https://www.malaymail.com/news/money/2026/11/03/bursa-malaysia-ends-slightly-higher-on-banking-support/241858" target="_blank" rel="noopener noreferrer">Source: Malay Mail ↗</a></p></section>
+  <ol class="nitems"><li class="nitem"><span class="ntag">IPO</span><div class="nbody">
+    <h3>IOIPG Malaysia REIT priced at RM0.96 a unit, raising about RM2.1 billion</h3><p>IOI Properties&#39; IOIPG Malaysia REIT is offering up to 2.2 billion units at RM0.96 each to raise about RM2.1 billion, with a Main Market listing expected on 25 November. The retail portion totals about 716 million units, including 110 million units for the Malaysian public. It is Malaysia&#39;s largest REIT listing in at least 13 years.</p>
+    <div class="nsrc"><a class="tchip" href="/12invest/c/ioipgreit/">IOIPGREIT</a><a href="https://thesun.my/business/ioi-properties-to-raise-rm2-1b-from-largest-malaysian-reit-ipo/" target="_blank" rel="noopener noreferrer">Source: theSun ↗</a></div>
+  </div></li><li class="nitem"><span class="ntag">IPO</span><div class="nbody">
+    <h3>Advance Technologies Asia signs underwriting deal ahead of ACE listing</h3><p>M&amp;E engineering solutions provider Advance Technologies Asia (ATA) will issue 103.6 million new shares (22.82% of the enlarged share capital) and offer 17.4 million existing shares; 22.7 million shares go to the Malaysian public, underwritten by Malacca Securities. The company is expanding its data-centre operations and maintenance business.</p>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/02/advance-technologies-asia-signs-underwriting-agreement-for-ace-market-ipo" target="_blank" rel="noopener noreferrer">Source: The Star ↗</a></div>
+  </div></li><li class="nitem"><span class="ntag">Contract</span><div class="nbody">
+    <h3>ISF Group wins four data-centre contracts worth RM83.2m</h3><p>ISF Group secured four contracts for a hyperscale data centre in Port Dickson worth a combined RM83.2 million, lifting its unbilled order book to RM225.5 million.</p>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">Source: The Star ↗</a></div>
+  </div></li><li class="nitem"><span class="ntag">Contract</span><div class="nbody">
+    <h3>Econpile lands RM73m piling job for Tung Shin Hospital</h3><p>Econpile won the piling and substructure works for a new Hospital Tung Shin building in Kuala Lumpur, worth RM73 million over 21 months.</p>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">Source: The Star ↗</a></div>
+  </div></li><li class="nitem"><span class="ntag">Contract</span><div class="nbody">
+    <h3>Signature Alliance to refurbish Underwater World Langkawi</h3><p>Signature Alliance Group secured a RM51.56 million contract to redevelop and refurbish Underwater World Langkawi, with 18 months of works starting 13 November.</p>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">Source: The Star ↗</a></div>
+  </div></li><li class="nitem"><span class="ntag">Energy</span><div class="nbody">
+    <h3>Northern Solar wins two green-power supply awards for data centres</h3><p>Northern Solar received two awards under the corporate renewable energy supply scheme to supply a combined 189MWac of solar power with battery storage to data centres.</p>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">Source: The Star ↗</a></div>
+  </div></li><li class="nitem"><span class="ntag">Expansion</span><div class="nbody">
+    <h3>Pekat buys Nilai industrial land for RM30.58m</h3><p>Pekat Group is acquiring six industrial parcels in Nilai for RM30.58 million to expand its switchgear, battery storage, transformer and substation businesses.</p>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">Source: The Star ↗</a></div>
+  </div></li><li class="nitem"><span class="ntag">Expansion</span><div class="nbody">
+    <h3>Dialog expands Tanjung Langsat terminal</h3><p>Dialog is adding 100,000 cubic metres of storage at its Tanjung Langsat terminal in Johor, taking total capacity above 1.1 million cubic metres by mid-2029.</p>
+    <div class="nsrc"><a href="https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group" target="_blank" rel="noopener noreferrer">Source: The Star ↗</a></div>
+  </div></li></ol>
+  <p class="disc"><strong>Disclaimer:</strong> Summarised by 12Invest in our own words from public news and announcements, for information only. Not investment advice. See the original sources for details.</p></section></div>
   <div class="share" aria-label="分享这篇文章"><span class="lbl">分享 SHARE</span>
   <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgyakucapital.github.io%2F12invest%2Fnews%2F2026-11-03%2F" target="_blank" rel="noopener noreferrer">Facebook</a>
   <a class="btn" href="https://t.me/share/url?url=https%3A%2F%2Fgyakucapital.github.io%2F12invest%2Fnews%2F2026-11-03%2F&amp;text=%E6%AF%8F%E6%97%A5%E9%A9%AC%E8%82%A1%E9%80%9F%E6%8A%A5%2011%E6%9C%883%E6%97%A5%EF%BC%9A%E9%A9%AC%E8%82%A1%E5%BE%AE%E6%B6%A80.14%25%EF%BC%8C%E9%93%B6%E8%A1%8C%E8%82%A1%E6%92%91%E7%9B%98%EF%BC%9BIOI%20%E6%97%97%E4%B8%8B%20REIT%20%E5%AE%9A%E4%BB%B796%E4%BB%99%EF%BC%8C11%E6%9C%8825%E6%97%A5%E4%B8%8A%E4%B8%BB%E6%9D%BF" target="_blank" rel="noopener noreferrer">Telegram</a>
   <a class="btn" href="https://wa.me/?text=%E6%AF%8F%E6%97%A5%E9%A9%AC%E8%82%A1%E9%80%9F%E6%8A%A5%2011%E6%9C%883%E6%97%A5%EF%BC%9A%E9%A9%AC%E8%82%A1%E5%BE%AE%E6%B6%A80.14%25%EF%BC%8C%E9%93%B6%E8%A1%8C%E8%82%A1%E6%92%91%E7%9B%98%EF%BC%9BIOI%20%E6%97%97%E4%B8%8B%20REIT%20%E5%AE%9A%E4%BB%B796%E4%BB%99%EF%BC%8C11%E6%9C%8825%E6%97%A5%E4%B8%8A%E4%B8%BB%E6%9D%BF%20https%3A%2F%2Fgyakucapital.github.io%2F12invest%2Fnews%2F2026-11-03%2F" target="_blank" rel="noopener noreferrer">WhatsApp</a>
   <button class="btn" type="button" data-copy-link="https://gyakucapital.github.io/12invest/news/2026-11-03/">复制链接</button>
 </div>
+  <div class="tools"><button class="btn primary" type="button" data-copy-full>复制 Facebook 文案</button><span class="note">1,259 字符 · 含链接与标签</span></div>
+  <textarea class="copysrc" id="copysrc" hidden readonly aria-label="Facebook 文案">📰 每日马股速报｜11月3日
+
+马股微涨0.14%，银行股撑盘；IOI 旗下 REIT 定价96仙，11月25日上主板
+
+📈 FBM KLCI 1,621.85 +2.34（+0.14%）
+银行股走强带动指数小涨：马银行、联昌及大众银行皆起，兴业银行与大马银行涨21仙；国能与 IHH 则拖累指数。下跌股多于上涨股，大市情绪偏谨慎。
+
+1. 【IPO】IOIPG Malaysia REIT 定价每单位96仙，筹资约 RM2.1 billion
+IOI Properties 旗下的 IOIPG Malaysia REIT 发售最多22亿个单位，以每单位 RM0.96 计筹资约 RM2.1 billion，预计11月25日在主板挂牌。零售部分共约7.16亿单位，其中1.1亿单位开放给大马公众。这是大马至少13年来最大的 REIT 上市。
+
+2. 【IPO】Advance Technologies Asia 签署包销协议，筹备上 ACE
+机电工程方案商 Advance Technologies Asia（ATA）将发行1.036亿新股（占扩大后股本22.82%），另献售1,740万旧股，其中2,270万股开放给大马公众，由 Malacca Securities 包销。公司正扩展数据中心运营与维护业务。
+
+3. 【合约】ISF Group 获4份数据中心合约共 RM83.2m
+ISF Group 拿下波德申一座超大规模数据中心的4份合约，总值 RM83.2 million，未入账订单增至 RM225.5 million。
+
+4. 【合约】Econpile 获东禅医院 RM73m 打桩工程
+Econpile 获颁吉隆坡东禅医院新大楼的打桩与地下结构工程，合约值 RM73 million，工期21个月。
+
+5. 【合约】Signature Alliance 获浮罗交怡海底世界翻新工程
+Signature Alliance Group 获 RM51.56 million 合约，重建与翻新浮罗交怡海底世界，工程11月13日起为期18个月。
+
+6. 【能源】Northern Solar 获两项数据中心绿电供应
+Northern Solar 在企业再生能源供应计划下获两项项目，为数据中心供应合共189MWac太阳能并配备储能。
+
+7. 【扩张】Pekat 斥资 RM30.58m 购入汝来工业地
+Pekat Group 以 RM30.58 million 收购汝来6块工业地，扩充开关设备、电池储能、变压器与变电站业务。
+
+8. 【扩张】Dialog 扩建丹绒浪莎油库
+Dialog 将在柔佛丹绒浪莎油库增加10万立方米储量，预计2029年中总储量突破110万立方米。
+
+👉 完整速报：https://gyakucapital.github.io/12invest/news/2026-11-03/
+
+#每日马股速报 #12Invest
+
+免责声明：内容整理自公开新闻与公告，仅供参考，不构成任何买卖建议。</textarea>
   <div class="tools"></div>
   <aside class="follow" aria-label="关注 12Invest"><div class="follow-t"><b>关注 12Invest</b><span>新股解读、IPO 日程与上市表现，第一时间更新</span></div><div class="follow-b"><a class="btn primary" href="https://www.facebook.com/share/18ofQH787S/" target="_blank" rel="noopener">Facebook</a><a class="btn primary" href="https://www.moomoo.com/community/profile/102311682?share_code=05drLG" target="_blank" rel="noopener">moomoo</a><a class="btn primary" href="https://t.me/public12invest" target="_blank" rel="noopener">Telegram</a></div></aside></div>
 </div>

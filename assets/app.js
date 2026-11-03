@@ -13,6 +13,7 @@
 
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const ready = fn => document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", fn) : fn();
 
   ready(() => {
@@ -63,6 +64,49 @@
     $$("[data-copy-link]").forEach(b => b.addEventListener("click", () => copy(b.dataset.copyLink, "已复制链接")));
     const full = $("#copysrc");
     $$("[data-copy-full]").forEach(b => b.addEventListener("click", () => copy(full.value, "已复制全文", full)));
+
+    /* IPO application calculator */
+    const cd = $("#calc-data");
+    if (cd){
+      const box = $("#calc"), sel = $("#calc-ipo"), lots = $("#calc-lots"), D = JSON.parse(cd.textContent);
+      if (D.ipos.length){
+        box.hidden = false;
+        sel.innerHTML = D.ipos.map((i, k) => `<option value="${k}">${i.n}（${i.max ? "最高 " : ""}RM${i.p.toFixed(i.p * 1000 % 10 ? 3 : 2)}）</option>`).join("");
+        const md = d => d ? `${+d.slice(5, 7)}月${+d.slice(8, 10)}日 5pm` : "—";
+        const calc = () => {
+          const i = D.ipos[+sel.value], n = Math.max(1, Math.floor(+lots.value || 0));
+          $("#calc-sh").textContent = (n * 100).toLocaleString("en") + " 股";
+          $("#calc-amt").textContent = "RM" + (n * 100 * i.p).toLocaleString("en", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+          $("#calc-close").textContent = md(i.c);
+        };
+        sel.addEventListener("change", calc); lots.addEventListener("input", calc); calc();
+      }
+    }
+
+    /* site search (search.json is built with the site) */
+    const sq = $("#sq");
+    if (sq){
+      const out = $("#sres"); let rows = null;
+      const run = async () => {
+        const q = sq.value.trim().toLowerCase();
+        history.replaceState(null, "", q ? "?q=" + encodeURIComponent(q) : location.pathname);
+        if (!q){ out.innerHTML = ""; return; }
+        if (!rows){ try { rows = await fetch(BASE + "search.json").then(r => r.json()); } catch { out.textContent = "搜索暂时无法使用。"; return; } }
+        const terms = q.split(/\s+/);
+        const hit = rows.filter(r => { const h = (r.t + " " + r.x + " " + r.s + " " + r.k).toLowerCase(); return terms.every(w => h.includes(w)); })
+          .sort((a, b) => String(b.d).localeCompare(String(a.d))).slice(0, 60);
+        out.innerHTML = hit.length ? `<p class="note">${hit.length} 个结果</p><ol class="slist2">${hit.map(r => `<li><a href="${r.u}"><span class="ntag">${esc(r.k)}</span><b>${esc(r.t)}</b><small>${esc(r.x.slice(0, 90))}${r.x.length > 90 ? "…" : ""}${r.d ? " · " + r.d : ""}</small></a></li>`).join("")}</ol>`
+          : `<div class="empty px"><h3>没有找到「${esc(q)}」</h3>试试公司名、股票代号或主题，例如 IPO、数据中心。</div>`;
+      };
+      const init = new URLSearchParams(location.search).get("q"); if (init){ sq.value = init; run(); }
+      let tm; sq.addEventListener("input", () => { clearTimeout(tm); tm = setTimeout(run, 150); });
+      sq.form.addEventListener("submit", e => { e.preventDefault(); run(); });
+    }
+    const sall = $("#sall"), hq = $("#q");
+    if (sall && hq) hq.addEventListener("input", () => { sall.href = BASE + "search/?q=" + encodeURIComponent(hq.value.trim()); });
+
+    /* installable app + offline reading */
+    if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register(BASE + "sw.js", { scope: BASE }).catch(() => {});
 
     /* cookie-free page count (only when enabled in site config; no cookies, no personal data) */
     const gc = root.dataset.gc;

@@ -1,4 +1,4 @@
-// Posts newly published articles to the 12Invest Telegram channel (photo + caption + link).
+// Posts newly published articles AND each new daily news / weekly wrap edition to the 12Invest Telegram channel.
 // Runs in the GitHub Action after the site is built and pushed. Needs the repo secret TELEGRAM_BOT_TOKEN;
 // without it, it does nothing. Already-posted article ids are kept in data/telegram.json.
 import fs from "node:fs";
@@ -23,9 +23,16 @@ const stateFile = path.join(ROOT, "data/telegram.json");
 const state = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, "utf8")) : { posted: [] };
 const { posts } = JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8"));
 const IPOS = fs.existsSync(path.join(ROOT, "data/ipos.json")) ? JSON.parse(fs.readFileSync(path.join(ROOT, "data/ipos.json"), "utf8")).ipos : [];
+state.news = state.news || [];
+const newsFile = path.join(ROOT, "data/news.json");
+const days = fs.existsSync(newsFile) ? (JSON.parse(fs.readFileSync(newsFile, "utf8")).days || []) : [];
 const todo = posts.filter(p => p.id && !state.posted.includes(p.id) && !p.noTelegram)
   .sort((a, b) => String(a.publishedAt).localeCompare(String(b.publishedAt)));
-if (!todo.length) { console.log("Telegram: nothing new."); process.exit(0); }
+// only editions from the last 2 days, so an old edition is never blasted late
+const recent = new Date(Date.now() + 8 * 3600e3 - 2 * 864e5).toISOString().slice(0, 10);
+const newsTodo = days.filter(d => d.date && d.date >= recent && !state.news.includes(newsKey(d))).sort((a, b) => a.date.localeCompare(b.date));
+function newsKey(d){ return (d.kind === "weekly" ? "weekly-" : "") + d.date; }
+if (!todo.length && !newsTodo.length) { console.log("Telegram: nothing new."); process.exit(0); }
 
 const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -66,6 +73,39 @@ function caption(p){
 async function live(u){ // wait until GitHub Pages serves the new page (up to ~8 min)
   for (let i = 0; i < 48; i++){ try { const r = await fetch(u, { method: "HEAD" }); if (r.ok) return true; } catch {} await sleep(10000); }
   return false;
+}
+function newsCaption(d){
+  const weekly = d.kind === "weekly", md = `${+d.date.slice(5, 7)}月${+d.date.slice(8, 10)}日`;
+  const m = d.market || {};
+  const head = `<b>${weekly ? "📅 12Invest 每周回顾" : "📰 每日马股速报"}｜${md}</b>\n${esc(d.title)}`;
+  const mk = m.close ? `\n\n📈 ${esc(m.index || "FBM KLCI")}${m.date && m.date !== d.date ? `（${+m.date.slice(5, 7)}月${+m.date.slice(8, 10)}日收市）` : ""} ${esc(m.close)} ${esc(m.change || "")}` : "";
+  const link = `\n\n👉 完整${weekly ? "回顾" : "速报"}：${CFG.origin + CFG.base}${weekly ? "weekly" : "news"}/${d.date}/`;
+  const ref = CFG.moomooReferral && (d.items || []).some(it => it.tag === "IPO") ? `\n📢 申购马股新股：${CFG.moomooReferral}` : "";
+  const tags = `\n\n${weekly ? "#每周回顾" : "#每日马股速报"} #12Invest`;
+  const lines = (d.items || []).map(it => `• 【${esc(it.tag || "焦点")}】${esc(it.title)}`);
+  const fixed = [...(head + mk + link + ref + tags).replace(/<[^>]+>/g, "")].length + 4;
+  while (lines.length && fixed + [...lines.join("\n")].length > 1000) lines.pop();
+  return `${head}${mk}\n\n${lines.join("\n")}${link}${ref}${tags}`;
+}
+async function send(photo, text){
+  const fd = new FormData();
+  fd.append("chat_id", CHAT); fd.append("parse_mode", "HTML");
+  let method = "sendMessage";
+  if (photo) { method = "sendPhoto"; fd.append("caption", text); fd.append("photo", new Blob([fs.readFileSync(photo)]), path.basename(photo)); }
+  else fd.append("text", text);
+  const r = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, { method: "POST", body: fd });
+  return r.json();
+}
+for (const d of newsTodo){
+  const u = `${CFG.origin + CFG.base}${d.kind === "weekly" ? "weekly" : "news"}/${d.date}/`;
+  if (!(await live(u))) { console.log(`Telegram: news ${d.date} not live yet; will retry next run.`); continue; }
+  const og = path.join(ROOT, "og", `${d.kind === "weekly" ? "weekly" : "news"}-${d.date}.jpg`);
+  const j = await send(fs.existsSync(og) ? og : null, newsCaption(d));
+  if (!j.ok) { console.error(`Telegram: failed for news ${d.date}: ${j.description}`); process.exitCode = 1; continue; }
+  state.news.push(newsKey(d));
+  fs.writeFileSync(stateFile, JSON.stringify(state, null, 1) + "\n");
+  console.log(`Telegram: posted news ${newsKey(d)}`);
+  await sleep(3000);
 }
 for (const p of todo){
   if (!(await live(url(p.id)))) { console.log(`Telegram: ${p.id} not live yet; will retry next run.`); continue; }

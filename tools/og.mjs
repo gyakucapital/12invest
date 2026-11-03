@@ -55,7 +55,8 @@ ${stats.length ? `<div class="st">${stats.map(s => `<div class="s"><div>${esc(s.
 const newsFile = path.join(ROOT, "data/news.json");
 const days = fs.existsSync(newsFile) ? JSON.parse(fs.readFileSync(newsFile, "utf8")).days || [] : [];
 for (const d of days){
-  const out = path.join(ROOT, "og", `news-${d.date}.jpg`);
+  const weekly = d.kind === "weekly";
+  const out = path.join(ROOT, "og", `${weekly ? "weekly" : "news"}-${d.date}.jpg`);
   if (!d.date || (fs.existsSync(out) && !force)) continue;
   const [y, m, dd] = d.date.split("-").map(Number);
   const mk = d.market || {};
@@ -80,7 +81,7 @@ h1{margin:0;font-size:38px;line-height:1.38;font-weight:900;display:-webkit-box;
 ul{margin:auto 0 0;padding:0;list-style:none;display:grid;gap:10px}
 li{font-size:22px;color:#A3B3DC;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 li b{color:#081230;background:#F4C24F;font-size:17px;padding:2px 8px;margin-right:10px}
-</style></head><body><div class="l"><div class="k">DAILY</div><div><div class="d">${m}/${dd}</div><div class="y">${y}</div></div><div class="t">每日马股速报</div></div>
+</style></head><body><div class="l"><div class="k">${weekly ? "WEEKLY" : "DAILY"}</div><div><div class="d">${m}/${dd}</div><div class="y">${y}</div></div><div class="t">${weekly ? "每周回顾" : "每日马股速报"}</div></div>
 <div class="r"><div class="logo">12<b>INVEST</b></div><h1>${esc(d.title)}</h1>
 ${mk.close ? `<div class="mk"><span>${esc(mk.index || "FBM KLCI")} ${esc(mk.close)}</span><em>${esc(mk.change || "")}</em></div>` : ""}
 <ul>${(d.items || []).slice(0, 3).map(it => `<li><b>${esc(it.tag || "焦点")}</b>${esc(it.title)}</li>`).join("")}</ul></div></body></html>`);

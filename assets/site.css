@@ -445,3 +445,98 @@ em.flat{color:var(--muted)}
   .roll-vp{overflow-x:auto}
   .roll-dup{display:none}
 }
+
+/* v5: header search, language switch, calculator, search page */
+.mast nav .nsearch{display:inline-flex;align-items:center;padding:4px 2px}
+.nsearch svg{width:18px;height:18px;display:block}
+.langsw > section.lang{display:none}
+.langsw > section#zh{display:block}
+.langsw:has(section.lang:target) > section#zh{display:none}
+.langsw > section.lang:target{display:block}
+.langsw:not(:has(section.lang:target)) .langs a[href="#zh"],.langsw:has(#en:target) .langs a[href="#en"],.langsw:has(#zh:target) .langs a[href="#zh"]{background:var(--gold);color:var(--gold-ink);font-weight:700;
+  box-shadow:0 -2px 0 0 var(--gold-deep),0 2px 0 0 var(--gold-deep),-2px 0 0 0 var(--gold-deep),2px 0 0 0 var(--gold-deep)}
+.langsw section{scroll-margin-top:150px}
+label.f{display:grid;gap:6px;font-size:13px;color:var(--muted);min-width:0}
+label.f input,label.f select{border:0;background:var(--bg2);padding:9px 11px;color:var(--ink);font-size:16px;width:100%;min-width:0;
+  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
+label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--gold),0 3px 0 0 var(--gold),-3px 0 0 0 var(--gold),3px 0 0 0 var(--gold)}
+.calc{padding:20px 22px;margin:0 0 40px;display:grid;gap:16px}
+.calc-f{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.calc-o{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.calc-o div{background:var(--bg2);padding:10px 14px;min-width:0;box-shadow:0 -2px 0 0 var(--line),0 2px 0 0 var(--line),-2px 0 0 0 var(--line),2px 0 0 0 var(--line)}
+.calc-o small{display:block;font-size:12px;color:var(--muted)}
+.calc-o b{font-size:20px;color:var(--gold);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.calc .note{margin:0}
+.calc .mm-full{justify-self:start;padding-inline:22px}
+.calc-ref{margin-top:-8px}
+.sform{margin:0 0 24px}
+.search.big{width:100%;max-width:none;font-size:17px;padding:12px 14px;margin:0;flex:none}
+.slist2{list-style:none;margin:0;padding:0;display:grid;gap:2px;background:var(--line);box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
+.slist2 a{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;padding:12px 16px;background:var(--surface);text-decoration:none}
+.slist2 .ntag{grid-row:1/3;align-self:start;margin-top:3px}
+.slist2 b{font-weight:700;line-height:1.5}
+.slist2 small{font-size:13px;color:var(--muted);line-height:1.5}
+.slist2 a:hover b{color:var(--gold)}
+.sres > .note{margin:0 0 10px}
+@media (max-width:560px){
+  .calc{padding:16px}
+  .calc-f{grid-template-columns:1fr}
+  .calc-o{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .calc-o div:last-child{grid-column:1/-1}
+  .calc .mm-full{justify-self:stretch}
+}
+
+/* v5: mobile polish */
+.nb-mkt{flex-wrap:wrap;gap:4px 12px}
+.nb-mkt b,.nb-mkt em{white-space:nowrap}
+@media (max-width:560px){
+  .mast{position:relative;top:auto}                     /* header scrolls away on phones: more room for reading */
+  .mast .wrap{flex-wrap:nowrap;gap:10px;padding-block:10px}
+  .logo{gap:8px;min-width:0}
+  .logo svg{width:28px;height:28px}
+  .logo .word{font-size:18px}
+  .mast nav{gap:14px;flex:0 0 auto}
+  .mast nav a{font-size:12px}
+  .tape .wrap{padding-block:6px}
+  .side{position:static}
+  main{padding-block:22px 56px}
+  .newsband{padding:16px}
+  .roll-lbl{padding:6px 10px;font-size:13px}
+  .roll-track a{font-size:13px;padding-block:8px}
+  .glance{padding:16px;gap:16px}
+  .gstat dd{font-size:15px}
+  .article h1,.nd-title{font-size:24px}
+  .body{font-size:16px}
+  .share,.follow,.mmcta{padding:14px}
+  .ipo-top h2{font-size:19px}
+}
+@media (max-width:360px){
+  .mast nav{gap:10px}
+  .logo .word{font-size:16px}
+}
+/* comfortable tap targets on touch screens */
+@media (pointer:coarse){
+  .back,.gtime.src,.sh a,.slist span a,footer nav a,.fsocial a,.nsrc a,.nsrc-a,.sec a{display:inline-flex;align-items:center;min-height:40px}
+  .mast nav a{min-height:40px;display:inline-flex;align-items:center}
+  .chip{min-height:38px}
+  .tchip{padding-block:6px}
+}
+
+/* alignment: pixel borders are drawn outside each box, so inset the boxes by the border width
+   — the visible border then lines up exactly with headings and body text */
+.mkt,.nitems,.facts,.share,.tbl,.events,.calc,.slist2,.roll,.sbox{margin-inline:3px}
+.newsband,.mmcta,.follow,.glance,.ipo,.empty.px,.body .callout,.body figure img,.finchart img{margin-inline:4px}
+.body figure img,.finchart img{width:calc(100% - 8px)}
+.glances,.ipos{padding-inline:0}
+.mkt{padding:18px 22px}
+.mkt dl{gap:12px 20px}
+.mkt dd{font-size:17px;line-height:1.45}
+.mkt p{padding-top:14px;border-top:2px dotted var(--line)}
+.newsday .langs{margin-bottom:14px}
+.nd-title{max-width:30em}
+/* headlines break at punctuation/spaces, not in the middle of a Chinese word (e.g. 旗|下) */
+.nd-title,.article h1,.gtitle,.newsband h2,.lead h2,.item h3,.ipo h2{word-break:keep-all;overflow-wrap:anywhere}
+.filters .search{margin-right:3px}
+.filters{padding-left:2px}
+.mkt dl{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr) minmax(0,1.3fr) minmax(0,1.3fr)}
+@media (max-width:560px){ .mkt dl{grid-template-columns:repeat(2,minmax(0,1fr))} .mkt{padding:16px} }
