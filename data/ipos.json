@@ -179,14 +179,18 @@
    "name": "IOIPG REIT",
    "company": "IOIPG Malaysia REIT",
    "board": "主板",
-   "price": "RM0.96",
+   "price": "最高 RM0.96",
    "cap": "约 RM5.28b（信托估值）",
    "listing": "2026-11-25",
    "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/11/03/ioipg-reit-targets-rm21bil-in-malaysia039s-largest-reit-ipo-to-date",
+    "https://theedgemalaysia.com/node/824311",
     "https://thesun.my/business/ioi-properties-to-raise-rm2-1b-from-largest-malaysian-reit-ipo/",
     "https://www.thestar.com.my/business/business-news/2026/11/03/ioi-raises-reit-ipo-target-as-malaysia-listing-boom-gathers-pace"
    ],
-   "checked": "2026-11-03"
+   "checked": "2026-11-03",
+   "open": "2026-11-03",
+   "close": "2026-11-10"
   }
  ]
 }

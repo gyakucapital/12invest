@@ -113,6 +113,8 @@ function ipoStatus(i, today = TODAY){
   if (i.listing && today >= i.listing) return ["listed", "已上市"];
   if (i.close && today > i.close) return ["closed", "已截止 · 待挂牌"];
   if (i.open && today >= i.open) return ["open", today === i.close ? "今天截止" : "招股中"];
+  if (!i.open && i.close && today <= i.close) return ["open", today === i.close ? "今天截止" : "招股中"];
+  if (!i.open && !i.close) return ["tba", "日期待公布"];
   return ["upcoming", "即将招股"];
 }
 const ipoAttrs = i => ["open", "close", "listing"].filter(k => i[k]).map(k => ` data-${k}="${i[k]}"`).join("");

@@ -23,6 +23,8 @@
       if (d.listing && today >= d.listing) return ["listed", "已上市"];
       if (d.close && today > d.close) return ["closed", "已截止 · 待挂牌"];
       if (d.open && today >= d.open) return ["open", today === d.close ? "今天截止" : "招股中"];
+      if (!d.open && d.close && today <= d.close) return ["open", today === d.close ? "今天截止" : "招股中"];
+      if (!d.open && !d.close) return ["tba", "日期待公布"];
       return ["upcoming", "即将招股"];
     };
     $$("[data-ipo]").forEach(el => { const [s, t] = status(el.dataset); el.dataset.s = s; el.textContent = t; });
