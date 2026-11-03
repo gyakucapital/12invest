@@ -607,3 +607,8 @@ label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--g
 .perf td.pbar-c{padding-block:8px}
 @media (max-width:560px){ .pstats{grid-template-columns:repeat(2,minmax(0,1fr))} }
 .badge[data-s="tba"]{color:var(--muted)}
+/* closed IPOs: outcome instead of a referral button */
+.ipodone{font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap;align-self:center}
+.ipodone em{font-style:normal}
+.ipodone-box{margin:32px 4px 8px;padding:14px 20px;background:var(--bg2);font-size:15px;font-weight:700;color:var(--ink);
+  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}

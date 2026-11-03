@@ -252,20 +252,31 @@ const isListed = i => i && i.listing && i.listing <= TODAY;
 // Apply-for-IPO prompt, worded by stage: open → apply now (with deadline), upcoming → get ready, closed/listed → next IPO
 function ipoStage(i){
   if (!i) return null;
+  if (isListed(i)) return "done";
   if (i.close && TODAY > i.close) return "done";
   if (i.open && TODAY < i.open) return "soon";
   if (!i.open && !i.close) return "soon";   // application dates not announced yet
   return "open";
 }
+// Closed IPOs get no referral link — just the outcome: listing date, or first-day % change once listed
+function ipoDoneText(i){
+  if (isListed(i)){
+    const pr = premium(i);
+    return `IPO 完毕 · ${day(i.listing).md}已上市${pr ? ` · 首日 <em class="${pr.cls}">${pr.txt}</em>` : ""}`;
+  }
+  return `IPO 完毕 · ${i.listing ? `${day(i.listing).md}挂牌` : "挂牌日待公布"}`;
+}
 function moomooCTA(i, mode = "box"){
-  if (!REF || !i) return "";
-  const st = ipoStage(i), a = `href="${esc(REF)}" target="_blank" rel="sponsored noopener"`;
+  if (!i) return "";
+  const st = ipoStage(i);
+  if (st === "done") return mode === "btn" ? `<span class="ipodone">${ipoDoneText(i)}</span>` : `<aside class="ipodone-box">📌 ${esc(i.name)} ${ipoDoneText(i)}</aside>`;
+  if (!REF) return "";
+  const a = `href="${esc(REF)}" target="_blank" rel="sponsored noopener"`;
   const close = i.close ? `${day(i.close).md}下午5点截止` : "";
-  const btn = st === "open" ? "立即申购 IPO →" : st === "soon" ? "提前开户，准备申购 →" : "申购下一只新股 →";
-  if (mode === "btn") return `<a class="btn mm" ${a}>${st === "open" ? "立即申购" : st === "soon" ? "准备申购" : "申购新股"}</a>`;
+  const btn = st === "open" ? "立即申购 IPO →" : "提前开户，准备申购 →";
+  if (mode === "btn") return `<a class="btn mm" ${a}>${st === "open" ? "立即申购" : "准备申购"}</a>`;
   const head = st === "open" ? `${esc(i.name)} 正在招股${close ? `，${close}` : ""}，立即申购！`
-    : st === "soon" ? (i.open ? `${esc(i.name)} 将于${day(i.open).md}开放申购，先开户做好准备` : `${esc(i.name)} 即将招股，先开户做好准备`)
-    : `错过了 ${esc(i.name)}？下一只新股别再错过`;
+    : (i.open ? `${esc(i.name)} 将于${day(i.open).md}开放申购，先开户做好准备` : `${esc(i.name)} 即将招股，先开户做好准备`);
   return `<aside class="mmcta" aria-label="申购 IPO"><div class="mm-t"><b>📢 ${head}</b>
   <span>通过 moomoo 一键申购马股新股。推荐链接 · 合作推广，非投资建议，投资前请细阅招股书。</span></div><a class="btn primary" ${a}>${btn}</a></aside>`;
 }

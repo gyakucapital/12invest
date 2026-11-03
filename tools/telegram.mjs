@@ -57,9 +57,10 @@ function caption(p){
   const today = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10);
   const md = d => `${+d.slice(5, 7)}月${+d.slice(8, 10)}日`;
   const isIpo = p.ticker && (ipo || /IPO/i.test(String(p.category || "") + (p.tags || []).join(" ")));
-  const prompt = !ipo || !ipo.close ? `📢 立即申购 ${p.ticker} IPO` : today > ipo.close ? "📢 下一只新股，用 moomoo 申购"
-    : `📢 立即申购 ${ipo.name} IPO（${md(ipo.close)}下午5点截止）`;
-  const ref = CFG.moomooReferral && isIpo ? `\n${prompt}：${CFG.moomooReferral}` : "";
+  // referral link only while applications are open (or not yet open); closed IPOs just state the outcome
+  const closed = ipo && ((ipo.close && today > ipo.close) || (ipo.listing && today >= ipo.listing));
+  const prompt = !ipo || !ipo.close ? `📢 立即申购 ${p.ticker} IPO` : `📢 立即申购 ${ipo.name} IPO（${md(ipo.close)}下午5点截止）`;
+  const ref = closed ? `\n📌 IPO 完毕 · ${ipo.listing ? `${md(ipo.listing)}挂牌` : "挂牌日待公布"}` : CFG.moomooReferral && isIpo ? `\n${prompt}：${CFG.moomooReferral}` : "";
   const link = `👉 阅读全文：${url(p.id)}${ref}`;
   let text = p.telegram ? String(p.telegram) : summary(p);
   const room = 1000 - [...link].length - [...tags].length - 4;
