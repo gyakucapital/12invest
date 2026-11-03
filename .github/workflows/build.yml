@@ -6,6 +6,11 @@ on:
     branches: [main]
     paths: ["posts.json", "data/**", "img/**", "tools/**", "assets/**", "fonts/**"]
   workflow_dispatch:
+    inputs:
+      telegram_test:
+        description: "Send a test message to the Telegram channel"
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency: { group: build, cancel-in-progress: false }
@@ -40,6 +45,7 @@ jobs:
       - name: Post new articles to Telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_TEST: ${{ inputs.telegram_test }}
         run: node tools/telegram.mjs
       - name: Save Telegram state
         if: always()

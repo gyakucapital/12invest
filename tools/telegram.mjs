@@ -11,6 +11,14 @@ const CFG = JSON.parse(fs.readFileSync(path.join(ROOT, "tools/site.config.json")
 const CHAT = process.env.TELEGRAM_CHAT_ID || CFG.telegramChat;
 if (!TOKEN || !CHAT) { console.log("Telegram: no bot token or chat set; skipping."); process.exit(0); }
 
+if (process.env.TELEGRAM_TEST === "true"){ // manual check from GitHub → Actions → Build site → Run workflow
+  const r = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, { method: "POST", headers: { "content-type": "application/json" },
+    body: JSON.stringify({ chat_id: CHAT, text: "✅ 12Invest 网站已连接 Telegram 频道。新文章发布后会自动推送到这里。\n" + CFG.origin + CFG.base }) });
+  const j = await r.json();
+  console.log(j.ok ? "Telegram test: sent." : `Telegram test failed: ${j.description}`);
+  process.exit(j.ok ? 0 : 1);
+}
+
 const stateFile = path.join(ROOT, "data/telegram.json");
 const state = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, "utf8")) : { posted: [] };
 const { posts } = JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8"));
