@@ -546,7 +546,7 @@ label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--g
 .mt-vp{flex:1;min-width:0;height:40px;overflow:hidden;position:relative;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);
   background:repeating-linear-gradient(transparent 0 9px,rgba(63,93,179,.28) 9px 10px)}
-.mt-track{display:flex;width:max-content;animation:mt 14s steps(120) infinite}
+.mt-track{display:flex;width:max-content;animation:mt 28s steps(240) infinite}
 .mt-track svg{display:block;flex:0 0 auto}
 .cu{fill:#7CD992}.cd{fill:var(--signal)}
 .ma{stroke:var(--gold);stroke-width:2;opacity:.9}
@@ -554,3 +554,29 @@ label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--g
 @keyframes mt{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:860px){.mticker{display:none}}
 @media (prefers-reduced-motion:reduce){.mt-track{animation:none}}
+
+/* header ticker v2: bigger moving candlestick chart + dancing coin mascot; also on tablets, slim strip on phones */
+.mticker{max-width:600px;height:52px;gap:10px}
+.mt-vp{height:44px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 92%,transparent)}
+.mt-track{margin-top:2px}
+.mt-track svg{height:40px;width:240px}
+.mt-dance{flex:0 0 auto;position:relative;width:48px;height:48px;display:flex;align-items:flex-end;justify-content:center}
+.mascot{display:block;animation:bob .5s steps(1) infinite;filter:drop-shadow(2px 2px 0 var(--shadow))}
+.mg{fill:#B8861A}.my{fill:#F4C24F}.mk{fill:#081230}.ma2{fill:#FFE7A3}.ms{fill:#FFE7A3}
+.mfA{animation:legA .5s steps(1) infinite}.mfB{animation:legB .5s steps(1) infinite}
+@keyframes legA{0%{opacity:1}50%{opacity:0}}@keyframes legB{0%{opacity:0}50%{opacity:1}}
+@keyframes bob{0%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.mt-up{position:absolute;top:-2px;right:-6px;font-size:11px;color:#7CD992;animation:blink 1s steps(1) infinite}
+.spark{position:absolute;opacity:0;animation:spark 3.2s steps(1) infinite}
+.spark.s1{left:24%;top:3px}.spark.s2{left:52%;top:12px;animation-delay:1.1s}.spark.s3{left:78%;top:2px;animation-delay:2.2s}
+@keyframes spark{0%{opacity:0}10%{opacity:1}22%{opacity:.4}30%{opacity:0}}
+.mt-cur{display:none}
+@media (max-width:860px){
+  .mticker{display:flex;max-width:none;order:3;flex:1 1 100%;height:40px;padding:0;margin:2px 0 -4px}
+  .mast .wrap{flex-wrap:wrap}
+  .mt-vp{height:36px}
+  .mt-track svg{height:34px;width:204px}
+  .mt-dance{width:40px;height:40px}
+  .mascot{width:40px;height:30px}
+}
+@media (prefers-reduced-motion:reduce){.mascot,.mfA,.mfB,.spark,.mt-up{animation:none}.mfB{opacity:0}}
