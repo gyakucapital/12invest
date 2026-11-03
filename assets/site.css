@@ -320,3 +320,9 @@ em.flat{color:var(--muted)}
   .follow-b{width:100%}
   .follow-b .btn{flex:1 1 0;justify-content:center}
 }
+.fin{margin:0 0 32px}
+.fin .sec{margin-top:0}
+.finchart{margin:0 0 14px}
+.finchart img{width:100%;height:auto;display:block;box-shadow:0 -4px 0 0 var(--line-hi),0 4px 0 0 var(--line-hi),-4px 0 0 0 var(--line-hi),4px 0 0 0 var(--line-hi)}
+.finchart figcaption{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
+.findata summary{cursor:pointer;font-size:13px;color:var(--gold);font-weight:700;margin-bottom:10px}

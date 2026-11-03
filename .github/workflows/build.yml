@@ -1,10 +1,10 @@
-# Rebuilds the site whenever posts.json, data/, img/ or the build tools change on main,
-# so an article can be published by editing posts.json in GitHub's web editor.
+# Rebuilds the site whenever content or tools change on main (so an article can be published by editing
+# posts.json in GitHub's web editor), then posts any new article to the 12Invest Telegram channel.
 name: Build site
 on:
   push:
     branches: [main]
-    paths: ["posts.json", "data/**", "img/**", "tools/**", "assets/**"]
+    paths: ["posts.json", "data/**", "img/**", "tools/**", "assets/**", "fonts/**"]
   workflow_dispatch:
 permissions:
   contents: write
@@ -18,19 +18,31 @@ jobs:
         with: { node-version: 22 }
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - name: Share images and WebP copies
+      - name: Tools
         run: |
           pip install pillow
           npm install --no-save playwright@1.49.1
           npx playwright install --with-deps chromium
           sudo apt-get install -y fonts-noto-cjk
-          python3 tools/images.py
+      - name: Charts, share images, WebP copies
+        run: |
+          node tools/charts.mjs
           node tools/og.mjs
+          python3 tools/images.py
       - name: Build pages
         run: node tools/build.mjs
-      - name: Commit generated files
+      - name: Publish generated files
         run: |
           git config user.name "12Invest"
           git config user.email "kyzen@gyakucapital.com"
           git add -A
           git diff --cached --quiet || (git commit -m "Build site [automated]" && git push)
+      - name: Post new articles to Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: node tools/telegram.mjs
+      - name: Save Telegram state
+        if: always()
+        run: |
+          git add data/telegram.json
+          git diff --cached --quiet || (git commit -m "Telegram posted [automated]" && git pull --rebase && git push)
