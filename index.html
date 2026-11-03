@@ -1,513 +1,78 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-base="/12invest/">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-2I+FBRLL5ce5GgaT+jK9f9jQp8AySf3pbZqd3XW04kw='; style-src 'sha256-MS6dv/P5tCSqN+RA/TH5YzKoSDPiR5uqFM2rqcBwJSI='; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>12Invest · 马股新股与上市公司解读</title>
 <meta name="description" content="12Invest：马股新股与上市公司解读，IPO 速读、估值与风险一次看懂。">
-<meta property="og:title" content="12Invest">
-<meta property="og:description" content="马股新股与上市公司解读">
+<link rel="canonical" href="https://gyakucapital.github.io/12invest/">
+<meta property="og:site_name" content="12Invest">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:type" content="website">
+<meta property="og:title" content="12Invest · 马股新股与上市公司解读">
+<meta property="og:description" content="12Invest：马股新股与上市公司解读，IPO 速读、估值与风险一次看懂。">
+<meta property="og:url" content="https://gyakucapital.github.io/12invest/">
+<meta property="og:image" content="https://gyakucapital.github.io/12invest/og/mydcd-ipo.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://gyakucapital.github.io/12invest/og/mydcd-ipo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#081230">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Crect x='1' y='2' width='10' height='8' fill='%23F4C24F'/%3E%3Crect x='3' y='1' width='6' height='10' fill='%23F4C24F'/%3E%3Crect x='3' y='7' width='1' height='2' fill='%23081230'/%3E%3Crect x='5' y='5' width='1' height='4' fill='%23081230'/%3E%3Crect x='7' y='3' width='1' height='6' fill='%23081230'/%3E%3C/svg%3E">
-<title>12Invest</title>
-<style>
-@font-face{font-family:"Silkscreen";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/silkscreen-400.woff2) format("woff2")}
-@font-face{font-family:"Silkscreen";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/silkscreen-700.woff2) format("woff2")}
-/* Layout: an 8-bit market terminal — pixel-notched panels on a navy grid, gold as the single accent, CJK body kept smooth for reading */
-:root{
-  --bg:#081230; --bg2:#0C1A42; --surface:#11235A; --surface2:#172D6E; --line:#2B4590; --line-hi:#3F5DB3;
-  --ink:#EEF2FF; --muted:#A3B3DC; --gold:#F4C24F; --gold-deep:#B8861A; --gold-ink:#081230; --signal:#FF7A66; --shadow:#030820;
-  --font-pixel:"Silkscreen","Noto Sans SC",ui-monospace,monospace;
-  --font-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
-  --px:4px;
-  color-scheme:dark;
-}
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.8;margin:0;
-  background-image:linear-gradient(rgba(63,93,179,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(63,93,179,.10) 1px,transparent 1px);
-  background-size:32px 32px}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-a{color:inherit}
-button,input,select,textarea{font:inherit;color:inherit}
-:focus-visible{outline:var(--px) solid var(--gold);outline-offset:2px}
-::selection{background:var(--gold);color:var(--gold-ink)}
-.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-
-/* pixel-notched panel: 4px stepped corners + hard drop shadow */
-.px{background:var(--surface);
-  box-shadow:0 calc(-1*var(--px)) 0 0 var(--line),0 var(--px) 0 0 var(--line),calc(-1*var(--px)) 0 0 0 var(--line),var(--px) 0 0 0 var(--line),
-  calc(2*var(--px)) calc(3*var(--px)) 0 0 var(--shadow)}
-.px-gold{box-shadow:0 calc(-1*var(--px)) 0 0 var(--gold),0 var(--px) 0 0 var(--gold),calc(-1*var(--px)) 0 0 0 var(--gold),var(--px) 0 0 0 var(--gold),
-  calc(2*var(--px)) calc(3*var(--px)) 0 0 var(--shadow)}
-
-/* masthead */
-.mast{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:var(--px) solid var(--line)}
-.mast .wrap{display:flex;align-items:center;gap:16px;padding-block:14px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo svg{width:36px;height:36px;flex:0 0 auto;shape-rendering:crispEdges}
-.logo .word{font-family:var(--font-pixel);font-weight:700;font-size:24px;letter-spacing:.04em;line-height:1;color:var(--ink)}
-.logo .word b{color:var(--gold);font-weight:700}
-.logo small{display:block;font-family:var(--font-body);font-size:12px;color:var(--muted);letter-spacing:.08em;margin-top:6px;font-weight:500}
-.mast nav{margin-left:auto;display:flex;gap:14px;align-items:center}
-.btn{font-family:var(--font-pixel);font-size:13px;letter-spacing:.04em;text-transform:uppercase;line-height:1.2;
-  display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:0;cursor:pointer;text-decoration:none;
-  background:var(--surface2);color:var(--ink);
-  box-shadow:0 -3px 0 0 var(--line-hi),0 3px 0 0 var(--line-hi),-3px 0 0 0 var(--line-hi),3px 0 0 0 var(--line-hi),4px 6px 0 0 var(--shadow);
-  transition:transform .06s steps(1)}
-.btn:hover{background:var(--line)}
-.btn:active{transform:translate(2px,3px);box-shadow:0 -3px 0 0 var(--line-hi),0 3px 0 0 var(--line-hi),-3px 0 0 0 var(--line-hi),3px 0 0 0 var(--line-hi)}
-.btn.primary{background:var(--gold);color:var(--gold-ink);
-  box-shadow:0 -3px 0 0 var(--gold-deep),0 3px 0 0 var(--gold-deep),-3px 0 0 0 var(--gold-deep),3px 0 0 0 var(--gold-deep),4px 6px 0 0 var(--shadow)}
-.btn.primary:hover{background:#FFD26B}
-.btn.ghost{background:transparent;box-shadow:none;color:var(--muted)}
-.btn.danger{background:transparent;color:var(--signal);box-shadow:0 -3px 0 0 var(--signal),0 3px 0 0 var(--signal),-3px 0 0 0 var(--signal),3px 0 0 0 var(--signal)}
-.tape{background:var(--bg2);border-top:var(--px) solid var(--line);overflow:hidden;white-space:nowrap;font-size:13px}
-.tape .wrap{padding-block:7px;display:flex;flex-wrap:nowrap;gap:32px;overflow-x:auto;scrollbar-width:none}
-.tape .wrap::-webkit-scrollbar{display:none}
-.tape span{color:var(--muted);flex:0 0 auto}
-.tape span i{font-style:normal;color:var(--gold);margin-right:8px;font-family:var(--font-pixel)}
-
-/* feed */
-main{padding-block:32px 72px}
-.filters{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:32px}
-.chip{font-family:var(--font-body);font-size:13px;font-weight:500;padding:5px 12px;cursor:pointer;border:0;background:var(--surface);color:var(--muted);
-  box-shadow:0 -2px 0 0 var(--line),0 2px 0 0 var(--line),-2px 0 0 0 var(--line),2px 0 0 0 var(--line)}
-.chip:hover{color:var(--ink)}
-.chip[aria-pressed="true"]{background:var(--gold);color:var(--gold-ink);font-weight:700;
-  box-shadow:0 -2px 0 0 var(--gold-deep),0 2px 0 0 var(--gold-deep),-2px 0 0 0 var(--gold-deep),2px 0 0 0 var(--gold-deep)}
-.search{margin-left:auto;min-width:0;flex:0 1 260px;border:0;background:var(--bg2);padding:8px 12px;font-size:14px;color:var(--ink);
-  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
-.search::placeholder{color:var(--muted)}
-.cat{font-family:var(--font-pixel);font-size:12px;letter-spacing:.06em;color:var(--gold);font-weight:700;display:inline-flex;align-items:center;gap:8px}
-.cat::before{content:"";width:8px;height:8px;background:var(--gold);display:inline-block}
-.sec{font-family:var(--font-pixel);font-size:14px;color:var(--muted);letter-spacing:.06em;margin:44px 0 8px;display:flex;align-items:center;gap:12px}
-.sec::after{content:"";flex:1;height:var(--px);background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 12px)}
-.lead{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;padding:24px;text-decoration:none;cursor:pointer}
-.lead .cover{aspect-ratio:16/10;overflow:hidden;background:var(--bg2);max-width:100%;
-  box-shadow:0 -4px 0 0 var(--gold),0 4px 0 0 var(--gold),-4px 0 0 0 var(--gold),4px 0 0 0 var(--gold)}
-.cover img{width:100%;height:100%;object-fit:cover;display:block}
-.lead h2{font-weight:900;font-size:clamp(23px,3.2vw,32px);line-height:1.35;margin:12px 0 12px;text-wrap:balance}
-.lead p{color:var(--muted);margin:0 0 16px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-.meta{font-family:var(--font-pixel);font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;letter-spacing:.03em}
-.minw0{min-width:0}
-.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}
-.item{display:grid;grid-template-columns:116px minmax(0,1fr);gap:18px;padding-block:20px;text-decoration:none;
-  border-bottom:var(--px) dotted var(--line)}
-.item .cover{aspect-ratio:1/1;overflow:hidden;background:var(--bg2);
-  box-shadow:0 -3px 0 0 var(--line-hi),0 3px 0 0 var(--line-hi),-3px 0 0 0 var(--line-hi),3px 0 0 0 var(--line-hi)}
-.item h3{font-weight:700;font-size:17px;line-height:1.5;margin:6px 0 6px;text-wrap:balance}
-.item:hover h3,.lead:hover h2{color:var(--gold)}
-.noimg{display:grid;place-items:center;width:100%;height:100%;font-family:var(--font-pixel);font-weight:700;color:var(--gold);font-size:12px;letter-spacing:.06em;
-  background:repeating-linear-gradient(45deg,var(--surface) 0 8px,var(--bg2) 8px 16px)}
-.empty{padding:44px 24px;text-align:center;color:var(--muted)}
-.empty h3{color:var(--ink);margin:0 0 6px;font-size:18px}
-.empty .px-coin{width:40px;height:40px;margin:0 auto 14px;display:block;shape-rendering:crispEdges}
-
-/* article */
-.article{max-width:740px;margin:0 auto}
-.back{font-family:var(--font-pixel);font-size:13px;color:var(--muted);text-decoration:none;display:block;width:max-content;margin-bottom:22px}
-.back:hover{color:var(--gold)}
-.article h1{font-weight:900;font-size:clamp(25px,4vw,36px);line-height:1.35;margin:12px 0 14px;text-wrap:balance}
-.facts{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;margin:28px 0 32px;background:var(--line);
-  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
-.facts .hd{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;background:var(--surface2);
-  font-family:var(--font-pixel);font-size:12px;letter-spacing:.08em;color:var(--gold)}
-.facts .hd span{color:var(--muted)}
-.fact{min-width:0;display:grid;grid-template-columns:8em minmax(0,1fr);gap:16px;align-items:baseline;padding:11px 20px;background:var(--surface)}
-.fact dt{font-size:13px;color:var(--muted);white-space:nowrap}
-.fact dd{margin:0;font-size:16px;line-height:1.5;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
-.sel{user-select:all}
-.langs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-.legal .body h2{font-size:18px}
-footer nav{display:flex;gap:6px 16px;flex-wrap:wrap;width:100%}
-footer nav a{color:var(--muted);text-decoration:none;font-size:12px}
-footer nav a:hover{color:var(--gold);text-decoration:underline}
-.body p{margin:0 0 1.2em}
-.body h2{font-size:21px;font-weight:900;margin:2em 0 .7em;color:var(--gold);display:flex;align-items:center;gap:12px}
-.body h2::before{content:"";width:12px;height:12px;background:var(--gold);flex:0 0 auto;box-shadow:4px 4px 0 0 var(--gold-deep)}
-.body strong{font-weight:700;color:#FFFFFF}
-.body figure{margin:1.6em 0}
-.body figure img{width:100%;display:block;background:var(--bg2);
-  box-shadow:0 -4px 0 0 var(--line-hi),0 4px 0 0 var(--line-hi),-4px 0 0 0 var(--line-hi),4px 0 0 0 var(--line-hi)}
-.body figcaption{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
-.body hr{border:0;height:var(--px);margin:2.2em 0;background:repeating-linear-gradient(90deg,var(--gold) 0 8px,transparent 8px 16px)}
-.body .callout{background:var(--surface2);padding:14px 18px;margin:0 0 1.3em;
-  box-shadow:0 -4px 0 0 var(--gold),0 4px 0 0 var(--gold),-4px 0 0 0 var(--gold),4px 0 0 0 var(--gold)}
-.body .callout p{margin:0}
-.body ol{padding-left:1.5em;margin:0 0 1.3em}
-.body ol li::marker{color:var(--gold);font-family:var(--font-pixel)}
-.tags{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.tags span{font-size:12px;color:var(--gold);background:var(--bg2);padding:3px 10px;
-  box-shadow:0 -2px 0 0 var(--line),0 2px 0 0 var(--line),-2px 0 0 0 var(--line),2px 0 0 0 var(--line)}
-.tools{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:var(--px) dotted var(--line);align-items:center}
-.note{font-size:12px;color:var(--muted)}
-.disc{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.75}
-
-/* editor */
-.desk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
-.panel{padding:22px;display:grid;gap:16px;min-width:0}
-.panel h2{margin:0;font-size:18px}
-label.f{display:grid;gap:6px;font-size:13px;color:var(--muted)}
-label.f input,label.f select,label.f textarea{border:0;background:var(--bg2);padding:9px 11px;color:var(--ink);font-size:15px;width:100%;min-width:0;
-  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
-label.f input:focus,label.f select:focus,label.f textarea:focus{outline:0;box-shadow:0 -3px 0 0 var(--gold),0 3px 0 0 var(--gold),-3px 0 0 0 var(--gold),3px 0 0 0 var(--gold)}
-label.f textarea{resize:vertical;line-height:1.7}
-#f-body{min-height:420px;font-size:14px}
-.row{display:flex;gap:14px;flex-wrap:wrap}
-.row>*{flex:1 1 160px;min-width:0}
-.tb{display:flex;gap:12px;flex-wrap:wrap;padding:4px}
-.tb .btn{padding:6px 10px;font-size:12px}
-.coverpick{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-.coverpick .thumb{width:100px;aspect-ratio:16/10;overflow:hidden;background:var(--bg2);flex:0 0 auto;
-  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
-.preview{position:sticky;top:calc(env(safe-area-inset-top,0px) + 110px);max-height:calc(100vh - 140px);overflow:auto}
-.preview .article{max-width:none}
-.count{font-family:var(--font-pixel);font-size:12px;color:var(--muted)}
-.confirm{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--bg2);padding:10px 14px;font-size:14px;
-  box-shadow:0 -3px 0 0 var(--signal),0 3px 0 0 var(--signal),-3px 0 0 0 var(--signal),3px 0 0 0 var(--signal)}
-.drafts{display:grid;gap:4px}
-.drafts a{display:flex;justify-content:space-between;gap:10px;text-decoration:none;font-size:14px;padding:7px 0;border-bottom:2px dotted var(--line)}
-.drafts a:hover{color:var(--gold)}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--gold);color:var(--gold-ink);
-  padding:9px 18px;font-size:14px;font-weight:700;z-index:20;box-shadow:0 -3px 0 0 var(--gold-deep),0 3px 0 0 var(--gold-deep),-3px 0 0 0 var(--gold-deep),3px 0 0 0 var(--gold-deep),4px 6px 0 0 var(--shadow)}
-footer{border-top:var(--px) solid var(--line);background:var(--bg2);padding-block:22px;font-size:12px;color:var(--muted)}
-footer .wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-footer .brand{font-family:var(--font-pixel);color:var(--gold);font-size:13px}
-.blink{animation:blink 1.1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-
-.glances{display:grid;gap:32px}
-.glance{display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px;padding:24px}
-.gcover{display:block;aspect-ratio:4/5;overflow:hidden;background:var(--bg2);align-self:start;
-  box-shadow:0 -3px 0 0 var(--line-hi),0 3px 0 0 var(--line-hi),-3px 0 0 0 var(--line-hi),3px 0 0 0 var(--line-hi)}
-.gcover img{width:100%;height:100%;object-fit:cover;display:block}
-.gbody{min-width:0;display:flex;flex-direction:column;gap:16px}
-.gtop{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.gtitle{margin:0;font-weight:900;font-size:clamp(19px,2.4vw,24px);line-height:1.4;text-wrap:balance}
-.gtitle a{text-decoration:none}
-.gtitle a:hover{color:var(--gold)}
-.gstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0}
-.gstat{min-width:0;background:var(--bg2);padding:10px 12px;
-  box-shadow:0 -2px 0 0 var(--line),0 2px 0 0 var(--line),-2px 0 0 0 var(--line),2px 0 0 0 var(--line)}
-.gstat dt{font-size:12px;color:var(--muted)}
-.gstat dd{margin:2px 0 0;font-weight:700;color:var(--gold);font-size:16px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
-.gcols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.gcol{min-width:0}
-.glabel{font-family:var(--font-pixel);font-size:12px;letter-spacing:.06em;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.glabel::before{content:"";width:8px;height:8px;display:inline-block}
-.pros .glabel{color:var(--gold)}.pros .glabel::before{background:var(--gold)}
-.watch .glabel{color:var(--signal)}.watch .glabel::before{background:var(--signal)}
-.gcol ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
-.gcol li{font-size:14px;line-height:1.65;color:var(--ink);padding-left:16px;position:relative}
-.gcol li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;background:var(--line-hi)}
-.gex{margin:0;color:var(--muted)}
-.gfoot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:var(--px) dotted var(--line)}
-.gtime{font-size:13px;color:var(--muted)}
-@media (max-width:860px){
-  .glance{grid-template-columns:1fr}
-  .gcover{aspect-ratio:16/9}
-  .gstats{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .gcols{grid-template-columns:1fr}
-  .lead{grid-template-columns:1fr;padding:18px}
-  .list{grid-template-columns:1fr}
-  .desk{grid-template-columns:1fr}
-  .preview{position:static;max-height:none}
-}
-@media (max-width:460px){
-  .fact{grid-template-columns:6.5em minmax(0,1fr);gap:12px;padding:10px 14px}
-  .facts .hd{padding:10px 14px}
-  .item{grid-template-columns:84px minmax(0,1fr)}
-  .logo small{display:none}
-  .logo .word{font-size:20px}
-  .search{flex:1 1 100%;margin-left:0}
-  .mast nav{gap:12px}
-  .btn{font-size:12px;padding:8px 10px}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-</style>
+<link rel="alternate" type="application/rss+xml" title="12Invest" href="/12invest/feed.xml">
+<link rel="preload" href="/12invest/fonts/silkscreen-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/12invest/assets/site.css?v=7ff3e291">
+<script src="/12invest/assets/app.js?v=59cda65d" defer></script>
 </head>
 <body>
-
 <header class="mast">
   <div class="wrap">
-    <a class="logo" href="#home" aria-label="12Invest 首页">
-      <svg viewBox="0 0 12 12" aria-hidden="true"><rect x="3" y="0" width="6" height="1" fill="#B8861A"/><rect x="1" y="1" width="2" height="1" fill="#B8861A"/><rect x="9" y="1" width="2" height="1" fill="#B8861A"/><rect x="0" y="3" width="1" height="6" fill="#B8861A"/><rect x="11" y="3" width="1" height="6" fill="#B8861A"/><rect x="1" y="2" width="10" height="8" fill="#F4C24F"/><rect x="3" y="1" width="6" height="10" fill="#F4C24F"/><rect x="1" y="10" width="2" height="1" fill="#B8861A"/><rect x="9" y="10" width="2" height="1" fill="#B8861A"/><rect x="3" y="11" width="6" height="1" fill="#B8861A"/><rect x="3" y="7" width="1" height="2" fill="#081230"/><rect x="5" y="5" width="1" height="4" fill="#081230"/><rect x="7" y="3" width="1" height="6" fill="#081230"/><rect x="2" y="3" width="1" height="1" fill="#FFE7A3"/></svg>
-      <span><span class="word">12<b>INVEST</b></span><small>马股 · IPO · 公司解读</small></span>
-    </a>
-    <nav id="nav"></nav>
+    <a class="logo" href="/12invest/" aria-label="12Invest 首页"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="3" y="0" width="6" height="1" fill="#B8861A"/><rect x="1" y="1" width="2" height="1" fill="#B8861A"/><rect x="9" y="1" width="2" height="1" fill="#B8861A"/><rect x="0" y="3" width="1" height="6" fill="#B8861A"/><rect x="11" y="3" width="1" height="6" fill="#B8861A"/><rect x="1" y="2" width="10" height="8" fill="#F4C24F"/><rect x="3" y="1" width="6" height="10" fill="#F4C24F"/><rect x="1" y="10" width="2" height="1" fill="#B8861A"/><rect x="9" y="10" width="2" height="1" fill="#B8861A"/><rect x="3" y="11" width="6" height="1" fill="#B8861A"/><rect x="3" y="7" width="1" height="2" fill="#081230"/><rect x="5" y="5" width="1" height="4" fill="#081230"/><rect x="7" y="3" width="1" height="6" fill="#081230"/><rect x="2" y="3" width="1" height="1" fill="#FFE7A3"/></svg><span><span class="word">12<b>INVEST</b></span><small>马股 · IPO · 公司解读</small></span></a>
+    <nav aria-label="主导航"><a href="/12invest/" aria-current="page">文章</a><a href="/12invest/ipo/">IPO 日历</a></nav>
   </div>
-  <div class="tape"><div class="wrap" id="tape"><span><i>&gt;</i>马股新股与上市公司解读</span></div></div>
+  <div class="tape"><div class="wrap"><span data-d="2026-11-04"><i>&gt;</i>11月4日 MyDCD 抽签</span><span data-d="2026-11-05"><i>&gt;</i>11月5日 Big Caring 截止申请</span><span data-d="2026-11-06"><i>&gt;</i>11月6日 Impact Capital 截止申请</span><span data-d="2026-11-10"><i>&gt;</i>11月10日 Big Caring 定价</span><span data-d="2026-11-12"><i>&gt;</i>11月12日 Impact Capital 抽签</span><span data-d="2026-11-17"><i>&gt;</i>11月17日 MyDCD 挂牌</span><span data-d="2026-11-19"><i>&gt;</i>11月19日 Big Caring 挂牌</span><span data-d="2026-11-24"><i>&gt;</i>11月24日 Impact Capital 挂牌</span></div></div>
 </header>
-
-<main class="wrap" id="app"><div class="empty px"><h3>正在载入文章</h3>稍等片刻<span class="blink">_</span></div></main>
+<main class="wrap" id="main">
+<section class="upc" data-upcoming><div class="sec"><span>近期 IPO 日程</span><a href="/12invest/ipo/">完整日历 →</a></div><ol class="events" data-limit="4"><li class="ev today" data-d="2026-11-04"><time datetime="2026-11-04">11月4日（三）</time><span class="kind">抽签</span><span class="who"><a href="/12invest/p/mydcd-ipo/">MyDCD</a></span></li><li class="ev" data-d="2026-11-05"><time datetime="2026-11-05">11月5日（四）</time><span class="kind">截止申请</span><span class="who"><a href="/12invest/p/bigcaring-ipo/">Big Caring</a></span></li><li class="ev" data-d="2026-11-06"><time datetime="2026-11-06">11月6日（五）</time><span class="kind">截止申请</span><span class="who"><a href="/12invest/p/impact-capital-ipo/">Impact Capital</a></span></li><li class="ev" data-d="2026-11-10"><time datetime="2026-11-10">11月10日（二）</time><span class="kind">定价</span><span class="who"><a href="/12invest/p/bigcaring-ipo/">Big Caring</a></span></li><li class="ev" data-d="2026-11-12"><time datetime="2026-11-12">11月12日（四）</time><span class="kind">抽签</span><span class="who"><a href="/12invest/p/impact-capital-ipo/">Impact Capital</a></span></li><li class="ev" data-d="2026-11-17"><time datetime="2026-11-17">11月17日（二）</time><span class="kind">挂牌</span><span class="who"><a href="/12invest/p/mydcd-ipo/">MyDCD</a></span></li><li class="ev" data-d="2026-11-19"><time datetime="2026-11-19">11月19日（四）</time><span class="kind">挂牌</span><span class="who"><a href="/12invest/p/bigcaring-ipo/">Big Caring</a></span></li><li class="ev" data-d="2026-11-24"><time datetime="2026-11-24">11月24日（二）</time><span class="kind">挂牌</span><span class="who"><a href="/12invest/p/impact-capital-ipo/">Impact Capital</a></span></li></ol></section>
+<div class="filters" id="filters" hidden><button class="chip" type="button" data-cat="全部" aria-pressed="true">全部</button><button class="chip" type="button" data-cat="IPO 新股" aria-pressed="false">IPO 新股</button>
+  <input class="search" id="q" type="search" placeholder="搜索公司、主题…" aria-label="搜索文章" autocomplete="off"></div>
+<div class="sec">一眼看懂 · <span id="count">3</span> 篇</div>
+<div class="glances"><article class="glance px" data-cat="IPO 新股" data-text="【 ipo 新股 】数据中心背后的机电专家 mydcd 下月挂牌，分析员看合理价 rm1.07 数据中心机电系统承包商 mydcd 以每股 56仙 发售，上市市值约 rm1.0 billion，本益比约 15倍，11月17日登陆 ace market。手握 rm1.32 billion 订单，m+ global 给出 rm1.07 合理价，客户集中于 binastra 则需留意。 ipo bursa acemarket mydcd 数据中心 moomoo 12invest mydcd">
+  <a class="gcover" href="/12invest/p/mydcd-ipo/" tabindex="-1" aria-hidden="true"><img src="/12invest/img/mydcd-projects.jpg" alt="" width="1600" height="353" loading="eager" decoding="async"></a>
+  <div class="gbody">
+    <div class="gtop"><span class="cat">【IPO 新股】</span><span class="gtop-r"><span class="badge" data-ipo data-open="2026-10-26" data-close="2026-11-02" data-listing="2026-11-17" data-s="closed">已截止 · 待挂牌</span><span class="meta"><span>2026年11月2日</span></span></span></div>
+    <h2 class="gtitle"><a href="/12invest/p/mydcd-ipo/">【 IPO 新股 】数据中心背后的机电专家 MyDCD 下月挂牌，分析员看合理价 RM1.07</a></h2>
+    <dl class="gstats"><div class="gstat"><dt>发售价</dt><dd>RM0.56</dd></div><div class="gstat"><dt>上市市值</dt><dd>约 RM1.0b</dd></div><div class="gstat"><dt>本益比</dt><dd>约 15.1 倍</dd></div><div class="gstat"><dt>M+ 合理价</dt><dd>RM1.07</dd></div></dl>
+    <div class="gcols"><div class="gcol pros"><div class="glabel">亮点</div><ul><li>手握 RM1.32b 订单，约 1.98 倍 FYE2026 营业额</li><li>三年营收复合增长 52.8%，净利复合增长 58.5%</li><li>维护业务毛利率约 43%，几乎零借贷</li></ul></div><div class="gcol watch"><div class="glabel">留意</div><ul><li>Binastra 贡献 FYE2026 营业额 85.36%</li><li>业务与数据中心投资周期挂钩</li><li>合约资产约 RM147.5m，收款周期约 89 天</li></ul></div></div>
+    <div class="gfoot"><span class="gtime">11月4日抽签 · 11月17日挂牌 ACE</span><a class="btn primary" href="/12invest/p/mydcd-ipo/">阅读全文 →</a></div>
+  </div>
+</article>
+<article class="glance px" data-cat="IPO 新股" data-text="【 ipo 新股 】砂拉越ict老字号 impact capital 上ace，22仙发售、本益比约11倍，值得申购吗？ 砂拉越 ict 整合商 impact capital 以每股 22仙 发售，上市市值约 rm105.6 million，本益比约 11.3倍，11月24日登陆 ace market。手握约 rm169.9m 订单、现金多借贷少，客户集中则是要留意的地方。 ipo bursa acemarket impactcapital 科技股 moomoo 12invest impact capital">
+  <a class="gcover" href="/12invest/p/impact-capital-ipo/" tabindex="-1" aria-hidden="true"><img src="/12invest/img/impact-cover.jpg" alt="" width="1034" height="641" loading="eager" decoding="async"></a>
+  <div class="gbody">
+    <div class="gtop"><span class="cat">【IPO 新股】</span><span class="gtop-r"><span class="badge" data-ipo data-open="2026-10-27" data-close="2026-11-06" data-listing="2026-11-24" data-s="open">招股中</span><span class="meta"><span>2026年10月29日</span></span></span></div>
+    <h2 class="gtitle"><a href="/12invest/p/impact-capital-ipo/">【 IPO 新股 】砂拉越ICT老字号 Impact Capital 上ACE，22仙发售、本益比约11倍，值得申购吗？</a></h2>
+    <dl class="gstats"><div class="gstat"><dt>发售价</dt><dd>RM0.22</dd></div><div class="gstat"><dt>上市市值</dt><dd>约 RM105.6m</dd></div><div class="gstat"><dt>本益比</dt><dd>约 11.3 倍</dd></div><div class="gstat"><dt>总订单</dt><dd>RM169.9m</dd></div></dl>
+    <div class="gcols"><div class="gcol pros"><div class="glabel">亮点</div><ul><li>21 年砂拉越 ICT 整合经验，代表项目 SMART 600</li><li>经常性收入占比升至 21.4%</li><li>现金 RM29.9m，借贷仅 RM4.2m</li></ul></div><div class="gcol watch"><div class="glabel">留意</div><ul><li>SDEC 占 FYE2026 营业额 41.3%</li><li>毛利率约 14%，项目多为定额合约</li><li>应收周转期由 16 天拉长至 95 天</li></ul></div></div>
+    <div class="gfoot"><span class="gtime">11月6日截止 · 11月24日挂牌 ACE</span><a class="btn primary" href="/12invest/p/impact-capital-ipo/">阅读全文 →</a></div>
+  </div>
+</article>
+<article class="glance px" data-cat="IPO 新股" data-text="【 ipo 新股 】马股今年第二大ipo！全国最大药剂连锁 big caring 来了，rm1.08 值得申购吗？ 全国最大药剂连锁 big caring group 今天推介招股书，以最高每股 rm1.08 发售最多 18.82亿股，上市市值约 rm8 billion，计划11月19日登陆主板。规模、增长、估值和风险，版主一次整理给你。 ipo bursa mainmarket bigcaring 药剂股 moomoo 12invest big caring">
+  <a class="gcover" href="/12invest/p/bigcaring-ipo/" tabindex="-1" aria-hidden="true"><img src="/12invest/img/bcg-stores.jpg" alt="" width="1298" height="922" loading="lazy" decoding="async"></a>
+  <div class="gbody">
+    <div class="gtop"><span class="cat">【IPO 新股】</span><span class="gtop-r"><span class="badge" data-ipo data-open="2026-10-29" data-close="2026-11-05" data-listing="2026-11-19" data-s="open">招股中</span><span class="meta"><span>2026年10月29日</span></span></span></div>
+    <h2 class="gtitle"><a href="/12invest/p/bigcaring-ipo/">【 IPO 新股 】马股今年第二大IPO！全国最大药剂连锁 Big Caring 来了，RM1.08 值得申购吗？</a></h2>
+    <dl class="gstats"><div class="gstat"><dt>发售价</dt><dd>最高 RM1.08</dd></div><div class="gstat"><dt>上市市值</dt><dd>约 RM8.0b</dd></div><div class="gstat"><dt>本益比</dt><dd>约 41.5 倍</dd></div><div class="gstat"><dt>门店</dt><dd>668 间</dd></div></dl>
+    <div class="gcols"><div class="gcol pros"><div class="glabel">亮点</div><ul><li>全国最大药剂连锁，2025 年市占率约 24.2%</li><li>三年营收复合增长约 53.6%，FY2026 PATAMI RM191.6m</li><li>毛利率由 20.9% 升至 30.1%</li></ul></div><div class="gcol watch"><div class="glabel">留意</div><ul><li>估值不低，派足 50% 股息率也仅约 1.2%</li><li>总借贷约 RM1.35b</li><li>IPO 约 68.6% 为献售旧股</li></ul></div></div>
+    <div class="gfoot"><span class="gtime">11月5日截止 · 11月19日挂牌主板</span><a class="btn primary" href="/12invest/p/bigcaring-ipo/">阅读全文 →</a></div>
+  </div>
+</article></div>
+<div class="empty px" id="nores" hidden><h3>没有符合的文章</h3>换个关键词或分类试试。</div>
+</main>
 <footer><div class="wrap"><span class="brand">12INVEST</span><span>本站内容仅供参考及教育用途，并不构成任何买卖建议。投资涉及风险，请自行判断。</span>
-<nav aria-label="Legal"><a href="#privacy">隐私政策 Privacy Notice</a><a href="#disclaimer">免责声明 Disclaimer</a><a href="#terms">使用条款 Terms of Use</a><span>© 2026 Gyaku Capital Sdn. Bhd. (201901044631)</span></nav></div></footer>
-<div class="toast" id="toast" hidden></div>
-
-<script>
-(() => {
-const DISC = "本文仅供参考及教育用途，并不构成任何买卖建议。投资者在作出任何投资决定前，应细阅相关资料并自行判断。投资涉及风险，请谨慎。";
-const S = { posts: [], loaded: false, failed: false, cat: "全部", q: "", lang: "en" };
-const $ = s => document.querySelector(s);
-const app = $("#app");
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
-const safeSrc = p => /^img\/[A-Za-z0-9._-]+$/.test(p || "") ? p : "";
-const fmtDate = iso => { if (!iso) return ""; const d = new Date(iso); return isNaN(d) ? "" : `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`; };
-const toast = m => { const t = $("#toast"); t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 2200); };
-
-/* ---------- body markup ---------- */
-function inline(t){ return esc(t).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>"); }
-function render(body){
-  const lines = String(body || "").replace(/\r/g, "").split("\n");
-  const out = []; let para = [], ol = [], call = [];
-  const flush = () => {
-    if (para.length){ out.push("<p>" + inline(para.join("")) + "</p>"); para = []; }
-    if (ol.length){ out.push("<ol>" + ol.map(x => "<li>" + inline(x) + "</li>").join("") + "</ol>"); ol = []; }
-    if (call.length){ out.push('<div class="callout">' + call.map(x => "<p>" + inline(x) + "</p>").join("") + "</div>"); call = []; }
-  };
-  for (const raw of lines){
-    const l = raw.trim();
-    let m;
-    if (!l){ flush(); continue; }
-    if ((m = l.match(/^!\[(.*?)\]\((img\/[A-Za-z0-9._-]+)\)$/))){ flush(); out.push(`<figure><img src="${safeSrc(m[2])}" alt="${esc(m[1] || "图表")}" loading="lazy">${m[1] ? `<figcaption>${esc(m[1])}</figcaption>` : ""}</figure>`); continue; }
-    if (l === "---"){ flush(); out.push("<hr>"); continue; }
-    if ((m = l.match(/^##\s+(.*)/))){ flush(); out.push("<h2>" + inline(m[1]) + "</h2>"); continue; }
-    if ((m = l.match(/^>\s?(.*)/))){ if (para.length || ol.length){ const c = call; call = []; flush(); call = c; } call.push(m[1]); continue; }
-    if ((m = l.match(/^\d+[.、]\s*(.*)/))){ if (para.length || call.length){ const o = ol; ol = []; flush(); ol = o; } ol.push(m[1]); continue; }
-    if (call.length || ol.length) flush();
-    para.push(l);
-  }
-  flush();
-  return out.join("");
-}
-function plain(p){
-  const facts = (p.keyFacts || []).map(f => `${f.k}：${f.v}`).join("\n");
-  const body = String(p.body || "").split("\n").map(l => {
-    const t = l.trim();
-    if (/^!\[.*\]\(img\//.test(t)) return null;
-    if (t === "---") return "";
-    return t.replace(/^##\s+/, "").replace(/^>\s?/, "").replace(/\*\*/g, "");
-  }).filter(x => x !== null).join("\n").replace(/\n{3,}/g, "\n\n");
-  const tags = (p.tags || []).map(t => "#" + t).join(" ");
-  return [p.title, facts, body.trim(), "免责声明：" + DISC, tags].filter(Boolean).join("\n\n");
-}
-
-/* ---------- views ---------- */
-function coverHTML(p){
-  const src = safeSrc(p.cover);
-  return src ? `<img src="${src}" alt="" loading="lazy">` : `<div class="noimg">${esc(p.category || "12INVEST")}</div>`;
-}
-function visible(){
-  const q = S.q.trim().toLowerCase();
-  return S.posts.filter(p => (S.cat === "全部" || p.category === S.cat) &&
-    (!q || [p.title, p.excerpt, (p.tags||[]).join(" ")].join(" ").toLowerCase().includes(q)));
-}
-function glanceHTML(p){
-  const g = p.glance || {};
-  const stats = (g.stats && g.stats.length ? g.stats : (p.keyFacts || []).slice(0, 4)).filter(s => s.k && s.v);
-  const list = (arr, cls, label) => arr && arr.length ? `<div class="gcol ${cls}"><div class="glabel">${label}</div><ul>${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : "";
-  const href = `#p-${esc(p.id)}`;
-  return `<article class="glance px">
-    <a class="gcover" href="${href}" tabindex="-1" aria-hidden="true">${coverHTML(p)}</a>
-    <div class="gbody">
-      <div class="gtop"><span class="cat">【${esc(p.category)}】</span><span class="meta"><span>${fmtDate(p.publishedAt)}</span></span></div>
-      <h2 class="gtitle"><a href="${href}">${esc(p.title)}</a></h2>
-      ${stats.length ? `<dl class="gstats">${stats.map(s => `<div class="gstat"><dt>${esc(s.k)}</dt><dd>${esc(s.v)}</dd></div>`).join("")}</dl>` : ""}
-      ${(g.pros || g.watch) ? `<div class="gcols">${list(g.pros, "pros", "亮点")}${list(g.watch, "watch", "留意")}</div>` : `<p class="gex">${esc(p.excerpt)}</p>`}
-      <div class="gfoot">${g.timeline ? `<span class="gtime">${esc(g.timeline)}</span>` : "<span></span>"}<a class="btn primary" href="${href}">阅读全文 →</a></div>
-    </div>
-  </article>`;
-}
-function viewHome(){
-  const cats = ["全部", ...[...new Set(S.posts.map(p => p.category).filter(Boolean))]];
-  const list = visible();
-  let html = `<div class="filters">${cats.map(c => `<button class="chip" data-cat="${esc(c)}" aria-pressed="${c===S.cat}">${esc(c)}</button>`).join("")}
-    <input class="search" id="q" type="search" placeholder="搜索公司、主题…" value="${esc(S.q)}" aria-label="搜索文章"></div>`;
-  if (!S.loaded) html += `<div class="empty px"><h3>正在载入文章</h3>稍等片刻<span class="blink">_</span></div>`;
-  else if (S.failed) html += `<div class="empty px"><h3>文章暂时载入不了</h3>请刷新页面再试一次。</div>`;
-  else if (!S.posts.length) html += `<div class="empty px"><h3>还没有发布文章</h3>第一篇文章发布后会出现在这里。</div>`;
-  else if (!list.length) html += `<div class="empty px"><h3>没有符合的文章</h3>换个关键词或分类试试。</div>`;
-  else {
-    html += `<div class="sec">一眼看懂 · ${list.length} 篇</div><div class="glances">${list.map(glanceHTML).join("")}</div>`;
-  }
-  app.innerHTML = html;
-  app.querySelectorAll("[data-cat]").forEach(b => b.onclick = () => { S.cat = b.dataset.cat; viewHome(); });
-  const q = $("#q"); if (q) q.oninput = e => { S.q = e.target.value; const pos = e.target.selectionStart; viewHome(); const n = $("#q"); n.focus(); n.setSelectionRange(pos,pos); };
-  setTape();
-}
-/* key facts: single-column spec sheet so every label and value lines up */
-function factsHTML(facts){
-  return `<dl class="facts"><div class="hd">关键资料<span>KEY FACTS</span></div>${facts.map(f =>
-    `<div class="fact"><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join("")}</dl>`;
-}
-function articleHTML(p){
-  const facts = (p.keyFacts || []).filter(f => f.k && f.v);
-  return `<article class="article">
-    <a class="back" href="#home">← 返回所有文章</a>
-    <div class="cat">【${esc(p.category || "未分类")}】</div>
-    <h1>${esc(p.title)}</h1>
-    <div class="meta"><span>${fmtDate(p.publishedAt)}</span><span>12Invest</span></div>
-    ${facts.length ? factsHTML(facts) : ""}
-    <div class="body">${render(p.body)}</div>
-    <p class="disc"><strong>免责声明：</strong>${DISC}</p>
-    ${(p.tags||[]).length ? `<div class="tags">${p.tags.map(t => `<span>#${esc(t)}</span>`).join("")}</div>` : ""}
-  </article>`;
-}
-function viewPost(id){
-  const p = S.posts.find(x => x.id === id);
-  if (!p){ app.innerHTML = S.loaded ? `<div class="empty px"><h3>找不到这篇文章</h3><a href="#home">返回所有文章</a></div>` : `<div class="empty px"><h3>正在载入文章</h3>稍等片刻<span class="blink">_</span></div>`; return; }
-  const txt = plain(p);
-  app.innerHTML = articleHTML(p) + `<div class="article"><div class="tools">
-      <button class="btn" id="copy">复制全文</button>
-      <span class="note">${txt.length.toLocaleString()} 字符 · 纯文字，可直接分享</span></div>
-      <textarea id="copysrc" hidden readonly>${esc(txt)}</textarea></div>`;
-  $("#copy").onclick = () => copyText(txt);
-  setTape(p);
-  document.title = p.title + " · 12Invest";
-  window.scrollTo(0, 0);
-}
-async function copyText(t){
-  try { await navigator.clipboard.writeText(t); toast("已复制全文"); }
-  catch { const ta = $("#copysrc"); ta.hidden = false; ta.style.width = "100%"; ta.style.minHeight = "160px"; ta.select(); toast("已选取全文，请按复制"); }
-}
-function setTape(p){
-  const items = p ? (p.keyFacts || []).filter(f=>f.k&&f.v).map(f => `<span><i>&gt;</i>${esc(f.k)} ${esc(f.v)}</span>`)
-                  : S.posts.slice(0, 6).map(x => `<span><i>&gt;</i>${esc(x.category)} · ${esc(String(x.title).replace(/^【.*?】\s*/, "").slice(0, 26))}</span>`);
-  $("#tape").innerHTML = items.length ? items.join("") : `<span><i>&gt;</i>马股新股与上市公司解读</span>`;
-}
-
-/* ---------- legal pages (EN / BM) ---------- */
-const PUB = {
-  en: "12Invest is operated by Gyaku Capital Sdn. Bhd. (Registration No. 201901044631 (1353961-A)), 9-1 Jalan Prima 9, Pusat Niaga Metro Prima, Kepong, 52100 Kuala Lumpur, Malaysia.",
-  bm: "12Invest dikendalikan oleh Gyaku Capital Sdn. Bhd. (No. Pendaftaran 201901044631 (1353961-A)), 9-1 Jalan Prima 9, Pusat Niaga Metro Prima, Kepong, 52100 Kuala Lumpur, Malaysia."
-};
-const CONTACT = "kyzen@gyakucapital.com";
-const UPDATED = { en: "Last updated: 3 November 2026", bm: "Kemas kini terakhir: 3 November 2026" };
-const LEGAL = {
-  privacy: {
-    zh: "隐私政策",
-    en: { title: "Privacy Notice", sub: "Personal Data Protection Act 2010", s: [
-      ["Who we are", "12Invest (the \"Website\") is operated by Gyaku Capital Sdn. Bhd., the data controller for the purposes of the Personal Data Protection Act 2010 (\"PDPA\"), as amended by the Personal Data Protection (Amendment) Act 2024."],
-      ["Personal data we process", "You can read this Website without registering or giving us any personal data. We do not use cookies, analytics, advertising trackers or any third-party scripts, and the Website has no sign-up or contact forms. Our hosting provider, GitHub Pages (GitHub, Inc.), automatically processes technical data such as your IP address, browser type and the time of your visit in order to deliver the Website securely. If you contact us by email or through our social media channels, we process the details you give us, such as your name, contact details and the content of your message."],
-      ["Purposes", "We process personal data to respond to your enquiries and feedback; to operate, secure and improve the Website; and to comply with our legal and regulatory obligations."],
-      ["Source of data", "Directly from you, and technical data generated by your browser when you visit the Website."],
-      ["Disclosure", "We do not sell or rent personal data. We disclose it only to service providers that help us run the Website or our email (such as hosting providers), to our professional advisers, and to government or regulatory authorities where required by law."],
-      ["Transfer outside Malaysia", "Our hosting and email providers may store data on servers outside Malaysia, including in the United States. We allow such transfers only where permitted under the PDPA, for example where the receiving country has laws substantially similar to the PDPA or adequate protection is in place."],
-      ["Retention", "We keep personal data only for as long as needed for the purposes above or as required by law, and then delete it securely."],
-      ["Security", "The Website is served only over encrypted HTTPS, uses a strict content security policy, runs no third-party code, and access to its systems is restricted."],
-      ["Your rights", "Subject to the PDPA, you may request access to and correction of your personal data, withdraw your consent, limit the processing of your data, ask us to stop processing that is likely to cause damage or distress, and ask us to transmit your data to another data controller (data portability). Send your request to the contact below and we will respond within 21 days, as required by the PDPA."],
-      ["Data breach", "If a personal data breach occurs, we will notify the Personal Data Protection Commissioner and, where the breach is likely to cause significant harm, the individuals affected, as required by law."],
-      ["Is providing data compulsory?", "No. If you choose not to give us personal data when contacting us, we may be unable to respond to your enquiry."],
-      ["Children", "The Website is not directed at persons under 18, and we do not knowingly collect their personal data."],
-      ["Changes", "We may update this notice from time to time. The date of the latest update is shown at the top."],
-      ["Language", "This notice is available in English and Bahasa Malaysia. If there is any inconsistency between the two, the English version prevails."]
-    ]},
-    bm: { title: "Notis Perlindungan Data Peribadi", sub: "Akta Perlindungan Data Peribadi 2010", s: [
-      ["Siapa kami", "Laman web 12Invest (\"Laman Web\") dikendalikan oleh Gyaku Capital Sdn. Bhd., iaitu pengawal data bagi maksud Akta Perlindungan Data Peribadi 2010 (\"APDP\") sebagaimana dipinda oleh Akta Perlindungan Data Peribadi (Pindaan) 2024."],
-      ["Data peribadi yang kami proses", "Anda boleh membaca Laman Web ini tanpa mendaftar atau memberikan sebarang data peribadi. Kami tidak menggunakan kuki, alat analitik, penjejak pengiklanan atau sebarang skrip pihak ketiga, dan Laman Web ini tidak mempunyai borang pendaftaran atau borang hubungan. Penyedia hos kami, GitHub Pages (GitHub, Inc.), memproses data teknikal secara automatik seperti alamat IP, jenis pelayar dan masa lawatan anda bagi menyampaikan Laman Web dengan selamat. Jika anda menghubungi kami melalui e-mel atau saluran media sosial kami, kami memproses butiran yang anda berikan, seperti nama, butiran perhubungan dan kandungan mesej anda."],
-      ["Tujuan", "Kami memproses data peribadi untuk menjawab pertanyaan dan maklum balas anda; mengendalikan, melindungi dan menambah baik Laman Web; serta mematuhi kewajipan undang-undang dan peraturan kami."],
-      ["Sumber data", "Terus daripada anda, dan data teknikal yang dijana oleh pelayar anda semasa melawat Laman Web."],
-      ["Pendedahan", "Kami tidak menjual atau menyewakan data peribadi. Kami hanya mendedahkannya kepada penyedia perkhidmatan yang membantu kami mengendalikan Laman Web atau e-mel kami (seperti penyedia hos), penasihat profesional kami, serta pihak berkuasa kerajaan atau kawal selia apabila dikehendaki oleh undang-undang."],
-      ["Pemindahan ke luar Malaysia", "Penyedia hos dan e-mel kami mungkin menyimpan data di pelayan di luar Malaysia, termasuk di Amerika Syarikat. Kami hanya membenarkan pemindahan sedemikian apabila dibenarkan di bawah APDP, contohnya apabila negara penerima mempunyai undang-undang yang pada dasarnya serupa dengan APDP atau perlindungan yang mencukupi telah disediakan."],
-      ["Tempoh penyimpanan", "Kami menyimpan data peribadi hanya selama yang perlu bagi tujuan di atas atau sebagaimana dikehendaki oleh undang-undang, dan kemudian memadamkannya dengan selamat."],
-      ["Keselamatan", "Laman Web ini hanya disampaikan melalui HTTPS yang disulitkan, menggunakan dasar keselamatan kandungan yang ketat, tidak menjalankan kod pihak ketiga, dan akses kepada sistemnya adalah terhad."],
-      ["Hak anda", "Tertakluk kepada APDP, anda boleh meminta akses kepada dan pembetulan data peribadi anda, menarik balik persetujuan anda, mengehadkan pemprosesan data anda, meminta kami menghentikan pemprosesan yang mungkin menyebabkan kerosakan atau distres, dan meminta kami memindahkan data anda kepada pengawal data lain (kemudahalihan data). Hantar permintaan anda kepada alamat perhubungan di bawah dan kami akan menjawab dalam tempoh 21 hari, sebagaimana dikehendaki oleh APDP."],
-      ["Pelanggaran data", "Sekiranya berlaku pelanggaran data peribadi, kami akan memaklumkan Pesuruhjaya Perlindungan Data Peribadi dan, jika pelanggaran itu mungkin menyebabkan kemudaratan yang ketara, individu yang terjejas, sebagaimana dikehendaki oleh undang-undang."],
-      ["Adakah pemberian data wajib?", "Tidak. Jika anda memilih untuk tidak memberikan data peribadi semasa menghubungi kami, kami mungkin tidak dapat menjawab pertanyaan anda."],
-      ["Kanak-kanak", "Laman Web ini tidak ditujukan kepada individu di bawah umur 18 tahun, dan kami tidak mengumpul data peribadi mereka dengan sengaja."],
-      ["Perubahan", "Kami boleh mengemas kini notis ini dari semasa ke semasa. Tarikh kemas kini terkini dinyatakan di bahagian atas."],
-      ["Bahasa", "Notis ini disediakan dalam bahasa Inggeris dan Bahasa Malaysia. Sekiranya terdapat sebarang percanggahan antara kedua-duanya, versi bahasa Inggeris akan diguna pakai."]
-    ]}
-  },
-  disclaimer: {
-    zh: "免责声明",
-    en: { title: "Disclaimer", sub: "Please read before relying on any content", s: [
-      ["Not investment advice", "All content on 12Invest, including articles, charts and summaries, is published for general information and education only. It does not take into account your objectives, financial situation or needs, and it is not investment advice, a recommendation, or an offer or solicitation to buy or sell any securities. Neither 12Invest nor Gyaku Capital Sdn. Bhd. holds a Capital Markets Services Licence or is licensed by the Securities Commission Malaysia to give investment advice."],
-      ["Do your own research", "Before making any investment decision, read the relevant prospectus, announcements and other official documents in full, and consider seeking advice from a licensed adviser. Investing involves risk, including the loss of capital. Past performance, including IPO first-day performance, is not an indicator of future returns."],
-      ["Accuracy", "Information is taken from prospectuses, company presentations, Bursa Malaysia announcements and public reports believed to be reliable, and is accurate as at the date of publication. We do not guarantee that it is complete, accurate or current, and we are under no obligation to update it."],
-      ["Third-party views", "Target prices, fair values or forecasts attributed to research houses or other third parties are their views, not ours."],
-      ["Independent content and promotions", "Articles are our own study of publicly available information, such as prospectuses and company announcements. Some articles contain promotional content from partners, such as brokerage platforms; such content is identified within the article."],
-      ["Limitation of liability", "To the fullest extent permitted by law, neither 12Invest nor Gyaku Capital Sdn. Bhd. is liable for any loss arising from reliance on the content of this Website."]
-    ]},
-    bm: { title: "Penafian", sub: "Sila baca sebelum bergantung pada sebarang kandungan", s: [
-      ["Bukan nasihat pelaburan", "Semua kandungan di 12Invest, termasuk artikel, carta dan ringkasan, diterbitkan untuk maklumat am dan tujuan pendidikan sahaja. Ia tidak mengambil kira objektif, keadaan kewangan atau keperluan anda, dan bukan merupakan nasihat pelaburan, cadangan, atau tawaran atau pelawaan untuk membeli atau menjual sebarang sekuriti. 12Invest dan Gyaku Capital Sdn. Bhd. tidak memegang Lesen Perkhidmatan Pasaran Modal dan tidak dilesenkan oleh Suruhanjaya Sekuriti Malaysia untuk memberikan nasihat pelaburan."],
-      ["Buat kajian sendiri", "Sebelum membuat sebarang keputusan pelaburan, baca prospektus, pengumuman dan dokumen rasmi lain yang berkaitan sepenuhnya, dan pertimbangkan untuk mendapatkan nasihat daripada penasihat berlesen. Pelaburan melibatkan risiko, termasuk kehilangan modal. Prestasi lalu, termasuk prestasi hari pertama IPO, bukan petunjuk pulangan masa hadapan."],
-      ["Ketepatan", "Maklumat diperoleh daripada prospektus, pembentangan syarikat, pengumuman Bursa Malaysia dan laporan awam yang dipercayai boleh dipercayai, dan adalah tepat pada tarikh penerbitan. Kami tidak menjamin bahawa maklumat tersebut lengkap, tepat atau terkini, dan kami tidak berkewajipan untuk mengemas kininya."],
-      ["Pandangan pihak ketiga", "Harga sasaran, nilai saksama atau unjuran yang dikaitkan dengan firma penyelidikan atau pihak ketiga lain adalah pandangan mereka, bukan pandangan kami."],
-      ["Kandungan bebas dan promosi", "Artikel adalah hasil kajian kami sendiri terhadap maklumat yang tersedia kepada umum, seperti prospektus dan pengumuman syarikat. Sesetengah artikel mengandungi kandungan promosi daripada rakan kongsi, seperti platform broker; kandungan sedemikian dinyatakan dalam artikel berkenaan."],
-      ["Had liabiliti", "Setakat yang dibenarkan sepenuhnya oleh undang-undang, 12Invest dan Gyaku Capital Sdn. Bhd. tidak bertanggungjawab ke atas sebarang kerugian yang timbul akibat bergantung pada kandungan Laman Web ini."]
-    ]}
-  },
-  terms: {
-    zh: "使用条款",
-    en: { title: "Terms of Use", sub: "Rules for using this Website", s: [
-      ["Acceptance", "By using this Website, you agree to these Terms of Use, our Disclaimer and our Privacy Notice."],
-      ["Intellectual property", "Content on this Website is copyright of Gyaku Capital Sdn. Bhd. unless stated otherwise. Company logos, photographs and charts taken from prospectuses or corporate presentations belong to their respective owners and are credited. You may share links and short quotations with credit to 12Invest. You may not republish full articles or use the content commercially without our written permission."],
-      ["Acceptable use", "Do not attempt to disrupt the Website, compromise its security, or scrape it on a large scale."],
-      ["External links", "We are not responsible for the content of third-party websites that we link to."],
-      ["Governing law", "These terms are governed by the laws of Malaysia, and any dispute is subject to the jurisdiction of the courts of Malaysia."],
-      ["Changes", "We may update these terms from time to time. The date of the latest update is shown at the top."]
-    ]},
-    bm: { title: "Terma Penggunaan", sub: "Peraturan penggunaan Laman Web ini", s: [
-      ["Penerimaan", "Dengan menggunakan Laman Web ini, anda bersetuju dengan Terma Penggunaan ini, Penafian kami dan Notis Perlindungan Data Peribadi kami."],
-      ["Harta intelek", "Kandungan di Laman Web ini adalah hak cipta Gyaku Capital Sdn. Bhd. melainkan dinyatakan sebaliknya. Logo, gambar dan carta syarikat yang diambil daripada prospektus atau pembentangan korporat adalah milik pemilik masing-masing dan dinyatakan sumbernya. Anda boleh berkongsi pautan dan petikan ringkas dengan menyatakan 12Invest sebagai sumber. Anda tidak boleh menerbitkan semula artikel penuh atau menggunakan kandungan untuk tujuan komersial tanpa kebenaran bertulis daripada kami."],
-      ["Penggunaan yang dibenarkan", "Jangan cuba mengganggu Laman Web, menjejaskan keselamatannya, atau mengikisnya secara besar-besaran."],
-      ["Pautan luar", "Kami tidak bertanggungjawab ke atas kandungan laman web pihak ketiga yang kami pautkan."],
-      ["Undang-undang yang mentadbir", "Terma ini ditadbir oleh undang-undang Malaysia, dan sebarang pertikaian tertakluk kepada bidang kuasa mahkamah Malaysia."],
-      ["Perubahan", "Kami boleh mengemas kini terma ini dari semasa ke semasa. Tarikh kemas kini terkini dinyatakan di bahagian atas."]
-    ]}
-  }
-};
-function viewLegal(key){
-  const doc = LEGAL[key], L = S.lang === "bm" ? "bm" : "en", d = doc[L];
-  const other = Object.keys(LEGAL).filter(k => k !== key);
-  app.innerHTML = `<article class="article legal">
-    <a class="back" href="#home">← 返回首页</a>
-    <div class="langs" role="group" aria-label="Language">
-      <button class="chip" data-lang="en" aria-pressed="${L==="en"}">English</button>
-      <button class="chip" data-lang="bm" aria-pressed="${L==="bm"}">Bahasa Malaysia</button>
-    </div>
-    <div class="cat">${esc(doc.zh)}</div>
-    <h1>${esc(d.title)}</h1>
-    <div class="meta"><span>${esc(d.sub)}</span><span>${esc(UPDATED[L])}</span></div>
-    <div class="body">
-      ${d.s.map(([h, p], i) => `<h2>${i + 1}. ${esc(h)}</h2><p>${esc(p)}</p>`).join("")}
-      <h2>${L === "bm" ? "Hubungi kami" : "Contact us"}</h2>
-      <p>${esc(PUB[L])}</p>
-      <div class="callout"><p>${L === "bm" ? "E-mel" : "Email"}: <strong class="sel">${esc(CONTACT)}</strong></p></div>
-    </div>
-    <div class="tools">${other.map(k => `<a class="btn" href="#${k}">${esc(LEGAL[k].zh)} · ${esc(LEGAL[k][L].title)}</a>`).join("")}</div>
-  </article>`;
-  app.querySelectorAll("[data-lang]").forEach(b => b.onclick = () => { S.lang = b.dataset.lang; viewLegal(key); });
-  document.title = d.title + " · 12Invest";
-  setTape();
-  window.scrollTo(0, 0);
-}
-
-
-/* ---------- routing ---------- */
-function route(){
-  const h = location.hash.slice(1);
-  document.title = "12Invest";
-  if (h.startsWith("p-")) return viewPost(h.slice(2));
-  if (LEGAL[h]) return viewLegal(h);
-  viewHome();
-}
-window.addEventListener("hashchange", route);
-
-/* ---------- data: posts.json is published with the page ---------- */
-route();
-fetch("posts.json", { cache: "no-store" })
-  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-  .then(d => {
-    S.posts = (Array.isArray(d.posts) ? d.posts : []).filter(p => p && p.id && p.title)
-      .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
-    S.loaded = true; route();
-  })
-  .catch(() => { S.loaded = true; S.failed = true; route(); });
-})();
-</script>
-
+<nav aria-label="Legal"><a href="/12invest/privacy/">隐私政策 Privacy Notice</a><a href="/12invest/disclaimer/">免责声明 Disclaimer</a><a href="/12invest/terms/">使用条款 Terms of Use</a><a href="/12invest/feed.xml">RSS</a><span>© 2026 Gyaku Capital Sdn. Bhd. (201901044631)</span></nav></div></footer>
+<div class="toast" id="toast" role="status" hidden></div>
 </body>
 </html>

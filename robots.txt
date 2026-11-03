@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gyakucapital.github.io/12invest/sitemap.xml

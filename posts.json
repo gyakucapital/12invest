@@ -94,7 +94,18 @@
      "合约资产约 RM147.5m，收款周期约 89 天"
     ],
     "timeline": "11月4日抽签 · 11月17日挂牌 ACE"
-   }
+   },
+   "ipo": {
+    "name": "MyDCD",
+    "board": "ACE Market",
+    "price": "RM0.56",
+    "cap": "约 RM1.0b",
+    "open": "2026-10-26",
+    "close": "2026-11-02",
+    "ballot": "2026-11-04",
+    "listing": "2026-11-17"
+   },
+   "ogImage": "img/mydcd-cutaway.jpg"
   },
   {
    "id": "impact-capital-ipo",
@@ -193,6 +204,16 @@
      "应收周转期由 16 天拉长至 95 天"
     ],
     "timeline": "11月6日截止 · 11月24日挂牌 ACE"
+   },
+   "ipo": {
+    "name": "Impact Capital",
+    "board": "ACE Market",
+    "price": "RM0.22",
+    "cap": "约 RM105.6m",
+    "open": "2026-10-27",
+    "close": "2026-11-06",
+    "ballot": "2026-11-12",
+    "listing": "2026-11-24"
    }
   },
   {
@@ -284,6 +305,16 @@
      "IPO 约 68.6% 为献售旧股"
     ],
     "timeline": "11月5日截止 · 11月19日挂牌主板"
+   },
+   "ipo": {
+    "name": "Big Caring",
+    "board": "主板",
+    "price": "最高 RM1.08",
+    "cap": "约 RM8.0b",
+    "open": "2026-10-29",
+    "close": "2026-11-05",
+    "pricing": "2026-11-10",
+    "listing": "2026-11-19"
    }
   }
  ]
