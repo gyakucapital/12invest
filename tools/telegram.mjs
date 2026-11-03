@@ -30,16 +30,29 @@ const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const url = id => CFG.origin + CFG.base + `p/${id}/`;
 
-// Telegram post = caption + article URL + ticker hashtag.
-// The caption comes from the post's "telegram" field (written when the article is approved);
-// if missing, it falls back to the headline and summary. Photo captions are limited to 1024 characters.
+// Telegram post = summary caption + article URL + ticker hashtag.
+// Summary: headline, short intro, key figures, highlights, watch points and key dates (from the article's glance data).
+// A hand-written "telegram" field in posts.json replaces the generated summary. Photo captions max 1024 characters.
+function summary(p){
+  const g = p.glance || {};
+  const parts = [`【${String(p.title).replace(/^【.*?】\s*/, "")}】`, p.excerpt || ""];
+  if ((g.stats || []).length) parts.push("📊 " + g.stats.map(s => `${s.k} ${s.v}`).join("｜"));
+  if ((g.pros || []).length) parts.push("✅ 亮点\n" + g.pros.map(x => "• " + x).join("\n"));
+  if ((g.watch || []).length) parts.push("⚠️ 留意\n" + g.watch.map(x => "• " + x).join("\n"));
+  if (g.timeline) parts.push("🗓 " + g.timeline);
+  return parts.filter(Boolean).join("\n\n");
+}
 function caption(p){
   const tickerTag = p.ticker ? "#" + String(p.ticker).toUpperCase().replace(/[^A-Z0-9_]/g, "") : "";
   const tags = [tickerTag, "#12Invest"].filter(Boolean).join(" ");
   const link = `👉 阅读全文：${url(p.id)}`;
-  let text = p.telegram ? String(p.telegram) : `${p.title}\n\n${p.excerpt || ""}`;
-  const room = 1000 - link.length - tags.length - 4;
-  if ([...text].length > room) text = [...text].slice(0, room - 1).join("").replace(/[^\s，。！？]*$/, "") + "…";
+  let text = p.telegram ? String(p.telegram) : summary(p);
+  const room = 1000 - [...link].length - [...tags].length - 4;
+  if ([...text].length > room){ // drop whole lines from the end rather than cutting mid-sentence
+    const lines = text.split("\n");
+    while (lines.length > 1 && [...lines.join("\n")].length > room - 1) lines.pop();
+    text = lines.join("\n").trimEnd() + "\n…";
+  }
   return `${esc(text)}\n\n${link}\n\n${esc(tags)}`;
 }
 async function live(u){ // wait until GitHub Pages serves the new page (up to ~8 min)
