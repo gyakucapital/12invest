@@ -302,10 +302,40 @@ function scoreboard(){
   const done = IPOS.filter(i => i.result && (i.result.close != null || i.result.oversub != null))
     .sort((a, b) => (b.listing || "").localeCompare(a.listing || "")).slice(0, 40);
   if (!done.length) return `<div class="sec">上市表现</div><div class="empty px">新股挂牌后，这里会列出公众超额认购倍数与首日表现。</div>`;
-  return `<div class="sec">上市表现</div>
+  return `<div class="sec"><span>上市表现</span><a href="${REL("ipo/performance/")}">完整首日表现 →</a></div>
 <div class="tbl"><table class="score"><thead><tr><th>公司</th><th>板块</th><th>挂牌日</th><th>IPO 价</th><th>公众超购</th><th>首日开</th><th>首日收</th><th>首日涨跌</th></tr></thead><tbody>
 ${done.map(i => { const r = i.result, pr = premium(i); return `<tr><td><a href="${REL(`c/${slug(i.ticker)}/`)}">${esc(i.name)}</a></td><td>${esc(i.board)}</td><td>${i.listing ? day(i.listing).md : ""}</td><td>${rm(finalPrice(i))}</td><td>${r.oversub != null ? esc(num(r.oversub).toFixed(2)) + " 倍" : "—"}</td><td>${r.open != null ? rm(r.open) : "—"}</td><td>${r.close != null ? rm(r.close) : "—"}</td><td>${pr ? `<em class="${pr.cls}">${pr.txt}</em>` : "—"}</td></tr>`; }).join("\n")}
 </tbody></table></div>`;
+}
+
+/* ---------- IPO first-day performance page ---------- */
+function performancePage(){
+  const done = IPOS.filter(i => i.listing && i.listing <= TODAY && i.result && (i.result.close != null || i.result.open != null || i.result.oversub != null))
+    .sort((a, b) => b.listing.localeCompare(a.listing));
+  const withClose = done.map(i => ({ i, pr: premium(i) })).filter(x => x.pr);
+  const ups = withClose.filter(x => x.pr.v > 0).length;
+  const avg = withClose.length ? withClose.reduce((s, x) => s + x.pr.v, 0) / withClose.length : null;
+  const best = withClose.slice().sort((a, b) => b.pr.v - a.pr.v)[0], worst = withClose.slice().sort((a, b) => a.pr.v - b.pr.v)[0];
+  const subs = done.filter(i => i.result.oversub != null);
+  const avgSub = subs.length ? subs.reduce((s, i) => s + num(i.result.oversub), 0) / subs.length : null;
+  const maxAbs = Math.max(10, ...withClose.map(x => Math.abs(x.pr.v)));
+  const bar = pr => { if (!pr) return ""; const w = Math.max(2, Math.round(Math.abs(pr.v) / maxAbs * 50)); return `<svg class="pbar" viewBox="0 0 100 10" width="100" height="10" shape-rendering="crispEdges" aria-hidden="true"><rect x="50" y="0" width="1" height="10" class="pz"/><rect x="${pr.v >= 0 ? 51 : 50 - w}" y="2" width="${w}" height="6" class="${pr.v >= 0 ? "pu" : "pd"}"/></svg>`; };
+  const stat = (k, v, cls = "") => `<div><dt>${k}</dt><dd${cls ? ` class="${cls}"` : ""}>${v}</dd></div>`;
+  const body = `<div class="page-hd"><div class="cat">IPO PERFORMANCE</div><h1>新股上市首日表现</h1><p>近期在马交所挂牌的新股：公众部分超额认购倍数，以及首日开市价、收市价对比 IPO 价的涨跌。资料每日更新。</p></div>
+${withClose.length ? `<dl class="mkt pstats">
+  ${stat("统计新股", `${withClose.length} 只`)}
+  ${stat("首日收高", `${ups} / ${withClose.length}`)}
+  ${stat("平均首日涨跌", `<em class="${avg >= 0 ? "up" : "down"}">${avg >= 0 ? "+" : ""}${avg.toFixed(1)}%</em>`)}
+  ${avgSub != null ? stat("平均公众超购", `${avgSub.toFixed(1)} 倍`) : ""}
+  ${best ? stat("首日最佳", `${esc(best.i.name)} <em class="${best.pr.cls}">${best.pr.txt}</em>`) : ""}
+  ${worst && worst !== best ? stat("首日最弱", `${esc(worst.i.name)} <em class="${worst.pr.cls}">${worst.pr.txt}</em>`) : ""}
+</dl>` : ""}
+${done.length ? `<div class="tbl"><table class="score perf"><thead><tr><th>公司</th><th>板块</th><th>挂牌日</th><th>IPO 价</th><th>公众超购</th><th>首日开</th><th>首日收</th><th>首日涨跌</th></tr></thead><tbody>
+${done.map(i => { const r = i.result, pr = premium(i), p = postFor(i); return `<tr><td><a href="${REL(p ? `p/${p.id}/` : `c/${slug(i.ticker)}/`)}">${esc(i.name)}</a></td><td>${esc(i.board)}</td><td>${day(i.listing).md}</td><td>${rm(finalPrice(i))}</td><td>${r.oversub != null ? esc(num(r.oversub).toFixed(2)) + " 倍" : "—"}</td><td>${r.open != null ? rm(r.open) : "—"}</td><td>${r.close != null ? rm(r.close) : "—"}</td><td>${pr ? `<em class="${pr.cls}">${pr.txt}</em>` : "—"}</td></tr>`; }).join("\n")}
+</tbody></table></div>` : `<div class="empty px"><h3>暂无上市表现资料</h3>新股挂牌后会自动加入。</div>`}
+<p class="note">首日涨跌 = 首日收市价对比最终 IPO 价。"—" 表示资料来源未提供该数字。数字取自马交所公告及媒体报道（The Star、Bernama 等），仅供参考，不构成任何买卖建议。</p>
+<div class="tools"><a class="btn" href="${REL("ipo/")}">← IPO 日历</a>${REF ? `<a class="btn primary" href="${esc(REF)}" target="_blank" rel="sponsored noopener">用 moomoo 申购下一只新股 →</a>` : ""}</div>`;
+  return page({ path: "ipo/performance/", title: "新股上市首日表现 · 12Invest", desc: "马股新股公众超额认购倍数与上市首日表现一览，每日更新。", nav: "ipo", body, side: true });
 }
 
 /* ---------- sidebar (wide screens: beside the content; phones: below it) ---------- */
@@ -319,7 +349,7 @@ function sidebar(){
   return `<aside class="side" aria-label="IPO 动态">
   ${upIpos.length ? `<section class="sbox s-events"><div class="sh"><span>IPO 日程</span><a href="${REL("ipo/")}">全部 →</a></div>
     <ol class="slist">${upIpos.map(i => { const nx = nextStep(i); return `<li class="sipo"><span><a href="${link(i)}">${esc(i.name)}</a><small>${esc(i.board)}${i.listing && nx && nx.d !== i.listing ? ` · ${day(i.listing).md}挂牌` : ""}</small></span><span class="snext">${badge(i)}${nx ? `<small data-next>${day(nx.d).md} ${nx.label}</small>` : ""}</span></li>`; }).join("")}</ol></section>` : ""}
-  ${res.length ? `<section class="sbox"><div class="sh"><span>上市首日表现</span><a href="${REL("ipo/")}">更多 →</a></div>
+  ${res.length ? `<section class="sbox"><div class="sh"><span>上市首日表现</span><a href="${REL("ipo/performance/")}">更多 →</a></div>
     <ol class="slist">${res.map(i => { const pr = premium(i); return `<li><span><a href="${REL(`c/${slug(i.ticker)}/`)}">${esc(i.name)}</a><small>${esc(i.board)} · ${day(i.listing).md}</small></span>${pr ? `<em class="${pr.cls}">${pr.txt}</em>` : ""}</li>`; }).join("")}</ol></section>` : ""}
   ${REF ? (() => { const openNow = CAL.filter(i => ipoStage(i) === "open" && i.close).sort((x, y) => x.close.localeCompare(y.close));
     return `<section class="sbox s-mm"><div class="sh"><span>📢 立即申购 IPO</span></div>
@@ -617,6 +647,7 @@ function notFound(){
 const urls = [];
 write("index.html", home()); urls.push(["", data.updated]);
 write("ipo/index.html", calendar()); urls.push(["ipo/", data.updated]);
+write("ipo/performance/index.html", performancePage()); urls.push(["ipo/performance/", data.updated]);
 if (NEWS.some(d => !isWeekly(d))){ write("news/index.html", newsIndex("news")); urls.push(["news/", NEWS.find(d => !isWeekly(d)).date]); }
 if (NEWS.some(isWeekly)){ write("weekly/index.html", newsIndex("weekly")); urls.push(["weekly/", NEWS.find(isWeekly).date]); }
 NEWS.forEach(d => { write(`${nroute(d)}index.html`, newsPage(d)); urls.push([nroute(d), d.date]); });

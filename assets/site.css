@@ -599,3 +599,10 @@ label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--g
 .zz.z1{left:64%;top:16px}.zz.z2{left:80%;top:7px;animation-delay:1s}.zz.z3{left:96%;top:-3px;animation-delay:2s}
 @keyframes zz{0%{opacity:0;transform:translateY(4px)}20%{opacity:1}80%{opacity:.6}100%{opacity:0;transform:translateY(-6px)}}
 @media (prefers-reduced-motion:reduce){.mascot.sleep,.zz{animation:none}.zz{opacity:.8}}
+/* IPO performance page */
+.pstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 20px;margin-bottom:28px}
+.pstats dd{margin:2px 0 0;font-size:18px;font-weight:700;font-variant-numeric:tabular-nums}
+.pstats dt{font-size:12px;color:var(--muted)}
+.pbar{display:block}.pz{fill:var(--line-hi)}.pu{fill:#7CD992}.pd{fill:var(--signal)}
+.perf td.pbar-c{padding-block:8px}
+@media (max-width:560px){ .pstats{grid-template-columns:repeat(2,minmax(0,1fr))} }

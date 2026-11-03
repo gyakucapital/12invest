@@ -17,8 +17,11 @@
     "open": 0.255,
     "sources": [
      "https://www.bernamabiz.com/news.php?id=2610439",
-     "https://www.businesstoday.com.my/2026/10/01/gb-bond-gains-2-on-ace-market-debut/"
-    ]
+     "https://www.businesstoday.com.my/2026/10/01/gb-bond-gains-2-on-ace-market-debut/",
+     "https://theedgemalaysia.com/node/820054",
+     "https://www.thestar.com.my/business/business-news/2026/10/02/gb-bond-expects-new-factory-to-enhance-output-by-35"
+    ],
+    "close": 0.205
    },
    "checked": "2026-11-03"
   },
@@ -57,8 +60,12 @@
     "oversub": 2.63,
     "sources": [
      "https://www.thestar.com.my/business/business-news/2026/10/07/egh-international-ipo-oversubscribed-263-times",
-     "https://www.thestar.com.my/business/business-news/2026/10/16/egh-international-makes-subdued-ace-market-debut"
-    ]
+     "https://www.thestar.com.my/business/business-news/2026/10/16/egh-international-makes-subdued-ace-market-debut",
+     "https://bernama.com/en/region/news.php?id=2621422",
+     "https://theedgemalaysia.com/node/822058"
+    ],
+    "open": 0.145,
+    "close": 0.135
    },
    "checked": "2026-11-03"
   },
@@ -74,11 +81,13 @@
    ],
    "result": {
     "oversub": 2.82,
-    "open": 0.225,
+    "open": 0.22,
     "sources": [
      "https://www.thestar.com.my/business/business-news/2026/10/14/nwes-ipo-public-portion-oversubscribed-by-282-times",
-     "https://www.thestar.com.my/business/business-news/2026/10/21/nwe-resources-shares-rise-125-on-trading-debut"
-    ]
+     "https://www.thestar.com.my/business/business-news/2026/10/21/nwe-resources-shares-rise-125-on-trading-debut",
+     "https://theedgemalaysia.com/node/822603"
+    ],
+    "close": 0.2
    },
    "checked": "2026-11-03"
   },
