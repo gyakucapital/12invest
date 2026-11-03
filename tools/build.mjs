@@ -194,6 +194,17 @@ ${SOCIAL.length ? `<nav class="fsocial" aria-label="关注 12Invest"><span>关�
 /* ---------- follow box ---------- */
 const follow = () => SOCIAL.length ? `<aside class="follow" aria-label="关注 12Invest"><div class="follow-t"><b>关注 12Invest</b><span>新股解读、IPO 日程与上市表现，第一时间更新</span></div><div class="follow-b">${SOCIAL.map(([n, u]) => `<a class="btn primary" href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("")}</div></aside>` : "";
 
+/* ---------- moomoo referral CTA (shown on every IPO) ---------- */
+const REF = CFG.moomooReferral;
+const isListed = i => i && i.listing && i.listing <= TODAY;
+function moomooCTA(i, mode = "box"){
+  if (!REF || !i) return "";
+  const verb = isListed(i) ? "开户交易" : "开户申购";
+  if (mode === "btn") return `<a class="btn mm" href="${esc(REF)}" target="_blank" rel="sponsored noopener">moomoo ${verb}</a>`;
+  return `<aside class="mmcta" aria-label="moomoo 推荐链接"><div class="mm-t"><b>${isListed(i) ? `在 moomoo 交易 ${esc(i.name)}` : `用 moomoo 申购 ${esc(i.name)} IPO`}</b>
+  <span>一键申购新股，开户即可参与。推荐链接 · 合作推广，非投资建议。</span></div><a class="btn primary" href="${esc(REF)}" target="_blank" rel="sponsored noopener">moomoo ${verb} →</a></aside>`;
+}
+
 /* ---------- IPO results ---------- */
 const num = v => typeof v === "number" ? v : parseFloat(String(v ?? "").replace(/[^\d.]/g, ""));
 const rm = v => { const n = num(v); return isNaN(n) ? "" : "RM" + (Math.round(n * 1000) % 10 ? n.toFixed(3) : n.toFixed(2)); };
@@ -221,7 +232,7 @@ function ipoCard(i, opts = {}){
   <dl class="ipo-kv">${kv}</dl>
   ${stepsHTML(i)}
   ${resultRow(i)}
-  <div class="gfoot">${s ? `<a class="gtime src" href="${esc(s)}" target="_blank" rel="noopener noreferrer">来源：${esc(host(s))} ↗</a>` : "<span></span>"}${p ? `<a class="btn primary" href="${REL(`p/${p.id}/`)}">阅读解读 →</a>` : `<span class="note">暂无解读</span>`}</div>
+  <div class="gfoot">${s ? `<a class="gtime src" href="${esc(s)}" target="_blank" rel="noopener noreferrer">来源：${esc(host(s))} ↗</a>` : "<span></span>"}<span class="gbtns">${moomooCTA(i, "btn")}${p ? `<a class="btn primary" href="${REL(`p/${p.id}/`)}">阅读解读 →</a>` : ""}</span></div>
 </article>`;
 }
 function scoreboard(){
@@ -247,6 +258,7 @@ function sidebar(){
     <ol class="slist">${upIpos.map(i => { const nx = nextStep(i); return `<li class="sipo"><span><a href="${link(i)}">${esc(i.name)}</a><small>${esc(i.board)}${i.listing && nx && nx.d !== i.listing ? ` · ${day(i.listing).md}挂牌` : ""}</small></span><span class="snext">${badge(i)}${nx ? `<small data-next>${day(nx.d).md} ${nx.label}</small>` : ""}</span></li>`; }).join("")}</ol></section>` : ""}
   ${res.length ? `<section class="sbox"><div class="sh"><span>上市首日表现</span><a href="${REL("ipo/")}">更多 →</a></div>
     <ol class="slist">${res.map(i => { const pr = premium(i); return `<li><span><a href="${REL(`c/${slug(i.ticker)}/`)}">${esc(i.name)}</a><small>${esc(i.board)} · ${day(i.listing).md}</small></span>${pr ? `<em class="${pr.cls}">${pr.txt}</em>` : ""}</li>`; }).join("")}</ol></section>` : ""}
+  ${REF ? `<section class="sbox s-mm"><div class="sh"><span>申购新股</span></div><p class="mm-side">用 moomoo 一键申购马股 IPO。</p><a class="btn primary mm-full" href="${esc(REF)}" target="_blank" rel="sponsored noopener">moomoo 开户申购 →</a><small class="note">推荐链接 · 合作推广</small></section>` : ""}
   ${SOCIAL.length ? `<section class="sbox s-follow"><div class="sh"><span>关注 12Invest</span></div><div class="ssocial">${SOCIAL.map(([n, u]) => `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("")}</div></section>` : ""}
 </aside>`;
 }
@@ -266,7 +278,7 @@ function glance(p, i){
     <h2 class="gtitle"><a href="${href}">${esc(p.title)}</a></h2>
     ${stats.length ? `<dl class="gstats">${stats.map(s => `<div class="gstat"><dt>${esc(s.k)}</dt><dd>${esc(s.v)}</dd></div>`).join("")}</dl>` : ""}
     ${(g.pros || g.watch) ? `<div class="gcols">${list(g.pros, "pros", "亮点")}${list(g.watch, "watch", "留意")}</div>` : `<p class="gex">${esc(p.excerpt)}</p>`}
-    <div class="gfoot">${g.timeline ? `<span class="gtime">${esc(g.timeline)}</span>` : "<span></span>"}<a class="btn primary" href="${href}">阅读全文 →</a></div>
+    <div class="gfoot">${g.timeline ? `<span class="gtime">${esc(g.timeline)}</span>` : "<span></span>"}<span class="gbtns">${p.ipo ? moomooCTA(p.ipo, "btn") : ""}<a class="btn primary" href="${href}">阅读全文 →</a></span></div>
   </div>
 </article>`;
 }
@@ -329,6 +341,7 @@ function article(p){
   ${facts.length ? `<dl class="facts"><div class="hd">关键资料<span>KEY FACTS</span></div>${facts.map(f => `<div class="fact"><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join("")}</dl>` : ""}
   ${/\{\{financials\}\}/.test(p.body || "") ? "" : financialsHTML(p)}
   <div class="body">${render(p.body, { financials: () => financialsHTML(p, true) })}</div>
+  ${p.ipo ? moomooCTA(p.ipo) : ""}
   <p class="disc"><strong>免责声明：</strong>${DISC}</p>
   ${(p.tags || []).length ? `<div class="tags">${p.tags.map(t => `<span>#${esc(t)}</span>`).join("")}</div>` : ""}
   ${shareHTML(p)}

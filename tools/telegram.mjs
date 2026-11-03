@@ -45,7 +45,8 @@ function summary(p){
 function caption(p){
   const tickerTag = p.ticker ? "#" + String(p.ticker).toUpperCase().replace(/[^A-Z0-9_]/g, "") : "";
   const tags = [tickerTag, "#12Invest"].filter(Boolean).join(" ");
-  const link = `👉 阅读全文：${url(p.id)}`;
+  const ref = CFG.moomooReferral && p.ticker && /IPO/i.test(String(p.category || "") + (p.tags || []).join(" ")) ? `\n📲 用 moomoo 申购（推荐链接）：${CFG.moomooReferral}` : "";
+  const link = `👉 阅读全文：${url(p.id)}${ref}`;
   let text = p.telegram ? String(p.telegram) : summary(p);
   const room = 1000 - [...link].length - [...tags].length - 4;
   if ([...text].length > room){ // drop whole lines from the end rather than cutting mid-sentence

@@ -367,3 +367,18 @@ em.flat{color:var(--muted)}
 .snext{flex:0 0 auto!important;align-items:flex-end;gap:4px;text-align:right}
 .snext .badge{font-size:11px;padding:2px 7px}
 .snext small{color:var(--gold)!important;white-space:nowrap}
+/* moomoo referral CTA */
+.gbtns{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+.btn.mm{text-transform:none;font-family:var(--font-body);font-weight:700;font-size:13px;background:transparent;color:var(--gold);
+  box-shadow:0 -3px 0 0 var(--gold),0 3px 0 0 var(--gold),-3px 0 0 0 var(--gold),3px 0 0 0 var(--gold)}
+.btn.mm:hover{background:var(--surface2)}
+.mmcta{display:flex;justify-content:space-between;align-items:center;gap:14px 24px;flex-wrap:wrap;margin:32px 0 8px;padding:18px 22px;background:var(--bg2);
+  box-shadow:0 -4px 0 0 var(--gold),0 4px 0 0 var(--gold),-4px 0 0 0 var(--gold),4px 0 0 0 var(--gold)}
+.mm-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.mm-t b{font-size:17px;font-weight:900}
+.mm-t span{font-size:12px;color:var(--muted)}
+.mmcta .btn{text-transform:none;font-family:var(--font-body);font-weight:700;font-size:14px}
+.mm-side{margin:8px 0 12px;font-size:14px;color:var(--ink)}
+.mm-full{display:flex;justify-content:center;text-transform:none;font-family:var(--font-body);font-weight:700;font-size:14px}
+.s-mm .note{display:block;margin-top:10px;text-align:center}
+@media (max-width:560px){ .mmcta .btn,.gbtns{width:100%} .gbtns .btn{flex:1 1 0;justify-content:center} }
