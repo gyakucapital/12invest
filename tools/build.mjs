@@ -309,7 +309,7 @@ function home(){
   const nd = NEWS[0];
   const band = nd ? `<section class="newsband"><div class="nb-hd"><span class="cat">每日马股速报</span><span class="meta"><span>${longDate(nd.date)}</span></span></div>
   <h2><a href="${REL(`news/${nd.date}/`)}">${esc(nd.title)}</a></h2>
-  ${nd.market ? `<div class="nb-mkt"><b>${esc(nd.market.index || "FBM KLCI")} ${esc(nd.market.close)}</b><em class="${/^[-−]/.test(nd.market.change || "") ? "down" : "up"}">${esc(nd.market.change)}</em></div>` : ""}
+  ${nd.market ? `<div class="nb-mkt"><b>${esc(nd.market.index || "FBM KLCI")} ${esc(nd.market.close)}</b>${nd.market.date && nd.market.date !== nd.date ? `<small class="note">${day(nd.market.date).md}收市</small>` : ""}<em class="${/^[-−]/.test(nd.market.change || "") ? "down" : "up"}">${esc(nd.market.change)}</em></div>` : ""}
   <ul>${nd.items.slice(0, 4).map(it => `<li><span class="ntag">${esc(it.tag || "焦点")}</span>${esc(it.title)}</li>`).join("")}</ul>
   <a class="btn primary" href="${REL(`news/${nd.date}/`)}">阅读完整速报 →</a></section>` : "";
   const body = `${band}${upcoming.length ? `<section class="upc" data-upcoming><div class="sec"><span>近期 IPO 日程</span><a href="${REL("ipo/")}">完整日历 →</a></div><ol class="events" data-limit="4">${upcoming.map(evLi).join("")}</ol></section>` : ""}
@@ -418,7 +418,7 @@ function newsDayHTML(d, heading = "h1"){
   <${heading} class="nd-title">${esc(d.title)}</${heading}>
   <div class="meta"><span>${longDate(d.date)}</span><span>12Invest</span></div>
   ${m ? `<section class="mkt"><dl>
-    <div><dt>${esc(m.index || "FBM KLCI")}</dt><dd>${esc(m.close)}</dd></div>
+    <div><dt>${esc(m.index || "FBM KLCI")}${m.date ? ` · ${day(m.date).md}收市` : ""}</dt><dd>${esc(m.close)}</dd></div>
     <div><dt>涨跌</dt><dd><em class="${/^[-−]/.test(m.change || "") ? "down" : "up"}">${esc(m.change)}</em></dd></div>
     ${m.breadth ? `<div><dt>涨跌家数</dt><dd>${esc(m.breadth)}</dd></div>` : ""}
     ${m.turnover ? `<div><dt>成交</dt><dd>${esc(m.turnover)}</dd></div>` : ""}
