@@ -18,3 +18,7 @@ Moving to a custom domain: set `origin` to `https://12invest.com.my` and `base` 
 - Strict Content-Security-Policy on every page: scripts and styles only from this site, no inline code, no third-party requests.
 - Self-hosted font (Silkscreen, SIL OFL – see `fonts/OFL-Silkscreen.txt`).
 - No cookies, no trackers, no forms. Share buttons are plain links.
+
+## Daily market news
+`data/news.json` holds one entry per trading day (title, FBM KLCI close, 6–10 news items in 12Invest's own words, each with a source link).
+A scheduled task adds the day's edition after market close; the build makes `/news/` and `/news/<date>/`, the home-page band and RSS items; `tools/og.mjs` makes the share card.

@@ -1,0 +1,105 @@
+{
+ "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
+ "days": [
+  {
+   "date": "2026-11-03",
+   "title": "马股微涨0.14%，银行股撑盘；IOI 旗下 REIT 定价96仙，11月25日上主板",
+   "market": {
+    "index": "FBM KLCI",
+    "close": "1,621.85",
+    "change": "+2.34（+0.14%）",
+    "breadth": "涨 403 / 跌 652 / 平 502",
+    "turnover": "26.3亿股，RM2.64 billion",
+    "note": "银行股走强带动指数小涨：马银行、联昌及大众银行皆起，兴业银行与大马银行涨21仙；国能与 IHH 则拖累指数。下跌股多于上涨股，大市情绪偏谨慎。",
+    "source": {
+     "name": "Malay Mail",
+     "url": "https://www.malaymail.com/news/money/2026/11/03/bursa-malaysia-ends-slightly-higher-on-banking-support/241858"
+    }
+   },
+   "items": [
+    {
+     "tag": "IPO",
+     "title": "IOIPG Malaysia REIT 定价每单位96仙，筹资约 RM2.1 billion",
+     "text": "IOI Properties 旗下的 IOIPG Malaysia REIT 发售最多22亿个单位，以每单位 RM0.96 计筹资约 RM2.1 billion，预计11月25日在主板挂牌。零售部分共约7.16亿单位，其中1.1亿单位开放给大马公众。这是大马至少13年来最大的 REIT 上市。",
+     "tickers": [
+      "IOIPGREIT"
+     ],
+     "source": {
+      "name": "theSun",
+      "url": "https://thesun.my/business/ioi-properties-to-raise-rm2-1b-from-largest-malaysian-reit-ipo/"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "Advance Technologies Asia 签署包销协议，筹备上 ACE",
+     "text": "机电工程方案商 Advance Technologies Asia（ATA）将发行1.036亿新股（占扩大后股本22.82%），另献售1,740万旧股，其中2,270万股开放给大马公众，由 Malacca Securities 包销。公司正扩展数据中心运营与维护业务。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/02/advance-technologies-asia-signs-underwriting-agreement-for-ace-market-ipo"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "ISF Group 获4份数据中心合约共 RM83.2m",
+     "text": "ISF Group 拿下波德申一座超大规模数据中心的4份合约，总值 RM83.2 million，未入账订单增至 RM225.5 million。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "Econpile 获东禅医院 RM73m 打桩工程",
+     "text": "Econpile 获颁吉隆坡东禅医院新大楼的打桩与地下结构工程，合约值 RM73 million，工期21个月。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "Signature Alliance 获浮罗交怡海底世界翻新工程",
+     "text": "Signature Alliance Group 获 RM51.56 million 合约，重建与翻新浮罗交怡海底世界，工程11月13日起为期18个月。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group"
+     }
+    },
+    {
+     "tag": "能源",
+     "title": "Northern Solar 获两项数据中心绿电供应",
+     "text": "Northern Solar 在企业再生能源供应计划下获两项项目，为数据中心供应合共189MWac太阳能并配备储能。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group"
+     }
+    },
+    {
+     "tag": "扩张",
+     "title": "Pekat 斥资 RM30.58m 购入汝来工业地",
+     "text": "Pekat Group 以 RM30.58 million 收购汝来6块工业地，扩充开关设备、电池储能、变压器与变电站业务。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group"
+     }
+    },
+    {
+     "tag": "扩张",
+     "title": "Dialog 扩建丹绒浪莎油库",
+     "text": "Dialog 将在柔佛丹绒浪莎油库增加10万立方米储量，预计2029年中总储量突破110万立方米。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/03/trading-ideas-econpile-tt-vision-signature-alliance-group-dialog-reservoir-link-pekat-group-airasia-northern-solar-epmb-infomina-isf-group"
+     }
+    }
+   ]
+  }
+ ]
+}

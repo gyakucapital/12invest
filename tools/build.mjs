@@ -30,6 +30,11 @@ const IPOS = (ipoData.ipos || []).filter(i => i && i.ticker && i.name);
 const byTicker = Object.fromEntries(IPOS.map(i => [i.ticker, i]));
 for (const p of posts) if (p.ticker && byTicker[p.ticker]) p.ipo = byTicker[p.ticker];
 const postFor = i => posts.find(p => p.ticker === i.ticker);
+
+// Daily market news (data/news.json, written each trading day by the scheduled task)
+const newsData = fs.existsSync(path.join(ROOT, "data/news.json")) ? JSON.parse(fs.readFileSync(path.join(ROOT, "data/news.json"), "utf8")) : { days: [] };
+const NEWS = (newsData.days || []).filter(d => d && /^\d{4}-\d{2}-\d{2}$/.test(d.date) && (d.items || []).length)
+  .sort((a, b) => b.date.localeCompare(a.date));
 const addDays = (d, n) => new Date(Date.parse(d + "T00:00:00Z") + n * 864e5).toISOString().slice(0, 10);
 // calendar window: anything not yet listed, plus IPOs listed in the last 30 days
 const CAL = IPOS.filter(i => !i.listing || i.listing >= addDays(TODAY, -30));
@@ -172,7 +177,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <header class="mast">
   <div class="wrap">
     <a class="logo" href="${BASE}" aria-label="12Invest 首页">${LOGO}<span><span class="word">12<b>INVEST</b></span><small>马股 · IPO · 公司解读</small></span></a>
-    <nav aria-label="主导航"><a href="${BASE}"${nav === "home" ? ' aria-current="page"' : ""}>文章</a><a href="${REL("ipo/")}"${nav === "ipo" ? ' aria-current="page"' : ""}>IPO 日历</a></nav>
+    <nav aria-label="主导航"><a href="${BASE}"${nav === "home" ? ' aria-current="page"' : ""}>文章</a>${NEWS.length ? `<a href="${REL("news/")}"${nav === "news" ? ' aria-current="page"' : ""}>每日速报</a>` : ""}<a href="${REL("ipo/")}"${nav === "ipo" ? ' aria-current="page"' : ""}>IPO 日历</a></nav>
   </div>
   <div class="tape"><div class="wrap">${tape()}</div></div>
 </header>
@@ -202,6 +207,7 @@ function ipoStage(i){
   if (!i) return null;
   if (i.close && TODAY > i.close) return "done";
   if (i.open && TODAY < i.open) return "soon";
+  if (!i.open && !i.close) return "soon";   // application dates not announced yet
   return "open";
 }
 function moomooCTA(i, mode = "box"){
@@ -211,7 +217,7 @@ function moomooCTA(i, mode = "box"){
   const btn = st === "open" ? "立即申购 IPO →" : st === "soon" ? "提前开户，准备申购 →" : "申购下一只新股 →";
   if (mode === "btn") return `<a class="btn mm" ${a}>${st === "open" ? "立即申购" : st === "soon" ? "准备申购" : "申购新股"}</a>`;
   const head = st === "open" ? `${esc(i.name)} 正在招股${close ? `，${close}` : ""}，立即申购！`
-    : st === "soon" ? `${esc(i.name)} 将于${day(i.open).md}开放申购，先开户做好准备`
+    : st === "soon" ? (i.open ? `${esc(i.name)} 将于${day(i.open).md}开放申购，先开户做好准备` : `${esc(i.name)} 即将招股，先开户做好准备`)
     : `错过了 ${esc(i.name)}？下一只新股别再错过`;
   return `<aside class="mmcta" aria-label="申购 IPO"><div class="mm-t"><b>📢 ${head}</b>
   <span>通过 moomoo 一键申购马股新股。推荐链接 · 合作推广，非投资建议，投资前请细阅招股书。</span></div><a class="btn primary" ${a}>${btn}</a></aside>`;
@@ -300,7 +306,13 @@ function glance(p, i){
 function home(){
   const cats = ["全部", ...new Set(posts.map(p => p.category).filter(Boolean))];
   const upcoming = events.filter(e => e.d >= TODAY);
-  const body = `${upcoming.length ? `<section class="upc" data-upcoming><div class="sec"><span>近期 IPO 日程</span><a href="${REL("ipo/")}">完整日历 →</a></div><ol class="events" data-limit="4">${upcoming.map(evLi).join("")}</ol></section>` : ""}
+  const nd = NEWS[0];
+  const band = nd ? `<section class="newsband"><div class="nb-hd"><span class="cat">每日马股速报</span><span class="meta"><span>${longDate(nd.date)}</span></span></div>
+  <h2><a href="${REL(`news/${nd.date}/`)}">${esc(nd.title)}</a></h2>
+  ${nd.market ? `<div class="nb-mkt"><b>${esc(nd.market.index || "FBM KLCI")} ${esc(nd.market.close)}</b><em class="${/^[-−]/.test(nd.market.change || "") ? "down" : "up"}">${esc(nd.market.change)}</em></div>` : ""}
+  <ul>${nd.items.slice(0, 4).map(it => `<li><span class="ntag">${esc(it.tag || "焦点")}</span>${esc(it.title)}</li>`).join("")}</ul>
+  <a class="btn primary" href="${REL(`news/${nd.date}/`)}">阅读完整速报 →</a></section>` : "";
+  const body = `${band}${upcoming.length ? `<section class="upc" data-upcoming><div class="sec"><span>近期 IPO 日程</span><a href="${REL("ipo/")}">完整日历 →</a></div><ol class="events" data-limit="4">${upcoming.map(evLi).join("")}</ol></section>` : ""}
 <div class="filters" id="filters" hidden>${cats.map(c => `<button class="chip" type="button" data-cat="${esc(c)}" aria-pressed="${c === "全部"}">${esc(c)}</button>`).join("")}
   <input class="search" id="q" type="search" placeholder="搜索公司、主题…" aria-label="搜索文章" autocomplete="off"></div>
 <div class="sec">一眼看懂 · <span id="count">${posts.length}</span> 篇</div>
@@ -316,8 +328,7 @@ function ogImage(p){
   if (!src) return {};
   const [w, h] = imgSize(src); return { src, w, h };
 }
-function shareHTML(p){
-  const url = ABS(`p/${p.id}/`), t = short(p.title);
+function shareHTML(p, url = ABS(`p/${p.id}/`), t = short(p.title)){
   const enc = encodeURIComponent;
   return `<div class="share" aria-label="分享这篇文章"><span class="lbl">分享 SHARE</span>
   <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${enc(url)}" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -395,6 +406,48 @@ ${arts.length ? `<div class="glances">${arts.map((p, k) => glance(p, k)).join("\
 ${follow()}`;
   return page({ path: `c/${slug(t)}/`, title: `${name}（${t}）· 12Invest`, desc: `${name}${i && i.company ? `（${i.company}）` : ""}的 IPO 日程与 12Invest 解读。`, body, noindex: !arts.length, side: true });
 }
+/* ---------- daily news ---------- */
+const longDate = d => { const { md, wd } = day(d); return `${d.slice(0, 4)}年${md}${wd}`; };
+function tickerChip(t){
+  const known = TICKERS.includes(t);
+  return known ? `<a class="tchip" href="${REL(`c/${slug(t)}/`)}">${esc(t)}</a>` : `<span class="tchip">${esc(t)}</span>`;
+}
+function newsDayHTML(d, heading = "h1"){
+  const m = d.market;
+  return `<div class="cat">每日马股速报 · DAILY</div>
+  <${heading} class="nd-title">${esc(d.title)}</${heading}>
+  <div class="meta"><span>${longDate(d.date)}</span><span>12Invest</span></div>
+  ${m ? `<section class="mkt"><dl>
+    <div><dt>${esc(m.index || "FBM KLCI")}</dt><dd>${esc(m.close)}</dd></div>
+    <div><dt>涨跌</dt><dd><em class="${/^[-−]/.test(m.change || "") ? "down" : "up"}">${esc(m.change)}</em></dd></div>
+    ${m.breadth ? `<div><dt>涨跌家数</dt><dd>${esc(m.breadth)}</dd></div>` : ""}
+    ${m.turnover ? `<div><dt>成交</dt><dd>${esc(m.turnover)}</dd></div>` : ""}
+  </dl>${m.note ? `<p>${esc(m.note)}${m.source ? ` <a class="nsrc-a" href="${esc(m.source.url)}" target="_blank" rel="noopener noreferrer">来源：${esc(m.source.name)} ↗</a>` : ""}</p>` : ""}</section>` : ""}
+  <ol class="nitems">${d.items.map(it => `<li class="nitem"><span class="ntag">${esc(it.tag || "焦点")}</span><div class="nbody">
+    <h3>${esc(it.title)}</h3><p>${esc(it.text)}</p>
+    <div class="nsrc">${(it.tickers || []).map(tickerChip).join("")}${it.source ? `<a href="${esc(it.source.url)}" target="_blank" rel="noopener noreferrer">来源：${esc(it.source.name)} ↗</a>` : ""}</div>
+  </div></li>`).join("")}</ol>
+  <p class="disc"><strong>免责声明：</strong>速报内容整理自公开新闻与公告，由 12Invest 以自己的文字撰写，仅供参考，不构成任何买卖建议。详情请参阅原文来源。</p>`;
+}
+function newsIndex(){
+  const [latest, ...rest] = NEWS;
+  const body = `<div class="article newsday">${newsDayHTML(latest)}
+  <div class="tools"><a class="btn" href="${REL(`news/${latest.date}/`)}">单独页面 · 分享</a></div>
+  ${rest.length ? `<section class="more"><div class="sec">往期速报</div><ol class="nlist">${rest.map(d => `<li><a href="${REL(`news/${d.date}/`)}"><time>${longDate(d.date)}</time><span>${esc(d.title)}</span></a></li>`).join("")}</ol></section>` : ""}
+  ${follow()}</div>`;
+  return page({ path: "news/", title: "每日马股速报 · 12Invest", desc: "每个交易日收市后整理：大市表现、新股、合约与企业动态，每条附来源。", nav: "news", body, side: true });
+}
+function newsPage(d, i){
+  const prev = NEWS[i + 1], next = NEWS[i - 1], url = ABS(`news/${d.date}/`);
+  const og = fs.existsSync(path.join(ROOT, `og/news-${d.date}.jpg`)) ? `og/news-${d.date}.jpg` : null;
+  const [w, h] = og ? imgSize(og) : [0, 0];
+  const body = `<div class="article newsday"><a class="back" href="${REL("news/")}">← 所有速报</a>${newsDayHTML(d)}
+  ${shareHTML(null, url, `每日马股速报 ${day(d.date).md}：${d.title}`)}
+  <div class="tools">${prev ? `<a class="btn" href="${REL(`news/${prev.date}/`)}">← ${day(prev.date).md}</a>` : ""}${next ? `<a class="btn" href="${REL(`news/${next.date}/`)}">${day(next.date).md} →</a>` : ""}</div>
+  ${follow()}</div>`;
+  return page({ path: `news/${d.date}/`, title: `每日马股速报 ${day(d.date).md} · 12Invest`, desc: d.title, nav: "news", body, side: true,
+    og: { type: "article", title: `每日马股速报 ${day(d.date).md}｜${d.title}`, image: og, w, h } });
+}
 function legal(key){
   // English + Chinese on every legal page. The privacy notice also keeps Bahasa Malaysia: PDPA s.7(3) requires
   // the notice in both the national language and English.
@@ -436,6 +489,10 @@ function notFound(){
 const urls = [];
 write("index.html", home()); urls.push(["", data.updated]);
 write("ipo/index.html", calendar()); urls.push(["ipo/", data.updated]);
+if (NEWS.length){
+  write("news/index.html", newsIndex()); urls.push(["news/", NEWS[0].date]);
+  NEWS.forEach((d, i) => { write(`news/${d.date}/index.html`, newsPage(d, i)); urls.push([`news/${d.date}/`, d.date]); });
+}
 for (const p of posts){
   write(`p/${p.id}/index.html`, article(p)); urls.push([`p/${p.id}/`, (p.updatedAt || p.publishedAt).slice(0, 10)]);
   for (const old of p.oldIds || []) if (/^[a-z0-9-]+$/.test(old) && old !== p.id) write(`p/${old}/index.html`, redirect(`p/${p.id}/`)); // keep old shared links working
@@ -457,6 +514,13 @@ write("feed.xml", `<?xml version="1.0" encoding="UTF-8"?>
   <atom:link href="${esc(ABS("feed.xml"))}" rel="self" type="application/rss+xml"/>
   <description>马股新股与上市公司解读</description>
   <language>zh-cn</language>
+${NEWS.slice(0, 10).map(d => `  <item>
+    <title>${esc(`每日马股速报 ${day(d.date).md}：${d.title}`)}</title>
+    <link>${esc(ABS(`news/${d.date}/`))}</link>
+    <guid isPermaLink="true">${esc(ABS(`news/${d.date}/`))}</guid>
+    <pubDate>${new Date(d.date + "T10:30:00Z").toUTCString()}</pubDate>
+    <description>${esc(d.items.map(it => it.title).join("；"))}</description>
+  </item>`).join("\n")}
 ${posts.map(p => `  <item>
     <title>${esc(p.title)}</title>
     <link>${esc(ABS(`p/${p.id}/`))}</link>
