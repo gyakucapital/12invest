@@ -153,20 +153,26 @@ const CANDLES = (() => {
   // dancing mascot: bull if the previous trading day's KLCI closed up, bear if it closed down (from the latest daily edition)
   const lastMk = (NEWS.find(d => d.kind !== "weekly" && d.market && d.market.change) || {}).market;
   const down = lastMk ? /^[-−]/.test(lastMk.change) : false;
-  const SPR = down
+  // flat day = KLCI moved less than 0.05% either way → sleeping mascot
+  const pctNum = lastMk ? parseFloat(((lastMk.change.match(/[（(]\s*([-−+]?[\d.]+)%/) || [])[1] || "").replace("−", "-")) : NaN;
+  const flat = !isNaN(pctNum) && Math.abs(pctNum) < 0.05;
+  const SPR = flat
+    ? ["................", "......GGGG......", "....GGYYYYGG....", "...GYYYYYYYYG...", "...GYYYYYYYYG...", "..GYKKYYYYKKYG..", "..GYYYYYYYYYYG..", "...GYYYYKKYYG...", "...GYYYYYYYYG...", "....GGYYYYGG....", "......GGGG......"]
+    : down
     ? ["..EE........EE..", ".EEEBBBBBBBBEEE.", "..BBBBBBBBBBBB..", "..BBBBBBBBBBBB..", "..BBKBBBBBBKBB..", "..BBBBBBBBBBBB..", "...BBBSSSSBBB...", "...BBSSKKSSBB...", "....BBSSSSBB....", "......BBBB......"]
     : ["H..............H", "HH............HH", ".HHBBBBBBBBBBHH.", "...BBBBBBBBBB...", "...BKBBBBBBKB...", "...BBBBBBBBBB...", "....SSSSSSSS....", "....SNSSSSNS....", ".....SSSSSS.....", "......BBBB......"];
-  const cls = { H: "mh", E: "me", B: "mb", K: "mk", S: "msn", N: "mk" };
+  const cls = { H: "mh", E: "me", B: "mb", K: "mk", S: "msn", N: "mk", G: "mg", Y: "my" };
   const body = SPR.flatMap((r, y) => [...r].map((c, x) => c === "." ? "" : `<rect x="${x}" y="${y}" width="1" height="1" class="${cls[c]}"/>`)).join("");
   const dot = pts => pts.map(([x, y]) => `<rect x="${x}" y="${y}" width="1" height="1" class="mlimb"/>`).join("");
   const fA = dot([[0, 4], [1, 5], [1, 6], [14, 7], [15, 8], [5, 10], [5, 11], [10, 10], [11, 11]]);
   const fB = dot([[1, 7], [0, 8], [15, 4], [14, 5], [14, 6], [5, 10], [4, 11], [10, 10], [10, 11]]);
-  const mood = down ? "bear" : "bull";
+  const mood = flat ? "sleep" : down ? "bear" : "bull";
   const pct = lastMk && (lastMk.change.match(/[（(]\s*([-−+]?[\d.]+%)\s*[）)]/) || [])[1];
   const mlabel = lastMk ? `KLCI ${pct || lastMk.change.replace(/（.*$/, "").trim()}` : "";
-  const mascot = `<svg class="mascot ${mood}" viewBox="0 0 16 12" width="48" height="36" shape-rendering="crispEdges" aria-hidden="true"><g>${body}</g><g class="mfA">${fA}</g><g class="mfB">${fB}</g></svg>`;
+  const zz = flat ? [1, 2, 3].map(k => `<svg class="zz z${k}" viewBox="0 0 3 3" width="${4 + k * 2}" height="${4 + k * 2}" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="0" width="3" height="1"/><rect x="1" y="1" width="1" height="1"/><rect x="0" y="2" width="3" height="1"/></svg>`).join("") : "";
+  const mascot = `<svg class="mascot ${mood}" viewBox="0 0 16 12" width="48" height="36" shape-rendering="crispEdges" aria-hidden="true"><g class="mbody">${body}</g>${flat ? "" : `<g class="mfA">${fA}</g><g class="mfB">${fB}</g>`}</svg>${zz}`;
   const spark = k => `<svg class="spark s${k}" viewBox="0 0 5 5" width="10" height="10" shape-rendering="crispEdges" aria-hidden="true"><rect x="2" y="0" width="1" height="5" class="ms"/><rect x="0" y="2" width="5" height="1" class="ms"/></svg>`;
-  return `<div class="mticker" aria-hidden="true"><div class="mt-vp"><div class="mt-track">${svg}${svg}${svg}${svg}</div>${[1, 2, 3].map(spark).join("")}</div><div class="mt-dance ${mood}" title="${lastMk ? `上一交易日 FBM KLCI ${esc(lastMk.change)}` : ""}">${mascot}${mlabel ? `<span class="mt-lbl">${down ? "▼" : "▲"} ${esc(mlabel.replace(/^KLCI\s*/, ""))}</span>` : ""}</div></div>`;
+  return `<div class="mticker" aria-hidden="true"><div class="mt-vp"><div class="mt-track">${svg}${svg}${svg}${svg}</div>${[1, 2, 3].map(spark).join("")}</div><div class="mt-dance ${mood}" title="${lastMk ? `上一交易日 FBM KLCI ${esc(lastMk.change)}` : ""}">${mascot}${mlabel ? `<span class="mt-lbl">${flat ? "≈" : down ? "▼" : "▲"} ${esc(mlabel.replace(/^KLCI\s*/, ""))}</span>` : ""}</div></div>`;
 })();
 const DEFAULT_DESC = "12Invest：马股新股与上市公司解读，IPO 速读、估值与风险一次看懂。";
 

@@ -589,3 +589,13 @@ label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--g
 .mt-dance.bull .mt-lbl{color:#7CD992}.mt-dance.bear .mt-lbl{color:var(--signal)}
 .mt-up{display:none}
 @media (max-width:860px){ .mt-dance{height:40px;min-width:40px} .mascot{width:36px;height:27px} .mt-lbl{font-size:9px} }
+/* flat day: sleeping coin mascot with floating Z's */
+.mascot.sleep{animation:breathe 2.4s steps(2) infinite}
+.mascot.sleep .mg{fill:#B8861A}.mascot.sleep .my{fill:#F4C24F}
+@keyframes breathe{0%{transform:translateY(0)}50%{transform:translateY(1px)}}
+.mt-dance.sleep{position:relative}
+.mt-dance.sleep .mt-lbl{color:var(--muted)}
+.zz{position:absolute;fill:#A3B3DC;opacity:0;animation:zz 3s steps(6) infinite}
+.zz.z1{left:64%;top:16px}.zz.z2{left:80%;top:7px;animation-delay:1s}.zz.z3{left:96%;top:-3px;animation-delay:2s}
+@keyframes zz{0%{opacity:0;transform:translateY(4px)}20%{opacity:1}80%{opacity:.6}100%{opacity:0;transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.mascot.sleep,.zz{animation:none}.zz{opacity:.8}}
