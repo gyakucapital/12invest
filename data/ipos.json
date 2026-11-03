@@ -1,0 +1,69 @@
+{
+ "updated": "2026-11-03",
+ "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
+ "ipos": [
+  {
+   "ticker": "KEB",
+   "name": "KEB",
+   "company": "KEB Berhad",
+   "board": "ACE Market",
+   "price": "RM0.35",
+   "open": "2026-10-23",
+   "close": "2026-11-02",
+   "listing": "2026-11-16",
+   "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/10/23/keb-to-raise-rm4849mil-from-ace-market-ipo",
+    "https://finance.yahoo.com/real-estate/articles/keb-berhad-sets-stage-ace-143000131.html"
+   ],
+   "checked": "2026-11-03"
+  },
+  {
+   "ticker": "MYDCD",
+   "name": "MyDCD",
+   "company": "MyDCD Berhad",
+   "board": "ACE Market",
+   "price": "RM0.56",
+   "cap": "约 RM1.0b",
+   "open": "2026-10-26",
+   "close": "2026-11-02",
+   "ballot": "2026-11-04",
+   "listing": "2026-11-17",
+   "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/10/26/ace-market-bound-mydcd-aims-to-raise-rm1876mil-from-ipo"
+   ],
+   "checked": "2026-11-03"
+  },
+  {
+   "ticker": "BCG",
+   "name": "Big Caring",
+   "company": "Big Caring Group Berhad",
+   "board": "主板",
+   "price": "最高 RM1.08",
+   "cap": "约 RM8.0b",
+   "open": "2026-10-29",
+   "close": "2026-11-05",
+   "pricing": "2026-11-10",
+   "listing": "2026-11-19",
+   "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/10/29/big-caring-plans-to-raise-rm6378mil-from-main-market-ipo"
+   ],
+   "checked": "2026-11-03"
+  },
+  {
+   "ticker": "IMPACT",
+   "name": "Impact Capital",
+   "company": "Impact Capital Holdings Berhad",
+   "board": "ACE Market",
+   "price": "RM0.22",
+   "cap": "约 RM105.6m",
+   "open": "2026-10-27",
+   "close": "2026-11-06",
+   "ballot": "2026-11-12",
+   "listing": "2026-11-24",
+   "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/10/28/impact-capital-holdings-launches-ipo-prospectus"
+   ],
+   "checked": "2026-11-03"
+  }
+ ]
+}

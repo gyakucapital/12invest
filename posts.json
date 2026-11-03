@@ -2,7 +2,7 @@
  "updated": "2026-11-03",
  "posts": [
   {
-   "id": "mydcd-ipo",
+   "id": "2026-11-02-mydcd",
    "title": "【 IPO 新股 】数据中心背后的机电专家 MyDCD 下月挂牌，分析员看合理价 RM1.07",
    "category": "IPO 新股",
    "excerpt": "数据中心机电系统承包商 MyDCD 以每股 56仙 发售，上市市值约 RM1.0 billion，本益比约 15倍，11月17日登陆 ACE Market。手握 RM1.32 billion 订单，M+ Global 给出 RM1.07 合理价，客户集中于 Binastra 则需留意。",
@@ -95,20 +95,14 @@
     ],
     "timeline": "11月4日抽签 · 11月17日挂牌 ACE"
    },
-   "ipo": {
-    "name": "MyDCD",
-    "board": "ACE Market",
-    "price": "RM0.56",
-    "cap": "约 RM1.0b",
-    "open": "2026-10-26",
-    "close": "2026-11-02",
-    "ballot": "2026-11-04",
-    "listing": "2026-11-17"
-   },
-   "ogImage": "img/mydcd-cutaway.jpg"
+   "ogImage": "img/mydcd-cutaway.jpg",
+   "ticker": "MYDCD",
+   "oldIds": [
+    "mydcd-ipo"
+   ]
   },
   {
-   "id": "impact-capital-ipo",
+   "id": "2026-10-29-impact",
    "title": "【 IPO 新股 】砂拉越ICT老字号 Impact Capital 上ACE，22仙发售、本益比约11倍，值得申购吗？",
    "category": "IPO 新股",
    "excerpt": "砂拉越 ICT 整合商 Impact Capital 以每股 22仙 发售，上市市值约 RM105.6 million，本益比约 11.3倍，11月24日登陆 ACE Market。手握约 RM169.9m 订单、现金多借贷少，客户集中则是要留意的地方。",
@@ -205,19 +199,13 @@
     ],
     "timeline": "11月6日截止 · 11月24日挂牌 ACE"
    },
-   "ipo": {
-    "name": "Impact Capital",
-    "board": "ACE Market",
-    "price": "RM0.22",
-    "cap": "约 RM105.6m",
-    "open": "2026-10-27",
-    "close": "2026-11-06",
-    "ballot": "2026-11-12",
-    "listing": "2026-11-24"
-   }
+   "ticker": "IMPACT",
+   "oldIds": [
+    "impact-capital-ipo"
+   ]
   },
   {
-   "id": "bigcaring-ipo",
+   "id": "2026-10-29-bcg",
    "title": "【 IPO 新股 】马股今年第二大IPO！全国最大药剂连锁 Big Caring 来了，RM1.08 值得申购吗？",
    "category": "IPO 新股",
    "excerpt": "全国最大药剂连锁 Big Caring Group 今天推介招股书，以最高每股 RM1.08 发售最多 18.82亿股，上市市值约 RM8 billion，计划11月19日登陆主板。规模、增长、估值和风险，版主一次整理给你。",
@@ -306,16 +294,10 @@
     ],
     "timeline": "11月5日截止 · 11月19日挂牌主板"
    },
-   "ipo": {
-    "name": "Big Caring",
-    "board": "主板",
-    "price": "最高 RM1.08",
-    "cap": "约 RM8.0b",
-    "open": "2026-10-29",
-    "close": "2026-11-05",
-    "pricing": "2026-11-10",
-    "listing": "2026-11-19"
-   }
+   "ticker": "BCG",
+   "oldIds": [
+    "bigcaring-ipo"
+   ]
   }
  ]
 }

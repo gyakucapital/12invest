@@ -278,3 +278,8 @@ footer .brand{font-family:var(--font-pixel);color:var(--gold);font-size:13px}
   .share .lbl{flex-basis:100%}
   .share .btn{flex:1 1 40%;justify-content:center}
 }
+.ipo-kv{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr)}
+.ipo h2 small,.ev .who small{font-family:var(--font-pixel);font-size:11px;font-weight:400;color:var(--muted);letter-spacing:.06em;margin-left:6px}
+.gtime.src{text-decoration:none}
+.gtime.src:hover{color:var(--gold);text-decoration:underline}
+.ipos+.note{margin-top:24px}

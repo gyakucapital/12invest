@@ -18,8 +18,21 @@ const TODAY = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10); // M
 const GC = CFG.goatcounter ? `https://${CFG.goatcounter}.goatcounter.com` : "";
 
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8"));
-const posts = data.posts.filter(p => p && p.id && p.title && /^[a-z0-9-]+$/.test(p.id))
+// Article URL = publish date (Malaysia) + ticker, e.g. p/2026-11-02-mydcd/
+const posts = data.posts.filter(p => p && p.id && p.title && /^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/.test(p.id))
   .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
+const skipped = data.posts.filter(p => !posts.includes(p)).map(p => p.id);
+if (skipped.length) console.warn("skipped posts with invalid id (need YYYY-MM-DD-ticker):", skipped.join(", "));
+
+// IPO calendar data (updated daily from public sources) — shown even when there is no article yet
+const ipoData = JSON.parse(fs.readFileSync(path.join(ROOT, "data/ipos.json"), "utf8"));
+const IPOS = (ipoData.ipos || []).filter(i => i && i.ticker && i.name);
+const byTicker = Object.fromEntries(IPOS.map(i => [i.ticker, i]));
+for (const p of posts) if (p.ticker && byTicker[p.ticker]) p.ipo = byTicker[p.ticker];
+const postFor = i => posts.find(p => p.ticker === i.ticker);
+const addDays = (d, n) => new Date(Date.parse(d + "T00:00:00Z") + n * 864e5).toISOString().slice(0, 10);
+// calendar window: anything not yet listed, plus IPOs listed in the last 30 days
+const CAL = IPOS.filter(i => !i.listing || i.listing >= addDays(TODAY, -30));
 
 /* ---------- helpers ---------- */
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -87,12 +100,13 @@ function ipoStatus(i, today = TODAY){
   if (i.open && today >= i.open) return ["open", today === i.close ? "今天截止" : "招股中"];
   return ["upcoming", "即将招股"];
 }
-const ipoData = i => ["open", "close", "listing"].filter(k => i[k]).map(k => ` data-${k}="${i[k]}"`).join("");
-const badge = i => { const [s, t] = ipoStatus(i); return `<span class="badge" data-ipo${ipoData(i)} data-s="${s}">${t}</span>`; };
+const ipoAttrs = i => ["open", "close", "listing"].filter(k => i[k]).map(k => ` data-${k}="${i[k]}"`).join("");
+const badge = i => { const [s, t] = ipoStatus(i); return `<span class="badge" data-ipo${ipoAttrs(i)} data-s="${s}">${t}</span>`; };
 const dclass = d => d < TODAY ? " past" : d === TODAY ? " today" : "";
-const events = posts.filter(p => p.ipo).flatMap(p => STEPS.filter(([k]) => p.ipo[k]).map(([k, label]) => ({ d: p.ipo[k], label, p })))
-  .sort((a, b) => a.d.localeCompare(b.d) || a.p.ipo.name.localeCompare(b.p.ipo.name));
-const evLi = e => { const { md, wd } = day(e.d); return `<li class="ev${dclass(e.d)}" data-d="${e.d}"><time datetime="${e.d}">${md}${wd}</time><span class="kind">${e.label}</span><span class="who"><a href="${REL(`p/${e.p.id}/`)}">${esc(e.p.ipo.name)}</a></span></li>`; };
+const events = CAL.flatMap(i => STEPS.filter(([k]) => i[k]).map(([k, label]) => ({ d: i[k], label, i, p: postFor(i) })))
+  .sort((a, b) => a.d.localeCompare(b.d) || a.i.name.localeCompare(b.i.name));
+const evLi = e => { const { md, wd } = day(e.d); const who = e.p ? `<a href="${REL(`p/${e.p.id}/`)}">${esc(e.i.name)}</a>` : esc(e.i.name);
+  return `<li class="ev${dclass(e.d)}" data-d="${e.d}"><time datetime="${e.d}">${md}${wd}</time><span class="kind">${e.label}</span><span class="who">${who} <small>${esc(e.i.board)}</small></span></li>`; };
 const stepsHTML = i => `<ol class="steps">${STEPS.filter(([k]) => i[k]).map(([k, , s]) => { const { md } = day(i[k]); return `<li class="step${dclass(i[k])}" data-d="${i[k]}"><i></i><b>${md}</b><span>${s}</span></li>`; }).join("")}</ol>`;
 
 /* ---------- page shell ---------- */
@@ -109,7 +123,7 @@ const DEFAULT_DESC = "12Invest：马股新股与上市公司解读，IPO 速读�
 function tape(){
   const up = events.filter(e => e.d >= TODAY);
   const items = up.length
-    ? up.map(e => { const { md } = day(e.d); return `<span data-d="${e.d}"><i>&gt;</i>${md} ${esc(e.p.ipo.name)} ${e.label}</span>`; })
+    ? up.map(e => { const { md } = day(e.d); return `<span data-d="${e.d}"><i>&gt;</i>${md} ${esc(e.i.name)} ${e.label}</span>`; })
     : posts.slice(0, 6).map(p => `<span><i>&gt;</i>${esc(p.category)} · ${esc(short(p.title).slice(0, 26))}</span>`);
   return items.join("") || `<span><i>&gt;</i>马股新股与上市公司解读</span>`;
 }
@@ -240,17 +254,21 @@ function article(p){
     head: `\n<meta property="article:published_time" content="${esc(p.publishedAt)}">\n<script type="application/ld+json">${ld}</script>` });
 }
 function calendar(){
-  const ipos = posts.filter(p => p.ipo).sort((a, b) => (a.ipo.listing || "").localeCompare(b.ipo.listing || ""));
+  const ipos = CAL.slice().sort((a, b) => (a.listing || "9999").localeCompare(b.listing || "9999"));
+  const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
+  const kv = i => [["板块", i.board], ["发售价", i.price], ["上市市值", i.cap], ["股票代号", i.code]].filter(([, v]) => v)
+    .map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
   const body = `<div class="page-hd"><div class="cat">IPO CALENDAR</div><h1>IPO 日历</h1><p>12Invest 追踪中的马股新股。日期为马来西亚时间，以招股书为准；招股一般在截止日下午5点结束。</p></div>
 <div class="sec">关键日期</div>
 <ol class="events">${events.map(evLi).join("")}</ol>
 <div class="sec">新股一览</div>
-<div class="ipos">${ipos.map(p => `<article class="ipo px">
-  <div class="ipo-top"><h2>${esc(p.ipo.name)}</h2>${badge(p.ipo)}</div>
-  <dl class="ipo-kv"><div><dt>板块</dt><dd>${esc(p.ipo.board)}</dd></div><div><dt>发售价</dt><dd>${esc(p.ipo.price)}</dd></div><div><dt>上市市值</dt><dd>${esc(p.ipo.cap)}</dd></div></dl>
-  ${stepsHTML(p.ipo)}
-  <div class="gfoot"><span class="gtime">${fmtPub(p.publishedAt)} 解读</span><a class="btn primary" href="${REL(`p/${p.id}/`)}">阅读解读 →</a></div>
-</article>`).join("\n")}</div>`;
+<div class="ipos">${ipos.map(i => { const p = postFor(i), s = (i.sources || [])[0]; return `<article class="ipo px" id="${esc(i.ticker.toLowerCase())}">
+  <div class="ipo-top"><h2>${esc(i.name)}${i.ticker !== i.name.toUpperCase() ? ` <small>${esc(i.ticker)}</small>` : ""}</h2>${badge(i)}</div>
+  <dl class="ipo-kv">${kv(i)}</dl>
+  ${stepsHTML(i)}
+  <div class="gfoot">${s ? `<a class="gtime src" href="${esc(s)}" target="_blank" rel="noopener noreferrer">来源：${esc(host(s))} ↗</a>` : "<span></span>"}${p ? `<a class="btn primary" href="${REL(`p/${p.id}/`)}">阅读解读 →</a>` : `<span class="note">暂无解读</span>`}</div>
+</article>`; }).join("\n")}</div>
+<p class="note">资料取自招股书、公司新闻稿及媒体报道，每日更新${ipoData.updated ? `（最后更新：${esc(ipoData.updated)}）` : ""}。日期如有更改，以 Bursa Malaysia 公告为准。</p>`;
   return page({ path: "ipo/", title: "IPO 日历 · 12Invest", desc: "马股新股招股、抽签与挂牌日期一览，附 12Invest 新股解读。", nav: "ipo", body });
 }
 function legal(key){
@@ -275,6 +293,10 @@ function legal(key){
 </article>`;
   return page({ path: key + "/", title: `${doc.en.title} · ${doc.bm.title} · 12Invest`, desc: `${doc.en.title} / ${doc.bm.title} — 12Invest (Gyaku Capital Sdn. Bhd.)`, body });
 }
+function redirect(to){
+  const u = ABS(to);
+  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=${esc(u)}"><link rel="canonical" href="${esc(u)}"><meta name="robots" content="noindex"><title>12Invest</title></head><body><a href="${esc(u)}">${esc(u)}</a></body></html>\n`;
+}
 function notFound(){
   return page({ path: "404.html", title: "找不到页面 · 12Invest", noindex: true,
     body: `<div class="empty px"><h3>找不到这个页面</h3>链接可能已更改。<br><br><a class="btn primary" href="${BASE}">返回首页</a></div>` });
@@ -284,7 +306,10 @@ function notFound(){
 const urls = [];
 write("index.html", home()); urls.push(["", data.updated]);
 write("ipo/index.html", calendar()); urls.push(["ipo/", data.updated]);
-for (const p of posts){ write(`p/${p.id}/index.html`, article(p)); urls.push([`p/${p.id}/`, (p.updatedAt || p.publishedAt).slice(0, 10)]); }
+for (const p of posts){
+  write(`p/${p.id}/index.html`, article(p)); urls.push([`p/${p.id}/`, (p.updatedAt || p.publishedAt).slice(0, 10)]);
+  for (const old of p.oldIds || []) if (/^[a-z0-9-]+$/.test(old) && old !== p.id) write(`p/${old}/index.html`, redirect(`p/${p.id}/`)); // keep old shared links working
+}
 for (const k of Object.keys(LEGAL)){ write(`${k}/index.html`, legal(k)); urls.push([`${k}/`, null]); }
 write("404.html", notFound());
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
