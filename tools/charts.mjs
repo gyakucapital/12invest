@@ -26,7 +26,7 @@ const THEMES = [
 const pick = id => [...id].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7) % THEMES.length;
 // "FYE2026" -> "FY26" so four periods fit under each panel
 const shortP = p => String(p).replace(/^(FYE?|FP|FPE)\s*(\d{2})(\d{2})$/i, (m, a, c, y) => a.toUpperCase().replace("FYE", "FY") + y);
-const fmt = v => Math.abs(v) >= 1000 ? Math.round(v).toLocaleString("en") : Math.abs(v) >= 10 ? v.toFixed(1) : v.toFixed(2);
+const fmt = v => Math.abs(v) >= 100 ? Math.round(v).toLocaleString("en") : Math.abs(v) >= 10 ? v.toFixed(1) : v.toFixed(2);
 
 function frame({ x, y, w, h, title, unit }){
   let s = `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#0E1C4A"/>`;
