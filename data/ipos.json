@@ -332,7 +332,14 @@
     "https://mahersaham.com/blogs/mydcd-berhad-ipo-ace-market"
    ],
    "checked": "2026-11-04",
-   "code": "0482"
+   "code": "0482",
+   "result": {
+    "oversub": 36.46,
+    "sources": [
+     "https://thesun.my/business/mydcd-ipo-oversubscribed-36-46-times/",
+     "https://www.dagangnews.com/article/terkini/ipo-mydcd-terlebih-langgan-3646-kali-terima-permohonan-saham-rm188-bilion-77031"
+    ]
+   }
   },
   {
    "ticker": "BCG",
@@ -385,13 +392,30 @@
     "https://theedgemalaysia.com/node/824311",
     "https://thesun.my/business/ioi-properties-to-raise-rm2-1b-from-largest-malaysian-reit-ipo/",
     "https://www.thestar.com.my/business/business-news/2026/11/03/ioi-raises-reit-ipo-target-as-malaysia-listing-boom-gathers-pace",
-    "https://www.klsescreener.com/v2/ipos"
+    "https://www.klsescreener.com/v2/ipos",
+    "https://www.edgeprop.my/content/1918133/ioipg-reit-launches-prospectus-ahead-listing-main-market-bursa-nov-25"
    ],
    "checked": "2026-11-04",
    "open": "2026-11-03",
    "close": "2026-11-10",
    "code": "5359 (IOIREIT)",
    "ballot": "2026-11-12"
+  },
+  {
+   "ticker": "YESGROUP",
+   "name": "Yes Group",
+   "company": "Yes Group Management Berhad",
+   "board": "ACE Market",
+   "price": "RM0.18",
+   "cap": "约 RM95.4m",
+   "open": "2026-11-04",
+   "close": "2026-11-13",
+   "listing": "2026-11-26",
+   "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/11/04/ace-market-bound-yes-travel-aims-to-raise-rm1654mil-from-ipo",
+    "https://www.dagangnews.com/article/terkini/yes-group-lancar-ipo-pada-harga-18-sen-sesaham-sasar-raih-rm25-juta-menjelang-penyenaraian-di-pasaran-ace-76990"
+   ],
+   "checked": "2026-11-04"
   }
  ]
 }
