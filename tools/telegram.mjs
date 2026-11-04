@@ -32,7 +32,17 @@ const todo = posts.filter(p => p.id && !state.posted.includes(p.id) && !p.noTele
 const recent = new Date(Date.now() + 8 * 3600e3 - 2 * 864e5).toISOString().slice(0, 10);
 const newsTodo = days.filter(d => d.date && d.date >= recent && !state.news.includes(newsKey(d))).sort((a, b) => a.date.localeCompare(b.date));
 function newsKey(d){ return (d.kind === "weekly" ? "weekly-" : "") + d.date; }
-if (!todo.length && !newsTodo.length) { console.log("Telegram: nothing new."); process.exit(0); }
+// Polls: one engagement poll after each article / news edition (keys kept in state.polls)
+state.polls = state.polls || [];
+const todayMY = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10);
+const pollKey = (kind, id) => `${kind}:${id}`;
+// articles published in the last 36 hours that have been (or are about to be) posted but have no poll yet
+const fresh = p => Date.parse(p.publishedAt || 0) > Date.now() - 36 * 3600e3; // published within the last 36 hours
+const postPollTodo = () => posts.filter(p => p.id && state.posted.includes(p.id) && !p.noTelegram && p.poll !== false && fresh(p) && !state.polls.includes(pollKey("post", p.id)));
+// daily edition: only on its own day (a "today" poll is stale tomorrow); weekly: within a day of publishing
+const newsPollOk = d => d.kind === "weekly" ? d.date >= new Date(Date.now() + 8 * 3600e3 - 864e5).toISOString().slice(0, 10) : d.date === todayMY;
+const newsPollTodo = () => days.filter(d => d.date && state.news.includes(newsKey(d)) && newsPollOk(d) && d.poll !== false && !state.polls.includes(pollKey(d.kind === "weekly" ? "weekly" : "news", d.date)));
+if (!todo.length && !newsTodo.length && !postPollTodo().length && !newsPollTodo().length) { console.log("Telegram: nothing new."); process.exit(0); }
 
 const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -88,6 +98,37 @@ function newsCaption(d){
   while (lines.length && fixed + [...lines.join("\n")].length > 1000) lines.pop();
   return `${head}${mk}\n\n${lines.join("\n")}${link}${ref}${tags}`;
 }
+// Poll wording. A post (or news edition) can set its own: "poll": {"question": "...", "options": ["...", "..."]}, or "poll": false to skip.
+function postPoll(p){
+  if (p.poll && p.poll.question) return p.poll;
+  const ipo = (IPOS || []).find(i => i.ticker === p.ticker);
+  const name = (ipo && ipo.name) || p.ticker || String(p.title).replace(/^【.*?】\s*/, "").slice(0, 30);
+  const isIpo = ipo || /IPO/i.test(String(p.category || "") + (p.tags || []).join(" "));
+  if (isIpo && !(ipo && ipo.listing && todayMY >= ipo.listing)){
+    const closed = ipo && ipo.close && todayMY > ipo.close;
+    if (!closed) return { question: `📊 投票：你会申购 ${name} 吗？`, options: ["会，已申购或准备申购 ✅", "观望，上市后再看 👀", "不会，这只没兴趣 🙅"] };
+    return { question: `📊 投票：你觉得 ${name} 上市首日会？`, options: ["上涨 📈", "持平 ➖", "下跌 📉"] };
+  }
+  return { question: `📊 投票：看完这篇，你对 ${name} 的看法是？`, options: ["看好 📈", "中立 ➖", "不看好 📉"] };
+}
+function newsPoll(d){
+  if (d.poll && d.poll.question) return d.poll;
+  return d.kind === "weekly"
+    ? { question: "📊 投票：下周马股（FBM KLCI）你怎么看？", options: ["上涨 📈", "横摆 ➖", "下跌 📉"] }
+    : { question: "📊 投票：今天马股（FBM KLCI）你怎么看？", options: ["上涨 📈", "横摆 ➖", "下跌 📉"] };
+}
+async function sendPoll(q, key){
+  // channel polls are always anonymous; Telegram limits: question ≤300 chars, 2–10 options of ≤100 chars
+  const body = { chat_id: CHAT, question: [...String(q.question)].slice(0, 300).join(""), is_anonymous: true,
+    options: q.options.slice(0, 10).map(o => ({ text: [...String(o)].slice(0, 100).join("") })) };
+  const r = await fetch(`https://api.telegram.org/bot${TOKEN}/sendPoll`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+  const j = await r.json();
+  if (!j.ok) { console.error(`Telegram: poll failed for ${key}: ${j.description}`); process.exitCode = 1; return; }
+  state.polls.push(key);
+  fs.writeFileSync(stateFile, JSON.stringify(state, null, 1) + "\n");
+  console.log(`Telegram: poll sent for ${key}`);
+  await sleep(2000);
+}
 async function send(photo, text){
   const fd = new FormData();
   fd.append("chat_id", CHAT); fd.append("parse_mode", "HTML");
@@ -107,6 +148,7 @@ for (const d of newsTodo){
   fs.writeFileSync(stateFile, JSON.stringify(state, null, 1) + "\n");
   console.log(`Telegram: posted news ${newsKey(d)}`);
   await sleep(3000);
+  if (newsPollOk(d) && d.poll !== false) await sendPoll(newsPoll(d), pollKey(d.kind === "weekly" ? "weekly" : "news", d.date));
 }
 for (const p of todo){
   if (!(await live(url(p.id)))) { console.log(`Telegram: ${p.id} not live yet; will retry next run.`); continue; }
@@ -123,4 +165,8 @@ for (const p of todo){
   fs.writeFileSync(stateFile, JSON.stringify(state, null, 1) + "\n");
   console.log(`Telegram: posted ${p.id}`);
   await sleep(3000);
+  if (p.poll !== false && fresh(p)) await sendPoll(postPoll(p), pollKey("post", p.id));
 }
+// catch-up: polls for items posted earlier that have no poll yet (e.g. a failed poll, or posted before polls existed)
+for (const d of newsPollTodo()) await sendPoll(newsPoll(d), pollKey(d.kind === "weekly" ? "weekly" : "news", d.date));
+for (const p of postPollTodo()) await sendPoll(postPoll(p), pollKey("post", p.id));
