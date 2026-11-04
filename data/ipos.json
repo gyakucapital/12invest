@@ -3,6 +3,111 @@
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
+   "ticker": "UNIPAC",
+   "name": "United Asiapac Energy",
+   "company": "United Asiapac Energy Berhad",
+   "board": "ACE Market",
+   "price": "RM0.35",
+   "code": "0468",
+   "open": "2026-07-28",
+   "close": "2026-08-05",
+   "ballot": "2026-08-10",
+   "listing": "2026-09-14",
+   "sources": [
+    "https://www.klsescreener.com/v2/ipos"
+   ],
+   "result": {
+    "oversub": 21.02,
+    "open": 0.35,
+    "close": 0.31,
+    "sources": [
+     "https://www.thestar.com.my/business/business-news/2026/08/10/united-asiapac-energy-ipo-oversubscribed-21-times",
+     "https://theedgemalaysia.com/node/817913",
+     "https://www.thestar.com.my/business/business-news/2026/09/15/united-asiapac-energy-aims-to-expand-well-intervention-services"
+    ]
+   },
+   "checked": "2026-11-04"
+  },
+  {
+   "ticker": "BFIELD",
+   "name": "Butterfield FB",
+   "company": "Butterfield FB Berhad",
+   "board": "ACE Market",
+   "price": "RM0.48",
+   "code": "0470",
+   "open": "2026-08-18",
+   "close": "2026-09-02",
+   "ballot": "2026-09-04",
+   "listing": "2026-09-15",
+   "sources": [
+    "https://www.klsescreener.com/v2/ipos"
+   ],
+   "result": {
+    "oversub": 18.7,
+    "open": 0.43,
+    "close": 0.46,
+    "sources": [
+     "https://www.thestar.com.my/business/business-news/2026/09/04/butterfield-fb-ipo-oversubscribed-187-times",
+     "https://theedgemalaysia.com/node/818110"
+    ]
+   },
+   "checked": "2026-11-04"
+  },
+  {
+   "ticker": "PIONEER",
+   "name": "Pioneer Heat",
+   "company": "Pioneer Heat Holdings Berhad",
+   "board": "ACE Market",
+   "price": "RM0.25",
+   "code": "0471",
+   "open": "2026-08-12",
+   "close": "2026-09-03",
+   "ballot": "2026-09-08",
+   "listing": "2026-09-17",
+   "sources": [
+    "https://www.klsescreener.com/v2/ipos"
+   ],
+   "result": {
+    "oversub": 47.8,
+    "open": 0.255,
+    "close": 0.3,
+    "sources": [
+     "https://www.thestar.com.my/business/business-news/2026/09/08/pioneer-heats-ipo-oversubscribed-4780-times",
+     "https://theedgemalaysia.com/node/818333",
+     "https://www.thestar.com.my/business/business-news/2026/09/18/pioneer-heat-eyes-larger-og-petrochemical-projects"
+    ]
+   },
+   "checked": "2026-11-04"
+  },
+  {
+   "ticker": "EVOCOM",
+   "name": "Evocom",
+   "company": "Evocom Berhad",
+   "board": "ACE Market",
+   "price": "RM0.18",
+   "code": "0473",
+   "open": "2026-09-03",
+   "close": "2026-09-14",
+   "ballot": "2026-09-17",
+   "listing": "2026-09-28",
+   "sources": [
+    "https://www.klsescreener.com/v2/ipos",
+    "https://theedgemalaysia.com/node/818579"
+   ],
+   "result": {
+    "oversub": 3.6,
+    "open": 0.15,
+    "close": 0.13,
+    "sources": [
+     "https://www.thestar.com.my/business/business-news/2026/09/18/evocom-ipo-oversubscribed-by-36-times-ahead-of-ace-market-listing",
+     "https://theedgemalaysia.com/node/818579",
+     "https://www.thestar.com.my/business/business-news/2026/09/28/evocom-slides-25-on-ace-market-debut-tops-most-active-list",
+     "https://www.thestar.com.my/business/business-news/2026/09/29/evocom-charts-growth-path-amid-soft-debut"
+    ]
+   },
+   "checked": "2026-11-04"
+  },
+  {
    "ticker": "GBBOND",
    "name": "GB Bond",
    "company": "GB Bond Holdings Berhad",
@@ -10,7 +115,8 @@
    "price": "RM0.25",
    "listing": "2026-10-01",
    "sources": [
-    "https://www.bernamabiz.com/news.php?id=2610439"
+    "https://www.bernamabiz.com/news.php?id=2610439",
+    "https://www.klsescreener.com/v2/ipos"
    ],
    "result": {
     "oversub": 8.22,
@@ -23,7 +129,38 @@
     ],
     "close": 0.205
    },
-   "checked": "2026-11-03"
+   "checked": "2026-11-04",
+   "code": "0475",
+   "open": "2026-09-09",
+   "close": "2026-09-18",
+   "ballot": "2026-09-22"
+  },
+  {
+   "ticker": "SLG",
+   "name": "SLGC",
+   "company": "SLGC Berhad",
+   "board": "ACE Market",
+   "price": "RM0.28",
+   "code": "0476",
+   "open": "2026-09-10",
+   "close": "2026-09-22",
+   "ballot": "2026-09-24",
+   "listing": "2026-10-06",
+   "sources": [
+    "https://www.klsescreener.com/v2/ipos"
+   ],
+   "result": {
+    "oversub": 3.06,
+    "open": 0.28,
+    "close": 0.25,
+    "sources": [
+     "https://theedgemalaysia.com/node/820671",
+     "https://theedgemalaysia.com/node/820641",
+     "https://www.thestar.com.my/business/business-news/2026/10/06/slgc-opens-flat-on-ace-market-debut-eyes-order-book-replenishment",
+     "https://www.thestar.com.my/business/business-news/2026/10/07/slgc-targets-more-jobs-fresh-on-the-heels-of-its-ace-market-listing"
+    ]
+   },
+   "checked": "2026-11-04"
   },
   {
    "ticker": "ECOSYS",
@@ -33,7 +170,8 @@
    "price": "RM0.27",
    "listing": "2026-10-14",
    "sources": [
-    "https://www.thestar.com.my/business/business-news/2026/09/24/ecosys-to-raise-rm3934mil-via-ace-market-ipo"
+    "https://www.thestar.com.my/business/business-news/2026/09/24/ecosys-to-raise-rm3934mil-via-ace-market-ipo",
+    "https://www.klsescreener.com/v2/ipos"
    ],
    "result": {
     "oversub": 206.7,
@@ -44,7 +182,11 @@
      "https://www.thestar.com.my/business/business-news/2026/10/15/ecosys-makes-strong-debut-on-ace-market"
     ]
    },
-   "checked": "2026-11-03"
+   "checked": "2026-11-04",
+   "code": "0477",
+   "open": "2026-09-23",
+   "close": "2026-09-29",
+   "ballot": "2026-10-01"
   },
   {
    "ticker": "EGH",
@@ -54,7 +196,8 @@
    "price": "RM0.16",
    "listing": "2026-10-16",
    "sources": [
-    "https://www.thestar.com.my/business/business-news/2026/09/25/egh-international-launches-ipo-prospectus-ahead-of-ace-market-listing"
+    "https://www.thestar.com.my/business/business-news/2026/09/25/egh-international-launches-ipo-prospectus-ahead-of-ace-market-listing",
+    "https://www.klsescreener.com/v2/ipos"
    ],
    "result": {
     "oversub": 2.63,
@@ -67,7 +210,11 @@
     "open": 0.145,
     "close": 0.135
    },
-   "checked": "2026-11-03"
+   "checked": "2026-11-04",
+   "code": "0472 (ECOGRP)",
+   "open": "2026-09-24",
+   "close": "2026-10-05",
+   "ballot": "2026-10-07"
   },
   {
    "ticker": "NWEBHD",
@@ -77,7 +224,8 @@
    "price": "RM0.20",
    "listing": "2026-10-21",
    "sources": [
-    "https://www.thestar.com.my/business/business-news/2026/09/29/nwe-resources-to-raise-rm286mil-from-ace-market-ipo"
+    "https://www.thestar.com.my/business/business-news/2026/09/29/nwe-resources-to-raise-rm286mil-from-ace-market-ipo",
+    "https://www.klsescreener.com/v2/ipos"
    ],
    "result": {
     "oversub": 2.82,
@@ -89,7 +237,11 @@
     ],
     "close": 0.2
    },
-   "checked": "2026-11-03"
+   "checked": "2026-11-04",
+   "code": "0478",
+   "open": "2026-09-29",
+   "close": "2026-10-09",
+   "ballot": "2026-10-13"
   },
   {
    "ticker": "REDPLANET",
@@ -99,17 +251,50 @@
    "price": "RM0.19",
    "listing": "2026-10-22",
    "sources": [
-    "https://www.thestar.com.my/business/business-news/2026/10/22/redplanet-extends-gains-to-526-on-ace-market-debut"
+    "https://www.thestar.com.my/business/business-news/2026/10/22/redplanet-extends-gains-to-526-on-ace-market-debut",
+    "https://www.klsescreener.com/v2/ipos"
    ],
    "result": {
     "open": 0.27,
     "close": 0.26,
     "sources": [
+     "https://www.thestar.com.my/business/2026/10/13/redplanet039s-ipo-public-portion-oversubscribed-8528-times",
      "https://www.thestar.com.my/business/business-news/2026/10/22/redplanet-extends-gains-to-526-on-ace-market-debut",
      "https://www.businesstoday.com.my/2026/10/22/ipo-debut-redplanet-closes-ace-market-debut-36-84-higher-at-26-sen/"
+    ],
+    "oversub": 85.28
+   },
+   "checked": "2026-11-04",
+   "code": "0479 (RPLANET)",
+   "open": "2026-09-28",
+   "close": "2026-10-08",
+   "ballot": "2026-10-13"
+  },
+  {
+   "ticker": "SKACAP",
+   "name": "SKA Capital",
+   "company": "SKA Capital Berhad",
+   "board": "ACE Market",
+   "price": "RM0.43",
+   "cap": "约 RM385m",
+   "code": "0480",
+   "open": "2026-10-20",
+   "close": "2026-10-27",
+   "ballot": "2026-10-29",
+   "listing": "2026-11-11",
+   "sources": [
+    "https://mahersaham.com/blogs/ska-capital-ipo-ace-market",
+    "https://blog.dexterchia.com/ska-capital-ace-market-ipo-at-43-sen-raises-rm103-4mil/",
+    "https://www.klsescreener.com/v2/ipos"
+   ],
+   "result": {
+    "oversub": 80.42,
+    "sources": [
+     "https://theedgemalaysia.com/node/823813",
+     "https://www.thestar.com.my/business/business-news/2026/10/29/ska-capitals-ace-market-ipo-oversubscribed-8042-times"
     ]
    },
-   "checked": "2026-11-03"
+   "checked": "2026-11-04"
   },
   {
    "ticker": "KEB",
@@ -122,9 +307,13 @@
    "listing": "2026-11-16",
    "sources": [
     "https://www.thestar.com.my/business/business-news/2026/10/23/keb-to-raise-rm4849mil-from-ace-market-ipo",
-    "https://finance.yahoo.com/real-estate/articles/keb-berhad-sets-stage-ace-143000131.html"
+    "https://finance.yahoo.com/real-estate/articles/keb-berhad-sets-stage-ace-143000131.html",
+    "https://www.klsescreener.com/v2/ipos",
+    "https://klse.i3investor.com/web/blog/detail/mqipo/2026-10-27-story-h502492925-IPO_KEB_BERHAD_PART_1"
    ],
-   "checked": "2026-11-03"
+   "checked": "2026-11-04",
+   "code": "0481",
+   "ballot": "2026-11-04"
   },
   {
    "ticker": "MYDCD",
@@ -138,9 +327,12 @@
    "ballot": "2026-11-04",
    "listing": "2026-11-17",
    "sources": [
-    "https://www.thestar.com.my/business/business-news/2026/10/26/ace-market-bound-mydcd-aims-to-raise-rm1876mil-from-ipo"
+    "https://www.thestar.com.my/business/business-news/2026/10/26/ace-market-bound-mydcd-aims-to-raise-rm1876mil-from-ipo",
+    "https://www.klsescreener.com/v2/ipos",
+    "https://mahersaham.com/blogs/mydcd-berhad-ipo-ace-market"
    ],
-   "checked": "2026-11-03"
+   "checked": "2026-11-04",
+   "code": "0482"
   },
   {
    "ticker": "BCG",
@@ -154,9 +346,13 @@
    "pricing": "2026-11-10",
    "listing": "2026-11-19",
    "sources": [
-    "https://www.thestar.com.my/business/business-news/2026/10/29/big-caring-plans-to-raise-rm6378mil-from-main-market-ipo"
+    "https://www.thestar.com.my/business/business-news/2026/10/29/big-caring-plans-to-raise-rm6378mil-from-main-market-ipo",
+    "https://www.klsescreener.com/v2/ipos",
+    "https://kclau.com/make-money-tips/big-caring-group-ipo/"
    ],
-   "checked": "2026-11-03"
+   "checked": "2026-11-04",
+   "code": "5358",
+   "ballot": "2026-11-10"
   },
   {
    "ticker": "IMPACT",
@@ -170,9 +366,11 @@
    "ballot": "2026-11-12",
    "listing": "2026-11-24",
    "sources": [
-    "https://www.thestar.com.my/business/business-news/2026/10/28/impact-capital-holdings-launches-ipo-prospectus"
+    "https://www.thestar.com.my/business/business-news/2026/10/28/impact-capital-holdings-launches-ipo-prospectus",
+    "https://www.klsescreener.com/v2/ipos"
    ],
-   "checked": "2026-11-03"
+   "checked": "2026-11-04",
+   "code": "0483"
   },
   {
    "ticker": "IOIPGREIT",
@@ -186,11 +384,14 @@
     "https://www.thestar.com.my/business/business-news/2026/11/03/ioipg-reit-targets-rm21bil-in-malaysia039s-largest-reit-ipo-to-date",
     "https://theedgemalaysia.com/node/824311",
     "https://thesun.my/business/ioi-properties-to-raise-rm2-1b-from-largest-malaysian-reit-ipo/",
-    "https://www.thestar.com.my/business/business-news/2026/11/03/ioi-raises-reit-ipo-target-as-malaysia-listing-boom-gathers-pace"
+    "https://www.thestar.com.my/business/business-news/2026/11/03/ioi-raises-reit-ipo-target-as-malaysia-listing-boom-gathers-pace",
+    "https://www.klsescreener.com/v2/ipos"
    ],
-   "checked": "2026-11-03",
+   "checked": "2026-11-04",
    "open": "2026-11-03",
-   "close": "2026-11-10"
+   "close": "2026-11-10",
+   "code": "5359 (IOIREIT)",
+   "ballot": "2026-11-12"
   }
  ]
 }
