@@ -7,11 +7,12 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createRequire } from "node:module";
+import { spaceAll } from "./pangu.mjs";
 const { chromium } = createRequire(import.meta.url)("playwright");
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const force = process.argv.includes("--force");
-const { posts } = JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8"));
+const { posts } = spaceAll(JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8")));
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const font = f => pathToFileURL(path.join(ROOT, "fonts", f)).href;
 

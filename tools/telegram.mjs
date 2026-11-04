@@ -4,6 +4,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { spaceAll } from "./pangu.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
@@ -21,11 +22,11 @@ if (process.env.TELEGRAM_TEST === "true"){ // manual check from GitHub → Actio
 
 const stateFile = path.join(ROOT, "data/telegram.json");
 const state = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, "utf8")) : { posted: [] };
-const { posts } = JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8"));
+const { posts } = spaceAll(JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8")));
 const IPOS = fs.existsSync(path.join(ROOT, "data/ipos.json")) ? JSON.parse(fs.readFileSync(path.join(ROOT, "data/ipos.json"), "utf8")).ipos : [];
 state.news = state.news || [];
 const newsFile = path.join(ROOT, "data/news.json");
-const days = fs.existsSync(newsFile) ? (JSON.parse(fs.readFileSync(newsFile, "utf8")).days || []) : [];
+const days = fs.existsSync(newsFile) ? (spaceAll(JSON.parse(fs.readFileSync(newsFile, "utf8"))).days || []) : [];
 const todo = posts.filter(p => p.id && !state.posted.includes(p.id) && !p.noTelegram)
   .sort((a, b) => String(a.publishedAt).localeCompare(String(b.publishedAt)));
 // only editions from the last 2 days, so an old edition is never blasted late

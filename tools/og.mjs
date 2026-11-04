@@ -5,12 +5,13 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createRequire } from "node:module";
+import { spaceAll } from "./pangu.mjs";
 // Playwright may be installed globally; resolve it the CommonJS way so both local and global installs work.
 const { chromium } = createRequire(import.meta.url)("playwright");
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const force = process.argv.includes("--force");
-const { posts } = JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8"));
+const { posts } = spaceAll(JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8")));
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const f = p => pathToFileURL(path.join(ROOT, p)).href;
 
@@ -53,7 +54,7 @@ ${stats.length ? `<div class="st">${stats.map(s => `<div class="s"><div>${esc(s.
 }
 // Daily news share cards: og/news-<date>.jpg
 const newsFile = path.join(ROOT, "data/news.json");
-const days = fs.existsSync(newsFile) ? JSON.parse(fs.readFileSync(newsFile, "utf8")).days || [] : [];
+const days = fs.existsSync(newsFile) ? spaceAll(JSON.parse(fs.readFileSync(newsFile, "utf8"))).days || [] : [];
 for (const d of days){
   const weekly = d.kind === "weekly";
   const out = path.join(ROOT, "og", `${weekly ? "weekly" : "news"}-${d.date}.jpg`);

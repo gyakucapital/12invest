@@ -7,6 +7,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { PUB, UPDATED, LEGAL, ZH, PUB_ZH, UPDATED_ZH } from "./legal.mjs";
+import { spaceAll } from "./pangu.mjs"; // space between Chinese and English/numbers in article and news text
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CFG = JSON.parse(fs.readFileSync(path.join(ROOT, "tools/site.config.json"), "utf8"));
@@ -17,7 +18,7 @@ const DISC = "本文仅供参考及教育用途，并不构成任何买卖建议
 const TODAY = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10); // Malaysia date
 const GC = CFG.goatcounter ? `https://${CFG.goatcounter}.goatcounter.com` : "";
 
-const data = JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8"));
+const data = spaceAll(JSON.parse(fs.readFileSync(path.join(ROOT, "posts.json"), "utf8")));
 // Article URL = publish date (Malaysia) + ticker, e.g. p/2026-11-02-mydcd/
 const posts = data.posts.filter(p => p && p.id && p.title && /^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/.test(p.id))
   .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
@@ -32,7 +33,7 @@ for (const p of posts) if (p.ticker && byTicker[p.ticker]) p.ipo = byTicker[p.ti
 const postFor = i => posts.find(p => p.ticker === i.ticker);
 
 // Daily market news (data/news.json, written each trading day by the scheduled task)
-const newsData = fs.existsSync(path.join(ROOT, "data/news.json")) ? JSON.parse(fs.readFileSync(path.join(ROOT, "data/news.json"), "utf8")) : { days: [] };
+const newsData = fs.existsSync(path.join(ROOT, "data/news.json")) ? spaceAll(JSON.parse(fs.readFileSync(path.join(ROOT, "data/news.json"), "utf8"))) : { days: [] };
 const NEWS = (newsData.days || []).filter(d => d && /^\d{4}-\d{2}-\d{2}$/.test(d.date) && (d.items || []).length)
   .sort((a, b) => b.date.localeCompare(a.date));
 const addDays = (d, n) => new Date(Date.parse(d + "T00:00:00Z") + n * 864e5).toISOString().slice(0, 10);
