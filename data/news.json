@@ -2,6 +2,177 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-04",
+   "title": "马股收涨0.14%报1,621.85点；TNB 联手 IOI Corp 投资 RM606m 发展500MW太阳能",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-03",
+    "close": "1,621.85",
+    "change": "+2.34（+0.14%）",
+    "breadth": "涨 403 / 跌 652 / 平 502",
+    "turnover": "26.3亿股，RM2.64 billion",
+    "note": "区域半导体股遭抛售，投资者对 AI 巨额投资的回报存疑，大马指数靠银行股守住小涨：兴业银行与大马银行各升21仙，丰隆银行升16仙。市场气氛谨慎，跌股仍多于涨股，马太平洋工业与 Kelington 等科技股走低。",
+    "source": {
+     "name": "Bernama",
+     "url": "https://www.bernama.com/en/market/news.php?id=2629551"
+    }
+   },
+   "items": [
+    {
+     "tag": "能源",
+     "title": "TNB 联手 IOI Corp 与中小企，在马口建500MW太阳能",
+     "text": "国能旗下 TNB Renewables（持股70%）、IOI Corp 子公司（25%）及12家中小企组成的财团（5%）成立合资公司，在森美兰马口（Bahau）发展500MW太阳能项目，配备250MW/1,000MWh电池储能，属企业再生能源供应计划（CRESS）。三方最高股本投入合共 RM606.2 million，其中国能最多 RM424.4 million；国能预料对本财年业绩无重大影响。",
+     "tickers": [
+      "TENAGA",
+      "IOICORP"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824385"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "GDB 获 RM877m 莎阿南物流中心工程",
+     "text": "GDB Holdings 子公司接获 Rochester Logistics Asset 2 的工程，拆除旧厂并兴建两栋五层物流中心，工期34个月，11月4日动工，目标2029年9月3日完工。连同早前 RM1.02 billion 的 ParkCity Residence 合约，手头订单增至 RM2.93 billion。",
+     "tickers": [
+      "GDB"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824339"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "MM Computer Systems 获 RM51.58m AI 服务器订单",
+     "text": "MM Computer Systems（MMCS）旗下 Micro Technology Solution 获大马一家电讯基建及数据中心服务商颁发合约，供应 GPU 加速服务器，总值 RM51.58 million。客户名称未披露。",
+     "tickers": [],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824413&gsessionid=HyK31bl1Eyxh6sUQEWVppQ8Tv_xQtscWlxcV0doZUdcI-R5r-n--CA"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "Theta Edge 子公司获 RM33m 电脑供应合约",
+     "text": "Theta Edge 旗下 Theta Technologies 获 Aceteam Networks 委任为设备即服务（DaaS）项目的独家供应商，供应最多5,742台手提及桌上电脑，合约值 RM33.01 million，为期60个月。公司预料从截至2027年12月31日的财年起贡献盈利。",
+     "tickers": [
+      "THETA"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://thestar.com.my/business/business-news/2026/11/03/theta-edge-secures-rm33mil-computer-supply-contract"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "HB Global 财务总监辞职，年报未交或11月10日停牌",
+     "text": "HB Global 委任拿督 Ng Chee Siong 为执行董事，财务总监11月2日辞职，创办人兼首席执行员10月30日卸任。审计师退出后公司仍在物色新审计师；若11月6日前未能发布年报，股票将从11月10日起暂停交易。",
+     "tickers": [
+      "HBGLOB"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824429"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "MyDCD 申购已截止，11月17日上 ACE 市场",
+     "text": "数据中心机电工程服务商 MyDCD 的 IPO 申购已于11月2日下午5时截止，每股56仙，发行3.35亿新股筹资 RM187.6 million，另献售1.45亿旧股，预计11月17日挂牌。",
+     "tickers": [
+      "MYDCD"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/10/26/ace-market-bound-mydcd-aims-to-raise-rm1876mil-from-ipo"
+     }
+    },
+    {
+     "tag": "政策",
+     "title": "国行11月5日议息，市场普遍预期 OPR 维持2.75%",
+     "text": "交易员称投资者正等待国家银行周四的利率决定，普遍预期隔夜政策利率维持在2.75%。令吉周二走软0.1%至兑1美元4.0755令吉。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/03/fbm-klci-ekes-out-gains-despite-regional-market-weakness"
+     }
+    },
+    {
+     "tag": "环球",
+     "title": "美股涨跌互见，芯片股撑起纳指；中期选举结果待揭晓",
+     "text": "美股周二常规交易收市，追踪标普500的 SPY 涨0.31%，追踪纳指100的 QQQ 涨0.62%，追踪道指的 DIA 跌0.44%。芯片股领涨，苹果因假期季度毛利率展望令人失望而下跌1.90%。部分投资者与分析师认为，若民主党横扫国会，或对周三股市构成压力。",
+     "tickers": [],
+     "source": {
+      "name": "Stocktitan",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-3-2026"
+     }
+    },
+    {
+     "tag": "环球",
+     "title": "AMD 第三季营收增45%，数据中心业务近翻倍",
+     "text": "AMD 第三季营收134亿美元，按年增45%；数据中心业务营收85亿美元，增97%。公司预测第四季营收约170亿美元（上下3%）。AI 芯片需求动向是大马半导体股的关注点之一。",
+     "tickers": [],
+     "source": {
+      "name": "SEC / AMD",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000002488/000000248826000188/q32026991.htm"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI closes up 0.14% at 1,621.85; TNB and IOI Corp team up on RM606m, 500MW solar project",
+    "note": "Banks kept the index slightly higher as a regional sell-off in chip stocks, driven by doubts over returns on heavy AI spending, weighed on sentiment: RHB Bank and AMMB each rose 21 sen and Hong Leong Bank 16 sen. Mood stayed cautious, with decliners outnumbering gainers and tech names such as Malaysian Pacific Industries and Kelington lower.",
+    "items": [
+     {
+      "tagEn": "Energy",
+      "title": "TNB, IOI Corp and SMEs to build 500MW solar project in Bahau",
+      "text": "Tenaga's TNB Renewables (70%), an IOI Corp unit (25%) and a consortium of 12 SMEs (5%) will form a joint venture for a 500MW solar project in Bahau, Negeri Sembilan, with a 250MW/1,000MWh battery system, under the Corporate Renewable Energy Supply Scheme. Maximum equity totals RM606.2 million, of which Tenaga commits up to RM424.4 million; Tenaga expects no material impact on this financial year."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "GDB wins RM877m Shah Alam logistics hub job",
+      "text": "A GDB Holdings unit accepted a job from Rochester Logistics Asset 2 to demolish a factory and build a two-block, five-storey logistics hub. Work runs 34 months from 4 November, with completion targeted for 3 September 2029. Together with the earlier RM1.02 billion ParkCity Residence job, the order book rises to RM2.93 billion."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "MM Computer Systems secures RM51.58m AI server order",
+      "text": "MM Computer Systems' unit Micro Technology Solution won a RM51.58 million contract to supply GPU-accelerated servers to a Malaysian telecommunications infrastructure and data centre services provider, which was not named."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "Theta Edge unit wins RM33m computer supply contract",
+      "text": "Theta Technologies, a Theta Edge subsidiary, was named exclusive supplier by Aceteam Networks for a Device as a Service project covering up to 5,742 laptops and desktops. The contract is worth RM33.01 million over 60 months and is expected to contribute to earnings from the year ending 31 December 2027."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "HB Global's CFO resigns; trading may halt on 10 Nov over late annual report",
+      "text": "HB Global named Datuk Ng Chee Siong as executive director; its CFO resigned on 2 November and its founder-CEO stepped down on 30 October. The company is seeking a new auditor after its previous one withdrew, and its shares will be suspended from 10 November if the annual report is not out by 6 November."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "MyDCD applications closed; ACE Market listing set for 17 Nov",
+      "text": "Applications for the IPO of data centre MEPF engineering firm MyDCD closed at 5pm on 2 November. The 56-sen offer comprises 335 million new shares raising RM187.6 million and 145 million existing shares for sale, with listing scheduled for 17 November."
+     },
+     {
+      "tagEn": "Policy",
+      "title": "Bank Negara decides on 5 Nov; OPR widely expected to stay at 2.75%",
+      "text": "Dealers said investors are awaiting Thursday's rate decision, with the overnight policy rate widely expected to stay at 2.75%. The ringgit eased 0.1% to 4.0755 against the US dollar on Tuesday."
+     },
+     {
+      "tagEn": "Global",
+      "title": "US stocks mixed as chips lift Nasdaq; midterm results awaited",
+      "text": "In Tuesday's regular session SPY rose 0.31%, QQQ gained 0.62% and DIA fell 0.44%. Chip stocks led, while Apple dropped 1.90% after a disappointing holiday-quarter gross margin forecast. Some investors and analysts said a Democratic sweep of Congress could weigh on stocks on Wednesday."
+     },
+     {
+      "tagEn": "Global",
+      "title": "AMD Q3 revenue up 45%, data centre sales nearly double",
+      "text": "AMD reported third-quarter revenue of US$13.4 billion, up 45% from a year earlier, with data centre revenue of US$8.5 billion, up 97%. It guided fourth-quarter revenue of about US$17 billion, plus or minus 3%."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-03",
    "title": "马股微涨0.14%，银行股撑盘；IOI 旗下 REIT 定价96仙，11月25日上主板",
    "market": {
