@@ -428,6 +428,23 @@
    "checked": "2026-11-06",
    "ballot": "2026-11-17",
    "code": "0485 (YES)"
+  },
+  {
+   "ticker": "EMITS",
+   "name": "Emits",
+   "company": "Emits Berhad",
+   "board": "ACE Market",
+   "price": "RM0.16",
+   "cap": "约 RM75.0m",
+   "open": "2026-11-06",
+   "close": "2026-11-19",
+   "ballot": "2026-11-23",
+   "listing": "2026-12-01",
+   "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/10/20/emits-inks-underwriting-deal-for-4q-ace-market-debut",
+    "Emits Berhad prospectus dated 6 November 2026"
+   ],
+   "checked": "2026-11-06"
   }
  ]
 }

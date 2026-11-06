@@ -22,7 +22,8 @@ const THEMES = [
   ["#7CD992", "#F4C24F", "#FF9DE2"], // green / gold / pink
   ["#6EA8FF", "#F4C24F", "#7CD992"], // blue / gold / green
   ["#FF9F43", "#A78BFA", "#4FD1C5"], // orange / violet / teal
-  ["#F4C24F", "#FF7A66", "#6EA8FF"]  // gold / coral / blue
+  ["#F4C24F", "#FF7A66", "#6EA8FF"], // gold / coral / blue
+  ["#FF9DE2", "#6EA8FF", "#F4C24F"]  // pink / blue / gold
 ];
 const pick = id => [...id].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7) % THEMES.length;
 // "FYE2026" -> "FY26" so four periods fit under each panel

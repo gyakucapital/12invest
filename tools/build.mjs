@@ -45,7 +45,9 @@ const SOCIAL = [["Facebook", CFG.social && CFG.social.facebook], ["moomoo", CFG.
 
 /* ---------- helpers ---------- */
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const inline = t => esc(t).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+const inline = t => esc(t).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+  // [text](https://…) links; moomoo referral links are marked sponsored
+  .replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, (m, a, u) => `<a href="${u}" target="_blank" rel="${/moomoo\.com/.test(u) ? "sponsored noopener" : "noopener"}">${a}</a>`);
 const hash = f => crypto.createHash("sha1").update(fs.readFileSync(path.join(ROOT, f))).digest("hex").slice(0, 8);
 const short = t => String(t).replace(/^【.*?】\s*/, "");
 const WD = "日一二三四五六";
