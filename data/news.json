@@ -2,6 +2,128 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-06",
+   "title": "马股挫1.17%收1,616.58点；华尔街 AI 科技股重挫，区域股市全线走低",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-06",
+    "close": "1,616.58",
+    "change": "-19.28（-1.17%）",
+    "breadth": "涨 273 / 跌 964 / 平 404",
+    "turnover": "36.4亿股，RM3.49 billion",
+    "note": "美股隔夜大跌拖累区域市场，马股全天受压，跌股远多于涨股；金融服务、种植和能源指数齐跌，马银行、大众银行、国能及联昌国际等权值股走低。分析员认为，这波跌势主要源自外围不确定因素，而非国内基本面转弱。",
+    "source": {
+     "name": "Bernama",
+     "url": "https://www.bernama.com/en/market/news.php?id=2630984"
+    }
+   },
+   "items": [
+    {
+     "tag": "环球",
+     "title": "华尔街 AI 科技股重挫，马股科技股早盘跌近6%",
+     "text": "美股周四录得18个月来最差表现，纳指挫5.5%、标普500跌4.36%、道指跌3.44%，费城半导体指数跌逾12%。马股科技股今早一度跌5.78%，UWC、Vitrox、Pentamaster 和 Inari 等跌幅居前。",
+     "tickers": [
+      "UWC",
+      "VITROX",
+      "PENTA",
+      "INARI"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://thestar.com.my/business/business-news/2026/11/06/bursa-malaysia-stocks-hammered-as-ai-rout-spills-into-regional-markets"
+     }
+    },
+    {
+     "tag": "环球",
+     "title": "韩股暴跌逾8%触发熔断，三星与 SK 海力士重挫",
+     "text": "韩国综合指数开盘跌逾8%，9个月来首次跌破5,000点，交易所启动20分钟熔断机制。三星电子跌10%、SK 海力士跌13%；美国中期选举后，市场对 AI 与数据中心政策的不确定性升温，拖累芯片股。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/06/south-korea-stocks-plunge-8-circuit-breaker-triggered-as-chip-shares-tumble"
+     }
+    },
+    {
+     "tag": "政策",
+     "title": "国行维持隔夜政策利率于2.75%",
+     "text": "国家银行在今年最后一次货币政策会议上维持隔夜政策利率（OPR）于2.75%，指第三季经济增长稳健，预计2027年保持韧性，但能源成本走高推升通胀。华侨银行预计国行或在2027年1月21日的会议上升息25个基点至3%。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/06/bnm-keeps-interest-rates-unchanged"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "周四马股大涨19.30点，成交额增至 RM3.61 billion",
+     "text": "国行议息结果出炉前后，马股周四收涨19.30点或1.19%至1,635.86点，成交量37.4亿股、值 RM3.61 billion，高于前一天的28.1亿股和 RM2.57 billion；但周五随外围急挫，涨幅几乎全数回吐。",
+     "tickers": [],
+     "source": {
+      "name": "Malay Mail",
+      "url": "https://www.malaymail.com/news/money/2026/11/05/bursa-malaysia-closes-higher-on-bank-negaras-opr-decision-wall-street-gains/242099"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "KEB 公众部分认购1.01倍，11月16日上 ACE",
+     "text": "KEB 的 IPO 大马公众部分共接获2,126份申请，认购4,447万股，略高于可供认购的4,412万股，其中土著部分申请2,731万股、其他公众1,716万股。KEB 将于11月16日在 ACE Market 挂牌。",
+     "tickers": [
+      "KEB"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/05/keb-ipo-fully-subscribed"
+     }
+    },
+    {
+     "tag": "环球",
+     "title": "印尼 Danantara 拟对煤炭、棕油出口收服务费",
+     "text": "印尼主权基金 Danantara 旗下商品贸易单位计划向煤炭、棕油和铁合金出口收取服务费，费率仍在计算中。当地出口商担心收费过高会侵蚀利润、削弱价格竞争力，促请尽早公布收费结构。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/06/danantaras-plan-for-export-fees-sparks-concern"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI falls 1.17% to 1,616.58 as a Wall Street AI tech rout drags regional markets lower",
+    "note": "Bursa stayed under pressure all day after Wall Street's overnight slump, with losers far outnumbering gainers. The financial services, plantation and energy indices all fell, and heavyweights Maybank, Public Bank, Tenaga and CIMB declined. An analyst said the weakness reflected external uncertainty rather than weaker domestic fundamentals.",
+    "items": [
+     {
+      "tagEn": "Global",
+      "title": "Wall Street AI tech rout; Bursa tech stocks fall nearly 6% in early trade",
+      "text": "US stocks had their worst session in 18 months on Thursday: the Nasdaq fell 5.5%, the S&P 500 4.36% and the Dow 3.44%, while the Philadelphia Semiconductor Index dropped more than 12%. Malaysian tech stocks were down 5.78% this morning, led by UWC, Vitrox, Pentamaster and Inari."
+     },
+     {
+      "tagEn": "Global",
+      "title": "Kospi plunges over 8%, triggering a circuit breaker; Samsung and SK Hynix slump",
+      "text": "South Korea's Kospi fell more than 8% at the open, dropping below 5,000 for the first time in nine months, and the exchange halted trading for 20 minutes. Samsung Electronics fell 10% and SK Hynix 13%, as uncertainty over AI and data-centre policy after the US midterm elections hit chip stocks."
+     },
+     {
+      "tagEn": "Policy",
+      "title": "Bank Negara keeps the OPR at 2.75%",
+      "text": "At its final Monetary Policy Committee meeting of 2026, Bank Negara held the overnight policy rate at 2.75%, citing solid third-quarter growth and a resilient 2027 outlook, while higher energy costs have pushed up inflation. OCBC expects a 25-basis-point hike to 3% at the 21 January 2027 meeting."
+     },
+     {
+      "tagEn": "Market",
+      "title": "KLCI jumped 19.30 points on Thursday as turnover rose to RM3.61 billion",
+      "text": "Around Bank Negara's rate decision, the KLCI closed 19.30 points or 1.19% higher at 1,635.86 on Thursday, on volume of 3.74 billion shares worth RM3.61 billion, up from 2.81 billion shares and RM2.57 billion the day before. Friday's sell-off erased almost all of the gain."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "KEB's public portion 1.01 times subscribed; ACE Market listing on 16 Nov",
+      "text": "KEB's IPO drew 2,126 applications from the Malaysian public for 44.47 million shares, slightly above the 44.12 million available: 27.31 million from the Bumiputera portion and 17.16 million from other Malaysians. KEB lists on the ACE Market on 16 November."
+     },
+     {
+      "tagEn": "Global",
+      "title": "Indonesia's Danantara plans export service fees on coal and palm oil",
+      "text": "The commodity trading arm of Indonesia's sovereign fund Danantara plans to charge service fees on exports of coal, palm oil and ferroalloys, with rates still being calculated. Indonesian exporters warned that high fees could erode margins and price competitiveness and asked for the fee structure to be disclosed soon."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-04",
    "title": "马股收涨0.14%报1,621.85点；TNB 联手 IOI Corp 投资 RM606m 发展500MW太阳能",
    "market": {
