@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04",
+ "updated": "2026-11-06",
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
@@ -294,7 +294,7 @@
      "https://www.thestar.com.my/business/business-news/2026/10/29/ska-capitals-ace-market-ipo-oversubscribed-8042-times"
     ]
    },
-   "checked": "2026-11-04"
+   "checked": "2026-11-06"
   },
   {
    "ticker": "KEB",
@@ -311,9 +311,18 @@
     "https://www.klsescreener.com/v2/ipos",
     "https://klse.i3investor.com/web/blog/detail/mqipo/2026-10-27-story-h502492925-IPO_KEB_BERHAD_PART_1"
    ],
-   "checked": "2026-11-04",
+   "checked": "2026-11-06",
    "code": "0481",
-   "ballot": "2026-11-04"
+   "ballot": "2026-11-04",
+   "result": {
+    "oversub": 0.01,
+    "sources": [
+     "https://theedgemalaysia.com/node/824565",
+     "https://www.thestar.com.my/business/business-news/2026/11/05/keb-ipo-fully-subscribed",
+     "https://finance.yahoo.com/markets/stocks/articles/keb-berhads-ipo-draws-strong-123500342.html",
+     "https://luminews.my/news/4835318"
+    ]
+   }
   },
   {
    "ticker": "MYDCD",
@@ -331,7 +340,7 @@
     "https://www.klsescreener.com/v2/ipos",
     "https://mahersaham.com/blogs/mydcd-berhad-ipo-ace-market"
    ],
-   "checked": "2026-11-04",
+   "checked": "2026-11-06",
    "code": "0482",
    "result": {
     "oversub": 36.46,
@@ -357,7 +366,7 @@
     "https://www.klsescreener.com/v2/ipos",
     "https://kclau.com/make-money-tips/big-caring-group-ipo/"
    ],
-   "checked": "2026-11-04",
+   "checked": "2026-11-06",
    "code": "5358",
    "ballot": "2026-11-10"
   },
@@ -376,7 +385,7 @@
     "https://www.thestar.com.my/business/business-news/2026/10/28/impact-capital-holdings-launches-ipo-prospectus",
     "https://www.klsescreener.com/v2/ipos"
    ],
-   "checked": "2026-11-04",
+   "checked": "2026-11-06",
    "code": "0483"
   },
   {
@@ -395,7 +404,7 @@
     "https://www.klsescreener.com/v2/ipos",
     "https://www.edgeprop.my/content/1918133/ioipg-reit-launches-prospectus-ahead-listing-main-market-bursa-nov-25"
    ],
-   "checked": "2026-11-04",
+   "checked": "2026-11-06",
    "open": "2026-11-03",
    "close": "2026-11-10",
    "code": "5359 (IOIREIT)",
@@ -413,9 +422,12 @@
    "listing": "2026-11-26",
    "sources": [
     "https://www.thestar.com.my/business/business-news/2026/11/04/ace-market-bound-yes-travel-aims-to-raise-rm1654mil-from-ipo",
-    "https://www.dagangnews.com/article/terkini/yes-group-lancar-ipo-pada-harga-18-sen-sesaham-sasar-raih-rm25-juta-menjelang-penyenaraian-di-pasaran-ace-76990"
+    "https://www.dagangnews.com/article/terkini/yes-group-lancar-ipo-pada-harga-18-sen-sesaham-sasar-raih-rm25-juta-menjelang-penyenaraian-di-pasaran-ace-76990",
+    "https://klse.i3investor.com/web/announcement/detail/2089745"
    ],
-   "checked": "2026-11-04"
+   "checked": "2026-11-06",
+   "ballot": "2026-11-17",
+   "code": "0485 (YES)"
   }
  ]
 }
