@@ -612,3 +612,17 @@ label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--g
 .ipodone em{font-style:normal}
 .ipodone-box{margin:32px 4px 8px;padding:14px 20px;background:var(--bg2);font-size:15px;font-weight:700;color:var(--ink);
   box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
+
+/* company pages: every news mention of the stock, and the stock index */
+.cnews{list-style:none;margin:0 3px 24px;padding:0;display:grid;gap:3px;background:var(--line);box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
+.cnews li{padding:16px 20px;background:var(--surface)}
+.cn-hd{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px}
+.cn-hd a{color:var(--muted)}
+.cnews h3{margin:8px 0 4px;font-size:17px;font-weight:700;line-height:1.5}
+.cnews p{margin:0 0 8px;font-size:15px;line-height:1.75}
+.cindex{list-style:none;margin:0 3px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:3px;background:var(--line);box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
+.cindex li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;align-items:center;padding:12px 16px;background:var(--surface)}
+.cindex .ci-name{font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cindex small{grid-column:1 / -1;color:var(--muted);font-size:12px}
+.gtop .tchip{vertical-align:middle;margin-left:4px}
+@media (max-width:560px){.cnews li{padding:14px}}
