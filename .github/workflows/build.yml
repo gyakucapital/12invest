@@ -1,5 +1,8 @@
 # Rebuilds the site whenever content or tools change on main (so an article can be published by editing
-# posts.json in GitHub's web editor), then posts any new article to the 12Invest Telegram channel.
+# posts.json in GitHub's web editor), deploys it to GitHub Pages ONCE per run (with one retry),
+# then posts any new article / news edition to the 12Invest Telegram channel.
+# Needs Settings → Pages → Build and deployment → Source = "GitHub Actions"; until that is switched,
+# the deploy steps are skipped harmlessly and GitHub's own per-push deployment keeps serving the site.
 name: Build site
 on:
   push:
@@ -13,10 +16,13 @@ on:
         default: false
 permissions:
   contents: write
+  pages: write
+  id-token: write
 concurrency: { group: build, cancel-in-progress: false }
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -42,6 +48,31 @@ jobs:
           git config user.email "kyzen@gyakucapital.com"
           git add -A
           git diff --cached --quiet || (git commit -m "Build site [automated]" && git push)
+      - name: Package site for Pages
+        run: |
+          rm -rf node_modules
+          git pull --rebase -q || true
+      - name: Check Pages source
+        id: src
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: echo "mode=$(gh api repos/${{ github.repository }}/pages --jq .build_type 2>/dev/null || echo unknown)" >> "$GITHUB_OUTPUT"
+      - uses: actions/configure-pages@v5
+        id: pages
+        if: steps.src.outputs.mode == 'workflow'
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.src.outputs.mode == 'workflow'
+        with: { path: "." }
+      - name: Deploy to GitHub Pages
+        id: deploy
+        if: steps.src.outputs.mode == 'workflow'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+        with: { timeout: 900000 }
+      - name: Deploy to GitHub Pages (retry)
+        id: deploy2
+        if: steps.src.outputs.mode == 'workflow' && steps.deploy.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        with: { timeout: 900000 }
       - name: Post new articles to Telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
