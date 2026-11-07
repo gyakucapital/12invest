@@ -2,6 +2,210 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "kind": "weekly",
+   "date": "2026-11-07",
+   "title": "马股本周微升0.98点收1,616.58点；国行维持利率，KEB、MyDCD 新股认购出炉",
+   "market": {
+    "index": "FBM KLCI",
+    "range": "11月2日–11月6日",
+    "close": "1,616.58",
+    "change": "+0.98（+0.06%）",
+    "note": "周二银行股撑盘，周四国行维持利率后指数大涨19.30点至1,635.86点，但周五华尔街 AI 科技股急挫，马股随区域市场跌1.17%，几乎回吐全部涨幅。全周大马指数仅比上周五的1,615.60点微升，外围不确定因素仍主导市场情绪。",
+    "source": {
+     "name": "Focus Malaysia",
+     "url": "https://focusmalaysia.my/bursa-malaysia-ends-lower-amid-broad-based-selling/"
+    }
+   },
+   "items": [
+    {
+     "tag": "IPO",
+     "title": "本周新股：KEB 认购1.01倍、MyDCD 获36.46倍超额认购，IOIPG REIT 等多只新股开卖",
+     "text": "KEB（每股35仙）公众部分认购1.01倍，11月16日上 ACE；MyDCD（56仙）公众部分超额认购36.46倍，11月17日挂牌。IOIPG Malaysia REIT 以每单位96仙开卖，Yes Group（18仙）与 Emits（16仙）也先后推出招股书；Big Caring 与 Impact Capital 申购分别于11月5日和6日截止，本周无新股挂牌，SKA Capital 将于11月11日上市。",
+     "tickers": [
+      "KEB",
+      "MYDCD",
+      "IOIPGREIT",
+      "YESGROUP",
+      "EMITS",
+      "BCG",
+      "IMPACT",
+      "SKACAP"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/05/keb-ipo-fully-subscribed"
+     }
+    },
+    {
+     "tag": "政策",
+     "title": "国行维持隔夜政策利率于2.75%",
+     "text": "国家银行周四在今年最后一次货币政策会议上按兵不动，指第三季经济增长稳健、2027年料保持韧性，但能源成本上涨推高通胀。华侨银行预计国行或在2027年1月21日会议升息25个基点至3%。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/06/bnm-keeps-interest-rates-unchanged"
+     }
+    },
+    {
+     "tag": "环球",
+     "title": "华尔街 AI 股重挫，马股周五急跌1.17%",
+     "text": "美股周四录得18个月来最差表现，纳指挫5.5%、费城半导体指数跌逾12%，拖累区域股市。马股周五跌19.28点至1,616.58点，几乎抹去周四涨幅；科技股一度跌5.78%，UWC、Vitrox、Pentamaster 与 Inari 跌幅居前。",
+     "tickers": [
+      "UWC",
+      "VITROX",
+      "PENTA",
+      "INARI"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://thestar.com.my/business/business-news/2026/11/06/bursa-malaysia-stocks-hammered-as-ai-rout-spills-into-regional-markets"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "SunCon 获 RM920.8m 柔佛数据中心机电工程",
+     "text": "双威建筑（SunCon）再获柔佛一座数据中心的额外机械、电气与管道（MEP）工程，合约值 RM920.8 million，预计2028年首季完工。",
+     "tickers": [
+      "SUNCON"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824597"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "GDB 获 RM877m 莎阿南物流中心工程，订单增至 RM2.93b",
+     "text": "GDB Holdings 获颁莎阿南15区物流中心工程，需拆除旧厂并兴建两栋五层楼建筑，目标2029年9月完工。连同早前 RM1.02 billion 的 ParkCity 合约，手头订单增至 RM2.93 billion。",
+     "tickers": [
+      "GDB"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824435"
+     }
+    },
+    {
+     "tag": "能源",
+     "title": "国能联手 IOI Corp 在马口发展500MW太阳能",
+     "text": "国能旗下 TNB Renewables（70%）、IOI Corp 子公司（25%）与12家中小企财团（5%）合作，在森美兰马口发展500MW太阳能项目，配备250MW/1,000MWh电池储能，三方股本投入最高合共 RM606.2 million。",
+     "tickers": [
+      "TENAGA",
+      "IOICORP"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824385"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "IOIPG 拟设新加坡私募房地产基金，售50%股权或套现近 RM10b",
+     "text": "IOI Properties 计划以价值60亿新元（约 RM19.1 billion）的新加坡资产成立私募房地产基金，出售50%股权可筹近 RM10 billion，并目标在2027年初于新加坡交易所第二上市，同时把净负债率从约85%降至30%至50%。",
+     "tickers": [
+      "IOIPG"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824435"
+     }
+    },
+    {
+     "tag": "扩张",
+     "title": "Paramount 携手三井不动产发展 RM1.34b 服务式公寓",
+     "text": "百乐镇（Paramount Corp）与日本三井不动产以51:49合资开发 The Ashbourne 服务式公寓项目，总发展值 RM1.34 billion、共458个单位，预计今年第四季动工、2030年底完工。",
+     "tickers": [
+      "PARAMON"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824597"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "Sapura Industrial 获奇瑞约 RM307m 车轴订单；Binastra 揽 RM303.8m 自动化仓库工程",
+     "text": "Sapura Industrial 与奇瑞汽车签下为期4年半、约 RM307 million 的车轴组装合约，为首次直接与该车厂合作。Binastra 则获 PTT Synergy 颁发 RM303.8 million 自动化仓库工程，工期由11月11日至2027年9月30日。",
+     "tickers": [
+      "SAPIND",
+      "BNASTRA"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824597"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "大众银行设立 RM20b 伊斯兰中期票据计划",
+     "text": "大众银行设立规模 RM20 billion、为期30年的伊斯兰中期票据计划，大马评级机构（RAM）给予高级票据 AAA、次级票据 AA1 的初步评级。",
+     "tickers": [
+      "PBBANK"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824597"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI edges up 0.98 points this week to 1,616.58; Bank Negara holds rates as KEB and MyDCD IPO results come in",
+    "note": "Banks supported the index on Tuesday, and it jumped 19.30 points to 1,635.86 on Thursday after Bank Negara held rates, but a Wall Street AI tech rout on Friday sent Bursa down 1.17% with regional markets, erasing almost all of the gain. The KLCI ended the week barely above the previous Friday's 1,615.60, with external uncertainty still driving sentiment.",
+    "items": [
+     {
+      "tagEn": "IPO",
+      "title": "IPO round-up: KEB 1.01 times subscribed, MyDCD 36.46 times oversubscribed; IOIPG REIT among new offers",
+      "text": "KEB's public portion (35 sen a share) was 1.01 times subscribed ahead of its 16 November ACE Market listing, while MyDCD's (56 sen) was oversubscribed 36.46 times, with listing on 17 November. IOIPG Malaysia REIT opened its offer at 96 sen a unit, and Yes Group (18 sen) and Emits (16 sen) launched their prospectuses; applications for Big Caring and Impact Capital closed on 5 and 6 November. There were no debuts this week; SKA Capital lists on 11 November."
+     },
+     {
+      "tagEn": "Policy",
+      "title": "Bank Negara holds the OPR at 2.75%",
+      "text": "At its final policy meeting of 2026 on Thursday, Bank Negara left the overnight policy rate unchanged, citing solid third-quarter growth and a resilient 2027 outlook, though higher energy costs are lifting inflation. OCBC expects a 25-basis-point hike to 3% at the 21 January 2027 meeting."
+     },
+     {
+      "tagEn": "Global",
+      "title": "Wall Street AI rout sends Bursa down 1.17% on Friday",
+      "text": "US stocks had their worst day in 18 months on Thursday, with the Nasdaq down 5.5% and the Philadelphia Semiconductor Index off more than 12%, dragging regional markets lower. The KLCI fell 19.28 points to 1,616.58 on Friday, erasing almost all of Thursday's gain; tech stocks were down as much as 5.78%, led by UWC, Vitrox, Pentamaster and Inari."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "SunCon wins RM920.8m of extra MEP works for a Johor data centre",
+      "text": "Sunway Construction secured additional mechanical, electrical and plumbing works for a data centre in Johor worth RM920.8 million, due for completion by the first quarter of 2028."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "GDB lands RM877m Shah Alam logistics hub job; order book at RM2.93b",
+      "text": "GDB Holdings won a contract to demolish a factory and build a two-block, five-storey logistics hub in Section 15, Shah Alam, due by September 2029. With an earlier RM1.02 billion ParkCity job, its outstanding order book rises to RM2.93 billion."
+     },
+     {
+      "tagEn": "Energy",
+      "title": "Tenaga and IOI Corp team up on a 500MW solar project in Bahau",
+      "text": "Tenaga's TNB Renewables (70%), an IOI Corp unit (25%) and a consortium of 12 SMEs (5%) will develop a 500MW solar project with 250MW/1,000MWh of battery storage in Bahau, Negeri Sembilan, with maximum combined equity of RM606.2 million."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "IOIPG plans Singapore private property fund; 50% stake sale could raise nearly RM10b",
+      "text": "IOI Properties plans a private real estate fund backed by S$6 billion (RM19.1 billion) of Singapore assets; selling a 50% stake could raise close to RM10 billion. It targets a secondary listing on the Singapore Exchange in early 2027 and aims to cut net gearing from about 85% to 30%–50% over three to five years."
+     },
+     {
+      "tagEn": "Expansion",
+      "title": "Paramount and Mitsui Fudosan partner on RM1.34b serviced apartment project",
+      "text": "Paramount Corp (51%) and Japan's Mitsui Fudosan (49%) will jointly develop The Ashbourne, a 458-unit serviced apartment project worth RM1.34 billion, with construction from the fourth quarter of 2026 and completion by end-2030."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "Sapura Industrial wins about RM307m Chery axle deal; Binastra lands RM303.8m automated warehouse job",
+      "text": "Sapura Industrial signed an axle assembly contract with Chery worth about RM307 million over 4.5 years, its first direct deal with the carmaker. Binastra won a RM303.8 million automated warehouse contract from PTT Synergy, with works running from 11 November 2026 to 30 September 2027."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "Public Bank sets up RM20b Islamic medium-term note programme",
+      "text": "Public Bank established a RM20 billion Islamic medium-term note programme with a 30-year tenure, with preliminary ratings from RAM of AAA for senior and AA1 for subordinated notes."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-06",
    "title": "马股挫1.17%收1,616.58点；华尔街 AI 科技股重挫，区域股市全线走低",
    "market": {
