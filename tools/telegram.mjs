@@ -153,14 +153,22 @@ for (const d of newsTodo){
 }
 for (const p of todo){
   if (!(await live(url(p.id)))) { console.log(`Telegram: ${p.id} not live yet; will retry next run.`); continue; }
-  const photo = ["og", "img"].map(d => path.join(ROOT, d === "og" ? `og/${p.id}.jpg` : String(p.cover || ""))).find(f => f && fs.existsSync(f) && fs.statSync(f).isFile());
-  const fd = new FormData();
-  fd.append("chat_id", CHAT); fd.append("caption", caption(p)); fd.append("parse_mode", "HTML");
-  let method = "sendMessage";
-  if (photo) { method = "sendPhoto"; fd.append("photo", new Blob([fs.readFileSync(photo)]), path.basename(photo)); }
-  else { fd.delete("caption"); fd.append("text", caption(p)); }
-  const r = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, { method: "POST", body: fd });
-  const j = await r.json();
+  // Try the share image, then the cover, then a text-only post; Telegram sometimes rejects one photo with a 500.
+  const photos = ["og", "img"].map(d => path.join(ROOT, d === "og" ? `og/${p.id}.jpg` : String(p.cover || ""))).filter(f => f && fs.existsSync(f) && fs.statSync(f).isFile());
+  const attempts = [...photos, ...photos.slice(0, 1), null];
+  let j = { ok: false, description: "not sent" };
+  for (const photo of attempts){
+    const fd = new FormData();
+    fd.append("chat_id", CHAT); fd.append("parse_mode", "HTML");
+    let method = "sendMessage";
+    if (photo) { method = "sendPhoto"; fd.append("caption", caption(p)); fd.append("photo", new Blob([fs.readFileSync(photo)], { type: "image/jpeg" }), path.basename(photo)); }
+    else fd.append("text", caption(p));
+    const r = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, { method: "POST", body: fd });
+    try { j = await r.json(); } catch { j = { ok: false, description: `HTTP ${r.status}` }; }
+    if (j.ok) break;
+    console.error(`Telegram: ${method}${photo ? " " + path.basename(photo) : ""} failed for ${p.id}: ${j.description}; trying next option`);
+    await sleep(5000);
+  }
   if (!j.ok) { console.error(`Telegram: failed for ${p.id}: ${j.description}`); process.exitCode = 1; continue; }
   state.posted.push(p.id);
   fs.writeFileSync(stateFile, JSON.stringify(state, null, 1) + "\n");
