@@ -23,7 +23,8 @@ const THEMES = [
   ["#6EA8FF", "#F4C24F", "#7CD992"], // blue / gold / green
   ["#FF9F43", "#A78BFA", "#4FD1C5"], // orange / violet / teal
   ["#F4C24F", "#FF7A66", "#6EA8FF"], // gold / coral / blue
-  ["#FF9DE2", "#6EA8FF", "#F4C24F"]  // pink / blue / gold
+  ["#FF9DE2", "#6EA8FF", "#F4C24F"], // pink / blue / gold
+  ["#A3E635", "#38BDF8", "#FB923C"]  // lime / sky / orange
 ];
 const pick = id => [...id].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7) % THEMES.length;
 // "FYE2026" -> "FY26" so four periods fit under each panel
@@ -71,7 +72,7 @@ function steps(box, { title, periods, values, color }){
   pts.forEach(([px, py], i) => {
     const last = i === n - 1;
     s += `<rect x="${px - 12}" y="${py - 12}" width="24" height="24" fill="${last ? color : "#0E1C4A"}" stroke="${color}" stroke-width="6"/>`;
-    s += `<text x="${px}" y="${py - 30}" class="pl" text-anchor="middle" fill="${last ? color : "#EEF2FF"}">${values[i].toFixed(1)}%</text>`;
+    s += `<text x="${px}" y="${py - 30}" class="pl" text-anchor="middle" fill="${last ? color : "#EEF2FF"}">${values[i].toFixed(1)}${n >= 5 && !last ? "" : "%"}</text>`;
   });
   return s;
 }

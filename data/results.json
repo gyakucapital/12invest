@@ -1,5 +1,16 @@
 {
  "note": "Latest quarterly results of companies 12Invest covers. RM million. revenuePrev/profitPrev = same quarter last year. Sourced only.",
- "updated": "2026-11-03",
- "results": []
+ "updated": "2026-11-07",
+ "results": [
+  {
+   "ticker": "FRONTKN",
+   "name": "Frontken Corporation Berhad",
+   "quarter": "3Q26",
+   "announced": "2026-11-06",
+   "revenue": 181,
+   "revenuePrev": 161.9,
+   "profit": 57.3,
+   "profitPrev": 45.8
+  }
+ ]
 }
