@@ -122,57 +122,75 @@ async function sendPoll(q, key){
   // channel polls are always anonymous; Telegram limits: question ≤300 chars, 2–10 options of ≤100 chars
   const body = { chat_id: CHAT, question: [...String(q.question)].slice(0, 300).join(""), is_anonymous: true,
     options: q.options.slice(0, 10).map(o => ({ text: [...String(o)].slice(0, 100).join("") })) };
-  const r = await fetch(`https://api.telegram.org/bot${TOKEN}/sendPoll`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
-  const j = await r.json();
-  if (!j.ok) { console.error(`Telegram: poll failed for ${key}: ${j.description}`); process.exitCode = 1; return; }
+  let r, j;
+  try { r = await fetch(`https://api.telegram.org/bot${TOKEN}/sendPoll`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body), signal: AbortSignal.timeout(60000) }); }
+  catch (e) { j = { ok: false, unsure: true, description: `network error: ${e.message}` }; }
+  if (r) { try { j = await r.json(); } catch { j = { ok: false, error_code: r.status, description: `HTTP ${r.status}` }; } }
+  if (!j.ok && (j.unsure || (j.error_code || r.status) >= 500)) markUnsure(`poll ${key}`, j); // may be posted: never resend
+  else if (!j.ok) { console.error(`Telegram: poll failed for ${key}: ${j.description}`); process.exitCode = 1; return; }
   state.polls.push(key);
   fs.writeFileSync(stateFile, JSON.stringify(state, null, 1) + "\n");
   console.log(`Telegram: poll sent for ${key}`);
   await sleep(2000);
 }
+// One Telegram call. Result: { ok, unsure, description }.
+// "unsure" = Telegram may have posted it anyway: a network error / timeout, or a 5xx such as "Gateway Timeout"
+// (on 7 Nov the LGMS photo was delivered every time Telegram answered 504, so retrying made 4 copies).
+// Unsure results are NEVER retried; the item is treated as posted. Only definite rejections (4xx) try the next option.
 async function send(photo, text){
-  const fd = new FormData();
-  fd.append("chat_id", CHAT); fd.append("parse_mode", "HTML");
-  let method = "sendMessage";
-  if (photo) { method = "sendPhoto"; fd.append("caption", text); fd.append("photo", new Blob([fs.readFileSync(photo)]), path.basename(photo)); }
-  else fd.append("text", text);
-  const r = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, { method: "POST", body: fd });
-  return r.json();
+  for (let attempt = 0; attempt < 3; attempt++){
+    const fd = new FormData();
+    fd.append("chat_id", CHAT); fd.append("parse_mode", "HTML");
+    let method = "sendMessage";
+    if (photo) { method = "sendPhoto"; fd.append("caption", text); fd.append("photo", new Blob([fs.readFileSync(photo)], { type: "image/jpeg" }), path.basename(photo)); }
+    else fd.append("text", text);
+    let r, j;
+    try { r = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, { method: "POST", body: fd, signal: AbortSignal.timeout(150000) }); }
+    catch (e) { return { ok: false, unsure: true, description: `network error: ${e.message}` }; }
+    try { j = await r.json(); } catch { j = { ok: false, error_code: r.status, description: `HTTP ${r.status}` }; }
+    if (j.ok) return { ok: true };
+    const code = j.error_code || r.status;
+    if (code === 429) { // rate limited: definitely not posted, wait and try the same thing again
+      const wait = ((j.parameters && j.parameters.retry_after) || 10) + 1;
+      console.log(`Telegram: rate limited; waiting ${wait}s`); await sleep(wait * 1000); continue;
+    }
+    return { ok: false, unsure: code >= 500, description: `${method}${photo ? " " + path.basename(photo) : ""}: ${j.description || "HTTP " + r.status}` };
+  }
+  return { ok: false, unsure: false, description: "rate limited 3 times" };
+}
+function markUnsure(what, j){ // Telegram may have posted it: do not post it again
+  console.log(`::warning::Telegram: ${what} - ${j.description}. It may have been posted anyway, so it is marked as posted and NOT retried. Check the channel and post it by hand if it is missing.`);
 }
 for (const d of newsTodo){
   const u = `${CFG.origin + CFG.base}${d.kind === "weekly" ? "weekly" : "news"}/${d.date}/`;
   if (!(await live(u))) { console.log(`Telegram: news ${d.date} not live yet; will retry next run.`); continue; }
   const og = path.join(ROOT, "og", `${d.kind === "weekly" ? "weekly" : "news"}-${d.date}.jpg`);
-  const j = await send(fs.existsSync(og) ? og : null, newsCaption(d));
-  if (!j.ok) { console.error(`Telegram: failed for news ${d.date}: ${j.description}`); process.exitCode = 1; continue; }
+  let j = await send(fs.existsSync(og) ? og : null, newsCaption(d));
+  if (!j.ok && !j.unsure && fs.existsSync(og)) { console.error(`Telegram: ${j.description} for news ${d.date}; trying text only`); await sleep(5000); j = await send(null, newsCaption(d)); }
+  if (!j.ok && !j.unsure) { console.error(`Telegram: failed for news ${d.date}: ${j.description}`); process.exitCode = 1; continue; }
+  if (j.unsure) markUnsure(`news ${d.date}`, j);
   state.news.push(newsKey(d));
   fs.writeFileSync(stateFile, JSON.stringify(state, null, 1) + "\n");
-  console.log(`Telegram: posted news ${newsKey(d)}`);
+  console.log(`Telegram: ${j.ok ? "posted" : "marked as posted"} news ${newsKey(d)}`);
   await sleep(3000);
   if (newsPollOk(d) && d.poll !== false) await sendPoll(newsPoll(d), pollKey(d.kind === "weekly" ? "weekly" : "news", d.date));
 }
 for (const p of todo){
   if (!(await live(url(p.id)))) { console.log(`Telegram: ${p.id} not live yet; will retry next run.`); continue; }
-  // Try the share image, then the cover, then a text-only post; Telegram sometimes rejects one photo with a 500.
+  // Share image, then cover, then text only, but ONLY after a definite rejection (e.g. a bad photo). See send().
   const photos = ["og", "img"].map(d => path.join(ROOT, d === "og" ? `og/${p.id}.jpg` : String(p.cover || ""))).filter(f => f && fs.existsSync(f) && fs.statSync(f).isFile());
-  const attempts = [...photos, ...photos.slice(0, 1), null];
   let j = { ok: false, description: "not sent" };
-  for (const photo of attempts){
-    const fd = new FormData();
-    fd.append("chat_id", CHAT); fd.append("parse_mode", "HTML");
-    let method = "sendMessage";
-    if (photo) { method = "sendPhoto"; fd.append("caption", caption(p)); fd.append("photo", new Blob([fs.readFileSync(photo)], { type: "image/jpeg" }), path.basename(photo)); }
-    else fd.append("text", caption(p));
-    const r = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, { method: "POST", body: fd });
-    try { j = await r.json(); } catch { j = { ok: false, description: `HTTP ${r.status}` }; }
-    if (j.ok) break;
-    console.error(`Telegram: ${method}${photo ? " " + path.basename(photo) : ""} failed for ${p.id}: ${j.description}; trying next option`);
+  for (const photo of [...photos, null]){
+    j = await send(photo, caption(p));
+    if (j.ok || j.unsure) break;
+    console.error(`Telegram: ${j.description} failed for ${p.id}; trying next option`);
     await sleep(5000);
   }
-  if (!j.ok) { console.error(`Telegram: failed for ${p.id}: ${j.description}`); process.exitCode = 1; continue; }
+  if (!j.ok && !j.unsure) { console.error(`Telegram: failed for ${p.id}: ${j.description}`); process.exitCode = 1; continue; }
+  if (j.unsure) markUnsure(p.id, j);
   state.posted.push(p.id);
   fs.writeFileSync(stateFile, JSON.stringify(state, null, 1) + "\n");
-  console.log(`Telegram: posted ${p.id}`);
+  console.log(`Telegram: ${j.ok ? "posted" : "marked as posted"} ${p.id}`);
   await sleep(3000);
   if (p.poll !== false && fresh(p)) await sendPoll(postPoll(p), pollKey("post", p.id));
 }
