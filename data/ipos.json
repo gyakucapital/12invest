@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07",
+ "updated": "2026-11-09",
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
@@ -444,9 +444,11 @@
     "https://www.thestar.com.my/business/business-news/2026/10/20/emits-inks-underwriting-deal-for-4q-ace-market-debut",
     "https://www.thestar.com.my/business/business-news/2026/11/06/emits-aims-to-raise-rm15mil-from-ipo-ahead-of-ace-market-listing",
     "https://theedgemalaysia.com/node/824829",
-    "Emits Berhad prospectus dated 6 November 2026"
+    "Emits Berhad prospectus dated 6 November 2026",
+    "https://www.klsescreener.com/v2/stocks/view/0486/emits-berhad"
    ],
-   "checked": "2026-11-07"
+   "checked": "2026-11-09",
+   "code": "0486"
   }
  ]
 }
