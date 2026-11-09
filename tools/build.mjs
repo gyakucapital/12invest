@@ -133,7 +133,7 @@ const stepsHTML = i => `<ol class="steps">${STEPS.filter(([k]) => i[k]).map(([k,
 const V = { css: hash("assets/site.css"), js: hash("assets/app.js") };
 const CSP = [
   "default-src 'none'", "script-src 'self'", "style-src 'self'",
-  `img-src 'self' data:${GC ? " " + GC : ""}`, "font-src 'self'", "connect-src 'self'",
+  `img-src 'self' data:${GC ? " " + GC : ""}`, "font-src 'self'", "connect-src 'self' https://docs.google.com",
   "base-uri 'none'", "form-action 'self'", "object-src 'none'", "manifest-src 'self'", "worker-src 'self'", "upgrade-insecure-requests"
 ].join("; ");
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Crect x='1' y='2' width='10' height='8' fill='%23F4C24F'/%3E%3Crect x='3' y='1' width='6' height='10' fill='%23F4C24F'/%3E%3Crect x='3' y='7' width='1' height='2' fill='%23081230'/%3E%3Crect x='5' y='5' width='1' height='4' fill='%23081230'/%3E%3Crect x='7' y='3' width='1' height='6' fill='%23081230'/%3E%3C/svg%3E";
@@ -443,6 +443,27 @@ function financialsHTML(p, inline = false){
   <details class="findata"><summary>查看数据（${esc(f.unit || "RM m")}）</summary><div class="tbl"><table class="score"><thead><tr><th></th>${f.periods.map(x => `<th>${esc(x)}</th>`).join("")}</tr></thead>
   <tbody>${rows.map(([k, vals, fm]) => `<tr><td>${esc(k)}</td>${vals.map(v => `<td>${fm(num(v))}</td>`).join("")}</tr>`).join("")}</tbody></table></div></details></section>`;
 }
+/* reader feedback: star rating + optional comment, posted to a private Google Form (responses land in the owner's Sheet; nothing is shown publicly) */
+const REVIEW = { action: "https://docs.google.com/forms/d/e/1FAIpQLSfU6dmND5y3FkmwP7-1jmAkXoWoOIoVQ7rYcK3a6si0c8NAsg/formResponse",
+  article: "entry.1983846408", rating: "entry.99901732", comment: "entry.215442012" };
+const STAR = (() => { const g = ["....X....", "...XXX...", "...XXX...", "XXXXXXXXX", ".XXXXXXX.", "..XXXXX..", "..XXXXX..", ".XXX.XXX.", ".XX...XX."];
+  return `<svg viewBox="0 0 9 9" shape-rendering="crispEdges" aria-hidden="true">${g.flatMap((r, y) => [...r].map((c, x) => c === "X" ? `<rect x="${x}" y="${y}" width="1" height="1"/>` : "")).join("")}</svg>`; })();
+const RATE_TXT = ["", "没帮助", "一般", "还不错", "很有帮助", "非常有帮助"];
+function reviewHTML(p){
+  return `<section class="review" id="review" hidden data-review="${esc(p.id)}" data-action="${REVIEW.action}" data-f-article="${REVIEW.article}" data-f-rating="${REVIEW.rating}" data-f-comment="${REVIEW.comment}">
+  <div class="rv-hd"><span class="lbl">读者评价 FEEDBACK</span><b>这篇文章对你有帮助吗？</b></div>
+  <form class="rv-form" novalidate>
+    <fieldset class="stars"><legend>评分</legend>${[5, 4, 3, 2, 1].map(n => `<input type="radio" name="rating" id="rv${n}" value="${n}"><label for="rv${n}" title="${n} 星 · ${RATE_TXT[n]}">${STAR}<span class="sr">${n} 星（${RATE_TXT[n]}）</span></label>`).join("")}</fieldset>
+    <span class="rv-said" aria-hidden="true"></span>
+    <label class="sr" for="rv-c">意见（选填）</label>
+    <textarea id="rv-c" name="comment" rows="3" maxlength="1000" placeholder="有什么想法、建议，或想看我们解读哪家公司？（选填）"></textarea>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="rv-ft"><button class="btn primary" type="submit">提交</button><span class="note">匿名提交，只供 12Invest 内部参考，不会公开；请勿填写个人资料。</span></div>
+    <p class="rv-msg" role="status" aria-live="polite"></p>
+  </form>
+  <div class="rv-done" hidden><b>谢谢你的反馈！</b><span>我们会参考读者意见来改进内容。</span></div>
+</section>`;
+}
 function article(p){
   const facts = (p.keyFacts || []).filter(f => f.k && f.v);
   const txt = plain(p);
@@ -465,6 +486,7 @@ function article(p){
   ${p.ipo ? moomooCTA(p.ipo) : ""}
   <p class="disc"><strong>免责声明：</strong>${DISC}</p>
   ${(p.tags || []).length ? `<div class="tags">${p.tags.map(t => `<span>#${esc(t)}</span>`).join("")}</div>` : ""}
+  ${reviewHTML(p)}
   ${shareHTML(p)}
   ${follow()}
   <div class="tools"><button class="btn" type="button" data-copy-full>复制全文</button><span class="note">${[...txt].length.toLocaleString("en")} 字符 · 纯文字，可直接贴到 Facebook</span></div>

@@ -67,6 +67,33 @@
     const full = $("#copysrc");
     $$("[data-copy-full]").forEach(b => b.addEventListener("click", () => copy(full.value, "已复制全文", full)));
 
+    /* reader feedback → private Google Form (no-cors: the response is opaque, so a sent request counts as received) */
+    const rv = $("[data-review]");
+    if (rv && window.fetch){
+      const id = rv.dataset.review, key = "12i-rv:" + id, form = $(".rv-form", rv), done = $(".rv-done", rv), msg = $(".rv-msg", rv), said = $(".rv-said", rv);
+      const words = ["", "没帮助", "一般", "还不错", "很有帮助", "非常有帮助"];
+      let sent = false; try { sent = localStorage.getItem(key) === "1"; } catch {}
+      rv.hidden = false;
+      if (sent){ form.hidden = true; done.hidden = false; }
+      $$("input[name=rating]", form).forEach(r => r.addEventListener("change", () => { said.textContent = r.value + "/5 · " + words[+r.value]; msg.textContent = ""; }));
+      form.addEventListener("submit", async e => {
+        e.preventDefault();
+        const r = $("input[name=rating]:checked", form), c = form.comment.value.trim();
+        if (form.website.value) return;
+        if (!r && !c){ msg.textContent = "请先点星星评分，或写下你的意见。"; return; }
+        const btn = $("button[type=submit]", form); btn.disabled = true; msg.textContent = "";
+        const body = new URLSearchParams();
+        body.set(rv.dataset.fArticle, id);
+        if (r) body.set(rv.dataset.fRating, r.value);
+        if (c) body.set(rv.dataset.fComment, c.slice(0, 1000));
+        try {
+          await fetch(rv.dataset.action, { method: "POST", mode: "no-cors", body });
+          try { localStorage.setItem(key, "1"); } catch {}
+          form.hidden = true; done.hidden = false;
+        } catch { msg.textContent = "提交失败，请检查网络后再试。"; btn.disabled = false; }
+      });
+    }
+
     /* IPO application calculator */
     const cd = $("#calc-data");
     if (cd){
