@@ -444,7 +444,7 @@ function financialsHTML(p, inline = false){
   <tbody>${rows.map(([k, vals, fm]) => `<tr><td>${esc(k)}</td>${vals.map(v => `<td>${fm(num(v))}</td>`).join("")}</tr>`).join("")}</tbody></table></div></details></section>`;
 }
 /* reader feedback: star rating + optional comment, posted to a private Google Form (responses land in the owner's Sheet; nothing is shown publicly) */
-const REVIEW = { action: "https://docs.google.com/forms/d/e/1FAIpQLSfU6dmND5y3FkmwP7-1jmAkXoWoOIoVQ7rYcK3a6si0c8NAsg/formResponse",
+const REVIEW = { action: "https://docs.google.com/forms/d/e/1FAIpQLSdGSDBedkJbCfoIX4JrcrU-PAQhV8b-C7bB9IQPql_rjk1sLw/formResponse",
   article: "entry.1983846408", rating: "entry.99901732", comment: "entry.215442012" };
 const STAR = (() => { const g = ["....X....", "...XXX...", "...XXX...", "XXXXXXXXX", ".XXXXXXX.", "..XXXXX..", "..XXXXX..", ".XXX.XXX.", ".XX...XX."];
   return `<svg viewBox="0 0 9 9" shape-rendering="crispEdges" aria-hidden="true">${g.flatMap((r, y) => [...r].map((c, x) => c === "X" ? `<rect x="${x}" y="${y}" width="1" height="1"/>` : "")).join("")}</svg>`; })();
