@@ -2,6 +2,150 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-10",
+   "title": "马股上周五收1,616.58点；美股科技股反弹，Zetrix AI 遭大马交易所令11月23日前派息",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-06",
+    "close": "1,616.58",
+    "change": "-19.28（-1.17%）",
+    "breadth": "涨 273 / 跌 964 / 平 404",
+    "turnover": "36.4亿股，RM3.49 billion",
+    "note": "上周五美股 AI 科技股重挫拖累区域市场，马股全天受压，跌股远多于涨股，马银行、大众银行和国能等权值股走低。周一为屠妖节假期休市，今天是假后首个交易日。",
+    "source": {
+     "name": "Bernama",
+     "url": "https://www.bernama.com/en/market/news.php?id=2630984"
+    }
+   },
+   "items": [
+    {
+     "tag": "环球",
+     "title": "美股周一强劲反弹，油价因美伊和谈希望下滑",
+     "text": "上周 AI 股抛售后逢低买盘回流，纳斯达克100指数周一收涨3.40%，罗素2000涨3.19%，其他主要指数涨逾2%；辉达则因董事会内部调查而走低。特朗普淡化再度空袭伊朗的可能，布兰特原油早盘跌3.63%至每桶94.75美元。",
+     "tickers": [],
+     "source": {
+      "name": "TheStreet",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-09-202"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "大马交易所令 Zetrix AI 于11月23日前派发拖欠股息",
+     "text": "大马交易所11月6日致函 Zetrix AI，指示其立即并最迟于11月23日派发2025财年每股2.89仙的终期股息，该股息自9月以来多次延后。MARC 已把其 RM2 billion 伊斯兰债券计划评级降至违约级 D-IS，因公司未能偿还一笔 RM25 million 到期债券。",
+     "tickers": [
+      "ZETRIX"
+     ],
+     "source": {
+      "name": "DagangNews",
+      "url": "https://www.dagangnews.com/article/terkini/menjawab-arahan-bursa-zetrix-ai-akan-urus-bayaran-dividen-tertunggak-selewat-lewatnya-23-november-2026-77223"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "SKA Capital 明天上 ACE，KEB、MyDCD 下周挂牌",
+     "text": "SKA Capital（每股43仙）公众部分获80.42倍超额认购，将于11月11日在 ACE Market 挂牌；KEB 和 MyDCD 则分别于11月16日和17日上市。",
+     "tickers": [
+      "SKACAP",
+      "KEB",
+      "MYDCD"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/10/29/ska-capitals-ace-market-ipo-oversubscribed-8042-times"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "本周业绩：贺特佳周四开跑，MR DIY、Carlsberg 周五登场",
+     "text": "贺特佳（Hartalega）周四公布2027财年第二季业绩，赚幅受压下表现或较弱；喜力（Heineken Malaysia）与 F&N 同日放榜，MR DIY 和 Carlsberg 则在周五公布业绩。",
+     "tickers": [
+      "HARTA",
+      "HEIM",
+      "F&N",
+      "MRDIY",
+      "CARLSBG"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824858"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "West River 转攻高赚幅工程，订单约 RM200m",
+     "text": "机电工程商 West River 手头订单约 RM195 million 至 RM200 million，正竞标国能太阳能电站变电站与并网工程，并锁定数据中心和半导体厂工程。董事经理预计2026财年按年增长至少30%、2027财年增长30%至50%，未来至少一年不派息。",
+     "tickers": [
+      "WESTRVR"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://thestar.com.my/business/business-news/2026/11/09/west-river-bets-on-higher-margin-contracts"
+     }
+    },
+    {
+     "tag": "政策",
+     "title": "马六甲州选今起提前投票，国内工业生产与棕油数据今天出炉",
+     "text": "马六甲州选今天展开提前投票，11月14日投票日共79名候选人角逐28个议席。统计局今天公布9月工业生产指数，大马棕油局也发布10月棕油供需数据。",
+     "tickers": [],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/824858"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "分析员：马股本周料在1,600至1,630点间波动",
+     "text": "乐天证券（Rakuten Trade）预计富时大马综合指数本周在1,600至1,630点之间徘徊，低位料有选择性买盘支撑；市场关注美国10月消费者与生产者物价指数。上周马股仅微升0.98点，全周成交额增至 RM14.43 billion。",
+     "tickers": [],
+     "source": {
+      "name": "Bernama",
+      "url": "https://www.bernama.com/en/market/news.php?id=2631219"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI closed Friday at 1,616.58; US tech rebounds as Bursa orders Zetrix AI to pay overdue dividend by Nov 23",
+    "note": "A Wall Street AI tech rout weighed on regional markets last Friday, and Bursa stayed under pressure all day with decliners far outnumbering gainers as Maybank, Public Bank and Tenaga fell. Monday was a Deepavali market holiday, so today is the first trading day after the break.",
+    "items": [
+     {
+      "tagEn": "Global",
+      "title": "Wall Street rebounds strongly on Monday as oil slips on US-Iran deal hopes",
+      "text": "Dip buyers returned after last week's AI sell-off: the Nasdaq-100 closed 3.40% higher and the Russell 2000 3.19%, with other major indexes up more than 2%, while Nvidia fell amid an internal board investigation. Trump played down the chance of fresh strikes on Iran, and Brent fell 3.63% to US$94.75 a barrel in early trade."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "Bursa orders Zetrix AI to pay overdue dividend by Nov 23",
+      "text": "In a Nov 6 letter, Bursa Malaysia directed Zetrix AI to pay its FY2025 final dividend of 2.89 sen a share immediately and no later than Nov 23, after repeated delays since September. MARC has cut its RM2 billion sukuk programme to D-IS (default) after the company failed to repay a RM25 million maturing bond."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "SKA Capital debuts on ACE tomorrow; KEB and MyDCD list next week",
+      "text": "SKA Capital (43 sen a share), whose public portion was 80.42 times oversubscribed, lists on the ACE Market on Nov 11, followed by KEB on Nov 16 and MyDCD on Nov 17."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Results week: Hartalega on Thursday, MR DIY and Carlsberg on Friday",
+      "text": "Hartalega reports its 2QFY2027 results on Thursday, which may be weaker on margin compression; Heineken Malaysia and F&N report the same day, and MR DIY and Carlsberg on Friday."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "West River shifts to higher-margin jobs with an order book of about RM200m",
+      "text": "M&E engineering firm West River has an order book of RM195 million to RM200 million and is bidding for TNB solar-farm substation and grid-connection work while targeting data centre and semiconductor plant jobs. Its MD expects growth of at least 30% in FY26 and 30% to 50% in FY27, with no dividends for at least another year."
+     },
+     {
+      "tagEn": "Policy",
+      "title": "Melaka early voting starts today; industrial production and palm oil data due",
+      "text": "Early voting for the Melaka state election begins today, with 79 candidates contesting 28 seats on polling day, Nov 14. DOSM releases September industrial production today and MPOB publishes October palm oil supply and demand data."
+     },
+     {
+      "tagEn": "Market",
+      "title": "Analyst sees KLCI trading between 1,600 and 1,630 this week",
+      "text": "Rakuten Trade expects the index to hover between 1,600 and 1,630, with selective buying cushioning dips, as markets watch US October consumer and producer price data. The KLCI edged up only 0.98 points last week while weekly turnover rose to RM14.43 billion."
+     }
+    ]
+   }
+  },
+  {
    "kind": "weekly",
    "date": "2026-11-07",
    "title": "马股本周微升0.98点收1,616.58点；国行维持利率，KEB、MyDCD 新股认购出炉",
