@@ -81,6 +81,7 @@
         const r = $("input[name=rating]:checked", form), c = form.comment.value.trim();
         if (form.website.value) return;
         if (!r && !c){ msg.textContent = "请先点星星评分，或写下你的意见。"; return; }
+        if (/https?:|www\./i.test(c)){ msg.textContent = "意见里请勿附上链接。"; return; }
         const btn = $("button[type=submit]", form); btn.disabled = true; msg.textContent = "";
         const body = new URLSearchParams();
         body.set(rv.dataset.fArticle, id);

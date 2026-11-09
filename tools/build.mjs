@@ -458,7 +458,7 @@ function reviewHTML(p){
     <label class="sr" for="rv-c">意见（选填）</label>
     <textarea id="rv-c" name="comment" rows="3" maxlength="1000" placeholder="有什么想法、建议，或想看我们解读哪家公司？（选填）"></textarea>
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <div class="rv-ft"><button class="btn primary" type="submit">提交</button><span class="note">匿名提交，只供 12Invest 内部参考，不会公开；请勿填写个人资料。</span></div>
+    <div class="rv-ft"><button class="btn primary" type="submit">提交</button><span class="note">匿名提交，只供 12Invest 内部参考，不会公开；请勿填写个人资料或附上链接。</span></div>
     <p class="rv-msg" role="status" aria-live="polite"></p>
   </form>
   <div class="rv-done" hidden><b>谢谢你的反馈！</b><span>我们会参考读者意见来改进内容。</span></div>
