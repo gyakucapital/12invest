@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-10",
-   "title": "马股上周五收1,616.58点；美股科技股反弹，Zetrix AI 遭大马交易所令11月23日前派息",
+   "title": "马股跌0.77%收1,604.07点；美股科技股反弹，Zetrix AI 遭大马交易所令11月23日前派息",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-06",
-    "close": "1,616.58",
-    "change": "-19.28（-1.17%）",
-    "breadth": "涨 273 / 跌 964 / 平 404",
-    "turnover": "36.4亿股，RM3.49 billion",
-    "note": "上周五美股 AI 科技股重挫拖累区域市场，马股全天受压，跌股远多于涨股，马银行、大众银行和国能等权值股走低。周一为屠妖节假期休市，今天是假后首个交易日。",
+    "date": "2026-11-10",
+    "close": "1,604.07",
+    "change": "-12.51（-0.77%）",
+    "breadth": "涨 395 / 跌 746 / 平 463",
+    "turnover": "27.9亿股，RM2.77 billion",
+    "note": "屠妖节假后首个交易日，银行及数据中心相关权值股面对抛售压力，拖累综指收低，跌股多于涨股。",
     "source": {
-     "name": "Bernama",
-     "url": "https://www.bernama.com/en/market/news.php?id=2630984"
+     "name": "Free Malaysia Today",
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/10/bursa-ends-lower-as-banking-data-centre-heavyweights-weigh-on-sentiment"
     }
    },
    "items": [
@@ -104,8 +104,8 @@
     }
    ],
    "en": {
-    "title": "KLCI closed Friday at 1,616.58; US tech rebounds as Bursa orders Zetrix AI to pay overdue dividend by Nov 23",
-    "note": "A Wall Street AI tech rout weighed on regional markets last Friday, and Bursa stayed under pressure all day with decliners far outnumbering gainers as Maybank, Public Bank and Tenaga fell. Monday was a Deepavali market holiday, so today is the first trading day after the break.",
+    "title": "KLCI falls 0.77% to 1,604.07; US tech rebounds as Bursa orders Zetrix AI to pay overdue dividend by Nov 23",
+    "note": "On the first trading day after the Deepavali holiday, selling in banking and data-centre-related heavyweights pulled the index lower, with decliners outnumbering gainers.",
     "items": [
      {
       "tagEn": "Global",
