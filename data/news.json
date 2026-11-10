@@ -2,6 +2,125 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-11",
+   "title": "马股跌0.77%收1,604.07点；美国通胀高于预期美股回落，SKA Capital 今上 ACE",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-10",
+    "close": "1,604.07",
+    "change": "-12.51（-0.77%）",
+    "breadth": "涨 395 / 跌 746 / 平 463",
+    "turnover": "27.9亿股，RM2.77 billion",
+    "note": "屠妖节假后首个交易日，银行及数据中心相关权值股面对抛售压力，拖累综指收低，跌股多于涨股。",
+    "source": {
+     "name": "Free Malaysia Today",
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/10/bursa-ends-lower-as-banking-data-centre-heavyweights-weigh-on-sentiment"
+    }
+   },
+   "items": [
+    {
+     "tag": "环球",
+     "title": "美国10月通胀高于预期，美股三大指数周二收低",
+     "text": "美国10月消费者物价指数按月涨0.4%，核心物价涨0.3%，均高于市场预期，10年期美债收益率大涨13.8个基点至5.00%，市场押注联储局12月升息。道指收跌0.30%至52,231.89点，标普500跌0.38%，纳指跌0.74%；辉达因总裁相关诉讼风波盘中挫约6%。",
+     "tickers": [],
+     "source": {
+      "name": "TheStreet",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-10-2026"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "SKA Capital 今天登陆 ACE 市场，九个月净赚 RM26.1m",
+     "text": "变电站工程商 SKA Capital 以每股43仙挂牌，公众部分获80.42倍超额认购，上市市值约 RM385.1 million。截至9月30日的九个月净利 RM26.14 million，营业额 RM270.67 million，第三季净利 RM14.37 million；手头订单约 RM313.37 million。",
+     "tickers": [
+      "SKACAP"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/06/ska-capital-records-9m26-net-profit-of-rm2614mil"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "9月工业生产按年增6.3%，制造业增速加快",
+     "text": "统计局数据显示，9月工业生产指数按年增长6.3%，按月增1.3%。制造业按年增9.4%（8月为7.4%），电力增10.7%，矿业则下滑9.4%；制造业销售额达 RM191.1 billion。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/10/malaysia039s-ipi-up-63-y-o-y-in-sept---dosm"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "10月棕油库存升至362万吨，出口按月大增",
+     "text": "大马棕油局数据显示，10月底棕油库存按月增3.15%至362万吨，其中原棕油库存增7.46%至232万吨。原棕油产量增1.74%至215万吨，棕油出口按月激增55.75%至170万吨。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/10/malaysia039s-palm-oil-stocks-rise-315-to-362mil-tonnes-in-oct---mpob"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "协成工业第三季净利跌至 RM14m，派息2仙",
+     "text": "饼干商协成工业（Hup Seng）第三季净利 RM14.03 million，低于去年同期的 RM15.47 million；营业额从 RM105.7 million 降至 RM98.7 million，国内销售减少4%，出口则增5%。九个月净利微增至 RM34.95 million，董事部建议派发第三次中期股息每股2仙。",
+     "tickers": [
+      "HUPSENG"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/10/hup-seng-industries039-3q-net-profit-dips-to-rm1403mil"
+     }
+    },
+    {
+     "tag": "政策",
+     "title": "仲量联行：放贷趋严、利率或上调，明年房市面对挑战",
+     "text": "仲量联行（JLL）马来西亚预计，银行明年审批房贷将更为严格，加上隔夜政策利率可能上调推高借贷成本，依赖房贷的购屋者融资难度或增加，对住宅及整体房地产市场构成压力。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/10/tighter-loan-approvals-higher-borrowing-costs-to-challenge-property-market-in-2027---jll-malaysia"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI falls 0.77% to 1,604.07; Wall Street slips on hot US inflation as SKA Capital debuts on ACE today",
+    "note": "On the first trading day after the Deepavali holiday, selling in banking and data-centre-related heavyweights pulled the index lower, with decliners outnumbering gainers.",
+    "items": [
+     {
+      "tagEn": "Global",
+      "title": "Hotter-than-expected US October inflation sends Wall Street lower on Tuesday",
+      "text": "US October CPI rose 0.4% month on month and core prices 0.3%, both above forecasts, lifting the 10-year Treasury yield 13.8 basis points to 5.00% as markets bet on a Fed hike in December. The Dow fell 0.30% to 52,231.89, the S&P 500 0.38% and the Nasdaq 0.74%; Nvidia dropped about 6% intraday amid a lawsuit involving its CEO."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "SKA Capital debuts on the ACE Market today after RM26.1m nine-month profit",
+      "text": "Substation engineering firm SKA Capital lists at 43 sen a share, with its public portion 80.42 times oversubscribed and a market value of about RM385.1 million at listing. Net profit for the nine months to Sept 30 was RM26.14 million on revenue of RM270.67 million, including RM14.37 million in the third quarter; its order book is about RM313.37 million."
+     },
+     {
+      "tagEn": "Market",
+      "title": "September industrial output up 6.3% year on year as manufacturing accelerates",
+      "text": "The Statistics Department said the industrial production index rose 6.3% year on year in September and 1.3% month on month. Manufacturing grew 9.4% (August: 7.4%) and electricity 10.7%, while mining fell 9.4%; manufacturing sales reached RM191.1 billion."
+     },
+     {
+      "tagEn": "Market",
+      "title": "October palm oil stocks rise to 3.62 million tonnes as exports jump",
+      "text": "MPOB data showed end-October palm oil stocks up 3.15% month on month at 3.62 million tonnes, with crude palm oil stocks up 7.46% at 2.32 million tonnes. CPO output rose 1.74% to 2.15 million tonnes, while palm oil exports surged 55.75% to 1.70 million tonnes."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Hup Seng's third-quarter profit slips to RM14m; 2 sen dividend declared",
+      "text": "Biscuit maker Hup Seng Industries posted third-quarter net profit of RM14.03 million, down from RM15.47 million a year earlier, as revenue fell to RM98.7 million from RM105.7 million on a 4% drop in domestic sales, partly offset by 5% export growth. Nine-month profit edged up to RM34.95 million, and the board recommended a third interim dividend of 2 sen a share."
+     },
+     {
+      "tagEn": "Policy",
+      "title": "JLL: tighter lending and possible rate hike to challenge the property market next year",
+      "text": "JLL Malaysia expects banks to be more selective in approving home loans next year, while a possible rise in the Overnight Policy Rate would raise borrowing costs, making financing harder for buyers who depend on mortgages and weighing on residential and wider property demand."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-10",
    "title": "马股跌0.77%收1,604.07点；美股科技股反弹，Zetrix AI 遭大马交易所令11月23日前派息",
    "market": {
