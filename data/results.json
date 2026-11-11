@@ -3,6 +3,16 @@
  "updated": "2026-11-07",
  "results": [
   {
+   "ticker": "SUNREIT",
+   "name": "Sunway Real Estate Investment Trust",
+   "quarter": "3Q26",
+   "announced": "2026-11-10",
+   "revenue": 232.3,
+   "revenuePrev": 236.4,
+   "profit": 116.1,
+   "profitPrev": 143.6
+  },
+  {
    "ticker": "FRONTKN",
    "name": "Frontken Corporation Berhad",
    "quarter": "3Q26",
