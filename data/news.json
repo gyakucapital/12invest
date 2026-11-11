@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-11",
-   "title": "马股跌0.77%收1,604.07点；美国通胀高于预期美股回落，SKA Capital 今上 ACE",
+   "title": "马股跌0.55%收1,595.19点；美国通胀高于预期美股回落，SKA Capital 今上 ACE",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-10",
-    "close": "1,604.07",
-    "change": "-12.51（-0.77%）",
-    "breadth": "涨 395 / 跌 746 / 平 463",
-    "turnover": "27.9亿股，RM2.77 billion",
-    "note": "屠妖节假后首个交易日，银行及数据中心相关权值股面对抛售压力，拖累综指收低，跌股多于涨股。",
+    "date": "2026-11-11",
+    "close": "1,595.19",
+    "change": "-8.88（-0.55%）",
+    "breadth": "涨 686 / 跌 427 / 平 474",
+    "turnover": "29.0亿股，RM2.33 billion",
+    "note": "美国10月通胀高于预期，强化联储局维持高利率更久的预期，美债收益率逼近5%，金融权值股遭抛售，拖累综指跌破1,600点关口，但大市涨股多于跌股。",
     "source": {
-     "name": "Free Malaysia Today",
-     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/10/bursa-ends-lower-as-banking-data-centre-heavyweights-weigh-on-sentiment"
+     "name": "Bernama",
+     "url": "https://www.bernama.com/en/market/news.php?id=2632870"
     }
    },
    "items": [
@@ -84,8 +84,8 @@
     }
    ],
    "en": {
-    "title": "KLCI falls 0.77% to 1,604.07; Wall Street slips on hot US inflation as SKA Capital debuts on ACE today",
-    "note": "On the first trading day after the Deepavali holiday, selling in banking and data-centre-related heavyweights pulled the index lower, with decliners outnumbering gainers.",
+    "title": "KLCI falls 0.55% to 1,595.19; Wall Street slips on hot US inflation as SKA Capital debuts on ACE today",
+    "note": "Hotter-than-expected US October inflation reinforced bets on higher-for-longer Fed rates and pushed US Treasury yields towards 5%, weighing on financial heavyweights and dragging the index below the 1,600 level, though gainers outnumbered losers on the broader market.",
     "items": [
      {
       "tagEn": "Global",
