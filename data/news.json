@@ -2,6 +2,129 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-12",
+   "title": "马股跌0.55%收1,595.19点；美股科技股反弹，Dialog 拍板开发 Fatimah 气田",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-11",
+    "close": "1,595.19",
+    "change": "-8.88（-0.55%）",
+    "breadth": "涨 686 / 跌 427 / 平 474",
+    "turnover": "29.0亿股，RM2.33 billion",
+    "note": "美国10月通胀高于预期，10年期美债收益率逼近5%，马银行、大众银行及丰隆银行等金融权值股受压，金融指数跌252.56点，拖累综指跌破1,600点；科技、能源、工业及建筑股则有买盘，大市涨股多于跌股。",
+    "source": {
+     "name": "Malay Mail",
+     "url": "https://www.malaymail.com/news/money/2026/11/11/bursa-malaysia-falls-055pc-as-banking-heavyweights-drag-down-key-index/242876"
+    }
+   },
+   "items": [
+    {
+     "tag": "环球",
+     "title": "CoreWeave 业绩带动 AI 股回升，美股周三收高",
+     "text": "CoreWeave 季度营收优于预期并上调全年展望，股价大涨，带动 AI 基础设施股走强；纳指收涨1.60%至25,466.19点，标普500涨1.31%至7,619.38点，道指涨0.49%至52,486.49点。苹果股价创新高，市值约5.16万亿美元；辉达在连跌两天后反弹。市场仍几乎完全押注联储局12月升息。",
+     "tickers": [],
+     "source": {
+      "name": "TheStreet",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-11-2026"
+     }
+    },
+    {
+     "tag": "能源",
+     "title": "伊朗谈判停滞、霍尔木兹海峡油轮受扰，油价回升",
+     "text": "周三早盘，纽约期油涨0.67%至每桶86.62美元，布伦特期油涨1.32%至92.70美元，交易员关注伊朗外交进展停滞及霍尔木兹海峡油轮运输受阻；午盘纽约期油仍在87美元附近。",
+     "tickers": [],
+     "source": {
+      "name": "TheStreet",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-11-2026"
+     }
+    },
+    {
+     "tag": "能源",
+     "title": "Dialog 追加投资2.11亿美元，开发 Fatimah 气田",
+     "text": "Dialog 集团已就开发 Fatimah 气田作出最终投资决定，额外投资2.11亿美元，资金来自内部资金及/或借贷。邻近的 Salbiah 气田已于10月27日投产，预计贡献2027财年盈利；Fatimah 项目预计不会对2027财年业绩造成重大影响，但将贡献未来盈利。",
+     "tickers": [
+      "DIALOG"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/11/dialog-to-invest-us211mil-in-fatimah-gas-field-development"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "Zetrix AI 获准延至11月13日披露财务状况",
+     "text": "大马交易所批准 Zetrix AI 延长两天，须在周五（11月13日）前披露财务状况、股息问题、全体独立董事与外部审计师辞职，以及其单位被暂停陆路交通局代收资格的影响。公司早前未能履行 RM2 billion 伊斯兰债券计划其中一批的付款义务，并欠缴代收的 RM314 million 政府收入。该股周三跌8.33%至5.5仙。",
+     "tickers": [
+      "ZETRIX"
+     ],
+     "source": {
+      "name": "The Edge Malaysia",
+      "url": "https://theedgemalaysia.com/node/825399"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "Big Caring 定价每股 RM1.08，公众部分获4.31倍超购",
+     "text": "连锁药房 Big Caring 主板上市的散户及机构最终售价均定为每股 RM1.08；马来西亚公众部分获4.31倍超额认购，土著部分则认购不足（0.94倍）。按此价格，本益比约42倍；19名基石投资者认购了41%的机构配售。",
+     "tickers": [
+      "BCG"
+     ],
+     "source": {
+      "name": "Newswav",
+      "url": "https://newswav.com/article/big-caring-group-ipo-oversubscribed-4-31-times-A2611_DUCVdP"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "Impact Capital 今天抽签，每股22仙登 ACE 市场",
+     "text": "ICT 系统整合商 Impact Capital 招股价每股22仙，发售9,669万新股并献售2,862万旧股，预计筹资约 RM21.27 million，上市市值约 RM105.6 million。按招股时间表，今天进行抽签，11月24日挂牌。",
+     "tickers": [
+      "IMPACT"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/10/28/impact-capital-holdings-launches-ipo-prospectus"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI falls 0.55% to 1,595.19; tech rebound lifts Wall Street as Dialog greenlights Fatimah gas field",
+    "note": "Hotter-than-expected US October inflation pushed the 10-year Treasury yield towards 5%, weighing on financial heavyweights such as Maybank, Public Bank and Hong Leong Bank. The Financial Services Index fell 252.56 points and the index slipped below 1,600, while technology, energy, industrial and construction stocks saw buying and gainers outnumbered losers.",
+    "items": [
+     {
+      "tagEn": "Global",
+      "title": "CoreWeave results revive AI trade as Wall Street closes higher on Wednesday",
+      "text": "CoreWeave beat revenue expectations and raised its full-year outlook, lifting AI infrastructure stocks. The Nasdaq rose 1.60% to 25,466.19, the S&P 500 1.31% to 7,619.38 and the Dow 0.49% to 52,486.49. Apple hit a record, valuing it at about US$5.16 trillion, and Nvidia rebounded after a two-day slide. Markets still price a December Fed hike as nearly certain."
+     },
+     {
+      "tagEn": "Energy",
+      "title": "Oil rises as Iran diplomacy stalls and Hormuz tanker disruptions persist",
+      "text": "Early on Wednesday, WTI rose 0.67% to US$86.62 a barrel and Brent 1.32% to US$92.70 as traders weighed stalled Iran diplomacy and tanker disruptions in the Strait of Hormuz; WTI was still near US$87 in the afternoon."
+     },
+     {
+      "tagEn": "Energy",
+      "title": "Dialog commits an additional US$211m to develop the Fatimah gas field",
+      "text": "Dialog Group has made a final investment decision to develop the Fatimah gas field with an additional US$211 million, funded internally and/or by borrowings. The nearby Salbiah field began production on Oct 27 and is expected to contribute to FY27 earnings; Fatimah is not expected to have a material FY27 impact but should add to future earnings."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "Zetrix AI given until Nov 13 to disclose its financial position",
+      "text": "Bursa Malaysia granted Zetrix AI two more days, to Friday (Nov 13), to disclose its financial position, dividend issues, the resignation of all independent directors and its external auditors, and the impact of its unit's suspension as a JPJ collection agent. The company earlier missed payment on a tranche of its RM2 billion sukuk programme and has not remitted RM314 million of government revenue. The stock fell 8.33% to 5.5 sen on Wednesday."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "Big Caring prices IPO at RM1.08; public portion 4.31 times oversubscribed",
+      "text": "Pharmacy chain Big Caring set the final retail and institutional price for its Main Market IPO at RM1.08 a share. The Malaysian public portion was 4.31 times oversubscribed, while the Bumiputera portion was undersubscribed at 0.94 times. The price values it at about 42 times trailing earnings, and 19 cornerstone investors took 41% of the institutional offering."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "Impact Capital balloting today for 22-sen ACE Market IPO",
+      "text": "ICT systems integrator Impact Capital is offering 96.69 million new shares and 28.62 million existing shares at 22 sen each, raising about RM21.27 million, for a market value of about RM105.6 million at listing. Balloting is scheduled for today, with listing on Nov 24."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-11",
    "title": "马股跌0.55%收1,595.19点；美国通胀高于预期美股回落，SKA Capital 今上 ACE",
    "market": {
