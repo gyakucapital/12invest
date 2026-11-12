@@ -2,6 +2,148 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-13",
+   "title": "马股连跌四日收1,585.96点；辉达CEO黄仁勋请辞，美股三大指数各跌0.4%",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-12",
+    "close": "1,585.96",
+    "change": "-9.23（-0.57%）",
+    "breadth": "涨 318 / 跌 799 / 平 476",
+    "turnover": "30.6亿股，RM2.56 billion",
+    "note": "银行股及权值股遭全面抛售，市场忧虑AI股估值偏高、美联储立场转鹰及美伊谈判停滞，综指连跌第四个交易日并创年度新低；种植股逆市走高，种植指数涨191.34点。",
+    "source": {
+     "name": "Malay Mail",
+     "url": "https://www.malaymail.com/news/money/2026/11/12/bursa-extends-losing-streak-as-broad-selling-drags-benchmark-to-yearly-low/243009"
+    }
+   },
+   "items": [
+    {
+     "tag": "环球",
+     "title": "黄仁勋请辞辉达CEO，美股周四小幅收低",
+     "text": "辉达CEO黄仁勋辞职后，该股盘中一度重挫约14%，其后收复约一半跌幅，其他AI芯片股则走高。标普500跌0.4%至7,592.40点，道指跌189.40点至52,297.09点，纳指跌100.10点至25,366.09点；特朗普表示不再有意与伊朗达成协议，油价走高。",
+     "tickers": [],
+     "source": {
+      "name": "KRMG（AP）",
+      "url": "https://krmg.com/2026/11/12/how-major-us-stock-indexes-fared-thursday-11-12-2026/"
+     }
+    },
+    {
+     "tag": "环球",
+     "title": "辉达风波拖累全球AI股，日韩股市收低约0.7%",
+     "text": "辉达董事会周日宣布调查黄仁勋与一名被指为中国间谍的女商人之关系，该股自周日以来市值蒸发约3,000亿美元，盘前一度跌7.8%。日本及韩国股市周四收低近0.7%，欧洲科技股跌约1%；CoreWeave、Nebius、美光等AI相关股走低，AMD与博通则逆市上涨。",
+     "tickers": [],
+     "source": {
+      "name": "The Edge Malaysia",
+      "url": "https://theedgemalaysia.com/node/825554"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "Hartalega 次季净利增79%至 RM32.80 million",
+     "text": "Hartalega 截至9月30日的2027财年次季营收增至 RM644.74 million（上财年同期 RM539.66 million），净利由 RM18.29 million 升至 RM32.80 million，主要受平均售价上扬带动，销量大致持平。首半年净利 RM102.83 million；公司将逐步重启生产厂房，先从3号厂开始。",
+     "tickers": [
+      "HARTA"
+     ],
+     "source": {
+      "name": "BernamaBiz",
+      "url": "https://www.bernamabiz.com/news.php?id=2633410"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "柔佛种植第三季净利跌至 RM100.26 million",
+     "text": "柔佛种植集团第三季营收 RM450.71 million，低于上年同期的 RM496.15 million；净利由 RM106.03 million 降至 RM100.26 million。原棕油交付量减15.9%至78,451公吨，自产原棕油成本则增13.5%至每公吨 RM2,526；公司提醒11月开始的季候风或影响作业。",
+     "tickers": [
+      "JPG"
+     ],
+     "source": {
+      "name": "BernamaBiz",
+      "url": "https://www.bernamabiz.com/news.php?id=2633472"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "Heineken 大马第三季净利跌39%，未派息",
+     "text": "Heineken 大马第三季营收按年跌18%至 RM539.1 million，净利跌39%至 RM69.2 million；首九个月净利 RM224.2 million，减30%。公司归咎于消费情绪低迷、去年11月起额外10%消费税及经销商库存调整，预计第四季完成库存正常化，本季不派息。",
+     "tickers": [
+      "HEIM"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/12/heineken-malaysia-3q-revenue-at-rm539mil"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "Zetrix AI 今天须向交易所披露财务状况",
+     "text": "大马交易所给予 Zetrix AI 的延长期限今天（11月13日）届满，公司须披露财务状况、股息未派问题、独立董事及外部审计师辞职，以及子公司被暂停陆路交通局代收资格的影响。该股周三收5.5仙。",
+     "tickers": [
+      "ZETRIX"
+     ],
+     "source": {
+      "name": "The Edge Malaysia",
+      "url": "https://theedgemalaysia.com/node/825399"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "下周三只新股挂牌：KEB、MyDCD 与 Big Caring",
+     "text": "按招股时间表，KEB 于11月16日（周一）挂牌，MyDCD 于11月17日上市，连锁药房 Big Caring 则于11月19日登陆主板，其公众部分获4.31倍超购，最终售价每股 RM1.08。",
+     "tickers": [
+      "KEB",
+      "MYDCD",
+      "BCG"
+     ],
+     "source": {
+      "name": "12Invest IPO 日历",
+      "url": "https://gyakucapital.github.io/12invest/ipo/"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI falls for a fourth day to 1,585.96; Nvidia CEO Jensen Huang resigns as US indices slip 0.4%",
+    "note": "Broad-based selling in banks and index heavyweights, amid worries over stretched AI valuations, a more hawkish Fed and stalled US-Iran talks, sent the index lower for a fourth session to a yearly low. Plantations bucked the trend, with the plantation index up 191.34 points.",
+    "items": [
+     {
+      "tagEn": "Global",
+      "title": "Nvidia CEO Jensen Huang resigns; Wall Street ends slightly lower on Thursday",
+      "text": "Nvidia fell as much as about 14% after Huang resigned before recovering about half the drop, while other AI chip stocks rose. The S&P 500 slipped 0.4% to 7,592.40, the Dow fell 189.40 points to 52,297.09 and the Nasdaq lost 100.10 points to 25,366.09. Oil climbed after President Trump said he was no longer interested in a deal with Iran."
+     },
+     {
+      "tagEn": "Global",
+      "title": "Nvidia turmoil drags global AI stocks; Japan and South Korea close about 0.7% lower",
+      "text": "Nvidia's board on Sunday opened a probe into Huang's relationship with a businesswoman alleged to be a Chinese spy; the stock has lost about US$300 billion in value since then and fell 7.8% pre-market. Japan and South Korea closed nearly 0.7% lower and European tech fell about 1%; AI names such as CoreWeave, Nebius and Micron slid, while AMD and Broadcom rose."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Hartalega's 2Q net profit rises 79% to RM32.80 million",
+      "text": "For 2QFY27 ended Sept 30, Hartalega's revenue rose to RM644.74 million (RM539.66 million a year earlier) and net profit to RM32.80 million from RM18.29 million, driven by higher average selling prices on broadly stable volumes. First-half net profit was RM102.83 million; the group will progressively recommission plants, starting with Plant 3."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Johor Plantations' 3Q net profit eases to RM100.26 million",
+      "text": "Johor Plantations Group's 3Q revenue was RM450.71 million versus RM496.15 million a year earlier, and net profit fell to RM100.26 million from RM106.03 million. CPO deliveries dropped 15.9% to 78,451 tonnes while internal CPO production cost rose 13.5% to RM2,526 a tonne; the group flagged possible monsoon disruptions from November."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Heineken Malaysia's 3Q net profit falls 39%, no dividend",
+      "text": "Heineken Malaysia's 3Q revenue fell 18% year on year to RM539.1 million and net profit 39% to RM69.2 million; nine-month net profit was RM224.2 million, down 30%. It cited weak consumer sentiment, the extra 10% excise duty since Nov 2025 and distributor inventory normalisation, which it expects to conclude in 4Q. No dividend was declared for the quarter."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "Zetrix AI's deadline to disclose its financial position falls today",
+      "text": "Bursa Malaysia's extended deadline for Zetrix AI expires today (Nov 13): the company must disclose its financial position, the unpaid dividend, the resignation of its independent directors and external auditors, and the impact of its unit's suspension as a JPJ collection agent. The stock closed at 5.5 sen on Wednesday."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "Three IPOs list next week: KEB, MyDCD and Big Caring",
+      "text": "Under their prospectus timetables, KEB lists on Monday (Nov 16), MyDCD on Nov 17 and pharmacy chain Big Caring on the Main Market on Nov 19; Big Caring's public portion was 4.31 times oversubscribed and its final price set at RM1.08 a share."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-12",
    "title": "马股跌0.57%收1,585.96点；美股科技股反弹，Dialog 拍板开发 Fatimah 气田",
    "market": {
