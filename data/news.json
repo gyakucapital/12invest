@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-12",
-   "title": "马股跌0.55%收1,595.19点；美股科技股反弹，Dialog 拍板开发 Fatimah 气田",
+   "title": "马股跌0.57%收1,585.96点；美股科技股反弹，Dialog 拍板开发 Fatimah 气田",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-11",
-    "close": "1,595.19",
-    "change": "-8.88（-0.55%）",
-    "breadth": "涨 686 / 跌 427 / 平 474",
-    "turnover": "29.0亿股，RM2.33 billion",
-    "note": "美国10月通胀高于预期，10年期美债收益率逼近5%，马银行、大众银行及丰隆银行等金融权值股受压，金融指数跌252.56点，拖累综指跌破1,600点；科技、能源、工业及建筑股则有买盘，大市涨股多于跌股。",
+    "date": "2026-11-12",
+    "close": "1,585.96",
+    "change": "-9.23（-0.57%）",
+    "breadth": "涨 318 / 跌 799 / 平 476",
+    "turnover": "30.6亿股，RM2.56 billion",
+    "note": "大市延续全面抛售，综指连续第四个交易日下跌，盘中最低见1,583.66点；跌股远多于涨股，成交量较前一日增加。",
     "source": {
-     "name": "Malay Mail",
-     "url": "https://www.malaymail.com/news/money/2026/11/11/bursa-malaysia-falls-055pc-as-banking-heavyweights-drag-down-key-index/242876"
+     "name": "Focus Malaysia（Bernama）",
+     "url": "https://focusmalaysia.my/bursa-malaysia-ends-lower-amid-broad-based-selling-2/"
     }
    },
    "items": [
@@ -88,8 +88,8 @@
     }
    ],
    "en": {
-    "title": "KLCI falls 0.55% to 1,595.19; tech rebound lifts Wall Street as Dialog greenlights Fatimah gas field",
-    "note": "Hotter-than-expected US October inflation pushed the 10-year Treasury yield towards 5%, weighing on financial heavyweights such as Maybank, Public Bank and Hong Leong Bank. The Financial Services Index fell 252.56 points and the index slipped below 1,600, while technology, energy, industrial and construction stocks saw buying and gainers outnumbered losers.",
+    "title": "KLCI falls 0.57% to 1,585.96; tech rebound lifts Wall Street as Dialog greenlights Fatimah gas field",
+    "note": "Broad-based selling continued, sending the index lower for a fourth straight session, with an intraday low of 1,583.66. Losers far outnumbered gainers, while turnover rose from the previous day.",
     "items": [
      {
       "tagEn": "Global",
