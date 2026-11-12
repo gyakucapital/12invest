@@ -1,7 +1,17 @@
 {
  "note": "Latest quarterly results of companies 12Invest covers. RM million. revenuePrev/profitPrev = same quarter last year. Sourced only.",
- "updated": "2026-11-11",
+ "updated": "2026-11-12",
  "results": [
+  {
+   "ticker": "HARTA",
+   "name": "Hartalega Holdings Berhad",
+   "quarter": "2QFY27",
+   "announced": "2026-11-12",
+   "revenue": 644.7,
+   "revenuePrev": 539.7,
+   "profit": 32.8,
+   "profitPrev": 18.3
+  },
   {
    "ticker": "EMPIRE",
    "name": "Empire Premium Food Berhad",
