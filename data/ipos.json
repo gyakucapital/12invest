@@ -397,7 +397,13 @@
     "https://www.klsescreener.com/v2/ipos"
    ],
    "checked": "2026-11-12",
-   "code": "0483"
+   "code": "0483",
+   "result": {
+    "oversub": 139.69,
+    "sources": [
+     "https://www.dagangnews.com/article/terkini/ipo-impact-capital-terlebih-langgan-13969-kali-terima-permohonan-saham-rm74284-juta-77454"
+    ]
+   }
   },
   {
    "ticker": "IOIPGREIT",
