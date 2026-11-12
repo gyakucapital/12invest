@@ -292,9 +292,11 @@
     "sources": [
      "https://theedgemalaysia.com/node/823813",
      "https://www.thestar.com.my/business/business-news/2026/10/29/ska-capitals-ace-market-ipo-oversubscribed-8042-times",
-     "https://www.thestar.com.my/business/business-news/2026/11/11/ska-capital-eyes-larger-projects-aims-to-deepen-capabilities-after-ace-market-listing"
+     "https://www.thestar.com.my/business/business-news/2026/11/11/ska-capital-eyes-larger-projects-aims-to-deepen-capabilities-after-ace-market-listing",
+     "https://www.bernama.com/en/market/news.php?id=2632870"
     ],
-    "open": 0.51
+    "open": 0.51,
+    "close": 0.495
    },
    "checked": "2026-11-12"
   },
