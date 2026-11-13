@@ -430,11 +430,12 @@
    "code": "5359 (IOIREIT)",
    "ballot": "2026-11-12",
    "result": {
-    "oversub": 1.59,
+    "oversub": 0.59,
     "final": 0.91,
     "sources": [
      "https://www.thestar.com.my/business/business-news/2026/11/12/ioipg-malaysia-reit-fixes-ipo-price-at-91-sen-per-unit",
-     "https://www.edgeprop.my/content/1918294/ioipg-reit-fixes-ipo-price-91-sen-public-offer-subscribed-159-times"
+     "https://www.edgeprop.my/content/1918294/ioipg-reit-fixes-ipo-price-91-sen-public-offer-subscribed-159-times",
+     "https://theedgemalaysia.com/node/825555"
     ]
    }
   },
