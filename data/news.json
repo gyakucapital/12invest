@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-13",
-   "title": "马股连跌四日收1,585.96点；辉达CEO黄仁勋请辞，美股三大指数各跌0.4%",
+   "title": "马股连跌五日收1,582.59点；辉达CEO黄仁勋请辞，美股三大指数各跌0.4%",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-12",
-    "close": "1,585.96",
-    "change": "-9.23（-0.57%）",
-    "breadth": "涨 318 / 跌 799 / 平 476",
-    "turnover": "30.6亿股，RM2.56 billion",
-    "note": "银行股及权值股遭全面抛售，市场忧虑AI股估值偏高、美联储立场转鹰及美伊谈判停滞，综指连跌第四个交易日并创年度新低；种植股逆市走高，种植指数涨191.34点。",
+    "date": "2026-11-13",
+    "close": "1,582.59",
+    "change": "-3.37（-0.21%）",
+    "breadth": "涨 369 / 跌 686 / 平 497",
+    "turnover": "28.4亿股，RM2.36 billion",
+    "note": "市场买气不足、投资者情绪持续谨慎，综指连跌第五个交易日，盘中一度低见1,579.66点；AI相关交易持续修正及辉达领导层变动的不确定性继续拖累大市情绪。",
     "source": {
-     "name": "Malay Mail",
-     "url": "https://www.malaymail.com/news/money/2026/11/12/bursa-extends-losing-streak-as-broad-selling-drags-benchmark-to-yearly-low/243009"
+     "name": "Free Malaysia Today (Bernama)",
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/13/bursa-ends-lower-amid-lack-of-buying-interest"
     }
    },
    "items": [
@@ -102,8 +102,8 @@
     }
    ],
    "en": {
-    "title": "KLCI falls for a fourth day to 1,585.96; Nvidia CEO Jensen Huang resigns as US indices slip 0.4%",
-    "note": "Broad-based selling in banks and index heavyweights, amid worries over stretched AI valuations, a more hawkish Fed and stalled US-Iran talks, sent the index lower for a fourth session to a yearly low. Plantations bucked the trend, with the plantation index up 191.34 points.",
+    "title": "KLCI falls for a fifth day to 1,582.59; Nvidia CEO Jensen Huang resigns as US indices slip 0.4%",
+    "note": "A lack of buying interest and persistently cautious sentiment sent the index lower for a fifth straight session, touching an intraday low of 1,579.66; the ongoing correction in AI-related trades and uncertainty over Nvidia's leadership continued to weigh on the market.",
     "items": [
      {
       "tagEn": "Global",
