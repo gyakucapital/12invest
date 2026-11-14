@@ -6,10 +6,10 @@ self.addEventListener("fetch", e => {
   const r = e.request, u = new URL(r.url);
   if (r.method !== "GET" || u.origin !== location.origin || !u.pathname.startsWith(BASE)) return;
   if (r.mode === "navigate" || (r.headers.get("accept") || "").includes("text/html")) {
-    e.respondWith(fetch(r).then(res => { const c = res.clone(); caches.open(V).then(x => x.put(r, c)); return res; })
+    e.respondWith(fetch(r, { cache: "no-cache" }).then(res => { const c = res.clone(); caches.open(V).then(x => x.put(r, c)); return res; })
       .catch(() => caches.match(r).then(m => m || caches.match(BASE + "offline.html"))));
     return;
   }
-  if (/\.json$/.test(u.pathname)) { e.respondWith(fetch(r).catch(() => caches.match(r))); return; }
+  if (/\.json$/.test(u.pathname)) { e.respondWith(fetch(r, { cache: "no-cache" }).catch(() => caches.match(r))); return; }
   e.respondWith(caches.match(r).then(m => m || fetch(r).then(res => { if (res.ok) { const c = res.clone(); caches.open(V).then(x => x.put(r, c)); } return res; })));
 });
