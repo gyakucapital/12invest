@@ -436,7 +436,7 @@ function shareHTML(p, url = ABS(`p/${p.id}/`), t = short(p.title)){
 function financialsHTML(p, inline = false){
   const f = p.financials; if (!f) return "";
   const chart = `img/${p.id}-fin.png`, has = fs.existsSync(path.join(ROOT, chart));
-  const rows = [[f.revenueLabel || "营业额", f.revenue, v => v.toFixed(2)], [f.profitLabel || "税后盈利", f.profit, v => v.toFixed(2)],
+  const rows = [[f.revenueLabel || "营业额", f.revenue, v => v.toFixed(2)], [(f.profitLabel || "税后盈利") + (f.profitUnit ? `（${f.profitUnit}）` : ""), f.profit, v => v.toFixed(2)],
     ...(f.margin ? [[f.marginLabel || "利润率", f.margin, v => v.toFixed(2) + "%"]] : [])];
   return `<section class="fin${inline ? " inline" : ""}">${inline ? "" : `<div class="sec">财务速览</div>`}
   ${has ? `<figure class="finchart">${img(chart, `${f.title || "财务表现"}（资料来源：${f.source || "公司招股书"}）`)}</figure>` : ""}
