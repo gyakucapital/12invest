@@ -2,6 +2,201 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "kind": "weekly",
+   "date": "2026-11-14",
+   "title": "马股本周跌33.99点收1,582.59点、连挫五日；黄仁勋请辞辉达CEO冲击AI股，SKA Capital 首日收涨15%",
+   "market": {
+    "index": "FBM KLCI",
+    "range": "11月9日–11月13日",
+    "close": "1,582.59",
+    "change": "-33.99（-2.10%）",
+    "note": "周一屠妖节补假后，马股连跌四个交易日，周三跌破1,600点关口，周五收1,582.59点，较上周五的1,616.58点下跌33.99点。辉达领导层风波引发AI相关交易修正，加上美国通胀高于预期推高美债收益率，银行及数据中心相关权值股遭抛售，投资者情绪持续谨慎。",
+    "source": {
+     "name": "Free Malaysia Today (Bernama)",
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/13/bursa-ends-lower-amid-lack-of-buying-interest"
+    }
+   },
+   "items": [
+    {
+     "tag": "IPO",
+     "title": "本周新股：SKA Capital 首日收涨15%，Impact Capital 获139.69倍超购，IOIPG REIT 定价91仙",
+     "text": "SKA Capital 周三登陆 ACE 市场，以51仙开盘、收49.5仙，较43仙招股价高15.1%。Impact Capital（22仙）公众部分获139.69倍超额认购；Big Caring 最终定价每股 RM1.08，公众部分超购4.31倍；IOIPG Malaysia REIT 最终定价每单位91仙（低于96仙上限），公众部分认购1.59倍。Yes Group 申购周五截止、11月17日抽签，Emits 申购至11月19日；KEB、MyDCD 和 Big Caring 将于下周（11月16、17及19日）挂牌。",
+     "tickers": [
+      "SKACAP",
+      "IMPACT",
+      "BCG",
+      "IOIPGREIT",
+      "YESGROUP",
+      "EMITS",
+      "KEB",
+      "MYDCD"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/12/ioipg-malaysia-reit-fixes-ipo-price-at-91-sen-per-unit"
+     }
+    },
+    {
+     "tag": "环球",
+     "title": "黄仁勋请辞辉达CEO，全球AI股受冲击",
+     "text": "辉达董事会上周日宣布调查黄仁勋与一名被指为中国间谍的女商人之关系，黄仁勋其后辞去CEO职务，该股自周日起市值蒸发约3,000亿美元。风波拖累日韩及欧洲科技股，AI相关交易持续修正，也是本周马股情绪偏弱的主因之一。",
+     "tickers": [],
+     "source": {
+      "name": "The Edge Malaysia",
+      "url": "https://theedgemalaysia.com/node/825554"
+     }
+    },
+    {
+     "tag": "环球",
+     "title": "美国10月通胀高于预期，10年期美债收益率升至5%",
+     "text": "美国10月消费者物价指数按月涨0.4%，核心物价涨0.3%，均高于预期；10年期美债收益率大涨13.8个基点至5.00%，市场押注联储局12月升息。高利率预期周三拖累本地金融权值股，综指跌破1,600点。",
+     "tickers": [],
+     "source": {
+      "name": "TheStreet",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-10-2026"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "Hartalega 次季净利增79%至 RM32.80 million",
+     "text": "Hartalega 截至9月30日的2027财年次季营收增至 RM644.74 million，净利由上财年同期的 RM18.29 million 升至 RM32.80 million，主要受平均售价上扬带动；首半年净利 RM102.83 million，公司将从3号厂开始逐步重启厂房。",
+     "tickers": [
+      "HARTA"
+     ],
+     "source": {
+      "name": "BernamaBiz",
+      "url": "https://www.bernamabiz.com/news.php?id=2633410"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "联合种植第三季净利升至 RM290.93 million，派息45仙",
+     "text": "联合种植（United Plantations）第三季营收 RM722.22 million（去年同期 RM677.08 million），净利由 RM203.28 million 增至 RM290.93 million，受产量提高、原棕油售价改善及炼油业务贡献增加带动。公司宣布中期股息30仙及特别股息15仙，12月8日派发。",
+     "tickers": [
+      "UTDPLT"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/11/united-plantations-3q-net-profit-jumps-to-rm29093mil"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "Heineken 大马第三季净利跌39%，本季不派息",
+     "text": "Heineken 大马第三季营收按年跌18%至 RM539.1 million，净利跌39%至 RM69.2 million，首九个月净利减30%至 RM224.2 million。公司指消费情绪疲弱、额外10%消费税及经销商库存调整是主因，预计第四季完成库存正常化。",
+     "tickers": [
+      "HEIM"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/12/heineken-malaysia-3q-revenue-at-rm539mil"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "SunCon 今年新订单达 RM8.06 billion，手头订单 RM11.7 billion",
+     "text": "Sunway Construction 上周再获美国跨国客户柔佛数据中心 RM920.8 million 机电装修工程后，今年迄今新订单达 RM8.06 billion，正朝 RM7 billion 至 RM9 billion 目标的上限迈进；截至11月手头订单约 RM11.7 billion。",
+     "tickers": [
+      "SUNCON"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/10/suncon-on-track-for-rm9bil-order-target-this-year"
+     }
+    },
+    {
+     "tag": "能源",
+     "title": "Dialog 追加2.11亿美元开发 Fatimah 气田",
+     "text": "Dialog 集团就 Fatimah 气田作出最终投资决定，额外投资2.11亿美元，资金来自内部资金及/或借贷。邻近的 Salbiah 气田已于10月27日投产，料贡献2027财年盈利；Fatimah 则预计贡献未来盈利。",
+     "tickers": [
+      "DIALOG"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/11/dialog-to-invest-us211mil-in-fatimah-gas-field-development"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "Zetrix AI 债券违约、股息拖欠，交易所限期披露",
+     "text": "大马交易所指示 Zetrix AI 最迟11月23日派发拖欠的每股2.89仙终期股息，并给予延期至11月13日披露财务状况、独立董事及外部审计师辞职等事项。公司未能偿还一笔 RM25 million 伊斯兰债券，MARC 已将其 RM2 billion 债券计划评级降至违约级 D-IS；该股周三跌至5.5仙。",
+     "tickers": [
+      "ZETRIX"
+     ],
+     "source": {
+      "name": "The Edge Malaysia",
+      "url": "https://theedgemalaysia.com/node/825399"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "9月工业生产按年增6.3%，制造业增速加快",
+     "text": "统计局数据显示，9月工业生产指数按年增长6.3%，其中制造业增9.4%（8月为7.4%）、电力增10.7%，矿业则下滑9.4%。另外，大马棕油局数据显示10月底棕油库存按月增3.15%至362万吨。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/10/malaysia039s-ipi-up-63-y-o-y-in-sept---dosm"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI falls 33.99 points this week to 1,582.59, a fifth straight daily loss; Jensen Huang's exit as Nvidia CEO hits AI stocks, SKA Capital closes debut 15% up",
+    "note": "After the Deepavali holiday on Monday, Bursa fell on all four trading days, slipping below 1,600 on Wednesday and closing Friday at 1,582.59, down 33.99 points from the previous Friday's 1,616.58. Nvidia's leadership turmoil triggered a pullback in AI trades and hotter US inflation pushed up Treasury yields, prompting selling in banking and data-centre-related heavyweights as sentiment stayed cautious.",
+    "items": [
+     {
+      "tagEn": "IPO",
+      "title": "IPO round-up: SKA Capital ends debut 15% up, Impact Capital 139.69 times oversubscribed, IOIPG REIT priced at 91 sen",
+      "text": "SKA Capital opened at 51 sen on its ACE Market debut on Wednesday and closed at 49.5 sen, 15.1% above its 43 sen IPO price. Impact Capital's public portion (22 sen) was oversubscribed 139.69 times; Big Caring set its final price at RM1.08 with the public portion oversubscribed 4.31 times; IOIPG Malaysia REIT fixed its final price at 91 sen a unit (below the 96 sen cap), with the public portion 1.59 times subscribed. Yes Group's offer closed on Friday with balloting on 17 November, Emits takes applications until 19 November, and KEB, MyDCD and Big Caring list next week (16, 17 and 19 November)."
+     },
+     {
+      "tagEn": "Global",
+      "title": "Jensen Huang quits as Nvidia CEO, rattling AI stocks worldwide",
+      "text": "Nvidia's board said last Sunday it was investigating Jensen Huang's ties to a businesswoman alleged to be a Chinese spy, and Huang then resigned as CEO; the stock has shed about US$300 billion in market value since Sunday. The turmoil weighed on tech stocks in Japan, South Korea and Europe, and the continued unwinding of AI trades was a key drag on Bursa sentiment this week."
+     },
+     {
+      "tagEn": "Global",
+      "title": "Hotter US October inflation lifts the 10-year Treasury yield to 5%",
+      "text": "US consumer prices rose 0.4% month on month in October and core prices 0.3%, both above forecasts; the 10-year Treasury yield jumped 13.8 basis points to 5.00% as markets bet on a Fed hike in December. Higher-rate expectations hit local financial heavyweights on Wednesday, pushing the KLCI below 1,600."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Hartalega's second-quarter net profit rises 79% to RM32.80 million",
+      "text": "Hartalega's revenue for the second quarter of FY2027 (to 30 September) rose to RM644.74 million and net profit to RM32.80 million from RM18.29 million a year earlier, mainly on higher average selling prices. First-half net profit was RM102.83 million, and the company will gradually restart its plants, starting with Plant 3."
+     },
+     {
+      "tagEn": "Results",
+      "title": "United Plantations' third-quarter net profit rises to RM290.93 million; 45 sen in dividends",
+      "text": "United Plantations' third-quarter revenue was RM722.22 million (RM677.08 million a year earlier) and net profit rose to RM290.93 million from RM203.28 million, on higher output, better crude palm oil prices and a bigger refinery contribution. It declared an interim dividend of 30 sen and a special dividend of 15 sen, payable on 8 December."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Heineken Malaysia's third-quarter net profit falls 39%; no dividend this quarter",
+      "text": "Heineken Malaysia's third-quarter revenue fell 18% year on year to RM539.1 million and net profit 39% to RM69.2 million, while nine-month net profit dropped 30% to RM224.2 million. It blamed weak consumer sentiment, an extra 10% excise duty and distributor destocking, and expects inventory to normalise in the fourth quarter."
+     },
+     {
+      "tagEn": "Contracts",
+      "title": "SunCon's new orders this year reach RM8.06 billion; order book at RM11.7 billion",
+      "text": "After last week's RM920.8 million MEP fit-out job at a Johor data centre for an existing US multinational client, Sunway Construction's new orders so far this year total RM8.06 billion, putting it on track for the upper end of its RM7 billion to RM9 billion target; its order book stood at about RM11.7 billion as of November."
+     },
+     {
+      "tagEn": "Energy",
+      "title": "Dialog commits a further US$211 million to develop the Fatimah gas field",
+      "text": "Dialog Group has taken the final investment decision on the Fatimah gas field, investing an additional US$211 million funded by internal funds and/or borrowings. The neighbouring Salbiah field started production on 27 October and is expected to contribute to FY2027 earnings, while Fatimah should add to earnings in later years."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "Zetrix AI hit by sukuk default and unpaid dividend as Bursa sets deadlines",
+      "text": "Bursa Malaysia directed Zetrix AI to pay its overdue final dividend of 2.89 sen a share by 23 November and gave it until 13 November to disclose its financial position and the resignations of its independent directors and external auditor. The company failed to repay a RM25 million sukuk, and MARC cut its RM2 billion sukuk programme to the default grade D-IS; the stock fell to 5.5 sen on Wednesday."
+     },
+     {
+      "tagEn": "Market",
+      "title": "September industrial output up 6.3% year on year as manufacturing picks up",
+      "text": "Statistics department data showed the industrial production index rose 6.3% year on year in September, with manufacturing up 9.4% (7.4% in August) and electricity up 10.7%, while mining fell 9.4%. Separately, MPOB data showed palm oil stocks rose 3.15% month on month to 3.62 million tonnes at end-October."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-13",
    "title": "马股连跌五日收1,582.59点；辉达CEO黄仁勋请辞，美股三大指数各跌0.4%",
    "market": {
