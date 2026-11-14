@@ -1,6 +1,6 @@
 # 12Invest
 
-Static site for 12Invest articles, served by GitHub Pages: https://gyakucapital.github.io/12invest/
+Static site for 12Invest articles, served by GitHub Pages: https://12invest.com.my/
 
 ## How it is built
 - `posts.json` – all articles (title, key facts, body, at-a-glance data, IPO dates).
