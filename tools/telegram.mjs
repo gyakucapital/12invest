@@ -148,7 +148,7 @@ async function send(photo, text){
     try { r = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, { method: "POST", body: fd, signal: AbortSignal.timeout(150000) }); }
     catch (e) { return { ok: false, unsure: true, description: `network error: ${e.message}` }; }
     try { j = await r.json(); } catch { j = { ok: false, error_code: r.status, description: `HTTP ${r.status}` }; }
-    if (j.ok) return { ok: true };
+    if (j.ok) return { ok: true, id: j.result && j.result.message_id };
     const code = j.error_code || r.status;
     if (code === 429) { // rate limited: definitely not posted, wait and try the same thing again
       const wait = ((j.parameters && j.parameters.retry_after) || 10) + 1;
@@ -189,6 +189,8 @@ for (const p of todo){
   if (!j.ok && !j.unsure) { console.error(`Telegram: failed for ${p.id}: ${j.description}`); process.exitCode = 1; continue; }
   if (j.unsure) markUnsure(p.id, j);
   state.posted.push(p.id);
+  // keep the public message link so each post's Telegram URL can go in the client link compilation
+  if (j.ok && j.id && /^@/.test(String(CHAT))) { state.links = state.links || {}; state.links[p.id] = `https://t.me/${String(CHAT).slice(1)}/${j.id}`; console.log(`Telegram link: ${state.links[p.id]}`); }
   fs.writeFileSync(stateFile, JSON.stringify(state, null, 1) + "\n");
   console.log(`Telegram: ${j.ok ? "posted" : "marked as posted"} ${p.id}`);
   await sleep(3000);
