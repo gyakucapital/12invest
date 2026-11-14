@@ -1,7 +1,17 @@
 {
  "note": "Latest quarterly results of companies 12Invest covers. RM million. revenuePrev/profitPrev = same quarter last year. Sourced only.",
- "updated": "2026-11-12",
+ "updated": "2026-11-14",
  "results": [
+  {
+   "ticker": "SENFONG",
+   "name": "Seng Fong Holdings Berhad",
+   "quarter": "1QFY27",
+   "announced": "2026-11-13",
+   "revenue": 330.3,
+   "revenuePrev": 234.1,
+   "profit": 12.4,
+   "profitPrev": -5.1
+  },
   {
    "ticker": "HARTA",
    "name": "Hartalega Holdings Berhad",

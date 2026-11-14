@@ -99,7 +99,7 @@ for (const p of posts){
     const has = Array.isArray(f.margin) && f.margin.length === f.periods.length, k = has ? 3 : 2, gap = 24;
     const pw = (W - 128 - gap * (k - 1)) / k, box = j => ({ x: 64 + j * (pw + gap), y: 150, w: pw, h: H - 250 });
     return bars(box(0), { title: f.revenueLabel || "营业额", unit, periods: f.periods, values: f.revenue, color: c1 })
-      + bars(box(1), { title: f.profitLabel || "税后盈利", unit, periods: f.periods, values: f.profit, color: c2 })
+      + bars(box(1), { title: f.profitLabel || "税后盈利", unit: f.profitUnit || unit, periods: f.periods, values: f.profit, color: c2 })
       + (has ? steps(box(2), { title: f.marginLabel || "利润率", periods: f.periods, values: f.margin, color: c3 }) : "");
   })()}
   <text x="64" y="${H - 44}" class="src">资料来源：${esc(f.source || "公司招股书")}</text>
