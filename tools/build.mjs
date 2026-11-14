@@ -382,13 +382,17 @@ function glance(p, i){
   const stats = (g.stats && g.stats.length ? g.stats : (p.keyFacts || []).slice(0, 4)).filter(s => s.k && s.v);
   const list = (arr, cls, label) => arr && arr.length ? `<div class="gcol ${cls}"><div class="glabel">${label}</div><ul>${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : "";
   const href = REL(`p/${p.id}/`);
+  // portrait card image for the home list (4:5 box): p.card, else the post's Facebook one-pager if it exists; the wide cover stays for small screens
+  const card = safeImg(p.card) || (fs.existsSync(path.join(ROOT, `img/${p.id}-fb.jpg`)) ? `img/${p.id}-fb.jpg` : "");
+  // stat value "RM330.3m（按年 +41.1%）" -> main figure plus a small note line, so the four tiles stay level
+  const statVal = v => { const m = String(v).match(/^(.+?)\s*[（(](.+)[）)]$/); return m ? `${esc(m[1])}<small>${esc(m[2])}</small>` : esc(v); };
   const text = [p.title, p.excerpt, (p.tags || []).join(" "), p.ipo && p.ipo.name].join(" ").toLowerCase();
   return `<article class="glance px" data-cat="${esc(p.category)}" data-text="${esc(text)}">
-  <a class="gcover" href="${href}" tabindex="-1" aria-hidden="true">${cover(p, i < 2)}</a>
+  <a class="gcover${card ? " has-card" : ""}" href="${href}" tabindex="-1" aria-hidden="true">${card ? `<span class="gc-card">${img(card, "", i < 2)}</span><span class="gc-wide">${cover(p)}</span>` : cover(p, i < 2)}</a>
   <div class="gbody">
     <div class="gtop"><span class="cat">【${esc(p.category)}】${p.ticker ? ` <a class="tchip" href="${REL(`c/${slug(p.ticker)}/`)}">${esc(p.ticker)}</a>` : ""}</span><span class="gtop-r">${p.ipo ? badge(p.ipo) : ""}<span class="meta"><span>${fmtPub(p.publishedAt)}</span></span></span></div>
     <h2 class="gtitle"><a href="${href}">${esc(p.title)}</a></h2>
-    ${stats.length ? `<dl class="gstats">${stats.map(s => `<div class="gstat"><dt>${esc(s.k)}</dt><dd>${esc(s.v)}</dd></div>`).join("")}</dl>` : ""}
+    ${stats.length ? `<dl class="gstats">${stats.map(s => `<div class="gstat"><dt>${esc(s.k)}</dt><dd>${statVal(s.v)}</dd></div>`).join("")}</dl>` : ""}
     ${(g.pros || g.watch) ? `<div class="gcols">${list(g.pros, "pros", "亮点")}${list(g.watch, "watch", "留意")}</div>` : `<p class="gex">${esc(p.excerpt)}</p>`}
     <div class="gfoot">${g.timeline ? `<span class="gtime">${esc(g.timeline)}</span>` : "<span></span>"}<span class="gbtns">${p.ipo ? moomooCTA(p.ipo, "btn") : ""}<a class="btn primary" href="${href}">阅读全文 →</a></span></div>
   </div>
