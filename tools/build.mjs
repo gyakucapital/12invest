@@ -731,7 +731,7 @@ write("manifest.webmanifest", JSON.stringify({
   icons: [192, 512].map(s => ({ src: REL(`icons/icon-${s}.png`), sizes: `${s}x${s}`, type: "image/png", purpose: "any" }))
     .concat([{ src: REL("icons/icon-maskable-512.png"), sizes: "512x512", type: "image/png", purpose: "maskable" }])
 }, null, 1));
-// service worker: cache-first for static files, network-first for pages (falls back to the cached copy, then offline.html)
+// service worker: cache-first for static files, network-first for pages (revalidated, so a new deploy shows on the next refresh) (falls back to the cached copy, then offline.html)
 const SWV = crypto.createHash("sha1").update(V.css + V.js + data.updated + (NEWS[0] ? NEWS[0].date : "")).digest("hex").slice(0, 8);
 write("sw.js", `const V = "12i-${SWV}", BASE = ${JSON.stringify(BASE)};
 const PRE = [BASE, BASE + "offline.html", BASE + "assets/site.css?v=${V.css}", BASE + "assets/app.js?v=${V.js}", BASE + "fonts/silkscreen-400.woff2", BASE + "fonts/silkscreen-700.woff2", BASE + "icons/icon-192.png"];
@@ -741,11 +741,11 @@ self.addEventListener("fetch", e => {
   const r = e.request, u = new URL(r.url);
   if (r.method !== "GET" || u.origin !== location.origin || !u.pathname.startsWith(BASE)) return;
   if (r.mode === "navigate" || (r.headers.get("accept") || "").includes("text/html")) {
-    e.respondWith(fetch(r).then(res => { const c = res.clone(); caches.open(V).then(x => x.put(r, c)); return res; })
+    e.respondWith(fetch(r, { cache: "no-cache" }).then(res => { const c = res.clone(); caches.open(V).then(x => x.put(r, c)); return res; })
       .catch(() => caches.match(r).then(m => m || caches.match(BASE + "offline.html"))));
     return;
   }
-  if (/\\.json$/.test(u.pathname)) { e.respondWith(fetch(r).catch(() => caches.match(r))); return; }
+  if (/\\.json$/.test(u.pathname)) { e.respondWith(fetch(r, { cache: "no-cache" }).catch(() => caches.match(r))); return; }
   e.respondWith(caches.match(r).then(m => m || fetch(r).then(res => { if (res.ok) { const c = res.clone(); caches.open(V).then(x => x.put(r, c)); } return res; })));
 });
 `);
