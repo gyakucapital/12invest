@@ -2,27 +2,27 @@
  "name": "12Invest · 马股新股与上市公司解读",
  "short_name": "12Invest",
  "lang": "zh-CN",
- "start_url": "/12invest/",
- "scope": "/12invest/",
+ "start_url": "/",
+ "scope": "/",
  "display": "standalone",
  "background_color": "#081230",
  "theme_color": "#081230",
  "description": "12Invest：马股新股与上市公司解读，IPO 速读、估值与风险一次看懂。",
  "icons": [
   {
-   "src": "/12invest/icons/icon-192.png",
+   "src": "/icons/icon-192.png",
    "sizes": "192x192",
    "type": "image/png",
    "purpose": "any"
   },
   {
-   "src": "/12invest/icons/icon-512.png",
+   "src": "/icons/icon-512.png",
    "sizes": "512x512",
    "type": "image/png",
    "purpose": "any"
   },
   {
-   "src": "/12invest/icons/icon-maskable-512.png",
+   "src": "/icons/icon-maskable-512.png",
    "sizes": "512x512",
    "type": "image/png",
    "purpose": "maskable"
