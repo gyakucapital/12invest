@@ -1,7 +1,17 @@
 {
  "note": "Latest quarterly results of companies 12Invest covers. RM million. revenuePrev/profitPrev = same quarter last year. Sourced only.",
- "updated": "2026-11-14",
+ "updated": "2026-11-15",
  "results": [
+  {
+   "ticker": "CLMT",
+   "name": "CapitaLand Malaysia Trust",
+   "quarter": "3Q2026",
+   "announced": "2026-10-21",
+   "revenue": 126.5,
+   "revenuePrev": 116.0,
+   "profit": 47.0,
+   "profitPrev": 34.7
+  },
   {
    "ticker": "SENFONG",
    "name": "Seng Fong Holdings Berhad",
