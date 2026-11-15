@@ -14,7 +14,8 @@
   "2026-11-11-empire",
   "2026-11-12-harta",
   "2026-11-14-gamuda-c4x",
-  "2026-11-14-senfong"
+  "2026-11-14-senfong",
+  "2026-11-15-clmt"
  ],
  "news": [
   "2026-11-03",
@@ -45,10 +46,12 @@
   "news:2026-11-13",
   "weekly:2026-11-14",
   "post:2026-11-14-gamuda-c4x",
-  "post:2026-11-14-senfong"
+  "post:2026-11-14-senfong",
+  "post:2026-11-15-clmt"
  ],
  "links": {
   "2026-11-14-senfong": "https://t.me/public12invest/3799",
-  "2026-11-14-gamuda-c4x": "https://t.me/public12invest/3797"
+  "2026-11-14-gamuda-c4x": "https://t.me/public12invest/3797",
+  "2026-11-15-clmt": "https://t.me/public12invest/3801"
  }
 }
