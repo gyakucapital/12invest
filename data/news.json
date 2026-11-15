@@ -2,6 +2,129 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-16",
+   "title": "马股连跌五日收1,582.59点；Zetrix AI 坦言无力偿还 RM2b 伊斯兰债券，KEB 今日上市",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-13",
+    "close": "1,582.59",
+    "change": "-3.37（-0.21%）",
+    "breadth": "涨 369 / 跌 686 / 平 497",
+    "turnover": "28.4亿股，RM2.36 billion",
+    "note": "市场买气不足、投资者情绪持续谨慎，综指连跌第五个交易日，盘中一度低见1,579.66点；AI相关交易持续修正及辉达领导层变动的不确定性继续拖累大市情绪。",
+    "source": {
+     "name": "Free Malaysia Today (Bernama)",
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/13/bursa-ends-lower-amid-lack-of-buying-interest"
+    }
+   },
+   "items": [
+    {
+     "tag": "环球",
+     "title": "美股周五涨跌互见，纳指跌0.91%，辉达风波未平",
+     "text": "道琼斯指数周五微涨50.46点（+0.10%）至52,347.55点，标普500指数跌0.40%至7,561.67点，纳斯达克指数跌0.91%至25,136.27点。黄仁勋请辞后由财务总监 Colette Kress 暂代CEO，辉达股价本周累计下挫12.75%。",
+     "tickers": [],
+     "source": {
+      "name": "TheStreet",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-13-2026"
+     }
+    },
+    {
+     "tag": "政策",
+     "title": "马六甲州选：国阵独夺21席，希盟4席、国盟3席",
+     "text": "选委会宣布，第16届马六甲州选28个议席中，国阵赢得21席，希盟4席，国盟3席，投票率为71.77%（493,573名选民）。",
+     "tickers": [],
+     "source": {
+      "name": "Bernama",
+      "url": "https://prn.bernama.com/johor/news-en.php?id=2634493"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "Zetrix AI 坦言目前无力偿还 RM2 billion 伊斯兰债券",
+     "text": "Zetrix AI 向交易所披露，暂时无法偿还 RM2 billion 伊斯兰债券计划的全部未偿款项，正与债券持有人商讨修改条款，并建议以最多10%净资产作抵押。公司撤回2026年首次中期股息，并预计被暂停陆路交通局代收代理资格将令集团营收减少约15%；股价周五平收6仙。",
+     "tickers": [
+      "ZETRIX"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/825691"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "KEB 今日登陆 ACE，MyDCD 明天、Big Caring 周四挂牌",
+     "text": "产业发展商 KEB 以每股35仙发售，今天在 ACE Market 挂牌；公众部分获36.46倍超额认购的 MyDCD（每股56仙）明天上市，Big Caring 则以每股 RM1.08 定价，于11月19日登陆主板。",
+     "tickers": [
+      "KEB",
+      "MYDCD",
+      "BCG"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/04/keb-ipo-fully-subscribed-ahead-of-nov-16-listing"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "贺特佳次季售价走高难持续，丰隆研究降评至“卖出”",
+     "text": "贺特佳2027财年上半年净利 RM102.83 million，比去年同期增加逾两倍，但分析员认为平均售价推高的次季表现难以延续。丰隆投资银行把目标价从97仙降至80仙；联昌投行维持 RM1.12 目标价，预计第三季盈利按季回落。目前每千只手套售价约22美元，比次季的26.70美元低约15%。",
+     "tickers": [
+      "HARTA"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/825598"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "分析员：马股本周料在1,580至1,600点整固",
+     "text": "乐天证券预计综指本周在1,580至1,600点之间整固，估值吸引下逢低买盘或逐步浮现；焦点包括大马第三季GDP、10月通胀与贸易数据、中国工业生产及零售数据，以及美联储会议记录。上周综指累跌33.99点，全周成交额降至 RM7.70 billion。",
+     "tickers": [],
+     "source": {
+      "name": "Bernama",
+      "url": "https://www.bernama.com/en/market/news.php?id=2634135"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI ends five-day slide at 1,582.59; Zetrix AI says it cannot repay RM2b sukuk as KEB debuts today",
+    "note": "A lack of buying interest and persistently cautious sentiment sent the index lower for a fifth straight session, touching an intraday low of 1,579.66; the ongoing correction in AI-related trades and uncertainty over Nvidia's leadership continued to weigh on the market.",
+    "items": [
+     {
+      "tagEn": "Global",
+      "title": "Wall Street mixed on Friday as Nasdaq falls 0.91% amid Nvidia turmoil",
+      "text": "The Dow edged up 50.46 points (+0.10%) to 52,347.55, while the S&P 500 fell 0.40% to 7,561.67 and the Nasdaq dropped 0.91% to 25,136.27. CFO Colette Kress is interim CEO after Jensen Huang's resignation, and Nvidia shares lost 12.75% over the week."
+     },
+     {
+      "tagEn": "Policy",
+      "title": "Melaka polls: BN wins 21 seats, PH 4 and PN 3",
+      "text": "The Election Commission said Barisan Nasional won 21 of the 28 seats in the 16th Melaka state election, Pakatan Harapan 4 and Perikatan Nasional 3, on a 71.77% turnout (493,573 voters)."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "Zetrix AI says it cannot repay its RM2 billion sukuk for now",
+      "text": "In its disclosure to Bursa, Zetrix AI said it is currently unable to repay the full RM2 billion outstanding under its sukuk programme, is negotiating covenant changes with sukukholders and has proposed pledging up to 10% of net assets as security. It withdrew its first interim dividend for 2026 and expects the suspension of its JPJ collection-agent role to cut group revenue by about 15%; the stock closed unchanged at 6 sen on Friday."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "KEB debuts on ACE today; MyDCD tomorrow and Big Caring on Thursday",
+      "text": "Property developer KEB, priced at 35 sen a share, lists on the ACE Market today. MyDCD (56 sen), whose public portion was 36.46 times oversubscribed, lists tomorrow, and Big Caring, priced at RM1.08, debuts on the Main Market on Nov 19."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Hartalega's price-driven 2Q seen hard to sustain; HLIB cuts to sell",
+      "text": "Hartalega's 1HFY2027 net profit of RM102.83 million was more than triple a year earlier, but analysts see the higher-ASP second quarter as hard to repeat. HLIB cut its target price to 80 sen from 97 sen, while CIMB IB kept RM1.12 and expects a q-o-q profit decline in the third quarter. The ASP is now about US$22 per 1,000 pieces, roughly 15% below US$26.70 in 2Q."
+     },
+     {
+      "tagEn": "Market",
+      "title": "Analyst: KLCI likely to consolidate between 1,580 and 1,600 this week",
+      "text": "Rakuten Trade expects the index to consolidate in a 1,580–1,600 range, with bargain hunting likely to emerge gradually as valuations turn attractive. In focus: Malaysia's 3Q GDP, October inflation and trade data, China's industrial production and retail sales, and the Fed's meeting minutes. The KLCI lost 33.99 points last week as weekly turnover fell to RM7.70 billion."
+     }
+    ]
+   }
+  },
+  {
    "kind": "weekly",
    "date": "2026-11-14",
    "title": "马股本周跌33.99点收1,582.59点、连挫五日；黄仁勋请辞辉达CEO冲击AI股，SKA Capital 首日收涨15%",
