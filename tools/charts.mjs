@@ -57,7 +57,7 @@ function bars(box, { title, unit, periods, values, color }){
     const rows = Math.max(1, Math.round(g.plotH * Math.abs(v) / max / (B + G))), last = i === n - 1, x0 = g.cx(i) - bw / 2;
     for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++)
       s += `<rect x="${x0 + c * (B + G)}" y="${g.base - (r + 1) * (B + G) + G}" width="${B}" height="${B}" fill="${color}" opacity="${last ? 1 : 0.6}"/>`;
-    s += `<text x="${g.cx(i)}" y="${g.base - rows * (B + G) - 16}" class="pv" text-anchor="middle" fill="${last ? color : "#EEF2FF"}">${fmt(v)}</text>`;
+    s += `<text x="${g.cx(i)}" y="${g.base - rows * (B + G) - 16}" class="pv" text-anchor="middle"${fmt(v).length * 20 > g.slot - 16 ? ` style="font-size:${Math.floor((g.slot - 16) / fmt(v).length)}px"` : ""} fill="${last ? color : "#EEF2FF"}">${fmt(v)}</text>`;
   });
   return s;
 }
