@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13",
+ "updated": "2026-11-16",
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
@@ -315,7 +315,7 @@
     "https://www.klsescreener.com/v2/ipos",
     "https://klse.i3investor.com/web/blog/detail/mqipo/2026-10-27-story-h502492925-IPO_KEB_BERHAD_PART_1"
    ],
-   "checked": "2026-11-13",
+   "checked": "2026-11-16",
    "code": "0481",
    "ballot": "2026-11-04",
    "result": {
@@ -325,8 +325,10 @@
      "https://www.thestar.com.my/business/business-news/2026/11/05/keb-ipo-fully-subscribed",
      "https://finance.yahoo.com/markets/stocks/articles/keb-berhads-ipo-draws-strong-123500342.html",
      "https://luminews.my/news/4835318",
-     "https://www.thestar.com.my/business/business-news/2026/11/04/keb-ipo-fully-subscribed-ahead-of-nov-16-listing"
-    ]
+     "https://www.thestar.com.my/business/business-news/2026/11/04/keb-ipo-fully-subscribed-ahead-of-nov-16-listing",
+     "https://theedgemalaysia.com/node/825844"
+    ],
+    "open": 0.35
    }
   },
   {
