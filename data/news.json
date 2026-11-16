@@ -2,6 +2,144 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-17",
+   "title": "马股止跌收1,588.03点；美股科技股重挫，金务大夺 RM2.61b 台湾捷运合约，MyDCD 今挂牌",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-16",
+    "close": "1,588.03",
+    "change": "+5.44（+0.34%）",
+    "breadth": "涨 375 / 跌 673 / 平 522",
+    "turnover": "27.6亿股，RM2.33 billion",
+    "note": "部分蓝筹股吸引逢低买盘，综指结束五连跌，盘中在1,572.55至1,593.02点之间波动，终场收高；不过市场宽度仍偏负面，成交量较上周五缩减。",
+    "source": {
+     "name": "Free Malaysia Today (Bernama)",
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/16/bursa-snaps-5-day-losing-streak-on-bargain-hunting"
+    }
+   },
+   "items": [
+    {
+     "tag": "环球",
+     "title": "美股周一全面重挫，纳指跌2.49%，辉达今晚放榜",
+     "text": "道琼斯指数周一跌739.38点（-1.41%）至51,608.17点，标普500指数跌1.92%至7,416.59点，纳斯达克指数挫2.49%至24,509.76点。辉达股价下跌4.12%，此前有报道指其董事会无意让黄仁勋回任；辉达第三季业绩将于周二公布，Anthropic 则预计周四挂牌。",
+     "tickers": [],
+     "source": {
+      "name": "Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-16-dow-sp-500-nasdaq-nvidia-oil-091631084.html"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "金务大夺台湾基隆地下捷运合约，总值 RM2.61 billion",
+     "text": "金务大与台湾 Feng Shun Construction 组成的联营公司获新北市政府捷运工程局颁发基隆地下捷运部分设计与建造工程，合约价值210.2亿新台币（约 RM2.61 billion），工期2,700天。金务大持有联营公司80%权益，所占份额约 RM2.09 billion。",
+     "tickers": [
+      "GAMUDA"
+     ],
+     "source": {
+      "name": "theSun",
+      "url": "https://thesun.my/business/gamuda-secures-rm2-61b-taiwan-mrt-contract/"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "MyDCD 今日登陆 ACE 市场，公众部分超额认购36.46倍",
+     "text": "MyDCD 以每股56仙发售，今天在 ACE Market 挂牌。公众部分8,970万股共接获28,816份申请、涉及33.6亿股，超额认购36.46倍；其中土著部分超购24倍，其他公众部分超购48.92倍。",
+     "tickers": [
+      "MYDCD"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/05/mydcd-ipo-oversubscribed-3646-times-ahead-of-listing"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "NCT Alliance 拟私配集资最多 RM152.47 million",
+     "text": "NCT Alliance 建议向独立第三方投资者配售最多3.0494亿股新股，指示价每股50仙，集资最多 RM152.47 million。所得款项70%将用于雪兰莪和吉打两个工业园，两园剩余总发展值为 RM3.82 billion；计划预计在2027年上半年完成。",
+     "tickers": [
+      "NCT"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/16/nct-alliance-plans-rm152mil-share-placement"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "外资上周净卖出 RM270.2 million，散户连续12周净买入",
+     "text": "MBSB投行资金流报告显示，截至11月13日一周外资净流出 RM270.2 million，结束连续两周净流入；建筑股吸引外资净流入 RM123 million 居首，科技股则遭净卖出 RM241.5 million。本地机构净卖出 RM56 million，散户净买入 RM326.3 million。",
+     "tickers": [],
+     "source": {
+      "name": "The Star (Bernama)",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/16/construction-sector-leads-foreign-inflows-on-bursa-malaysia"
+     }
+    },
+    {
+     "tag": "政策",
+     "title": "MBSB投行：美国拟限远程使用AI芯片，大马数据中心业整体受影响有限",
+     "text": "MBSB投行认为，美国拟议的先进AI芯片远程使用限制并非全面禁止在大马部署美国AI芯片，传统云端、托管及企业运算业务应相对稳健，重度依赖中国客户或提供GPU租用服务的业者最受冲击。该行表示未发现杨忠礼电力涉及芯片转运的可靠证据，其业务以托管为主。",
+     "tickers": [
+      "YTLPOWR"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://thestar.com.my/business/business-news/2026/11/16/malaysia039s-broader-data-centre-industry-less-expose-to-us-ai-chip-curbs"
+     }
+    },
+    {
+     "tag": "能源",
+     "title": "霍尔木兹海峡再传油轮事故，布伦特原油徘徊95美元",
+     "text": "截至周一格林威治时间7时57分，布伦特原油微涨5美分至每桶95.89美元，西德州原油涨9美分至88.65美元。伊朗革命卫队称两艘油轮触雷，加剧中东供应忧虑；不过国际能源署预计第四季供应过剩，限制油价涨幅。",
+     "tickers": [],
+     "source": {
+      "name": "The Star (Reuters)",
+      "url": "https://thestar.com.my/business/business-news/2026/11/16/oil-edges-up-as-hormuz-tanker-incidents-highlight-shipping-risks"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI ends slide at 1,588.03; US tech sell-off, Gamuda wins RM2.61b Taiwan MRT job as MyDCD debuts today",
+    "note": "Bargain hunting in selected blue chips helped the index end a five-day losing streak, trading between 1,572.55 and 1,593.02 before closing higher; market breadth stayed negative, however, and turnover was lower than on Friday.",
+    "items": [
+     {
+      "tagEn": "Global",
+      "title": "Wall Street slumps on Monday as Nasdaq drops 2.49%; Nvidia reports tonight",
+      "text": "The Dow fell 739.38 points (-1.41%) to 51,608.17, the S&P 500 lost 1.92% to 7,416.59 and the Nasdaq slid 2.49% to 24,509.76. Nvidia fell 4.12% after a report that its board is not considering bringing back Jensen Huang; Nvidia's third-quarter results are due Tuesday, and Anthropic is expected to list on Thursday."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "Gamuda wins RM2.61 billion Keelung underground MRT contract in Taiwan",
+      "text": "Gamuda's joint venture with Taiwan's Feng Shun Construction was awarded part of the design and construction of the Keelung Underground MRT by New Taipei City's Department of Rapid Transit Systems, worth NT$21.02 billion (about RM2.61 billion) over 2,700 days. Gamuda holds 80% of the JV, giving it a share of about RM2.09 billion."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "MyDCD debuts on the ACE Market today after 36.46 times public oversubscription",
+      "text": "MyDCD, priced at 56 sen a share, lists on the ACE Market today. Its 89.7 million-share public portion drew 28,816 applications for 3.36 billion shares, an oversubscription of 36.46 times; the bumiputera portion was 24 times oversubscribed and the other public portion 48.92 times."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "NCT Alliance plans placement to raise up to RM152.47 million",
+      "text": "NCT Alliance proposes to place out up to 304.94 million new shares to independent third-party investors at an indicative 50 sen each, raising up to RM152.47 million. About 70% of the proceeds will go to two industrial parks in Selangor and Kedah with a combined remaining GDV of RM3.82 billion; completion is expected in the first half of 2027."
+     },
+     {
+      "tagEn": "Market",
+      "title": "Foreigners net sell RM270.2 million last week as retail buying extends to 12 weeks",
+      "text": "MBSB Investment Bank's fund flow report shows foreign investors net sold RM270.2 million in the week to Nov 13, ending two weeks of net inflows; construction drew the largest foreign inflow at RM123 million, while technology saw RM241.5 million of net selling. Local institutions net sold RM56 million and retailers net bought RM326.3 million."
+     },
+     {
+      "tagEn": "Policy",
+      "title": "MBSB IB: proposed US curbs on remote AI chip access have limited impact on Malaysia's wider data centre sector",
+      "text": "MBSB Investment Bank says the proposed US restrictions on remote access to advanced AI chips are not a blanket ban on US AI chips in Malaysia, and that conventional cloud, colocation and enterprise computing should remain relatively resilient, with operators heavily exposed to Chinese customers or offering GPU-as-a-service most at risk. It found no credible evidence linking YTL Power to the alleged chip diversion, describing its business as mainly colocation."
+     },
+     {
+      "tagEn": "Energy",
+      "title": "Brent hovers near US$95 after fresh Hormuz tanker incidents",
+      "text": "As of 0757 GMT on Monday, Brent was up 5 cents at US$95.89 a barrel and WTI up 9 cents at US$88.65. Iran's Revolutionary Guards said two tankers struck mines, adding to Middle East supply worries, though the IEA's forecast of a fourth-quarter supply surplus capped gains."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-16",
    "title": "马股止跌回升收1,588.03点；Zetrix AI 坦言无力偿还 RM2b 伊斯兰债券，KEB 今日上市",
    "market": {
