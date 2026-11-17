@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-17",
-   "title": "马股止跌收1,588.03点；美股科技股重挫，金务大夺 RM2.61b 台湾捷运合约，MyDCD 今挂牌",
+   "title": "马股跌12.88点收1,575.15点；美股科技股重挫，金务大夺 RM2.61b 台湾捷运合约，MyDCD 今挂牌",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-16",
-    "close": "1,588.03",
-    "change": "+5.44（+0.34%）",
-    "breadth": "涨 375 / 跌 673 / 平 522",
-    "turnover": "27.6亿股，RM2.33 billion",
-    "note": "部分蓝筹股吸引逢低买盘，综指结束五连跌，盘中在1,572.55至1,593.02点之间波动，终场收高；不过市场宽度仍偏负面，成交量较上周五缩减。",
+    "date": "2026-11-17",
+    "close": "1,575.15",
+    "change": "-12.88（-0.81%）",
+    "breadth": "涨 211 / 跌 959 / 平 354",
+    "turnover": "33.5亿股，RM2.28 billion",
+    "note": "美股隔夜下挫拖累区域情绪，科技股与数据中心相关股抛压加剧，综指全日在1,570.22至1,585.10点之间波动，终场跌穿1,580点；市场宽度明显偏弱，成交量较周一增加。",
     "source": {
      "name": "Free Malaysia Today (Bernama)",
-     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/16/bursa-snaps-5-day-losing-streak-on-bargain-hunting"
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/17/tech-data-centre-stocks-drag-bursa-lower"
     }
    },
    "items": [
@@ -98,8 +98,8 @@
     }
    ],
    "en": {
-    "title": "KLCI ends slide at 1,588.03; US tech sell-off, Gamuda wins RM2.61b Taiwan MRT job as MyDCD debuts today",
-    "note": "Bargain hunting in selected blue chips helped the index end a five-day losing streak, trading between 1,572.55 and 1,593.02 before closing higher; market breadth stayed negative, however, and turnover was lower than on Friday.",
+    "title": "KLCI falls 12.88 to 1,575.15; US tech sell-off, Gamuda wins RM2.61b Taiwan MRT job as MyDCD debuts today",
+    "note": "Selling intensified in technology and data centre-related stocks after Wall Street's overnight losses, with the index trading between 1,570.22 and 1,585.10 before closing below 1,580; breadth was clearly negative, while volume rose from Monday.",
     "items": [
      {
       "tagEn": "Global",
