@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16",
+ "updated": "2026-11-17",
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
@@ -347,14 +347,16 @@
     "https://www.klsescreener.com/v2/ipos",
     "https://mahersaham.com/blogs/mydcd-berhad-ipo-ace-market"
    ],
-   "checked": "2026-11-12",
+   "checked": "2026-11-17",
    "code": "0482",
    "result": {
     "oversub": 36.46,
     "sources": [
      "https://thesun.my/business/mydcd-ipo-oversubscribed-36-46-times/",
-     "https://www.dagangnews.com/article/terkini/ipo-mydcd-terlebih-langgan-3646-kali-terima-permohonan-saham-rm188-bilion-77031"
-    ]
+     "https://www.dagangnews.com/article/terkini/ipo-mydcd-terlebih-langgan-3646-kali-terima-permohonan-saham-rm188-bilion-77031",
+     "https://luminews.my/news/4873399"
+    ],
+    "open": 0.48
    }
   },
   {
