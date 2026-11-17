@@ -315,7 +315,7 @@
     "https://www.klsescreener.com/v2/ipos",
     "https://klse.i3investor.com/web/blog/detail/mqipo/2026-10-27-story-h502492925-IPO_KEB_BERHAD_PART_1"
    ],
-   "checked": "2026-11-16",
+   "checked": "2026-11-17",
    "code": "0481",
    "ballot": "2026-11-04",
    "result": {
@@ -326,9 +326,11 @@
      "https://finance.yahoo.com/markets/stocks/articles/keb-berhads-ipo-draws-strong-123500342.html",
      "https://luminews.my/news/4835318",
      "https://www.thestar.com.my/business/business-news/2026/11/04/keb-ipo-fully-subscribed-ahead-of-nov-16-listing",
+     "https://theedgemalaysia.com/node/825844",
      "https://theedgemalaysia.com/node/825844"
     ],
-    "open": 0.35
+    "open": 0.35,
+    "close": 0.285
    }
   },
   {
@@ -354,9 +356,11 @@
     "sources": [
      "https://thesun.my/business/mydcd-ipo-oversubscribed-36-46-times/",
      "https://www.dagangnews.com/article/terkini/ipo-mydcd-terlebih-langgan-3646-kali-terima-permohonan-saham-rm188-bilion-77031",
-     "https://luminews.my/news/4873399"
+     "https://luminews.my/news/4873399",
+     "https://www.thestar.com.my/business/business-news/2026/11/17/bursa-malaysia-awash-in-red-as-over-900-stocks-fall-amid-regional-sell-off"
     ],
-    "open": 0.48
+    "open": 0.48,
+    "close": 0.45
    }
   },
   {
