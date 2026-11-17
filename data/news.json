@@ -2,6 +2,127 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-18",
+   "title": "马股跌0.81%收1,575.15点；辉达季度营收增103%，美国AI芯片出口新规明起生效",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-17",
+    "close": "1,575.15",
+    "change": "-12.88（-0.81%）",
+    "breadth": "涨 211 / 跌 959 / 平 354",
+    "turnover": "33.5亿股，RM2.28 billion",
+    "note": "美股隔夜下挫拖累区域情绪，科技股与数据中心相关股抛压加剧，综指全日在1,570.22至1,585.10点之间波动，终场跌穿1,580点；市场宽度明显偏弱，成交量较周一增加。",
+    "source": {
+     "name": "Free Malaysia Today (Bernama)",
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/17/tech-data-centre-stocks-drag-bursa-lower"
+    }
+   },
+   "items": [
+    {
+     "tag": "环球",
+     "title": "辉达第三季营收按年增103%至1,158亿美元，本季指引1,300亿美元",
+     "text": "辉达截至10月25日的2027财年第三季营收达1,158亿美元，按季增20%、按年增103%，其中数据中心业务贡献1,076亿美元。公司预计第四季营收约1,300亿美元（上下3%），并假设无来自中国的数据中心算力收入；这是黄仁勋卸任后的首份季报。",
+     "tickers": [],
+     "source": {
+      "name": "NVIDIA",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
+     }
+    },
+    {
+     "tag": "政策",
+     "title": "美国先进芯片出口大马须申请准证，11月19日起生效",
+     "text": "美国商务部发布临时最终规则，向马来西亚、新加坡、印尼、泰国和巴西出口或转运先进半导体须先取得准证，数据中心、晶圆代工厂及芯片出口商须对客户进行尽职调查。总部设于美国的企业在符合申报要求下获豁免；规则同时正式撤销拜登时期的 AI 扩散规则。",
+     "tickers": [],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/826051"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "大马电讯获批承建 SALAM 海底电缆，顶限 RM2.7 billion",
+     "text": "大马电讯旗下 TM Technology Services 获委为“MADANI 海底电缆连接”（SALAM）第一部分的普及服务供应商，负责四段海底电缆的设计、制造、铺设、测试与启用，批准成本最高 RM2.7 billion。工程预定12月15日动工，2030年第一季前分阶段完成；公司仍在检讨相关条款。",
+     "tickers": [
+      "TM"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://thestar.com.my/business/business-news/2026/11/17/tm-receives-usp-notification-of-approval-for-salam-submarine-cable-project"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "戴乐首季净利增18%至 RM165.08 million",
+     "text": "戴乐集团截至9月30日的2027财年首季净利为 RM165.08 million，高于去年同期的 RM140.02 million；营收从 RM657 million 增至 RM787.04 million，增幅约20%。",
+     "tickers": [
+      "DIALOG"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/17/dialog-remains-focused-on-long-term-strategies-amid-global-uncertainties"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "Sum Technology 获菲律宾航空机库工程，暂值 RM30 million",
+     "text": "Sum Technology 接获菲律宾一家航空业客户的中标信，承接拟建航空机库的设计与建造机械工程配套，合约暂值约 RM30 million，最终金额视客户确认的工程量清单而定，动工与完工日期尚未敲定。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/17/sum-technology-secures-rm30mil-aviation-project-in-philippines"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "Big Caring 明天登陆主板，定价 RM1.08",
+     "text": "Big Caring 集团最终定价每股 RM1.08，公众部分获4.31倍超额认购，将于11月19日在主板挂牌，上市市值约 RM8.0 billion。",
+     "tickers": [
+      "BCG"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/825198"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI falls 0.81% to 1,575.15; Nvidia revenue jumps 103% as new US AI-chip export rule takes effect tomorrow",
+    "note": "Selling intensified in technology and data centre-related stocks after Wall Street's overnight losses, with the index trading between 1,570.22 and 1,585.10 before closing below 1,580; breadth was clearly negative, while volume rose from Monday.",
+    "items": [
+     {
+      "tagEn": "Global",
+      "title": "Nvidia 3Q revenue up 103% to US$115.8 billion, guides US$130 billion for this quarter",
+      "text": "Nvidia's revenue for the third quarter of FY2027, ended Oct 25, reached US$115.8 billion, up 20% quarter-on-quarter and 103% year-on-year, with data centres contributing US$107.6 billion. It guides fourth-quarter revenue of about US$130 billion (plus or minus 3%), assuming no data-centre compute revenue from China. It is the first report since Jensen Huang stepped down."
+     },
+     {
+      "tagEn": "Policy",
+      "title": "US advanced-chip exports to Malaysia need a licence from Nov 19",
+      "text": "The US Commerce Department issued an interim final rule requiring a licence to export or transfer advanced semiconductors to Malaysia, Singapore, Indonesia, Thailand and Brazil, with data centres, foundries and chip exporters required to carry out customer due diligence. US-headquartered companies are exempt if they meet reporting requirements, and the rule formally rescinds the Biden-era AI diffusion rule."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "TM approved to build SALAM submarine cable, capped at RM2.7 billion",
+      "text": "TM unit TM Technology Services was designated universal service provider for Part 1 of the SALAM (Sambungan Kabel Dasar Laut MADANI) project, covering design, manufacture, installation, testing and commissioning of four submarine cable segments at an approved maximum cost of RM2.7 billion. Work is due to start on Dec 15, with phased completion by 1Q2030; TM is still reviewing the terms."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Dialog's 1Q net profit rises 18% to RM165.08 million",
+      "text": "Dialog Group's net profit for the first quarter of FY2027, ended Sept 30, was RM165.08 million, up from RM140.02 million a year earlier, while revenue rose about 20% to RM787.04 million from RM657 million."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "Sum Technology wins Philippine aviation hangar job, provisionally RM30 million",
+      "text": "Sum Technology accepted a letter of award from a Philippine aviation client for a design-and-build mechanical works package for a proposed aircraft hangar. The contract is provisionally worth about RM30 million, subject to the final bill of quantities, and start and completion dates have not been fixed."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "Big Caring debuts on the Main Market tomorrow at RM1.08",
+      "text": "Big Caring Group set its final price at RM1.08 a share; its public portion was 4.31 times oversubscribed. It lists on the Main Market on Nov 19 with a market value of about RM8.0 billion."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-17",
    "title": "马股跌12.88点收1,575.15点；美股科技股重挫，金务大夺 RM2.61b 台湾捷运合约，MyDCD 今挂牌",
    "market": {
