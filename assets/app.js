@@ -67,31 +67,6 @@
     const full = $("#copysrc");
     $$("[data-copy-full]").forEach(b => b.addEventListener("click", () => copy(full.value, "已复制全文", full)));
 
-    /* article view counter (Abacus, no account): each browser counts once per article, later visits only read.
-       The service can be slow, so the line shows at once (last known number or "…") and fills in when it answers. */
-    const vw = $("[data-views]");
-    if (vw && window.fetch){
-      const id = vw.dataset.views.replace(/[^A-Za-z0-9_.-]/g, "").slice(0, 64), key = "12i-v:" + id, ck = "12i-vn:" + id, num = $("b", vw);
-      let seen = false, last = 0;
-      try { seen = localStorage.getItem(key) === "1"; last = +localStorage.getItem(ck) || 0; } catch {}
-      num.textContent = last ? last.toLocaleString("en") : "…";
-      vw.hidden = false;
-      const go = tries => {
-        const ctl = window.AbortController ? new AbortController() : null, t = setTimeout(() => ctl && ctl.abort(), 20000);
-        fetch("https://abacus.jasoncameron.dev/" + (seen ? "get" : "hit") + "/12invest.com.my/" + id, ctl ? { signal: ctl.signal } : {})
-          .then(r => r.ok ? r.json() : Promise.reject(r.status))
-          .then(d => {
-            if (!d || typeof d.value !== "number") throw 0;
-            const n = Math.max(d.value, last);
-            try { if (!seen) localStorage.setItem(key, "1"); localStorage.setItem(ck, String(n)); } catch {}
-            seen = true; num.textContent = n.toLocaleString("en");
-          })
-          .catch(() => { if (tries > 0) setTimeout(() => go(tries - 1), 3000); else if (!last) vw.hidden = true; })
-          .finally(() => clearTimeout(t));
-      };
-      if (id.length >= 3) go(2); else vw.hidden = true;
-    }
-
     /* reader feedback → private Google Form (no-cors: the response is opaque, so a sent request counts as received) */
     const rv = $("[data-review]");
     if (rv && window.fetch){
