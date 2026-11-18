@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17",
+ "updated": "2026-11-18",
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
@@ -379,7 +379,7 @@
     "https://www.klsescreener.com/v2/ipos",
     "https://kclau.com/make-money-tips/big-caring-group-ipo/"
    ],
-   "checked": "2026-11-13",
+   "checked": "2026-11-18",
    "code": "5358",
    "ballot": "2026-11-10",
    "result": {
@@ -462,9 +462,15 @@
     "https://www.dagangnews.com/article/terkini/yes-group-lancar-ipo-pada-harga-18-sen-sesaham-sasar-raih-rm25-juta-menjelang-penyenaraian-di-pasaran-ace-76990",
     "https://klse.i3investor.com/web/announcement/detail/2089745"
    ],
-   "checked": "2026-11-12",
+   "checked": "2026-11-18",
    "ballot": "2026-11-17",
-   "code": "0485 (YES)"
+   "code": "0485 (YES)",
+   "result": {
+    "oversub": 2.8,
+    "sources": [
+     "https://www.dagangnews.com/article/terkini/ipo-yes-group-catat-kadar-langganan-280-kali-menjelang-penyenaraian-26-nov-2026-77737"
+    ]
+   }
   },
   {
    "ticker": "EMITS",
