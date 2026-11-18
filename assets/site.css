@@ -632,6 +632,12 @@ label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--g
 .cindex small{grid-column:1 / -1;color:var(--muted);font-size:12px}
 .gtop .tchip{vertical-align:middle;margin-left:4px}
 @media (max-width:560px){.cnews li{padding:14px}}
+/* view counter (article end) */
+.views{display:flex;align-items:center;gap:10px;margin:24px 0 0;padding:10px 14px;background:var(--surface);font-size:14px;color:var(--muted);
+  box-shadow:0 -2px 0 0 var(--gold),0 2px 0 0 var(--gold),-2px 0 0 0 var(--gold),2px 0 0 0 var(--gold)}
+.views[hidden]{display:none}
+.views .lbl{font-family:var(--font-pixel);font-size:11px;letter-spacing:.06em;color:var(--gold)}
+.views b{color:var(--ink);font-weight:900}
 /* reader feedback (article end) */
 .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .review{margin-top:32px;padding:20px 22px;background:var(--surface);

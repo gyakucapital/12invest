@@ -133,7 +133,7 @@ const stepsHTML = i => `<ol class="steps">${STEPS.filter(([k]) => i[k]).map(([k,
 const V = { css: hash("assets/site.css"), js: hash("assets/app.js") };
 const CSP = [
   "default-src 'none'", "script-src 'self'", "style-src 'self'",
-  `img-src 'self' data:${GC ? " " + GC : ""}`, "font-src 'self'", "connect-src 'self' https://docs.google.com",
+  `img-src 'self' data:${GC ? " " + GC : ""}`, "font-src 'self'", "connect-src 'self' https://docs.google.com https://abacus.jasoncameron.dev",
   "base-uri 'none'", "form-action 'self'", "object-src 'none'", "manifest-src 'self'", "worker-src 'self'", "upgrade-insecure-requests"
 ].join("; ");
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Crect x='1' y='2' width='10' height='8' fill='%23F4C24F'/%3E%3Crect x='3' y='1' width='6' height='10' fill='%23F4C24F'/%3E%3Crect x='3' y='7' width='1' height='2' fill='%23081230'/%3E%3Crect x='5' y='5' width='1' height='4' fill='%23081230'/%3E%3Crect x='7' y='3' width='1' height='6' fill='%23081230'/%3E%3C/svg%3E";
@@ -487,6 +487,7 @@ function article(p){
   ${facts.length ? `<dl class="facts"><div class="hd">关键资料<span>KEY FACTS</span></div>${facts.map(f => `<div class="fact"><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join("")}</dl>` : ""}
   ${/\{\{financials\}\}/.test(p.body || "") ? "" : financialsHTML(p)}
   <div class="body">${render(p.body, { financials: () => financialsHTML(p, true) })}</div>
+  <div class="views" data-views="${esc(p.id)}" hidden><span class="lbl">VIEWS</span><span>👀 本文已有 <b>—</b> 次阅读</span></div>
   ${p.ipo ? moomooCTA(p.ipo) : ""}
   <p class="disc"><strong>免责声明：</strong>${DISC}</p>
   ${(p.tags || []).length ? `<div class="tags">${p.tags.map(t => `<span>#${esc(t)}</span>`).join("")}</div>` : ""}

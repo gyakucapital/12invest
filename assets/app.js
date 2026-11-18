@@ -67,6 +67,20 @@
     const full = $("#copysrc");
     $$("[data-copy-full]").forEach(b => b.addEventListener("click", () => copy(full.value, "已复制全文", full)));
 
+    /* article view counter (Abacus, no account): each browser counts once per article, later visits only read */
+    const vw = $("[data-views]");
+    if (vw && window.fetch){
+      const id = vw.dataset.views.replace(/[^A-Za-z0-9_.-]/g, "").slice(0, 64), key = "12i-v:" + id;
+      let seen = false; try { seen = localStorage.getItem(key) === "1"; } catch {}
+      const api = "https://abacus.jasoncameron.dev/" + (seen ? "get" : "hit") + "/12invest.com.my/" + id;
+      if (id.length >= 3) fetch(api).then(r => r.ok ? r.json() : null).then(d => {
+        if (!d || typeof d.value !== "number") return;
+        if (!seen) try { localStorage.setItem(key, "1"); } catch {}
+        $("b", vw).textContent = d.value.toLocaleString("en");
+        vw.hidden = false;
+      }).catch(() => {});
+    }
+
     /* reader feedback → private Google Form (no-cors: the response is opaque, so a sent request counts as received) */
     const rv = $("[data-review]");
     if (rv && window.fetch){
