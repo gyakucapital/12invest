@@ -21,7 +21,12 @@ const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, dev
 for (const p of posts) {
   const out = path.join(ROOT, "og", `${p.id}.jpg`);
   if (fs.existsSync(out) && !force) continue;
-  const photo = p.ogImage || p.cover;
+  // The photo panel is portrait (470x630). A landscape English LinkedIn image (*-li.jpg) crops badly there,
+  // so use the post's Chinese Facebook one-pager (portrait) when it exists; p.ogPhoto overrides both.
+  const fb = `img/${p.id}-fb.jpg`;
+  const wide = /-li\.jpg$/.test(String(p.ogImage || p.cover || ""));
+  const photo = p.ogPhoto || (wide && fs.existsSync(path.join(ROOT, fb)) ? fb : (p.ogImage || p.cover));
+  const pos = photo === fb ? "center top" : "center";
   const stats = ((p.glance && p.glance.stats) || []).slice(0, 3);
   const title = String(p.title).replace(/^【.*?】\s*/, "");
   const tmp = path.join(os.tmpdir(), `og-${p.id}.html`); // loaded from a file so local images and fonts resolve
@@ -30,7 +35,7 @@ for (const p of posts) {
 *{box-sizing:border-box}
 body{margin:0;width:1200px;height:630px;overflow:hidden;background:#081230;color:#EEF2FF;font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif;
   display:grid;grid-template-columns:470px 1fr}
-.ph{background:#0C1A42 url(${f(photo)}) center/cover no-repeat;border-right:10px solid #F4C24F}
+.ph{background:#0C1A42 url(${f(photo)}) ${pos}/cover no-repeat;border-right:10px solid #F4C24F}
 .r{padding:44px 52px 44px 48px;display:flex;flex-direction:column;gap:20px;min-width:0;
   background-image:linear-gradient(rgba(63,93,179,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(63,93,179,.12) 1px,transparent 1px);background-size:32px 32px}
 .top{display:flex;justify-content:space-between;align-items:center}

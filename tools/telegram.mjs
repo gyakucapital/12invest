@@ -43,7 +43,11 @@ const postPollTodo = () => posts.filter(p => p.id && state.posted.includes(p.id)
 // daily edition: only on its own day (a "today" poll is stale tomorrow); weekly: within a day of publishing
 const newsPollOk = d => d.kind === "weekly" ? d.date >= new Date(Date.now() + 8 * 3600e3 - 864e5).toISOString().slice(0, 10) : d.date === todayMY;
 const newsPollTodo = () => days.filter(d => d.date && state.news.includes(newsKey(d)) && newsPollOk(d) && d.poll !== false && !state.polls.includes(pollKey(d.kind === "weekly" ? "weekly" : "news", d.date)));
-if (!todo.length && !newsTodo.length && !postPollTodo().length && !newsPollTodo().length) { console.log("Telegram: nothing new."); process.exit(0); }
+// Photo refresh: a post can set "tgPhotoRev": <n> to swap the photo of its existing Telegram message
+// (same caption, no new message) once for each new value. Editing is idempotent, so a failed edit just retries next run.
+state.photoRev = state.photoRev || {};
+const photoTodo = posts.filter(p => p.tgPhotoRev && state.photoRev[p.id] !== p.tgPhotoRev && state.links && state.links[p.id]);
+if (!todo.length && !newsTodo.length && !postPollTodo().length && !newsPollTodo().length && !photoTodo.length) { console.log("Telegram: nothing new."); process.exit(0); }
 
 const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -195,6 +199,22 @@ for (const p of todo){
   console.log(`Telegram: ${j.ok ? "posted" : "marked as posted"} ${p.id}`);
   await sleep(3000);
   if (p.poll !== false && fresh(p)) await sendPoll(postPoll(p), pollKey("post", p.id));
+}
+for (const p of photoTodo){
+  const og = path.join(ROOT, "og", `${p.id}.jpg`);
+  if (!fs.existsSync(og)) { console.log(`Telegram: no share image for ${p.id}; photo not refreshed`); continue; }
+  const fd = new FormData();
+  fd.append("chat_id", CHAT); fd.append("message_id", String(state.links[p.id]).split("/").pop());
+  fd.append("media", JSON.stringify({ type: "photo", media: "attach://photo", caption: caption(p), parse_mode: "HTML" }));
+  fd.append("photo", new Blob([fs.readFileSync(og)], { type: "image/jpeg" }), `${p.id}.jpg`);
+  let j;
+  try { const r = await fetch(`https://api.telegram.org/bot${TOKEN}/editMessageMedia`, { method: "POST", body: fd, signal: AbortSignal.timeout(150000) }); j = await r.json(); }
+  catch (e) { j = { ok: false, description: e.message }; }
+  if (j.ok || /not modified/i.test(j.description || "")) {
+    state.photoRev[p.id] = p.tgPhotoRev; fs.writeFileSync(stateFile, JSON.stringify(state, null, 1) + "\n");
+    console.log(`Telegram: photo refreshed for ${p.id}`);
+  } else console.log(`::warning::Telegram: photo refresh failed for ${p.id}: ${j.description}; will retry next run.`);
+  await sleep(3000);
 }
 // catch-up: polls for items posted earlier that have no poll yet (e.g. a failed poll, or posted before polls existed)
 for (const d of newsPollTodo()) await sendPoll(newsPoll(d), pollKey(d.kind === "weekly" ? "weekly" : "news", d.date));
