@@ -2,6 +2,148 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-19",
+   "title": "马股跌0.53%收1,566.73点；Big Caring 今登主板，高松第三季净利翻倍",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-18",
+    "close": "1,566.73",
+    "change": "-8.42（-0.53%）",
+    "breadth": "涨 630 / 跌 430 / 平 476",
+    "turnover": "30.6亿股，RM2.76 billion",
+    "note": "金融与种植权值股持续受谨慎情绪压制，综指全日在1,564.71至1,575.23点之间徘徊后收低，科技股走高收窄跌幅。第三季GDP按年增5.5%、高于预估的5.3%，稍稍提振对国内经济的信心，但外围不明朗因素仍限制反弹力度。",
+    "source": {
+     "name": "Bernama",
+     "url": "https://www.bernama.com/en/market/news.php?id=2636235"
+    }
+   },
+   "items": [
+    {
+     "tag": "IPO",
+     "title": "Big Caring 今日登陆主板，招股价 RM1.08",
+     "text": "大马最大药房连锁 Big Caring 集团今日在主板挂牌，招股价每股 RM1.08，公众部分获4.31倍超额认购（1.4764亿股吸引7.8375亿股申购）。此次 IPO 预计筹资 RM2.03 billion，其中 RM637.8 million 来自新股；以扩大后73.8亿股计，上市市值约 RM7.97 billion。",
+     "tickers": [
+      "BCG"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/825198"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "高松第三季净利增131%至 RM87.41 million，派息2.5仙",
+     "text": "高松截至9月30日的第三季净利达 RM87.41 million，去年同期为 RM37.83 million；营收按年增53%至 RM671.12 million。公司归功于平均售价及销量上升、生产效率改善，但令吉兑美元走强带来部分汇兑冲击；宣布派发每股2.5仙中期股息，12月18日支付。",
+     "tickers": [
+      "KOSSAN"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/826280"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "子母牌第三季净利增26%，派息40仙",
+     "text": "子母牌第三季净利按年增26.3%至 RM40.47 million，营收增6.6%至 RM399.26 million；首九个月净利增34.9%至 RM108.6 million。公司宣布第二次中期股息每股40仙，但预计乳制品原料价格在第四季及2027年将继续上涨，对赚幅构成压力。",
+     "tickers": [
+      "DLADY"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/826342"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "TSH 资源第三季净利跌68.5%，受印尼 RM42.5 million 罚款拖累",
+     "text": "TSH 资源截至9月30日的第三季净利为 RM17.78 million，较去年同期的 RM56.41 million 下滑68.5%，主要因印尼当局开出 RM42.5 million 罚款。",
+     "tickers": [
+      "TSH"
+     ],
+     "source": {
+      "name": "Lumi News",
+      "url": "https://luminews.my/news/4879073"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "百乐镇第三季净利减7%，九个月房产销售跌19%",
+     "text": "百乐镇第三季营收增至 RM298.2 million（去年同期 RM242.53 million），但净利从 RM25.02 million 降至 RM23.19 million，本季未派息。首九个月房产销售 RM626 million，低于去年同期的 RM774 million；新推项目总发展值从 RM716 million 降至 RM260 million。",
+     "tickers": [
+      "PARAMON"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/826333"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "CBH Engineering 获吉兰丹太阳能电站工程，值 RM50.98 million",
+     "text": "CBH Engineering 获一家未具名的太阳能工程公司颁发吉兰丹太阳能光伏项目的工程、采购与建造（EPC）合约，涵盖电站并网设施及相关工程，价值 RM50.98 million。工程已于9月4日展开，预定2027年8月31日完成。",
+     "tickers": [
+      "CBHB"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/18/cbh-engineering-secures-rm51mil-solar-project-contract"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "公积金局第三季投资收入减13%至 RM25.8 billion",
+     "text": "雇员公积金局第三季投资收入按年减少13%至 RM25.8 billion，降幅约 RM4 billion，主要受股市及海外投资表现疲弱拖累，市场关注今年股息能否维持去年的6.15%。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/18/epf-investment-income-falls-rm4bil-in-3q-are-dividends-at-risk"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI falls 0.53% to 1,566.73; Big Caring debuts today as Kossan's 3Q profit more than doubles",
+    "note": "Cautious sentiment kept weighing on financial and plantation heavyweights, and the KLCI closed lower after trading between 1,564.71 and 1,575.23, with gains in technology stocks capping the losses. Third-quarter GDP growth of 5.5%, above the 5.3% advance estimate, offered some reassurance on the domestic economy, though external uncertainties continue to limit a rebound.",
+    "items": [
+     {
+      "tagEn": "IPO",
+      "title": "Big Caring debuts on the Main Market today at RM1.08",
+      "text": "Big Caring Group, Malaysia's largest pharmacy chain, lists on the Main Market today at an IPO price of RM1.08 a share. Its public portion was 4.31 times oversubscribed (applications for 783.75 million shares against 147.64 million on offer). The IPO is expected to raise RM2.03 billion, of which RM637.8 million comes from new shares, and its market value at listing is about RM7.97 billion based on an enlarged 7.38 billion shares."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Kossan's 3Q net profit jumps 131% to RM87.41 million, pays 2.5 sen",
+      "text": "Kossan's net profit for the third quarter ended Sept 30 rose to RM87.41 million from RM37.83 million a year earlier, while revenue grew 53% to RM671.12 million. It cited higher average selling prices, higher volumes and better production efficiency, partly offset by forex effects from a stronger ringgit, and declared an interim dividend of 2.5 sen payable on Dec 18."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Dutch Lady's 3Q net profit up 26%, declares 40 sen dividend",
+      "text": "Dutch Lady's third-quarter net profit rose 26.3% year-on-year to RM40.47 million on revenue up 6.6% to RM399.26 million; nine-month net profit grew 34.9% to RM108.6 million. It declared a second interim dividend of 40 sen a share but expects dairy raw material prices to keep rising in 4Q and into 2027, pressuring margins."
+     },
+     {
+      "tagEn": "Results",
+      "title": "TSH Resources' 3Q net profit falls 68.5% on RM42.5 million Indonesian fine",
+      "text": "TSH Resources' net profit for the third quarter ended Sept 30 fell 68.5% to RM17.78 million from RM56.41 million a year earlier, mainly due to a RM42.5 million fine imposed by Indonesian authorities."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Paramount's 3Q net profit down 7%; nine-month property sales fall 19%",
+      "text": "Paramount Corp's third-quarter revenue rose to RM298.2 million from RM242.53 million, but net profit eased to RM23.19 million from RM25.02 million, and no dividend was declared. Nine-month property sales were RM626 million versus RM774 million a year earlier, and the GDV of new launches fell to RM260 million from RM716 million."
+     },
+     {
+      "tagEn": "Contract",
+      "title": "CBH Engineering wins RM50.98 million Kelantan solar plant job",
+      "text": "CBH Engineering secured an EPC contract worth RM50.98 million from an unnamed solar engineering company for a solar PV project in Kelantan, covering the plant's interconnection facility and related works. Work started on Sept 4 and is scheduled for completion on Aug 31, 2027."
+     },
+     {
+      "tagEn": "Market",
+      "title": "EPF's 3Q investment income falls 13% to RM25.8 billion",
+      "text": "The EPF's investment income for the third quarter fell 13% year-on-year to RM25.8 billion, a drop of about RM4 billion, dragged down by weaker equities and international investments, raising questions over whether this year's dividend can match last year's 6.15%."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-18",
    "title": "马股跌0.53%收1,566.73点；辉达季度营收增103%，美国AI芯片出口新规明起生效",
    "market": {
