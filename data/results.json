@@ -61,6 +61,16 @@
    "revenuePrev": 161.9,
    "profit": 57.3,
    "profitPrev": 45.8
+  },
+  {
+   "ticker": "WTK",
+   "name": "WTK Holdings Berhad",
+   "quarter": "2QFY26",
+   "announced": "2026-08-27",
+   "revenue": 195.2,
+   "revenuePrev": 138.2,
+   "profit": 60.5,
+   "profitPrev": 17.4
   }
  ]
 }

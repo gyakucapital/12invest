@@ -45,7 +45,7 @@ function geom({ x, y, w, h }, n){
 function axis({ x, w }, g, periods){
   let s = "";
   for (let k = 0; k <= 4; k++){ const gy = Math.round(g.base - g.plotH * k / 4); s += `<rect x="${x + 32}" y="${gy}" width="${w - 64}" height="2" fill="#1C2E66"/>`; }
-  periods.forEach((p, i) => { s += `<text x="${g.cx(i)}" y="${g.base + 44}" class="px" text-anchor="middle">${esc(shortP(p))}</text>`; });
+  periods.forEach((p, i) => { s += `<text x="${g.cx(i)}" y="${g.base + 44}" class="pa" text-anchor="middle">${esc(shortP(p))}</text>`; });
   return s;
 }
 function bars(box, { title, unit, periods, values, color }){
@@ -117,6 +117,7 @@ text{font-family:Silk,"Noto Sans CJK SC",sans-serif}
 .pt{font-family:"Noto Sans CJK SC",sans-serif;font-weight:700;font-size:32px;fill:#EEF2FF}
 .pu{font-family:"Noto Sans CJK SC",sans-serif;font-size:22px;fill:#A3B3DC}
 .pv{font-family:PS2P;font-size:19px}
+.pa{font-family:"Noto Sans CJK SC",sans-serif;font-weight:700;font-size:24px;fill:#EEF2FF}
 .pl{font-family:"Noto Sans CJK SC",sans-serif;font-weight:900;font-size:26px}
 .px{font-family:PS2P;font-size:15px;fill:#A3B3DC}
 .src{font-family:"Noto Sans CJK SC",sans-serif;font-size:22px;fill:#A3B3DC}
