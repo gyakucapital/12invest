@@ -493,6 +493,23 @@
    ],
    "checked": "2026-11-12",
    "code": "0486"
+  },
+  {
+   "ticker": "SCA",
+   "name": "SCA Solutions",
+   "company": "SCA Solutions Berhad",
+   "board": "ACE Market",
+   "price": "RM0.28",
+   "cap": "约 RM159.5m",
+   "open": "2026-11-18",
+   "close": "2026-11-26",
+   "ballot": "2026-11-30",
+   "listing": "2026-12-09",
+   "sources": [
+    "SCA Solutions Berhad prospectus dated 18 November 2026",
+    "https://www.thestar.com.my/business/business-news/2026/10/06/sca-solutions-signs-underwriting-agreement-for-ace-market-ipo"
+   ],
+   "checked": "2026-11-18"
   }
  ]
 }
