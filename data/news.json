@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-18",
-   "title": "马股跌0.81%收1,575.15点；辉达季度营收增103%，美国AI芯片出口新规明起生效",
+   "title": "马股跌0.53%收1,566.73点；辉达季度营收增103%，美国AI芯片出口新规明起生效",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-17",
-    "close": "1,575.15",
-    "change": "-12.88（-0.81%）",
-    "breadth": "涨 211 / 跌 959 / 平 354",
-    "turnover": "33.5亿股，RM2.28 billion",
-    "note": "美股隔夜下挫拖累区域情绪，科技股与数据中心相关股抛压加剧，综指全日在1,570.22至1,585.10点之间波动，终场跌穿1,580点；市场宽度明显偏弱，成交量较周一增加。",
+    "date": "2026-11-18",
+    "close": "1,566.73",
+    "change": "-8.42（-0.53%）",
+    "breadth": "涨 630 / 跌 430 / 平 476",
+    "turnover": "30.6亿股，RM2.76 billion",
+    "note": "市场谨慎情绪持续，金融与种植权值股受压拖累综指走低，科技股走高抵消部分跌幅；综指全日在1,564.71至1,575.23点之间波动，整体市场涨多跌少，成交值较周二增加。",
     "source": {
      "name": "Free Malaysia Today (Bernama)",
-     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/17/tech-data-centre-stocks-drag-bursa-lower"
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/18/bursa-ends-lower-as-cautious-sentiment-weighs-on-selected-heavyweights"
     }
    },
    "items": [
@@ -86,8 +86,8 @@
     }
    ],
    "en": {
-    "title": "KLCI falls 0.81% to 1,575.15; Nvidia revenue jumps 103% as new US AI-chip export rule takes effect tomorrow",
-    "note": "Selling intensified in technology and data centre-related stocks after Wall Street's overnight losses, with the index trading between 1,570.22 and 1,585.10 before closing below 1,580; breadth was clearly negative, while volume rose from Monday.",
+    "title": "KLCI falls 0.53% to 1,566.73; Nvidia revenue jumps 103% as new US AI-chip export rule takes effect tomorrow",
+    "note": "Cautious sentiment kept weighing on financial and plantation heavyweights, pulling the index lower, though gains in technology counters capped the losses; the KLCI traded between 1,564.71 and 1,575.23, gainers outnumbered losers in the broader market, and turnover value rose from Tuesday.",
     "items": [
      {
       "tagEn": "Global",
