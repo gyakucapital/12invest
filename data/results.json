@@ -71,6 +71,16 @@
    "revenuePrev": 138.2,
    "profit": 60.5,
    "profitPrev": 17.4
+  },
+  {
+   "ticker": "SUNMED",
+   "name": "Sunway Healthcare Holdings Berhad",
+   "quarter": "3QFY26",
+   "announced": "2026-11-19",
+   "revenue": 737.4,
+   "revenuePrev": 593.1,
+   "profit": 95.2,
+   "profitPrev": 59.7
   }
  ]
 }
