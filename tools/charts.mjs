@@ -53,6 +53,20 @@ function bars(box, { title, unit, periods, values, color }){
   const max = Math.max(...values.map(Math.abs), 1e-9);
   const cols = Math.max(2, Math.min(6, Math.floor(g.slot * 0.6 / (B + G)))), bw = cols * (B + G) - G;
   let s = frame({ ...box, title, unit }) + axis(box, g, periods);
+  if (values.some(v => v < 0)){
+    // losses: zero line inside the plot, bars grow down in a muted colour
+    const lo = Math.min(0, ...values), hi = Math.max(0, ...values), unitH = g.plotH * 0.8 / (hi - lo);
+    const zy = Math.round(g.base - g.plotH * 0.12 + lo * unitH);
+    s += `<rect x="${box.x + 32}" y="${zy}" width="${box.w - 64}" height="3" fill="#5A6A9C"/>`;
+    values.forEach((v, i) => {
+      const rows = Math.max(1, Math.round(Math.abs(v) * unitH / (B + G))), last = i === n - 1, x0 = g.cx(i) - bw / 2, neg = v < 0;
+      for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++)
+        s += `<rect x="${x0 + c * (B + G)}" y="${neg ? zy + 6 + r * (B + G) : zy - (r + 1) * (B + G)}" width="${B}" height="${B}" fill="${neg ? "#8A93B8" : color}" opacity="${neg ? 0.55 : last ? 1 : 0.6}"/>`;
+      const ty = neg ? zy + 6 + rows * (B + G) + 26 : zy - rows * (B + G) - 16;
+      s += `<text x="${g.cx(i)}" y="${ty}" class="pv" text-anchor="middle" fill="${last ? color : "#EEF2FF"}">${fmt(v)}</text>`;
+    });
+    return s;
+  }
   values.forEach((v, i) => {
     const rows = Math.max(1, Math.round(g.plotH * Math.abs(v) / max / (B + G))), last = i === n - 1, x0 = g.cx(i) - bw / 2;
     for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++)

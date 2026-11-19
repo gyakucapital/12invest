@@ -81,6 +81,16 @@
    "revenuePrev": 593.1,
    "profit": 95.2,
    "profitPrev": 59.7
+  },
+  {
+   "ticker": "A1AKK",
+   "name": "A1 A.K. Koh Group Berhad",
+   "quarter": "1QFY27",
+   "announced": "2026-11-19",
+   "revenue": 23.05,
+   "revenuePrev": 20.94,
+   "profit": 3.65,
+   "profitPrev": -0.33
   }
  ]
 }
