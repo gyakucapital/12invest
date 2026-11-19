@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-19",
-   "title": "马股跌0.53%收1,566.73点；Big Caring 今登主板，高松第三季净利翻倍",
+   "title": "马股微跌0.03%收1,566.16点；Big Caring 今登主板，高松第三季净利翻倍",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-18",
-    "close": "1,566.73",
-    "change": "-8.42（-0.53%）",
-    "breadth": "涨 630 / 跌 430 / 平 476",
-    "turnover": "30.6亿股，RM2.76 billion",
-    "note": "金融与种植权值股持续受谨慎情绪压制，综指全日在1,564.71至1,575.23点之间徘徊后收低，科技股走高收窄跌幅。第三季GDP按年增5.5%、高于预估的5.3%，稍稍提振对国内经济的信心，但外围不明朗因素仍限制反弹力度。",
+    "date": "2026-11-19",
+    "close": "1,566.16",
+    "change": "-0.57（-0.03%）",
+    "breadth": "涨 496 / 跌 506 / 平 498",
+    "turnover": "36.4亿股，RM2.99 billion",
+    "note": "综指开盘挫6.26点，盘中一度下探1,556.51点的日低，所幸尾盘银行权值股获买盘承接，马银行、大众银行及兴业银行走高，助指数收复大部分失地，仅微跌收市。",
     "source": {
-     "name": "Bernama",
-     "url": "https://www.bernama.com/en/market/news.php?id=2636235"
+     "name": "Bernama（via Free Malaysia Today）",
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/19/bursa-ends-marginally-lower-on-late-buying-in-banking-heavyweights"
     }
    },
    "items": [
@@ -102,8 +102,8 @@
     }
    ],
    "en": {
-    "title": "KLCI falls 0.53% to 1,566.73; Big Caring debuts today as Kossan's 3Q profit more than doubles",
-    "note": "Cautious sentiment kept weighing on financial and plantation heavyweights, and the KLCI closed lower after trading between 1,564.71 and 1,575.23, with gains in technology stocks capping the losses. Third-quarter GDP growth of 5.5%, above the 5.3% advance estimate, offered some reassurance on the domestic economy, though external uncertainties continue to limit a rebound.",
+    "title": "KLCI edges down 0.03% to 1,566.16; Big Caring debuts today as Kossan's 3Q profit more than doubles",
+    "note": "The KLCI opened 6.26 points lower and slid to an intraday low of 1,556.51, but late buying in banking heavyweights such as Maybank, Public Bank and RHB Bank helped it recover most of the losses and close only marginally lower.",
     "items": [
      {
       "tagEn": "IPO",
