@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18",
+ "updated": "2026-11-19",
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
@@ -380,7 +380,7 @@
     "https://kclau.com/make-money-tips/big-caring-group-ipo/",
     "https://rates.my/ipo"
    ],
-   "checked": "2026-11-18",
+   "checked": "2026-11-19",
    "code": "5358 (BIGCARING)",
    "ballot": "2026-11-10",
    "result": {
@@ -388,8 +388,10 @@
     "final": 1.08,
     "sources": [
      "https://9shares.my/big-caring-ipo%E5%AE%9A%E4%BB%B7rm1-08-%E8%B6%85%E9%A2%9D%E8%AE%A4%E8%B4%AD4-31%E5%80%8D-%E4%B8%8A%E5%B8%82%E5%B8%82%E5%80%BC%E8%BE%BE80%E4%BA%BF%E4%BB%A4%E5%90%89-%E8%B7%BB%E8%BA%AB2026%E5%B9%B4/",
-     "https://theedgemalaysia.com/node/825198"
-    ]
+     "https://theedgemalaysia.com/node/825198",
+     "https://www.thestar.com.my/business/business-news/2026/11/19/big-caring-opens-at-278-discount-on-main-market-debut"
+    ],
+    "open": 1.05
    }
   },
   {
@@ -509,9 +511,10 @@
    "sources": [
     "SCA Solutions Berhad prospectus dated 18 November 2026",
     "https://www.thestar.com.my/business/business-news/2026/10/06/sca-solutions-signs-underwriting-agreement-for-ace-market-ipo",
-    "https://www.dagangnews.com/article/terkini/sca-solutions-dedah-dapat-tempahan-rm509-juta-bagi-projek-pusat-data-di-johor-menjelang-ipo-77774"
+    "https://www.dagangnews.com/article/terkini/sca-solutions-dedah-dapat-tempahan-rm509-juta-bagi-projek-pusat-data-di-johor-menjelang-ipo-77774",
+    "https://www.thestar.com.my/business/business-news/2026/11/18/sca-solutions-expects-to-raise-rm3192mil-from-ipo-for-business-expansion"
    ],
-   "checked": "2026-11-18"
+   "checked": "2026-11-19"
   }
  ]
 }
