@@ -2,6 +2,118 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-20",
+   "title": "马股微跌0.03%收1,566.16点；CelcomDigi 第三季净利增20%，万能净利翻倍",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-19",
+    "close": "1,566.16",
+    "change": "-0.57（-0.03%）",
+    "breadth": "涨 496 / 跌 506 / 平 498",
+    "turnover": "36.4亿股，RM2.99 billion",
+    "note": "综指低开6.26点后一度跌至1,556.51点，尾盘银行股获买盘支撑，马银行、大众银行及兴业银行走高，助指数收复大部分失地。市场人士指，双威及国油化学持续受抛售压力，数据中心相关股回调亦拖累情绪。",
+    "source": {
+     "name": "Malay Mail（Bernama）",
+     "url": "https://www.malaymail.com/news/money/2026/11/19/banks-to-the-rescue-as-bursa-claws-back-most-of-the-days-losses/243951"
+    }
+   },
+   "items": [
+    {
+     "tag": "业绩",
+     "title": "CelcomDigi 第三季净利增20%至 RM408 million，派息3.4仙",
+     "text": "CelcomDigi 截至9月30日第三季净利从去年同期的 RM341 million 增至 RM408 million，营收增5.8%至 RM3.31 billion，受后付费、家居光纤及企业业务带动，效率计划本季节省 RM141 million。公司派发第三次中期股息每股3.4仙，12月23日支付，本财年累计派息10.2仙。",
+     "tickers": [
+      "CDB"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/826444"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "万能第三季净利翻倍至 RM49.91 million，股息增至3仙",
+     "text": "万能第三季净利为 RM49.91 million，去年同期为 RM24.53 million，主要因奖金支出减少；营收则因彩票销售下滑而减1.5%至 RM521.58 million。公司派发每股3仙中期股息（去年同期2仙），12月16日支付；首九个月净利增18%至 RM161.11 million。",
+     "tickers": [
+      "MAGNUM"
+     ],
+     "source": {
+      "name": "The Edge",
+      "url": "https://theedgemalaysia.com/node/826521"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "益纳利首季净利增18.5%至 RM61 million，营收增13%",
+     "text": "益纳利截至9月30日的2027财年首季净利按年增18.5%至 RM61 million，营收增13.1%至 RM368.5 million，各业务部门出货量均上升。公司建议派发共1.5仙股息，并对本财年余下时间前景保持乐观，同时留意宏观与地缘政治局势。",
+     "tickers": [
+      "INARI"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/19/inari-records-increase-in-revenue-on-higher-volume"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "DNeX 第三季净利增至 RM42.63 million，九个月转亏为盈",
+     "text": "DNeX 第三季净利为 RM42.63 million，去年同期为 RM12.02 million，营收增11.2%至 RM297.04 million。首九个月股东应占净利 RM81.96 million，去年同期净亏 RM47.07 million；集团持有 RM546.5 million 现金，对半导体业务长期前景保持乐观。",
+     "tickers": [
+      "DNEX"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/19/dnex-optimistic-on-semiconductor-outlook-as-9m-group-profit-tops-rm100mil"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "双威跌25仙领跌成分股，雀巢及丰隆工业各涨34仙",
+     "text": "周四双威下跌25仙至 RM4.07，为跌幅最大的成分股；雀巢及丰隆工业则各涨34仙，分别收 RM94.64 及 RM16.64。市场人士认为，美国收紧先进技术出口限制后，数据中心相关股出现回调，整体情绪仍偏谨慎。",
+     "tickers": [
+      "SUNWAY",
+      "NESTLE",
+      "HLIND"
+     ],
+     "source": {
+      "name": "Malay Mail（Bernama）",
+      "url": "https://www.malaymail.com/news/money/2026/11/19/banks-to-the-rescue-as-bursa-claws-back-most-of-the-days-losses/243951"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI edges down 0.03% to 1,566.16; CelcomDigi's 3Q profit up 20%, Magnum's doubles",
+    "note": "The KLCI opened 6.26 points lower and fell to an intraday low of 1,556.51 before late buying in banks such as Maybank, Public Bank and RHB Bank helped it recover most of its losses. A dealer said persistent selling in Sunway and Petronas Chemicals, plus a correction in data-centre-related stocks, kept sentiment cautious.",
+    "items": [
+     {
+      "tagEn": "Results",
+      "title": "CelcomDigi's 3Q net profit rises 20% to RM408 million, pays 3.4 sen",
+      "text": "CelcomDigi's net profit for the third quarter ended Sept 30 rose to RM408 million from RM341 million a year earlier, with revenue up 5.8% to RM3.31 billion on growth in postpaid, home fibre and enterprise; its efficiency programme saved RM141 million in the quarter. It declared a third interim dividend of 3.4 sen payable on Dec 23, bringing the year's total to 10.2 sen."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Magnum's 3Q net profit doubles to RM49.91 million, dividend raised to 3 sen",
+      "text": "Magnum's third-quarter net profit rose to RM49.91 million from RM24.53 million, mainly on lower prize payouts, while revenue slipped 1.5% to RM521.58 million on weaker ticket sales. It declared an interim dividend of 3 sen (2 sen a year earlier) payable on Dec 16; nine-month net profit grew 18% to RM161.11 million."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Inari's 1Q net profit up 18.5% to RM61 million on higher volumes",
+      "text": "Inari Amertron's net profit for the first quarter of FY2027 ended Sept 30 rose 18.5% to RM61 million, and revenue grew 13.1% to RM368.5 million on higher loading volumes across all segments. It proposed dividends totalling 1.5 sen and remains positive on the rest of the year while staying mindful of macro and geopolitical conditions."
+     },
+     {
+      "tagEn": "Results",
+      "title": "DNeX's 3Q net profit rises to RM42.63 million, back in the black for nine months",
+      "text": "DNeX's third-quarter net profit rose to RM42.63 million from RM12.02 million, with revenue up 11.2% to RM297.04 million. Nine-month net profit attributable to shareholders was RM81.96 million versus a net loss of RM47.07 million a year earlier; the group holds RM546.5 million in cash and remains optimistic on the long-term semiconductor outlook."
+     },
+     {
+      "tagEn": "Market",
+      "title": "Sunway leads index losers, Nestle and Hong Leong Industries gain 34 sen each",
+      "text": "Sunway fell 25 sen to RM4.07 on Thursday, the biggest decliner among index stocks, while Nestle and Hong Leong Industries each rose 34 sen to RM94.64 and RM16.64. A dealer said data-centre-related stocks corrected after tighter US restrictions on advanced technology, keeping overall sentiment cautious."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-19",
    "title": "马股微跌0.03%收1,566.16点；Big Caring 今登主板，高松第三季净利翻倍",
    "market": {
