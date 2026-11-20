@@ -227,7 +227,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
   <div class="wrap">
     <a class="logo" href="${BASE}" aria-label="12Invest 首页">${LOGO}<span><span class="word">12<b>INVEST</b></span><small>马股 · IPO · 公司解读</small></span></a>
     ${CANDLES}
-    <nav aria-label="主导航"><a href="${BASE}"${nav === "home" ? ' aria-current="page"' : ""}>文章</a>${NEWS.length ? `<a href="${REL("news/")}"${nav === "news" ? ' aria-current="page"' : ""}>速报</a>` : ""}<a href="${REL("ipo/")}"${nav === "ipo" ? ' aria-current="page"' : ""}>IPO</a><a href="${REL("c/")}"${nav === "stocks" ? ' aria-current="page"' : ""}>个股</a>${RESULTS.length ? `<a href="${REL("results/")}"${nav === "results" ? ' aria-current="page"' : ""}>业绩</a>` : ""}<a class="nsearch" href="${REL("search/")}" aria-label="搜索"${nav === "search" ? ' aria-current="page"' : ""}><svg viewBox="0 0 10 10" aria-hidden="true" shape-rendering="crispEdges"><path d="M2 1h4v1H2zM1 2h1v4H1zM6 2h1v4H6zM2 6h4v1H2zM6 7h1v1H6zM7 8h1v1H7zM8 9h1v1H8z" fill="currentColor"/></svg></a></nav>
+    <nav aria-label="主导航"><a href="${BASE}"${nav === "home" ? ' aria-current="page"' : ""}>文章</a>${NEWS.length ? `<a href="${REL("news/")}"${nav === "news" ? ' aria-current="page"' : ""}>速报</a>` : ""}<a href="${REL("ipo/")}"${nav === "ipo" ? ' aria-current="page"' : ""}>IPO</a><a href="${REL("c/")}"${nav === "stocks" ? ' aria-current="page"' : ""}>个股</a>${RESULTS.length ? `<a href="${REL("results/")}"${nav === "results" ? ' aria-current="page"' : ""}>业绩</a>` : ""}${COL.items.length ? `<a href="${REL("column/")}"${nav === "column" ? ' aria-current="page"' : ""}>专栏</a>` : ""}<a class="nsearch" href="${REL("search/")}" aria-label="搜索"${nav === "search" ? ' aria-current="page"' : ""}><svg viewBox="0 0 10 10" aria-hidden="true" shape-rendering="crispEdges"><path d="M2 1h4v1H2zM1 2h1v4H1zM6 2h1v4H6zM2 6h4v1H2zM6 7h1v1H6zM7 8h1v1H7zM8 9h1v1H8z" fill="currentColor"/></svg></a></nav>
   </div>
   <div class="tape"><div class="wrap">${tape()}</div></div>
 </header>
@@ -371,6 +371,8 @@ function sidebar(){
     return `<section class="sbox s-mm"><div class="sh"><span>📢 立即申购 IPO</span></div>
     ${openNow.length ? `<ul class="mm-open">${openNow.map(i => `<li><b>${esc(i.name)}</b><small>${day(i.close).md} 截止</small></li>`).join("")}</ul>` : `<p class="mm-side">下一只新股开放申购时，第一时间用 moomoo 申购。</p>`}
     <a class="btn primary mm-full" href="${esc(REF)}" target="_blank" rel="sponsored noopener">用 moomoo 立即申购 →</a><small class="note">推荐链接 · 合作推广</small></section>`; })() : ""}
+  ${COL.items.length ? `<section class="sbox s-col"><div class="sh"><span>📰 ${esc(COL.publication)}专栏</span><a href="${REL("column/")}">全部 →</a></div>
+    <ol class="slist">${COL.items.slice(0, 3).map(c => `<li><span><a href="${esc(c.url)}" target="_blank" rel="noopener" title="${esc(c.title)}">${esc(c.title)}</a><small>${c.date ? day(c.date).md : ""} ·「${esc(COL.column)}」${esc(COL.author)}</small></span></li>`).join("")}</ol></section>` : ""}
   ${SOCIAL.length ? `<section class="sbox s-follow"><div class="sh"><span>关注 12Invest</span></div><div class="ssocial">${SOCIAL.map(([n, u]) => `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("")}</div></section>` : ""}
 </aside>`;
 }
@@ -618,6 +620,16 @@ function newsPage(d){
 }
 
 /* ---------- results season tracker ---------- */
+// Max's 南洋商报 column (data/columns.json): links out to enanyang.my
+const COL = fs.existsSync(path.join(ROOT, "data/columns.json")) ? JSON.parse(fs.readFileSync(path.join(ROOT, "data/columns.json"), "utf8")) : { items: [] };
+COL.items = (COL.items || []).filter(c => c.title && /^https:\/\//.test(c.url || "")).sort((x, y) => (y.date || "").localeCompare(x.date || ""));
+function columnsPage(){
+  const body = `<div class="page-hd"><div class="cat">MEDIA · ${esc(COL.publication)}</div><h1>${esc(COL.publication)}专栏 ·「${esc(COL.column)}」</h1><p>12Invest 主理人${esc(COL.author)}（${esc(COL.authorEn)}）在《${esc(COL.publication)}》「${esc(COL.column)}」专栏发表的文章，内容涵盖马股、全球市场与投资主题。</p></div>
+<ol class="slist cols px">${COL.items.map(c => `<li><time>${c.date ? day(c.date).md : ""}</time><span><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.title)}</a><small>${esc(COL.publication)} · ${esc(COL.column)}</small></span><em>↗</em></li>`).join("")}</ol>
+<p class="cols-more"><a class="btn primary" href="${esc(COL.tagUrl)}" target="_blank" rel="noopener">在南洋商报查看全部文章 ↗</a></p>
+<p class="note">文章刊登于《${esc(COL.publication)}》网站，部分内容可能需要订阅才能阅读。</p>`;
+  return page({ path: "column/", title: `${COL.publication}专栏 · ${COL.author} · 12Invest`, desc: `${COL.author}（${COL.authorEn}）在《${COL.publication}》「${COL.column}」专栏的文章。`, nav: "column", body, side: true });
+}
 const resData = fs.existsSync(path.join(ROOT, "data/results.json")) ? JSON.parse(fs.readFileSync(path.join(ROOT, "data/results.json"), "utf8")) : { results: [] };
 const RESULTS = (resData.results || []).filter(r => r && r.ticker && r.quarter).sort((a, b) => String(b.announced || "").localeCompare(String(a.announced || "")));
 // every stock tagged anywhere (news items, results) gets a company page too
@@ -714,6 +726,7 @@ if (NEWS.some(d => !isWeekly(d))){ write("news/index.html", newsIndex("news")); 
 if (NEWS.some(isWeekly)){ write("weekly/index.html", newsIndex("weekly")); urls.push(["weekly/", NEWS.find(isWeekly).date]); }
 NEWS.forEach(d => { write(`${nroute(d)}index.html`, newsPage(d)); urls.push([nroute(d), d.date]); });
 write("results/index.html", resultsPage()); if (RESULTS.length) urls.push(["results/", RESULTS[0].announced || data.updated]);
+if (COL.items.length){ write("column/index.html", columnsPage()); urls.push(["column/", COL.items[0].date]); }
 write("search/index.html", searchPage());
 write("search.json", searchIndex());
 for (const p of posts){

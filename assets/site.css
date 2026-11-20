@@ -670,3 +670,9 @@ label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--g
 .rv-done b{font-size:18px;color:var(--gold)}
 .rv-done span{color:var(--muted);font-size:14px}
 .rv-form[hidden]{display:none}
+/* 南洋商报 column page */
+.slist.cols{background:var(--surface);padding:6px 18px;box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line)}
+.slist.cols li{padding:12px 0;font-size:15px}
+.slist.cols span a{white-space:normal}
+.slist.cols em{color:var(--gold)}
+.cols-more{margin:22px 3px 10px}
