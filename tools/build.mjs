@@ -239,7 +239,7 @@ ${sidebar()}</div>` : body}
 </main>
 <footer><div class="wrap"><span class="brand">12INVEST</span><span>本站内容仅供参考及教育用途，并不构成任何买卖建议。投资涉及风险，请自行判断。</span>
 ${SOCIAL.length ? `<nav class="fsocial" aria-label="关注 12Invest"><span>关注 12Invest：</span>${SOCIAL.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("")}</nav>` : ""}
-<nav aria-label="Legal"><a href="${REL("privacy/")}">隐私政策 Privacy Notice</a><a href="${REL("disclaimer/")}">免责声明 Disclaimer</a><a href="${REL("terms/")}">使用条款 Terms of Use</a><a href="${REL("feed.xml")}">RSS</a><span>© ${TODAY.slice(0, 4)} Gyaku Capital Sdn. Bhd. (201901044631)</span></nav></div></footer>
+<nav aria-label="Legal"><a href="${REL("author/")}">关于作者 About</a><a href="${REL("privacy/")}">隐私政策 Privacy Notice</a><a href="${REL("disclaimer/")}">免责声明 Disclaimer</a><a href="${REL("terms/")}">使用条款 Terms of Use</a><a href="${REL("feed.xml")}">RSS</a><span>© ${TODAY.slice(0, 4)} Gyaku Capital Sdn. Bhd. (201901044631)</span></nav></div></footer>
 <div class="toast" id="toast" role="status" hidden></div>
 </body>
 </html>
@@ -479,13 +479,13 @@ function article(p){
     "@context": "https://schema.org", "@type": "NewsArticle", headline: short(p.title).slice(0, 110),
     image: o.src ? [ABS(o.src)] : undefined, datePublished: p.publishedAt, dateModified: p.updatedAt || p.publishedAt,
     inLanguage: "zh-CN", mainEntityOfPage: ABS(`p/${p.id}/`), description: p.excerpt,
-    author: { "@type": "Organization", name: "12Invest" }, publisher: { "@type": "Organization", name: "12Invest" }
+    author: authorLD(), publisher: { "@type": "Organization", name: "12Invest", url: ABS("") }
   }).replace(/</g, "\\u003c");
   const body = `<article class="article">
   <a class="back" href="${BASE}">← 返回首页</a>
   <div class="cat">【${esc(p.category || "未分类")}】</div>
   <h1>${esc(p.title)}</h1>
-  <div class="meta"><span>${fmtPub(p.publishedAt)}</span><span>12Invest</span>${p.ipo ? badge(p.ipo) : ""}${p.ticker ? `<a class="tick" href="${REL(`c/${slug(p.ticker)}/`)}">${esc(p.ticker)} 公司页 →</a>` : ""}</div>
+  <div class="meta"><span>${fmtPub(p.publishedAt)}</span><span>文 / <a class="byline" href="${REL(AUTHOR.path)}" rel="author">${esc(AUTHOR.name)}</a> · 12Invest</span>${p.ipo ? badge(p.ipo) : ""}${p.ticker ? `<a class="tick" href="${REL(`c/${slug(p.ticker)}/`)}">${esc(p.ticker)} 公司页 →</a>` : ""}</div>
   ${facts.length ? `<dl class="facts"><div class="hd">关键资料<span>KEY FACTS</span></div>${facts.map(f => `<div class="fact"><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join("")}</dl>` : ""}
   ${/\{\{financials\}\}/.test(p.body || "") ? "" : financialsHTML(p)}
   <div class="body">${render(p.body, { financials: () => financialsHTML(p, true) })}</div>
@@ -623,8 +623,23 @@ function newsPage(d){
 // Max's 南洋商报 column (data/columns.json): links out to enanyang.my
 const COL = fs.existsSync(path.join(ROOT, "data/columns.json")) ? JSON.parse(fs.readFileSync(path.join(ROOT, "data/columns.json"), "utf8")) : { items: [] };
 COL.items = (COL.items || []).filter(c => c.title && /^https:\/\//.test(c.url || "")).sort((x, y) => (y.date || "").localeCompare(x.date || ""));
+// the person behind 12Invest: author page + byline + schema.org Person (E-E-A-T)
+const AUTHOR = { name: "陈凯贤", en: "Tan Kyzen", path: "author/", sameAs: [COL.tagUrl, "https://www.linkedin.com/in/kyzen-tan-98202a236/", "https://www.moomoo.com/community/profile/tan-kyzen-max-102311682", "https://medium.com/@12invest"].filter(Boolean) };
+const authorLD = () => ({ "@type": "Person", name: AUTHOR.name, alternateName: AUTHOR.en, url: ABS(AUTHOR.path), jobTitle: "12Invest 主理人", sameAs: AUTHOR.sameAs });
+function authorPage(){
+  const ld = JSON.stringify({ "@context": "https://schema.org", "@type": "ProfilePage", mainEntity: { ...authorLD(), description: `12Invest 主理人，《${COL.publication}》「${COL.column}」专栏作者。` } }).replace(/</g, "\\u003c");
+  const latest = posts.slice(0, 8);
+  const body = `<div class="page-hd"><div class="cat">AUTHOR</div><h1>${esc(AUTHOR.name)}（${esc(AUTHOR.en)}）</h1><p>12Invest 主理人，《${esc(COL.publication)}》「${esc(COL.column)}」专栏作者。在 12Invest 撰写马股新股、上市公司业绩与公司动态解读，并在南洋商报专栏分享全球市场与投资主题。</p></div>
+<div class="ssocial author-links">${[["南洋商报专栏", COL.tagUrl], ["LinkedIn", AUTHOR.sameAs[1]], ["moomoo", AUTHOR.sameAs[2]], ["Medium", AUTHOR.sameAs[3]]].filter(x => x[1]).map(([n, u]) => `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener me">${n} ↗</a>`).join("")}</div>
+${COL.items.length ? `<div class="sec">南洋商报「${esc(COL.column)}」专栏 · <a href="${REL("column/")}">全部 →</a></div>
+<ol class="slist cols px">${COL.items.slice(0, 5).map(c => `<li><time>${c.date ? day(c.date).md : ""}</time><span><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.title)}</a><small>${esc(COL.publication)} · ${esc(COL.column)}</small></span><em>↗</em></li>`).join("")}</ol>` : ""}
+<div class="sec">12Invest 最新文章</div>
+<ol class="slist cols px">${latest.map(x => `<li><time>${day(String(x.publishedAt).slice(0, 10)).md}</time><span><a href="${REL(`p/${x.id}/`)}">${esc(x.title)}</a><small>【${esc(x.category)}】</small></span></li>`).join("")}</ol>`;
+  return page({ path: AUTHOR.path, title: `${AUTHOR.name}（${AUTHOR.en}）· 12Invest`, desc: `${AUTHOR.name}（${AUTHOR.en}），12Invest 主理人，《${COL.publication}》「${COL.column}」专栏作者。`, body, side: true,
+    head: `\n<script type="application/ld+json">${ld}</script>` });
+}
 function columnsPage(){
-  const body = `<div class="page-hd"><div class="cat">MEDIA · ${esc(COL.publication)}</div><h1>${esc(COL.publication)}专栏 ·「${esc(COL.column)}」</h1><p>12Invest 主理人${esc(COL.author)}（${esc(COL.authorEn)}）在《${esc(COL.publication)}》「${esc(COL.column)}」专栏发表的文章，内容涵盖马股、全球市场与投资主题。</p></div>
+  const body = `<div class="page-hd"><div class="cat">MEDIA · ${esc(COL.publication)}</div><h1>${esc(COL.publication)}专栏 ·「${esc(COL.column)}」</h1><p>12Invest 主理人<a href="${REL("author/")}">${esc(COL.author)}（${esc(COL.authorEn)}）</a>在《${esc(COL.publication)}》「${esc(COL.column)}」专栏发表的文章，内容涵盖马股、全球市场与投资主题。</p></div>
 <ol class="slist cols px">${COL.items.map(c => `<li><time>${c.date ? day(c.date).md : ""}</time><span><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.title)}</a><small>${esc(COL.publication)} · ${esc(COL.column)}</small></span><em>↗</em></li>`).join("")}</ol>
 <p class="cols-more"><a class="btn primary" href="${esc(COL.tagUrl)}" target="_blank" rel="noopener">在南洋商报查看全部文章 ↗</a></p>
 <p class="note">文章刊登于《${esc(COL.publication)}》网站，部分内容可能需要订阅才能阅读。</p>`;
@@ -726,6 +741,7 @@ if (NEWS.some(d => !isWeekly(d))){ write("news/index.html", newsIndex("news")); 
 if (NEWS.some(isWeekly)){ write("weekly/index.html", newsIndex("weekly")); urls.push(["weekly/", NEWS.find(isWeekly).date]); }
 NEWS.forEach(d => { write(`${nroute(d)}index.html`, newsPage(d)); urls.push([nroute(d), d.date]); });
 write("results/index.html", resultsPage()); if (RESULTS.length) urls.push(["results/", RESULTS[0].announced || data.updated]);
+write("author/index.html", authorPage()); urls.push(["author/", data.updated]);
 if (COL.items.length){ write("column/index.html", columnsPage()); urls.push(["column/", COL.items[0].date]); }
 write("search/index.html", searchPage());
 write("search.json", searchIndex());

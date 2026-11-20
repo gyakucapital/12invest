@@ -676,3 +676,6 @@ label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--g
 .slist.cols span a{white-space:normal}
 .slist.cols em{color:var(--gold)}
 .cols-more{margin:22px 3px 10px}
+.author-links{display:flex;flex-wrap:wrap;gap:12px;margin:0 3px 28px}
+.meta .byline{color:var(--gold);text-decoration:none}
+.meta .byline:hover{text-decoration:underline}
