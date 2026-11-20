@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-20",
-   "title": "马股微跌0.03%收1,566.16点；CelcomDigi 第三季净利增20%，万能净利翻倍",
+   "title": "马股跌0.61%收1,556.51点；CelcomDigi 第三季净利增20%，万能净利翻倍",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-19",
-    "close": "1,566.16",
-    "change": "-0.57（-0.03%）",
-    "breadth": "涨 496 / 跌 506 / 平 498",
+    "date": "2026-11-20",
+    "close": "1,556.51",
+    "change": "-9.65（-0.61%）",
+    "breadth": "涨 325 / 跌 837 / 平 444",
     "turnover": "36.4亿股，RM2.99 billion",
-    "note": "综指低开6.26点后一度跌至1,556.51点，尾盘银行股获买盘支撑，马银行、大众银行及兴业银行走高，助指数收复大部分失地。市场人士指，双威及国油化学持续受抛售压力，数据中心相关股回调亦拖累情绪。",
+    "note": "综指低开9.24点至1,556.92点，全天介于1,548.67至1,559.11点之间，终场跌9.65点，全周以跌势挂收。美股隔夜回落拖累投资情绪，部分重量股持续面对抛压，其中以数据中心相关股最为明显。",
     "source": {
-     "name": "Malay Mail（Bernama）",
-     "url": "https://www.malaymail.com/news/money/2026/11/19/banks-to-the-rescue-as-bursa-claws-back-most-of-the-days-losses/243951"
+     "name": "Free Malaysia Today（Bernama）",
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/20/bursa-ends-week-lower-on-continued-heavyweight-selling"
     }
    },
    "items": [
@@ -82,8 +82,8 @@
     }
    ],
    "en": {
-    "title": "KLCI edges down 0.03% to 1,566.16; CelcomDigi's 3Q profit up 20%, Magnum's doubles",
-    "note": "The KLCI opened 6.26 points lower and fell to an intraday low of 1,556.51 before late buying in banks such as Maybank, Public Bank and RHB Bank helped it recover most of its losses. A dealer said persistent selling in Sunway and Petronas Chemicals, plus a correction in data-centre-related stocks, kept sentiment cautious.",
+    "title": "KLCI falls 0.61% to 1,556.51; CelcomDigi's 3Q profit up 20%, Magnum's doubles",
+    "note": "The KLCI opened 9.24 points lower at 1,556.92, traded between 1,548.67 and 1,559.11, and closed down 9.65 points to end the week lower. An overnight sell-off on Wall Street weighed on sentiment, and selling persisted in selected heavyweights, particularly data-centre-related counters.",
     "items": [
      {
       "tagEn": "Results",
