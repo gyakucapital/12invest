@@ -91,6 +91,16 @@
    "revenuePrev": 20.94,
    "profit": 3.65,
    "profitPrev": -0.33
+  },
+  {
+   "ticker": "YTLREIT",
+   "name": "YTL Hospitality REIT",
+   "quarter": "1QFY27",
+   "announced": "2026-11-19",
+   "revenue": 139.87,
+   "revenuePrev": 140.5,
+   "profit": 21.68,
+   "profitPrev": 32.45
   }
  ]
 }
