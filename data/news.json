@@ -2,6 +2,201 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "kind": "weekly",
+   "date": "2026-11-21",
+   "title": "马股本周跌26.08点收1,556.51点；美国芯片出口新规冲击数据中心股，大马第三季经济增长5.5%",
+   "market": {
+    "index": "FBM KLCI",
+    "range": "11月16日–11月20日",
+    "close": "1,556.51",
+    "change": "-26.08（-1.65%）",
+    "note": "综指周一逢低反弹，随后连跌四个交易日，周五收1,556.51点，较上周五的1,582.59点下跌26.08点，连续第二周走低。美股科技股回落及美国收紧先进芯片出口拖累数据中心相关权值股，周四银行股买盘仅收复部分失地，市场情绪偏向谨慎。",
+    "source": {
+     "name": "Free Malaysia Today（Bernama）",
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/20/bursa-ends-week-lower-on-continued-heavyweight-selling"
+    }
+   },
+   "items": [
+    {
+     "tag": "IPO",
+     "title": "本周新股：KEB、MyDCD 首日跌近两成，Big Caring 主板首日微涨0.9%",
+     "text": "KEB 周一登陆 ACE 市场，以35仙招股价开盘、收28.5仙，跌18.6%；MyDCD 周二以48仙开盘、收45仙，较56仙招股价低19.6%；Big Caring 周四在主板以 RM1.05 开盘，其后回升至 RM1.09 收市，较 RM1.08 招股价高0.9%。Yes Group 公众部分获2.8倍超额认购，Emits 申购周四截止、11月23日抽签，SCA Solutions（28仙）周三起接受申购至11月26日；下周 Impact Capital、IOIPG Malaysia REIT 及 Yes Group 将于11月24至26日先后挂牌。",
+     "tickers": [
+      "KEB",
+      "MYDCD",
+      "BCG",
+      "YESGROUP",
+      "EMITS",
+      "SCA",
+      "IMPACT",
+      "IOIPGREIT"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/19/big-caring-opens-at-278-discount-on-main-market-debut"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "大马第三季经济增长5.5%，首九个月增5.6%",
+     "text": "国家银行公布，第三季国内生产总值按年增长5.5%，科技相关出口持续走强，私人投资增9.4%、私人消费增4.3%；制造业增7.7%，服务业增5.8%，矿业则萎缩6.1%。首九个月经济增长5.6%，国行预计全年增长超过5%，2027年介于4.2%至5.2%。",
+     "tickers": [],
+     "source": {
+      "name": "Malay Mail（Bernama）",
+      "url": "https://www.malaymail.com/news/money/2026/11/18/malaysias-economy-grows-55pc-in-q3-on-stronger-exports-continued-domestic-spending/243768"
+     }
+    },
+    {
+     "tag": "政策",
+     "title": "美国先进芯片输往大马须申请准证，11月19日起生效",
+     "text": "美国商务部发布临时最终规则，向马来西亚、新加坡、印尼、泰国及巴西出口或转运先进半导体须先取得准证，数据中心、晶圆代工厂及芯片出口商须对客户进行尽职调查，美国总部企业在符合申报要求下获豁免。新规公布后，本地数据中心相关股本周持续受压。",
+     "tickers": [],
+     "source": {
+      "name": "The Edge Malaysia",
+      "url": "https://theedgemalaysia.com/node/826051"
+     }
+    },
+    {
+     "tag": "环球",
+     "title": "辉达第三季营收按年增103%至1,158亿美元",
+     "text": "辉达截至10月25日的2027财年第三季营收达1,158亿美元，按年增103%，其中数据中心业务贡献1,076亿美元；公司预计第四季营收约1,300亿美元，且未计入中国数据中心算力收入。这是黄仁勋卸任CEO后的首份季报，不过美股科技股本周仍起伏不定。",
+     "tickers": [],
+     "source": {
+      "name": "NVIDIA",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "金务大夺台湾基隆捷运工程，合约值 RM2.61 billion",
+     "text": "金务大与台湾 Feng Shun Construction 的联营公司获新北市捷运工程局颁发基隆地下捷运部分设计与建造工程，合约值210.2亿新台币（约 RM2.61 billion），工期2,700天；金务大持股80%，所占份额约 RM2.09 billion。",
+     "tickers": [
+      "GAMUDA"
+     ],
+     "source": {
+      "name": "theSun",
+      "url": "https://thesun.my/business/gamuda-secures-rm2-61b-taiwan-mrt-contract/"
+     }
+    },
+    {
+     "tag": "合约",
+     "title": "大马电讯获委承建 SALAM 海底电缆，成本顶限 RM2.7 billion",
+     "text": "大马电讯旗下 TM Technology Services 获委为“MADANI 海底电缆连接”（SALAM）第一部分的普及服务供应商，负责四段海底电缆的设计、铺设与启用，批准成本最高 RM2.7 billion。工程预定12月15日动工，2030年第一季前分阶段完成。",
+     "tickers": [
+      "TM"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://thestar.com.my/business/business-news/2026/11/17/tm-receives-usp-notification-of-approval-for-salam-submarine-cable-project"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "CelcomDigi 第三季净利增20%至 RM408 million，派息3.4仙",
+     "text": "CelcomDigi 第三季净利由去年同期的 RM341 million 增至 RM408 million，营收增5.8%至 RM3.31 billion，受后付费、家居光纤及企业业务带动。公司派发每股3.4仙中期股息，本财年累计派息10.2仙。",
+     "tickers": [
+      "CDB"
+     ],
+     "source": {
+      "name": "The Edge Malaysia",
+      "url": "https://theedgemalaysia.com/node/826444"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "高松第三季净利增131%至 RM87.41 million",
+     "text": "高松第三季净利由去年同期的 RM37.83 million 增至 RM87.41 million，营收按年增53%至 RM671.12 million，受平均售价与销量上升带动，但令吉走强带来部分汇兑冲击；公司派发每股2.5仙中期股息。",
+     "tickers": [
+      "KOSSAN"
+     ],
+     "source": {
+      "name": "The Edge Malaysia",
+      "url": "https://theedgemalaysia.com/node/826280"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "益纳利首季净利增18.5%至 RM61 million",
+     "text": "益纳利截至9月30日的2027财年首季净利按年增18.5%至 RM61 million，营收增13.1%至 RM368.5 million，各业务部门出货量均上升；公司建议派发共1.5仙股息，对本财年余下时间前景保持乐观。",
+     "tickers": [
+      "INARI"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/19/inari-records-increase-in-revenue-on-higher-volume"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "Zetrix AI 坦言无力偿还 RM2 billion 伊斯兰债券",
+     "text": "Zetrix AI 向交易所披露，暂时无法偿还 RM2 billion 伊斯兰债券计划的全部未偿款项，正与债券持有人商讨修改条款，并撤回2026年首次中期股息；公司预计被暂停陆路交通局代收代理资格将令营收减少约15%。",
+     "tickers": [
+      "ZETRIX"
+     ],
+     "source": {
+      "name": "The Edge Malaysia",
+      "url": "https://theedgemalaysia.com/node/825691"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI falls 26.08 points this week to 1,556.51; US chip export rule hits data-centre stocks, Malaysia's economy grows 5.5% in the third quarter",
+    "note": "The KLCI rebounded on bargain hunting on Monday, then fell for four straight sessions to close Friday at 1,556.51, down 26.08 points from the previous Friday's 1,582.59 and a second straight weekly loss. Weaker US tech stocks and tighter US curbs on advanced chip exports weighed on data-centre-related heavyweights, and Thursday's buying in banks recovered only part of the losses as sentiment stayed cautious.",
+    "items": [
+     {
+      "tagEn": "IPO",
+      "title": "IPO round-up: KEB and MyDCD fall almost 20% on debut, Big Caring ends Main Market debut 0.9% up",
+      "text": "KEB opened at its 35 sen IPO price on its ACE Market debut on Monday and closed at 28.5 sen, down 18.6%; MyDCD opened at 48 sen on Tuesday and closed at 45 sen, 19.6% below its 56 sen IPO price; Big Caring opened at RM1.05 on the Main Market on Thursday and recovered to close at RM1.09, 0.9% above its RM1.08 IPO price. Yes Group's public portion was oversubscribed 2.8 times, Emits closed applications on Thursday with balloting on 23 November, and SCA Solutions (28 sen) opened its offer on Wednesday until 26 November; Impact Capital, IOIPG Malaysia REIT and Yes Group list next week from 24 to 26 November."
+     },
+     {
+      "tagEn": "Market",
+      "title": "Malaysia's economy grows 5.5% in the third quarter, 5.6% over nine months",
+      "text": "Bank Negara said GDP grew 5.5% year on year in the third quarter as tech-related exports stayed strong, with private investment up 9.4% and private consumption up 4.3%; manufacturing rose 7.7% and services 5.8%, while mining shrank 6.1%. Growth for the first nine months was 5.6%, and the central bank expects full-year growth above 5% and 4.2% to 5.2% in 2027."
+     },
+     {
+      "tagEn": "Policy",
+      "title": "US licence rule for advanced chips to Malaysia takes effect on 19 November",
+      "text": "The US Commerce Department issued an interim final rule requiring a licence to export or re-export advanced semiconductors to Malaysia, Singapore, Indonesia, Thailand and Brazil, with data centres, foundries and chip exporters required to carry out customer due diligence; US-headquartered companies are exempt if they meet reporting requirements. Local data-centre-related stocks stayed under pressure through the week after the rule was announced."
+     },
+     {
+      "tagEn": "Global",
+      "title": "Nvidia's third-quarter revenue more than doubles to US$115.8 billion",
+      "text": "Nvidia's revenue for the third quarter of FY2027 (to 25 October) rose 103% year on year to US$115.8 billion, with US$107.6 billion from data centres; it guided for fourth-quarter revenue of about US$130 billion, excluding any data-centre compute revenue from China. It was the first report since Jensen Huang stepped down as CEO, though US tech stocks stayed volatile this week."
+     },
+     {
+      "tagEn": "Contracts",
+      "title": "Gamuda wins Keelung MRT job in Taiwan worth RM2.61 billion",
+      "text": "A joint venture of Gamuda and Taiwan's Feng Shun Construction won part of the design-and-build works for the Keelung underground MRT from New Taipei City's Department of Rapid Transit Systems, worth NT$21.02 billion (about RM2.61 billion) over 2,700 days; Gamuda holds 80%, a share of about RM2.09 billion."
+     },
+     {
+      "tagEn": "Contracts",
+      "title": "TM appointed for SALAM submarine cable project, capped at RM2.7 billion",
+      "text": "Telekom Malaysia's TM Technology Services was appointed universal service provider for Part 1 of the MADANI submarine cable link (SALAM), covering the design, laying and commissioning of four submarine cable segments at an approved cost of up to RM2.7 billion. Work is set to start on 15 December and be completed in phases by the first quarter of 2030."
+     },
+     {
+      "tagEn": "Results",
+      "title": "CelcomDigi's third-quarter net profit rises 20% to RM408 million; 3.4 sen dividend",
+      "text": "CelcomDigi's third-quarter net profit rose to RM408 million from RM341 million a year earlier and revenue grew 5.8% to RM3.31 billion, driven by postpaid, home fibre and enterprise. It declared an interim dividend of 3.4 sen a share, bringing dividends for the year to 10.2 sen."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Kossan's third-quarter net profit jumps 131% to RM87.41 million",
+      "text": "Kossan's third-quarter net profit rose to RM87.41 million from RM37.83 million a year earlier and revenue grew 53% to RM671.12 million on higher average selling prices and volumes, partly offset by forex effects from a stronger ringgit; it declared an interim dividend of 2.5 sen a share."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Inari's first-quarter net profit rises 18.5% to RM61 million",
+      "text": "Inari's net profit for the first quarter of FY2027 (to 30 September) rose 18.5% year on year to RM61 million and revenue 13.1% to RM368.5 million, as volumes rose across all segments; it proposed dividends totalling 1.5 sen and remains optimistic about the rest of the financial year."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "Zetrix AI says it cannot repay its RM2 billion sukuk",
+      "text": "Zetrix AI told Bursa it is currently unable to repay all amounts outstanding under its RM2 billion sukuk programme and is negotiating revised terms with sukuk holders, and it withdrew its first interim dividend for 2026; it expects the suspension of its Road Transport Department collection agency status to cut group revenue by about 15%."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-20",
    "title": "马股跌0.61%收1,556.51点；CelcomDigi 第三季净利增20%，万能净利翻倍",
    "market": {
