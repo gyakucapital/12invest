@@ -2,6 +2,148 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-23",
+   "title": "马股上周五收1,556.51点；美股重挫纳指跌5.3%，本周三只新股挂牌",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-20",
+    "close": "1,556.51",
+    "change": "-9.65（-0.61%）",
+    "breadth": "涨 325 / 跌 837 / 平 444",
+    "turnover": "36.4亿股，RM2.99 billion",
+    "note": "综指上周五低开后全天在1,548.67至1,559.11点之间徘徊，终场跌9.65点，全周累跌26.08点。美股隔夜回落拖累情绪，重量股持续受抛压，数据中心相关股跌势尤为明显。",
+    "source": {
+     "name": "Free Malaysia Today（Bernama）",
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/20/bursa-ends-week-lower-on-continued-heavyweight-selling"
+    }
+   },
+   "items": [
+    {
+     "tag": "环球",
+     "title": "美股上周五重挫：纳指跌5.3%，标普500跌入调整区",
+     "text": "美股上周五（11月20日）全面下跌，标普500指数跌3.7%至6,910.39点，较10月6日纪录高位回落逾10%，正式进入调整区；纳斯达克指数大跌5.3%至22,617.73点，抹去今年全部涨幅，道指跌1.9%至48,147.33点。费城半导体指数挫10.7%，辉达跌14%，市场对AI估值与巨额资本开支能否回本的疑虑加深，日经及韩国综指当天亦跌逾5%。",
+     "tickers": [],
+     "source": {
+      "name": "CEO Economy",
+      "url": "https://ceoeconomy.com/article/sp-500-correction-nasdaq-plunges-ai-chip-selloff-nov-20-2026"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "本周马股料谨慎交投，市场关注美国第三季GDP及PCE数据",
+     "text": "Rakuten Trade 预计本周马股交投谨慎，焦点在周三公布的美国第三季GDP第二次预估及10月PCE通胀数据，以及美联储利率走向；美国周四感恩节休市，交投转淡或加剧波动。综指上周累跌26.08点至1,556.51点，全周成交额增至 RM14.12 billion。",
+     "tickers": [],
+     "source": {
+      "name": "Bernama",
+      "url": "https://www.bernama.com/en/market/news.php?id=2637408"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "令吉上周兑美元走软至4.1105，本周料略偏强",
+     "text": "令吉兑美元上周五收4.1105/1150，较前一周的4.0845/0890走软，兑新元、泰铢等东盟货币亦走低，但兑英镑及欧元走强。分析员预计本周令吉兑美元在4.09至4.10之间波动，市场关注11月25日公布的美国10月PCE物价指数。",
+     "tickers": [],
+     "source": {
+      "name": "The Star（Bernama）",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/22/ringgit-expected-to-trade-with-slight-positive-bias-next-week"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "本周三只新股挂牌：Impact Capital 明日打头阵，IOIPG REIT 周三上市",
+     "text": "Impact Capital 明日（11月24日）以每股22仙登陆 ACE 市场，公众部分获139.69倍超额认购；IOIPG Malaysia REIT 以每单位91仙定价，11月25日在主板挂牌，公众部分认购率为0.59倍；Yes Group 则于11月26日以18仙上市。Emits 今日抽签，订于12月1日上市；SCA Solutions 申购于11月26日截止。",
+     "tickers": [
+      "IMPACT",
+      "IOIPGREIT",
+      "YESGROUP",
+      "EMITS",
+      "SCA"
+     ],
+     "source": {
+      "name": "rates.my",
+      "url": "https://rates.my/ipo"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "7-Eleven 大马第三季净利增至 RM6 million，营收增17.9%",
+     "text": "7-Eleven 大马截至9月30日第三季净利为 RM6 million，去年同期为 RM2 million；营收按年增17.9%至 RM938.4 million，受净增121家门市及公共假期带动单店日均销售提升。不过首九个月净利仍按年减40.6%至 RM19 million，营收增12.9%至 RM2.66 billion。",
+     "tickers": [
+      "SEM"
+     ],
+     "source": {
+      "name": "Business Today",
+      "url": "https://www.businesstoday.com.my/2026/11/20/7-eleven-9m-net-profit-down-40-to-rm19-million-despite-revenue-of-rm2-6-billion/"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "永旺大马第三季净利跌35.7%至 RM9 million",
+     "text": "永旺大马第三季净利由去年同期的 RM14 million 降至 RM9 million，营收则微增1.6%至 RM1.01 billion，其中零售营收增1%至 RM811 million，物业管理服务营收增3.9%至 RM200 million。首九个月净利增12.8%至 RM107.2 million。",
+     "tickers": [
+      "AEON"
+     ],
+     "source": {
+      "name": "Business Today",
+      "url": "https://www.businesstoday.com.my/2026/11/20/aeon-malaysias-3q-profit-drops-35-to-rm9-million-despite-rm1-billion-revenue/"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "MUI 与腾讯云签非约束性备忘录，探讨云端及AI合作",
+     "text": "马联工业（MUI）与 Tencent Cloud International 签署非约束性、非独家谅解备忘录，探讨云端、数据及人工智能合作，任何项目须另签正式协议，预计不会对下一财年盈利构成重大影响。集团截至6月30日财年净亏损扩大至 RM153.5 million，股价上周五平收3.5仙。",
+     "tickers": [
+      "MUIIND"
+     ],
+     "source": {
+      "name": "The Edge Malaysia",
+      "url": "https://theedgemalaysia.com/node/826719"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI closed Friday at 1,556.51; Wall Street slumps as Nasdaq falls 5.3%, three IPOs list this week",
+    "note": "The KLCI opened lower on Friday, traded between 1,548.67 and 1,559.11, and closed down 9.65 points, ending the week 26.08 points lower. An overnight Wall Street decline weighed on sentiment, with persistent selling in heavyweights, particularly data-centre-related counters.",
+    "items": [
+     {
+      "tagEn": "Global",
+      "title": "Wall Street slumps Friday: Nasdaq falls 5.3%, S&P 500 enters correction",
+      "text": "US stocks sold off on Friday (Nov 20). The S&P 500 fell 3.7% to 6,910.39, more than 10% below its Oct 6 record, putting it in a correction; the Nasdaq dropped 5.3% to 22,617.73, wiping out its gain for the year, and the Dow lost 1.9% to 48,147.33. The Philadelphia semiconductor index fell 10.7% and Nvidia 14% as doubts grew over AI valuations and spending, while Japan's Nikkei and South Korea's Kospi each fell more than 5% that day."
+     },
+     {
+      "tagEn": "Market",
+      "title": "Bursa seen trading cautiously this week as investors await US GDP and PCE data",
+      "text": "Rakuten Trade expects cautious trading on Bursa this week, with attention on Wednesday's second estimate of US third-quarter GDP and October PCE inflation, plus the Fed rate outlook; the US Thanksgiving holiday on Thursday may thin trading and add to volatility. The KLCI fell 26.08 points last week to 1,556.51, while weekly turnover rose to RM14.12 billion."
+     },
+     {
+      "tagEn": "Market",
+      "title": "Ringgit weakens to 4.1105 against the dollar last week, seen slightly firmer this week",
+      "text": "The ringgit closed Friday at 4.1105/1150 against the US dollar, weaker than 4.0845/0890 a week earlier, and also fell against Asean currencies including the Singapore dollar and baht, though it firmed against the pound and euro. An analyst expects USD/MYR to trade between 4.09 and 4.10 this week, with focus on US October PCE data due Nov 25."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "Three listings this week: Impact Capital debuts tomorrow, IOIPG REIT on Wednesday",
+      "text": "Impact Capital lists on the ACE Market tomorrow (Nov 24) at 22 sen a share after its public portion was oversubscribed 139.69 times; IOIPG Malaysia REIT, priced at 91 sen a unit, lists on the Main Market on Nov 25 after its public tranche was 0.59 times subscribed; and Yes Group lists on Nov 26 at 18 sen. Emits holds its balloting today ahead of a Dec 1 listing, while SCA Solutions' application period closes on Nov 26."
+     },
+     {
+      "tagEn": "Results",
+      "title": "7-Eleven Malaysia's 3Q net profit rises to RM6 million, revenue up 17.9%",
+      "text": "7-Eleven Malaysia's net profit for the third quarter ended Sept 30 was RM6 million versus RM2 million a year earlier, and revenue rose 17.9% to RM938.4 million on 121 net new stores and public holidays that lifted average daily sales per store. Nine-month net profit was still down 40.6% at RM19 million, on revenue up 12.9% to RM2.66 billion."
+     },
+     {
+      "tagEn": "Results",
+      "title": "AEON Malaysia's 3Q net profit falls 35.7% to RM9 million",
+      "text": "AEON Co (M)'s third-quarter net profit fell to RM9 million from RM14 million a year earlier, while revenue edged up 1.6% to RM1.01 billion, with retail revenue up 1% to RM811 million and property management services up 3.9% to RM200 million. Nine-month net profit rose 12.8% to RM107.2 million."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "MUI signs non-binding MOU with Tencent Cloud to explore cloud and AI collaboration",
+      "text": "Malayan United Industries signed a non-binding, non-exclusive memorandum of understanding with Tencent Cloud International to explore cloud, data and AI cooperation; any project requires separate definitive agreements, and the MOU is not expected to materially affect earnings next financial year. The group's net loss for the year ended June 30 widened to RM153.5 million, and its shares closed unchanged at 3.5 sen on Friday."
+     }
+    ]
+   }
+  },
+  {
    "kind": "weekly",
    "date": "2026-11-21",
    "title": "马股本周跌26.08点收1,556.51点；美国芯片出口新规冲击数据中心股，大马第三季经济增长5.5%",
