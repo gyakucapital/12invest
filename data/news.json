@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-23",
-   "title": "马股上周五收1,556.51点；美股重挫纳指跌5.3%，本周三只新股挂牌",
+   "title": "马股今日跌7.46点收1,549.05点；美股重挫纳指跌5.3%，本周三只新股挂牌",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-20",
-    "close": "1,556.51",
-    "change": "-9.65（-0.61%）",
-    "breadth": "涨 325 / 跌 837 / 平 444",
-    "turnover": "36.4亿股，RM2.99 billion",
-    "note": "综指上周五低开后全天在1,548.67至1,559.11点之间徘徊，终场跌9.65点，全周累跌26.08点。美股隔夜回落拖累情绪，重量股持续受抛压，数据中心相关股跌势尤为明显。",
+    "date": "2026-11-23",
+    "close": "1,549.05",
+    "change": "-7.46（-0.47%）",
+    "breadth": "涨 293 / 跌 849 / 平 457",
+    "turnover": "31.1亿股，RM2.81 billion",
+    "note": "综指今日低开9.07点后，全天在1,544.96至1,555.25点之间波动，终场跌7.46点。公用事业重量股持续受抛压，国能、杨忠礼电力及杨忠礼机构均走低，拖累大市。",
     "source": {
      "name": "Free Malaysia Today（Bernama）",
-     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/20/bursa-ends-week-lower-on-continued-heavyweight-selling"
+     "url": "https://www.freemalaysiatoday.com/category/business/2026/11/23/bursa-ends-lower-on-selling-in-selected-heavyweights-2"
     }
    },
    "items": [
@@ -102,8 +102,8 @@
     }
    ],
    "en": {
-    "title": "KLCI closed Friday at 1,556.51; Wall Street slumps as Nasdaq falls 5.3%, three IPOs list this week",
-    "note": "The KLCI opened lower on Friday, traded between 1,548.67 and 1,559.11, and closed down 9.65 points, ending the week 26.08 points lower. An overnight Wall Street decline weighed on sentiment, with persistent selling in heavyweights, particularly data-centre-related counters.",
+    "title": "KLCI falls 7.46 points to 1,549.05; Wall Street slumps as Nasdaq falls 5.3%, three IPOs list this week",
+    "note": "The KLCI opened 9.07 points lower today, moved between 1,544.96 and 1,555.25, and closed down 7.46 points. Persistent selling in utilities heavyweights, with Tenaga Nasional, YTL Power International and YTL Corporation all lower, weighed on the market.",
     "items": [
      {
       "tagEn": "Global",
