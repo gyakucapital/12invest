@@ -2,6 +2,129 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-24",
+   "title": "马股昨跌7.46点收1,549.05点；美股强劲反弹纳指飙6.51%，马银行第三季净利增",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-23",
+    "close": "1,549.05",
+    "change": "-7.46（-0.47%）",
+    "breadth": "涨 293 / 跌 849 / 平 457",
+    "turnover": "31.1亿股，RM2.81 billion",
+    "note": "综指昨日低开后全天在1,544.96至1,555.25点之间徘徊，终场跌7.46点。国能、杨忠礼电力及杨忠礼机构等公用事业重量股受抛压拖累大市，令吉兑美元走软至4.1220、韩国综指跌3.31%亦打击情绪。",
+    "source": {
+     "name": "The Star",
+     "url": "https://www.thestar.com.my/business/business-news/2026/11/23/bursa-malaysia-sees-sea-of-red-as-over-850-stocks-tumble"
+    }
+   },
+   "items": [
+    {
+     "tag": "环球",
+     "title": "美股隔夜强劲反弹：纳指飙6.51%，辉达涨逾31%",
+     "text": "美股周一（11月23日）全面反弹，道指涨1,447.98点或3.01%至49,595.31点，标普500指数涨4.73%，纳斯达克指数大涨6.51%，摆脱上周跌入调整区的颓势。辉达董事部重新委任黄仁勋为总裁，股价飙升逾31%，带动AI及数据中心股回升。",
+     "tickers": [],
+     "source": {
+      "name": "Fox Business",
+      "url": "https://www.foxbusiness.com/markets/stocks-november-23-2026"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "马银行第三季净利增至 RM2.74 billion",
+     "text": "马银行截至9月30日第三季净利为 RM2.74 billion，高于去年同期的 RM2.62 billion；营收则由 RM16.6 billion 降至 RM14.57 billion，净营运收入按年增0.5%至 RM7.5 billion。首九个月净利为 RM7.92 billion，去年同期为 RM7.84 billion。",
+     "tickers": [
+      "MAYBANK"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/23/maybank-registers-higher-net-profit-of-rm274bil-in-3q"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "亚航集团第三季净亏 RM175.11 million，燃油及汇率成拖累",
+     "text": "亚航集团（AirAsia Group）第三季净亏 RM175.11 million，营收 RM4.66 billion；首九个月净亏 RM857.16 million，营收 RM15.69 billion。集团指西亚冲突推高航空燃油价格，加上令吉、泰铢、印尼盾及菲律宾比索兑美元走软，冲击业绩；因反向收购，财报未提供去年同期比较数据。",
+     "tickers": [
+      "AAGB"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/23/airasia-group-posts-rm17511mil-3q-net-loss-due-to-elevated-jet-fuel-prices"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "Impact Capital 今日登陆 ACE 市场，IOIPG REIT 明日挂牌",
+     "text": "Impact Capital 今日（11月24日）以每股22仙在 ACE 市场挂牌，公众部分获139.69倍超额认购；IOIPG Malaysia REIT 订于明日（11月25日）在主板上市，Yes Group 则于11月26日以18仙登场。",
+     "tickers": [
+      "IMPACT",
+      "IOIPGREIT",
+      "YESGROUP"
+     ],
+     "source": {
+      "name": "rates.my",
+      "url": "https://rates.my/ipo"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "令吉兑美元跌至4.1220，创6月底以来最弱",
+     "text": "令吉兑美元昨日走软至4.1220，为2026年6月底以来最低水平，加上外围不确定因素，令马股交投偏向谨慎。交易员指，正值业绩季，个股走势将更多取决于财报表现。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/23/bursa-malaysia-sees-sea-of-red-as-over-850-stocks-tumble"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "本周焦点：美国第三季GDP及10月PCE数据",
+     "text": "市场本周关注周三公布的美国第三季GDP第二次预估及10月PCE通胀数据，以及美联储利率走向；美国周四感恩节休市，环球交投或转淡。",
+     "tickers": [],
+     "source": {
+      "name": "Bernama",
+      "url": "https://www.bernama.com/en/market/news.php?id=2637408"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI fell 7.46 points to 1,549.05; Wall Street rebounds as Nasdaq jumps 6.51%, Maybank 3Q profit rises",
+    "note": "The KLCI opened lower yesterday, moved between 1,544.96 and 1,555.25 and closed down 7.46 points. Selling in utilities heavyweights such as Tenaga Nasional, YTL Power and YTL Corp weighed on the market, while a weaker ringgit at 4.1220 per US dollar and a 3.31% drop in South Korea's Kospi hurt sentiment.",
+    "items": [
+     {
+      "tagEn": "Global",
+      "title": "Wall Street rebounds overnight: Nasdaq up 6.51%, Nvidia jumps over 31%",
+      "text": "US stocks rallied on Monday (Nov 23). The Dow rose 1,447.98 points or 3.01% to 49,595.31, the S&P 500 gained 4.73% and the Nasdaq surged 6.51%, recovering from last week's slide into correction. Nvidia soared more than 31% after its board reinstated Jensen Huang as CEO, lifting AI and data-centre stocks."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Maybank 3Q net profit rises to RM2.74 billion",
+      "text": "Maybank's net profit for the third quarter ended Sept 30 rose to RM2.74 billion from RM2.62 billion a year earlier, while revenue fell to RM14.57 billion from RM16.6 billion; net operating income rose 0.5% to RM7.5 billion. Nine-month net profit was RM7.92 billion versus RM7.84 billion."
+     },
+     {
+      "tagEn": "Results",
+      "title": "AirAsia Group posts RM175.11 million 3Q net loss on fuel and currency",
+      "text": "AirAsia Group posted a third-quarter net loss of RM175.11 million on revenue of RM4.66 billion, and a nine-month net loss of RM857.16 million on revenue of RM15.69 billion. It cited higher jet fuel prices due to the West Asia conflict and weaker regional currencies against the US dollar; no year-earlier comparison was given because of the reverse acquisition."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "Impact Capital debuts on ACE Market today, IOIPG REIT lists tomorrow",
+      "text": "Impact Capital lists on the ACE Market today (Nov 24) at 22 sen a share after its public portion was oversubscribed 139.69 times; IOIPG Malaysia REIT is set to list on the Main Market tomorrow (Nov 25), followed by Yes Group at 18 sen on Nov 26."
+     },
+     {
+      "tagEn": "Market",
+      "title": "Ringgit weakens to 4.1220 against the US dollar, lowest since late June",
+      "text": "The ringgit weakened to 4.1220 against the US dollar yesterday, its lowest since late June 2026, which together with external uncertainty kept trading on Bursa cautious. Dealers said company earnings will drive individual stock moves during the results season."
+     },
+     {
+      "tagEn": "Market",
+      "title": "This week: US 3Q GDP and October PCE data in focus",
+      "text": "Markets are watching Wednesday's second estimate of US third-quarter GDP and October PCE inflation data, as well as the Fed rate outlook; the US Thanksgiving holiday on Thursday may thin global trading."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-23",
    "title": "马股今日跌7.46点收1,549.05点；美股重挫纳指跌5.3%，本周三只新股挂牌",
    "market": {

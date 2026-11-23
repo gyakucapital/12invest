@@ -1,6 +1,6 @@
 {
  "note": "Latest quarterly results of companies 12Invest covers. RM million. revenuePrev/profitPrev = same quarter last year. Sourced only.",
- "updated": "2026-11-15",
+ "updated": "2026-11-24",
  "results": [
   {
    "ticker": "CLMT",
@@ -101,6 +101,20 @@
    "revenuePrev": 140.5,
    "profit": 21.68,
    "profitPrev": 32.45
+  },
+  {
+   "ticker": "MAYBANK",
+   "name": "Malayan Banking Berhad",
+   "quarter": "3Q2026",
+   "announced": "2026-11-23",
+   "revenue": 14570.0,
+   "revenuePrev": 16600.0,
+   "profit": 2740.0,
+   "profitPrev": 2620.0,
+   "source": {
+    "name": "The Star",
+    "url": "https://www.thestar.com.my/business/business-news/2026/11/23/maybank-registers-higher-net-profit-of-rm274bil-in-3q"
+   }
   }
  ]
 }
