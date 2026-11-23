@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20",
+ "updated": "2026-11-23",
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
@@ -496,8 +496,14 @@
     "Emits Berhad prospectus dated 6 November 2026",
     "https://www.klsescreener.com/v2/stocks/view/0486/emits-berhad"
    ],
-   "checked": "2026-11-12",
-   "code": "0486"
+   "checked": "2026-11-23",
+   "code": "0486",
+   "result": {
+    "oversub": 6.43,
+    "sources": [
+     "https://www.thestar.com.my/business/business-news/2026/11/23/emits-ipo-oversubscribed-by-643-times-ahead-of-ace-market-debut"
+    ]
+   }
   },
   {
    "ticker": "SCA",
@@ -517,6 +523,24 @@
     "https://www.thestar.com.my/business/business-news/2026/11/18/sca-solutions-expects-to-raise-rm3192mil-from-ipo-for-business-expansion"
    ],
    "checked": "2026-11-19"
+  },
+  {
+   "ticker": "EMPG",
+   "name": "EMPG",
+   "company": "EMPG Group Berhad",
+   "board": "ACE Market",
+   "price": "RM0.28",
+   "cap": "约 RM169.7m",
+   "open": "2026-11-23",
+   "close": "2026-12-02",
+   "listing": "2026-12-21",
+   "sources": [
+    "https://www.financialcontent.com/article/accwirecq-2026-11-23-empg-group-berhad-launches-prospectus-for-ace-market-ipo-set-to-raise-rm3405-million",
+    "https://theedgemalaysia.com/node/826859",
+    "https://thesun.my/business/empgs-28-sen-ipo-to-raise-rm34-05m-for-retail-expansion/",
+    "https://www.thestar.com.my/business/business-news/2026/10/01/empg-group-signs-underwriting-deal-for-ace-market-ipo"
+   ],
+   "checked": "2026-11-23"
   }
  ]
 }
