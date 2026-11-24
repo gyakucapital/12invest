@@ -25,7 +25,8 @@
   "2026-11-19-a1akk",
   "2026-11-20-ytlreit",
   "2026-11-21-market-view",
-  "2026-11-23-maybank"
+  "2026-11-23-maybank",
+  "2026-11-24-empg"
  ],
  "news": [
   "2026-11-03",
@@ -43,7 +44,8 @@
   "2026-11-19",
   "2026-11-20",
   "weekly-2026-11-21",
-  "2026-11-23"
+  "2026-11-23",
+  "2026-11-24"
  ],
  "polls": [
   "post:2026-11-05-ioipgreit",
@@ -81,7 +83,9 @@
   "weekly:2026-11-21",
   "post:2026-11-21-market-view",
   "news:2026-11-23",
-  "post:2026-11-23-maybank"
+  "post:2026-11-23-maybank",
+  "news:2026-11-24",
+  "post:2026-11-24-empg"
  ],
  "links": {
   "2026-11-14-senfong": "https://t.me/public12invest/3799",
@@ -96,7 +100,8 @@
   "2026-11-19-a1akk": "https://t.me/public12invest/3823",
   "2026-11-20-ytlreit": "https://t.me/public12invest/3827",
   "2026-11-21-market-view": "https://t.me/public12invest/3831",
-  "2026-11-23-maybank": "https://t.me/public12invest/3835"
+  "2026-11-23-maybank": "https://t.me/public12invest/3835",
+  "2026-11-24-empg": "https://t.me/public12invest/3839"
  },
  "photoRev": {
   "2026-11-18-wtk": 1,
