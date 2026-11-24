@@ -2,6 +2,132 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-25",
+   "title": "马股昨涨12.63点收1,561.68点；IOIPG REIT今日挂牌，国油化学第三季转盈",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-24",
+    "close": "1,561.68",
+    "change": "+12.63（+0.81%）",
+    "breadth": "涨 751 / 跌 360 / 平 474",
+    "turnover": "32.6亿股，RM3.07 billion",
+    "note": "综指周二高开后在1,560.82至1,572.29点之间上落，终场涨12.63点，结束五连跌。辉达重新委任黄仁勋为总裁兼首席执行员后区域股市情绪回暖，马太平洋工业、伟特及UWC等科技股领涨。",
+    "source": {
+     "name": "Focus Malaysia（Bernama）",
+     "url": "https://focusmalaysia.my/bursa-malaysia-rebounds-to-snap-five-day-losing-streak/"
+    }
+   },
+   "items": [
+    {
+     "tag": "环球",
+     "title": "美股隔夜涨跌互见：道指首破50,000点，纳指挫1.73%",
+     "text": "美股周二（11月24日）资金从科技股转向传统蓝筹，道指涨0.86%，首次收在50,000点之上；标普500指数跌0.53%至7,198.76点，纳斯达克综合指数跌1.73%。辉达在前一日大涨后回吐部分涨幅，拖累科技板块。",
+     "tickers": [],
+     "source": {
+      "name": "24/7 Wall St.",
+      "url": "https://247wallst.com/cards/the-dow-closed-above-50-000-for-the-first-time-while-the-nas-gspc-market-bell-01m87nyn7mshvn15b2vdser41w"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "IOIPG REIT 今日主板挂牌，Yes Group 明日登场",
+     "text": "IOIPG Malaysia REIT 今日（11月25日）在主板上市，最终发售价定为每单位91仙，低于最高零售价96仙。Yes Group 则于明日（11月26日）以每股18仙登陆 ACE 市场，公众部分获2.8倍超额认购。",
+     "tickers": [
+      "IOIPGREIT",
+      "YESGROUP"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/12/ioipg-malaysia-reit-fixes-ipo-price-at-91-sen-per-unit"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "国油化学第三季转亏为盈，净利 RM179 million",
+     "text": "国油化学（PETRONAS Chemicals）第三季净利 RM179 million，去年同期净亏 RM289 million；营收由 RM6.79 billion 增至 RM7.62 billion。首九个月净利 RM994 million，去年同期净亏 RM1.39 billion。集团指边佳兰业务贡献提高带动销量，抵消产品价格走软的影响，并预计烯烃及衍生品价格仍受区域供应过剩压力。",
+     "tickers": [
+      "PCHEM"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/24/petronas-chemicals-records-rm179mil-net-profit-in-3q"
+     }
+    },
+    {
+     "tag": "企业动态",
+     "title": "成功食品退出亏损的 Kenny Rogers Roasters 业务，仅保留5%股权",
+     "text": "成功食品（Berjaya Food）旗下子公司将本地 Kenny Rogers Roasters 业务转入一家新联营公司，由阿联酋 Samaya Food Investments 及 Vertix Holdings 各持46.5%，子公司保留5%；联营公司总注资 RM8.64 million。集团预计脱售带来约 RM4.51 million 收益，主要来自终止租约义务，对净资产及负债比率无重大影响。",
+     "tickers": [
+      "BJFOOD"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/24/berjaya-food-to-exit-loss-making-kenny-rogers-roasters-operations-retain-5-stake-in-jv"
+     }
+    },
+    {
+     "tag": "IPO",
+     "title": "Emits 获6.43倍超购，12月1日登陆 ACE 市场",
+     "text": "Emits 首次公开售股的公众部分获6.43倍超额认购，订于12月1日以每股16仙在 ACE 市场挂牌。另外，SCA Solutions（每股28仙）的公开申购于明日（11月26日）截止，EMPG（每股28仙）则于12月2日截止。",
+     "tickers": [
+      "EMITS",
+      "SCA",
+      "EMPG"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/23/emits-ipo-oversubscribed-by-643-times-ahead-of-ace-market-debut"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "今晚焦点：美国第三季GDP及10月PCE通胀数据",
+     "text": "美国将于今晚（美东时间11月25日上午8时30分）公布第三季GDP及PCE通胀数据，市场借此研判美联储利率走向；美国周四适逢感恩节休市。隔夜芯片股普遍回落，美光跌11.01%，辉达跌5.86%。",
+     "tickers": [],
+     "source": {
+      "name": "Stocktitan",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-24-2026"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI rose 12.63 points to 1,561.68; IOIPG REIT lists today, PETRONAS Chemicals swings to 3Q profit",
+    "note": "The KLCI opened higher on Tuesday, moved between 1,560.82 and 1,572.29 and closed up 12.63 points, snapping a five-day losing streak. Regional sentiment improved after Nvidia reinstated Jensen Huang as president and CEO, with tech stocks such as Malaysian Pacific Industries, ViTrox and UWC leading the gains.",
+    "items": [
+     {
+      "tagEn": "Global",
+      "title": "Wall Street mixed overnight: Dow closes above 50,000 for the first time, Nasdaq falls 1.73%",
+      "text": "US investors rotated out of tech into blue chips on Tuesday (Nov 24). The Dow rose 0.86% to close above 50,000 for the first time, the S&P 500 fell 0.53% to 7,198.76 and the Nasdaq Composite dropped 1.73%, as Nvidia gave back part of the previous day's rally."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "IOIPG REIT lists on the Main Market today, Yes Group debuts tomorrow",
+      "text": "IOIPG Malaysia REIT lists on the Main Market today (Nov 25) at a final price of 91 sen per unit, below the 96 sen maximum retail price. Yes Group follows on the ACE Market tomorrow (Nov 26) at 18 sen a share, after its public portion was oversubscribed 2.8 times."
+     },
+     {
+      "tagEn": "Results",
+      "title": "PETRONAS Chemicals swings to RM179 million 3Q net profit",
+      "text": "PETRONAS Chemicals posted a third-quarter net profit of RM179 million against a net loss of RM289 million a year earlier, as revenue rose to RM7.62 billion from RM6.79 billion. Nine-month net profit was RM994 million versus a RM1.39 billion loss. Higher Pengerang contributions lifted sales volume, offsetting softer prices, and the group expects olefins and derivatives prices to stay under pressure from regional oversupply."
+     },
+     {
+      "tagEn": "Corporate",
+      "title": "Berjaya Food exits loss-making Kenny Rogers Roasters, keeps 5% stake",
+      "text": "Berjaya Food's subsidiary is moving the Malaysian Kenny Rogers Roasters business into a new joint venture, held 46.5% each by UAE-based Samaya Food Investments and Vertix Holdings, with the subsidiary keeping 5%; total capital contribution is RM8.64 million. The group expects a gain of about RM4.51 million, mainly from ending lease obligations, with no material effect on net assets or gearing."
+     },
+     {
+      "tagEn": "IPO",
+      "title": "Emits oversubscribed 6.43 times, lists on ACE Market on Dec 1",
+      "text": "The public portion of Emits' IPO was oversubscribed 6.43 times, and the company is set to list on the ACE Market on Dec 1 at 16 sen a share. Meanwhile, the public offer of SCA Solutions (28 sen) closes tomorrow (Nov 26) and EMPG's (28 sen) closes on Dec 2."
+     },
+     {
+      "tagEn": "Market",
+      "title": "Tonight: US 3Q GDP and October PCE inflation data",
+      "text": "The US releases third-quarter GDP and PCE inflation data tonight (8.30am ET, Nov 25), which markets will use to gauge the Fed rate outlook; US markets are closed on Thursday for Thanksgiving. Chip stocks fell overnight, with Micron down 11.01% and Nvidia down 5.86%."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-24",
    "title": "马股今日涨12.63点收1,561.68点；美股强劲反弹纳指飙6.51%，马银行第三季净利增",
    "market": {
