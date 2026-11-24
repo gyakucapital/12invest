@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23",
+ "updated": "2026-11-24",
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
@@ -411,14 +411,16 @@
     "https://www.thestar.com.my/business/business-news/2026/10/28/impact-capital-holdings-launches-ipo-prospectus",
     "https://www.klsescreener.com/v2/ipos"
    ],
-   "checked": "2026-11-18",
+   "checked": "2026-11-24",
    "code": "0483",
    "result": {
     "oversub": 139.69,
     "sources": [
      "https://www.dagangnews.com/article/terkini/ipo-impact-capital-terlebih-langgan-13969-kali-terima-permohonan-saham-rm74284-juta-77454",
-     "https://www.thestar.com.my/business/business-news/2026/11/13/impact-capital-ipo-oversubscribed-by-13969-times"
-    ]
+     "https://www.thestar.com.my/business/business-news/2026/11/13/impact-capital-ipo-oversubscribed-by-13969-times",
+     "https://www.dagangnews.com/article/terkini/saham-impact-capital-dibuka-32-sen-premium-4545-pada-penampilan-sulung-di-pasaran-ace-78133"
+    ],
+    "open": 0.32
    }
   },
   {
