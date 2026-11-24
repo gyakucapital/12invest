@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-24",
-   "title": "马股昨跌7.46点收1,549.05点；美股强劲反弹纳指飙6.51%，马银行第三季净利增",
+   "title": "马股今日涨12.63点收1,561.68点；美股强劲反弹纳指飙6.51%，马银行第三季净利增",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-23",
-    "close": "1,549.05",
-    "change": "-7.46（-0.47%）",
-    "breadth": "涨 293 / 跌 849 / 平 457",
-    "turnover": "31.1亿股，RM2.81 billion",
-    "note": "综指昨日低开后全天在1,544.96至1,555.25点之间徘徊，终场跌7.46点。国能、杨忠礼电力及杨忠礼机构等公用事业重量股受抛压拖累大市，令吉兑美元走软至4.1220、韩国综指跌3.31%亦打击情绪。",
+    "date": "2026-11-24",
+    "close": "1,561.68",
+    "change": "+12.63（+0.81%）",
+    "breadth": "涨 751 / 跌 360 / 平 474",
+    "turnover": "32.6亿股，RM3.07 billion",
+    "note": "综指今日高开后在1,560.82至1,572.29点之间上落，终场涨12.63点，结束五连跌。英伟达重新委任黄仁勋为总裁兼首席执行员后区域股市情绪回暖，马太平洋工业、伟特及UWC等科技股领涨。",
     "source": {
-     "name": "The Star",
-     "url": "https://www.thestar.com.my/business/business-news/2026/11/23/bursa-malaysia-sees-sea-of-red-as-over-850-stocks-tumble"
+     "name": "Focus Malaysia（Bernama）",
+     "url": "https://focusmalaysia.my/bursa-malaysia-rebounds-to-snap-five-day-losing-streak/"
     }
    },
    "items": [
@@ -88,8 +88,8 @@
     }
    ],
    "en": {
-    "title": "KLCI fell 7.46 points to 1,549.05; Wall Street rebounds as Nasdaq jumps 6.51%, Maybank 3Q profit rises",
-    "note": "The KLCI opened lower yesterday, moved between 1,544.96 and 1,555.25 and closed down 7.46 points. Selling in utilities heavyweights such as Tenaga Nasional, YTL Power and YTL Corp weighed on the market, while a weaker ringgit at 4.1220 per US dollar and a 3.31% drop in South Korea's Kospi hurt sentiment.",
+    "title": "KLCI rises 12.63 points to 1,561.68; Wall Street rebounds as Nasdaq jumps 6.51%, Maybank 3Q profit rises",
+    "note": "The KLCI opened higher today, moved between 1,560.82 and 1,572.29 and closed up 12.63 points, snapping a five-day losing streak. Regional sentiment improved after Nvidia reinstated Jensen Huang as president and CEO, with tech stocks such as Malaysian Pacific Industries, ViTrox and UWC leading the gains.",
     "items": [
      {
       "tagEn": "Global",
