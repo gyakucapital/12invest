@@ -2,6 +2,151 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-26",
+   "title": "马股微涨0.61点收1,562.29点；Yes Group 今日挂牌，恒源第三季净利飙至 RM557.95 million",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-25",
+    "close": "1,562.29",
+    "change": "+0.61（+0.04%）",
+    "breadth": "涨 345 / 跌 692 / 平 456",
+    "turnover": "25.3亿股，RM2.36 billion",
+    "note": "综指周三在1,555.03至1,565.17点之间波动，终场微涨0.61点，未跟随日本及韩国股市因芯片和AI股抛售而大跌的走势。99 Speed Mart、SD Guthrie 及国际船运等重量股合共为综指贡献3.45点，但大市跌股远多于涨股，成交额也较前一日的 RM3.07 billion 萎缩。",
+    "source": {
+     "name": "Malay Mail（Bernama）",
+     "url": "https://www.malaymail.com/news/money/2026/11/25/bursa-malaysia-edges-higher-as-regional-markets-tumble-on-tech-sell-off/244759"
+    }
+   },
+   "items": [
+    {
+     "tag": "IPO",
+     "title": "Yes Group 今日登陆 ACE 市场，SCA Solutions 公开申购今日截止",
+     "text": "Yes Group 今日（11月26日）以每股18仙在 ACE 市场挂牌，其公众部分获2.8倍超额认购。SCA Solutions（每股28仙）的公开申购于今日截止，订于11月30日抽签，12月9日上市。",
+     "tickers": [
+      "YESGROUP",
+      "SCA"
+     ],
+     "source": {
+      "name": "Dagang News",
+      "url": "https://www.dagangnews.com/article/terkini/ipo-yes-group-catat-kadar-langganan-280-kali-menjelang-penyenaraian-26-nov-2026-77737"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "恒源炼油第三季净利跃升至 RM557.95 million",
+     "text": "恒源（Hengyuan）截至9月30日第三季净利 RM557.95 million，去年同期仅 RM21.04 million；营收增长51.4%至 RM5.48 billion。首九个月净利 RM1.68 billion，去年同期净亏 RM332.65 million。公司指各主要产品售价走高带动表现，并预计西亚局势及俄罗斯炼油受干扰将令燃料供应维持紧张。",
+     "tickers": [
+      "HENGYUAN"
+     ],
+     "source": {
+      "name": "The Star（Bernama）",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/25/hengyuan-3q-net-profit-jumps-to-rm55795mil"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "马电讯第三季净利跌28%至 RM494 million，派息10仙",
+     "text": "马电讯（TM）第三季净利 RM494 million，去年同期为 RM686.3 million，主要因去年同期有一次性投资公允值收益；营收微增0.3%至 RM3 billion。公司宣布派发第三次中期股息10仙，维持全年营收低单位数增长的指引，并把资本开支占营收比例下调至16%至18%。",
+     "tickers": [
+      "TM"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/25/tm039s-3q-net-profit-falls-28-to-rm494mil-on-absence-of-one-off-gain"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "双威第三季营收增18%，建筑订单创 RM12.45 billion 新高",
+     "text": "双威（Sunway）第三季营收增18%至 RM3.03 billion，但净利由 RM338.14 million 降至 RM314.06 million。建筑业务今年迄今获 RM9.8 billion 新订单，超出全年 RM7 billion 至 RM9 billion 的目标，未完成订单达 RM12.45 billion；首九个月产业销售 RM3.4 billion，全年目标 RM4.2 billion。",
+     "tickers": [
+      "SUNWAY"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/25/sunway-upbeat-as-construction-order-book-hits-record-rm1245bil"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "Kerjaya 第三季营收下滑但净利增至 RM69.89 million",
+     "text": "Kerjaya Prospek 第三季净利 RM69.89 million，高于去年同期的 RM57.44 million；营收则因建筑工程进度放缓，由 RM566.25 million 降至 RM396.07 million。公司派发3.5仙中期股息，截至9月30日未完成建筑订单为 RM6.1 billion。",
+     "tickers": [
+      "KERJAYA"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/25/kerjaya-prospek039s-3q-net-profit-rises-to-rm699mil-despite-lower-revenue"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "安联银行次季净利 RM208.47 million，派息11.88仙",
+     "text": "安联银行（Alliance Bank）截至9月30日的2026财年次季净利 RM208.47 million，去年同期 RM206.56 million；营收由 RM626.23 million 增至 RM648.5 million。上半年净利 RM456.78 million，宣布派发首次中期股息11.88仙，并维持全年指引。",
+     "tickers": [
+      "ABMB"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/25/alliance-bank-posts-net-profit-of-rm20847mil-in-2q-1188c-divshare"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "大马皇帽第三季净利增8.7%至 RM112 million",
+     "text": "大马皇帽（Carlsberg Malaysia）第三季净利增8.7%至 RM112 million，营收增1%至 RM589.2 million，主要因经销商在10月系统转换前提前囤货；公司派发27仙中期股息。管理层预计第四季出货量将随经销商库存回落而受影响，消费情绪料保持谨慎。",
+     "tickers": [
+      "CARLSBG"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/25/carlsberg-malaysia039s-3q-earnings-climb-to-rm112mil"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI edges up 0.61 of a point to 1,562.29; Yes Group lists today, Hengyuan 3Q profit soars to RM557.95 million",
+    "note": "The KLCI moved between 1,555.03 and 1,565.17 on Wednesday and closed 0.61 of a point higher, holding up while Japanese and South Korean markets slumped on a chip and AI sell-off. Heavyweights 99 Speed Mart, SD Guthrie and MISC added a combined 3.45 points, but losers far outnumbered gainers and turnover shrank from Tuesday's RM3.07 billion.",
+    "items": [
+     {
+      "tagEn": "IPO",
+      "title": "Yes Group debuts on the ACE Market today; SCA Solutions public offer closes today",
+      "text": "Yes Group lists on the ACE Market today (Nov 26) at 18 sen a share, after its public portion was oversubscribed 2.8 times. The public offer of SCA Solutions (28 sen) closes today, with balloting on Nov 30 and listing on Dec 9."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Hengyuan's 3Q net profit jumps to RM557.95 million",
+      "text": "Hengyuan posted net profit of RM557.95 million for the third quarter ended Sept 30, up from RM21.04 million a year earlier, as revenue rose 51.4% to RM5.48 billion. Nine-month net profit was RM1.68 billion against a RM332.65 million loss. Higher selling prices across key products drove the result, and the refiner expects fuel supplies to stay tight amid West Asia tensions and disruptions to Russian refining."
+     },
+     {
+      "tagEn": "Results",
+      "title": "TM's 3Q net profit falls 28% to RM494 million; 10 sen dividend",
+      "text": "Telekom Malaysia's third-quarter net profit fell to RM494 million from RM686.3 million, mainly because the year-ago quarter included a one-off fair value gain on an investment; revenue edged up 0.3% to RM3 billion. TM declared a third interim dividend of 10 sen, kept its low single-digit revenue growth guidance and cut its capex-to-revenue guidance to 16%-18%."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Sunway 3Q revenue up 18%, construction order book at record RM12.45 billion",
+      "text": "Sunway's third-quarter revenue rose 18% to RM3.03 billion, while net profit eased to RM314.06 million from RM338.14 million. Its construction arm has won RM9.8 billion in new orders so far this year, above its RM7 billion to RM9 billion full-year target, lifting the outstanding order book to RM12.45 billion. Nine-month property sales reached RM3.4 billion against a RM4.2 billion target."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Kerjaya's 3Q net profit rises to RM69.89 million despite lower revenue",
+      "text": "Kerjaya Prospek's third-quarter net profit rose to RM69.89 million from RM57.44 million, though revenue fell to RM396.07 million from RM566.25 million on slower construction progress. It declared a 3.5 sen interim dividend and had an outstanding construction order book of RM6.1 billion as at Sept 30."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Alliance Bank 2Q net profit at RM208.47 million; 11.88 sen dividend",
+      "text": "Alliance Bank's net profit for the second quarter of FY2027 (ended Sept 30) was RM208.47 million versus RM206.56 million a year earlier, with revenue up to RM648.5 million from RM626.23 million. First-half net profit was RM456.78 million; the bank declared a first interim dividend of 11.88 sen and kept its full-year guidance."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Carlsberg Malaysia's 3Q net profit up 8.7% to RM112 million",
+      "text": "Carlsberg Malaysia's third-quarter net profit rose 8.7% to RM112 million and revenue gained 1% to RM589.2 million, helped by distributors stocking up ahead of an October system migration; it declared a 27 sen interim dividend. Management expects fourth-quarter sell-in to be hit as distributor inventory normalises, with consumer sentiment staying cautious."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-25",
    "title": "马股今微涨0.61点收1,562.29点；IOIPG REIT今日挂牌，国油化学第三季转盈",
    "market": {
