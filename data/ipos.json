@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24",
+ "updated": "2026-11-25",
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
@@ -411,7 +411,7 @@
     "https://www.thestar.com.my/business/business-news/2026/10/28/impact-capital-holdings-launches-ipo-prospectus",
     "https://www.klsescreener.com/v2/ipos"
    ],
-   "checked": "2026-11-24",
+   "checked": "2026-11-25",
    "code": "0483",
    "result": {
     "oversub": 139.69,
@@ -441,7 +441,7 @@
     "https://www.edgeprop.my/content/1918133/ioipg-reit-launches-prospectus-ahead-listing-main-market-bursa-nov-25",
     "https://kclau.com/stocks/ioipg-reit-ipo/"
    ],
-   "checked": "2026-11-13",
+   "checked": "2026-11-25",
    "open": "2026-11-03",
    "close": "2026-11-10",
    "code": "5359 (IOIREIT)",
@@ -452,8 +452,10 @@
     "sources": [
      "https://www.thestar.com.my/business/business-news/2026/11/12/ioipg-malaysia-reit-fixes-ipo-price-at-91-sen-per-unit",
      "https://www.edgeprop.my/content/1918294/ioipg-reit-fixes-ipo-price-91-sen-public-offer-subscribed-159-times",
-     "https://theedgemalaysia.com/node/825555"
-    ]
+     "https://theedgemalaysia.com/node/825555",
+     "https://www.dagangnews.com/article/terkini/ipo-reit-terbesar-negara-ioipg-malaysia-dibuka-87-sen-pada-dagangan-sulung-di-pasaran-utama-78219"
+    ],
+    "open": 0.87
    }
   },
   {
@@ -471,7 +473,7 @@
     "https://www.dagangnews.com/article/terkini/yes-group-lancar-ipo-pada-harga-18-sen-sesaham-sasar-raih-rm25-juta-menjelang-penyenaraian-di-pasaran-ace-76990",
     "https://klse.i3investor.com/web/announcement/detail/2089745"
    ],
-   "checked": "2026-11-18",
+   "checked": "2026-11-25",
    "ballot": "2026-11-17",
    "code": "0485 (YES)",
    "result": {
@@ -499,7 +501,7 @@
     "Emits Berhad prospectus dated 6 November 2026",
     "https://www.klsescreener.com/v2/stocks/view/0486/emits-berhad"
    ],
-   "checked": "2026-11-23",
+   "checked": "2026-11-25",
    "code": "0486",
    "result": {
     "oversub": 6.43,
@@ -525,7 +527,7 @@
     "https://www.dagangnews.com/article/terkini/sca-solutions-dedah-dapat-tempahan-rm509-juta-bagi-projek-pusat-data-di-johor-menjelang-ipo-77774",
     "https://www.thestar.com.my/business/business-news/2026/11/18/sca-solutions-expects-to-raise-rm3192mil-from-ipo-for-business-expansion"
    ],
-   "checked": "2026-11-19"
+   "checked": "2026-11-25"
   },
   {
    "ticker": "EMPG",
@@ -544,7 +546,7 @@
     "https://thesun.my/business/empgs-28-sen-ipo-to-raise-rm34-05m-for-retail-expansion/",
     "https://www.thestar.com.my/business/business-news/2026/10/01/empg-group-signs-underwriting-deal-for-ace-market-ipo"
    ],
-   "checked": "2026-11-24",
+   "checked": "2026-11-25",
    "ballot": "2026-12-04"
   }
  ]
