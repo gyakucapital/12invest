@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-25",
-   "title": "马股昨涨12.63点收1,561.68点；IOIPG REIT今日挂牌，国油化学第三季转盈",
+   "title": "马股今微涨0.61点收1,562.29点；IOIPG REIT今日挂牌，国油化学第三季转盈",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-24",
-    "close": "1,561.68",
-    "change": "+12.63（+0.81%）",
-    "breadth": "涨 751 / 跌 360 / 平 474",
-    "turnover": "32.6亿股，RM3.07 billion",
-    "note": "综指周二高开后在1,560.82至1,572.29点之间上落，终场涨12.63点，结束五连跌。辉达重新委任黄仁勋为总裁兼首席执行员后区域股市情绪回暖，马太平洋工业、伟特及UWC等科技股领涨。",
+    "date": "2026-11-25",
+    "close": "1,562.29",
+    "change": "+0.61（+0.03%）",
+    "breadth": "涨 345 / 跌 692 / 平 456",
+    "turnover": "25.3亿股，RM2.36 billion",
+    "note": "综指周三低开后在1,555.03至1,565.17点之间上落，终场微涨0.61点，逆区域跌势走高。消费产品与服务、种植及运输物流领域部分重量股获买盘支撑，但市场广度偏弱，跌股多于涨股。",
     "source": {
      "name": "Focus Malaysia（Bernama）",
-     "url": "https://focusmalaysia.my/bursa-malaysia-rebounds-to-snap-five-day-losing-streak/"
+     "url": "https://focusmalaysia.my/bursa-malaysia-bucks-regional-trend-to-end-marginally-higher-2/"
     }
    },
    "items": [
@@ -91,8 +91,8 @@
     }
    ],
    "en": {
-    "title": "KLCI rose 12.63 points to 1,561.68; IOIPG REIT lists today, PETRONAS Chemicals swings to 3Q profit",
-    "note": "The KLCI opened higher on Tuesday, moved between 1,560.82 and 1,572.29 and closed up 12.63 points, snapping a five-day losing streak. Regional sentiment improved after Nvidia reinstated Jensen Huang as president and CEO, with tech stocks such as Malaysian Pacific Industries, ViTrox and UWC leading the gains.",
+    "title": "KLCI edges up 0.61 of a point to 1,562.29; IOIPG REIT lists today, PETRONAS Chemicals swings to 3Q profit",
+    "note": "The KLCI opened lower on Wednesday, moved between 1,555.03 and 1,565.17 and closed up 0.61 of a point, bucking the regional trend. Buying in selected heavyweights in consumer products and services, plantation, and transportation and logistics lent support, though market breadth was weak with losers outnumbering gainers.",
     "items": [
      {
       "tagEn": "Global",
