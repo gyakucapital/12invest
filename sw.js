@@ -5,6 +5,7 @@ self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Pr
 self.addEventListener("fetch", e => {
   const r = e.request, u = new URL(r.url);
   if (r.method !== "GET" || u.origin !== location.origin || !u.pathname.startsWith(BASE)) return;
+  if (r.headers.has("range") || u.pathname.startsWith(BASE + "media/")) return; // video: let the browser stream it (range requests), never cache
   if (r.mode === "navigate" || (r.headers.get("accept") || "").includes("text/html")) {
     e.respondWith(fetch(r, { cache: "no-cache" }).then(res => { const c = res.clone(); caches.open(V).then(x => x.put(r, c)); return res; })
       .catch(() => caches.match(r).then(m => m || caches.match(BASE + "offline.html"))));
