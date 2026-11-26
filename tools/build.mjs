@@ -54,6 +54,7 @@ const WD = "日一二三四五六";
 const day = d => { const [y, m, dd] = d.split("-").map(Number); const w = new Date(Date.UTC(y, m - 1, dd)).getUTCDay(); return { md: `${m}月${dd}日`, wd: `（${WD[w]}）` }; };
 const fmtPub = iso => { const d = new Date(new Date(iso).getTime() + 8 * 3600e3); return isNaN(d) ? "" : `${d.getUTCFullYear()}年${d.getUTCMonth() + 1}月${d.getUTCDate()}日`; };
 const safeImg = p => /^img\/[A-Za-z0-9._-]+$/.test(p || "") && fs.existsSync(path.join(ROOT, p)) ? p : "";
+const safeVid = p => /^media\/[A-Za-z0-9._-]+\.mp4$/.test(p || "") && fs.existsSync(path.join(ROOT, p)) ? p : "";
 function imgSize(rel){
   const b = fs.readFileSync(path.join(ROOT, rel));
   if (b[0] === 0x89 && b[1] === 0x50) return [b.readUInt32BE(16), b.readUInt32BE(20)];
@@ -486,6 +487,7 @@ function article(p){
   <div class="cat">【${esc(p.category || "未分类")}】</div>
   <h1>${esc(p.title)}</h1>
   <div class="meta"><span>${fmtPub(p.publishedAt)}</span><span>文 / <a class="byline" href="${REL(AUTHOR.path)}" rel="author">${esc(AUTHOR.name)}</a> · 12Invest</span>${p.ipo ? badge(p.ipo) : ""}${p.ticker ? `<a class="tick" href="${REL(`c/${slug(p.ticker)}/`)}">${esc(p.ticker)} 公司页 →</a>` : ""}</div>
+  ${safeVid(p.video) ? `<figure class="vid"><video controls playsinline preload="metadata"${safeImg(p.poster) ? ` poster="${REL(p.poster)}"` : ""} src="${REL(p.video)}"></video></figure>` : ""}
   ${facts.length ? `<dl class="facts"><div class="hd">关键资料<span>KEY FACTS</span></div>${facts.map(f => `<div class="fact"><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join("")}</dl>` : ""}
   ${/\{\{financials\}\}/.test(p.body || "") ? "" : financialsHTML(p)}
   <div class="body">${render(p.body, { financials: () => financialsHTML(p, true) })}</div>

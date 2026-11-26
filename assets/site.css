@@ -679,3 +679,5 @@ label.f input:focus,label.f select:focus{outline:0;box-shadow:0 -3px 0 0 var(--g
 .author-links{display:flex;flex-wrap:wrap;gap:12px;margin:0 3px 28px}
 .meta .byline{color:var(--gold);text-decoration:none}
 .meta .byline:hover{text-decoration:underline}
+
+.vid{margin:20px auto 8px;max-width:420px}.vid video{display:block;width:100%;aspect-ratio:9/16;background:#000;border:3px solid var(--line)}

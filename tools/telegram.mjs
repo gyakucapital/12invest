@@ -146,7 +146,11 @@ async function send(photo, text){
     const fd = new FormData();
     fd.append("chat_id", CHAT); fd.append("parse_mode", "HTML");
     let method = "sendMessage";
-    if (photo) { method = "sendPhoto"; fd.append("caption", text); fd.append("photo", new Blob([fs.readFileSync(photo)], { type: "image/jpeg" }), path.basename(photo)); }
+    if (photo && /\.mp4$/i.test(photo)) { // a post's own video (posts.json "video"), sent as a streamable Telegram video
+      method = "sendVideo"; fd.append("caption", text); fd.append("supports_streaming", "true");
+      fd.append("video", new Blob([fs.readFileSync(photo)], { type: "video/mp4" }), path.basename(photo));
+    }
+    else if (photo) { method = "sendPhoto"; fd.append("caption", text); fd.append("photo", new Blob([fs.readFileSync(photo)], { type: "image/jpeg" }), path.basename(photo)); }
     else fd.append("text", text);
     let r, j;
     try { r = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, { method: "POST", body: fd, signal: AbortSignal.timeout(150000) }); }
@@ -183,6 +187,9 @@ for (const p of todo){
   if (!(await live(url(p.id)))) { console.log(`Telegram: ${p.id} not live yet; will retry next run.`); continue; }
   // Share image, then cover, then text only, but ONLY after a definite rejection (e.g. a bad photo). See send().
   const photos = ["og", "img"].map(d => path.join(ROOT, d === "og" ? `og/${p.id}.jpg` : String(p.cover || ""))).filter(f => f && fs.existsSync(f) && fs.statSync(f).isFile());
+  // a post with its own video (under 50 MB, the bot upload limit) goes out as that video first
+  const vid = /^media\/[A-Za-z0-9._-]+\.mp4$/.test(String(p.video || "")) ? path.join(ROOT, p.video) : "";
+  if (vid && fs.existsSync(vid) && fs.statSync(vid).size < 50e6) photos.unshift(vid);
   let j = { ok: false, description: "not sent" };
   for (const photo of [...photos, null]){
     j = await send(photo, caption(p));
