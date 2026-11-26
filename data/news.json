@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-26",
-   "title": "马股微涨0.61点收1,562.29点；Yes Group 今日挂牌，恒源第三季净利飙至 RM557.95 million",
+   "title": "马股涨8.69点收1,570.98点；Yes Group 今日挂牌，恒源第三季净利飙至 RM557.95 million",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-25",
-    "close": "1,562.29",
-    "change": "+0.61（+0.04%）",
-    "breadth": "涨 345 / 跌 692 / 平 456",
-    "turnover": "25.3亿股，RM2.36 billion",
-    "note": "综指周三在1,555.03至1,565.17点之间波动，终场微涨0.61点，未跟随日本及韩国股市因芯片和AI股抛售而大跌的走势。99 Speed Mart、SD Guthrie 及国际船运等重量股合共为综指贡献3.45点，但大市跌股远多于涨股，成交额也较前一日的 RM3.07 billion 萎缩。",
+    "date": "2026-11-26",
+    "close": "1,570.98",
+    "change": "+8.69（+0.55%）",
+    "breadth": "涨 412 / 跌 703 / 平 408",
+    "turnover": "33.5亿股，RM3.29 billion",
+    "note": "综指周四高开后在1,563.15至1,584.96点之间上落，终场涨8.69点，跟随区域股市走高，金融服务及消费产品与服务领域部分重量股获买盘支撑。不过大市跌股仍多于涨股，成交额则从前一日的 RM2.36 billion 增至 RM3.29 billion。",
     "source": {
-     "name": "Malay Mail（Bernama）",
-     "url": "https://www.malaymail.com/news/money/2026/11/25/bursa-malaysia-edges-higher-as-regional-markets-tumble-on-tech-sell-off/244759"
+     "name": "Focus Malaysia（Bernama）",
+     "url": "https://focusmalaysia.my/bursa-malaysia-ends-higher-in-line-with-upbeat-regional-markets/"
     }
    },
    "items": [
@@ -105,8 +105,8 @@
     }
    ],
    "en": {
-    "title": "KLCI edges up 0.61 of a point to 1,562.29; Yes Group lists today, Hengyuan 3Q profit soars to RM557.95 million",
-    "note": "The KLCI moved between 1,555.03 and 1,565.17 on Wednesday and closed 0.61 of a point higher, holding up while Japanese and South Korean markets slumped on a chip and AI sell-off. Heavyweights 99 Speed Mart, SD Guthrie and MISC added a combined 3.45 points, but losers far outnumbered gainers and turnover shrank from Tuesday's RM3.07 billion.",
+    "title": "KLCI rises 8.69 points to 1,570.98; Yes Group lists today, Hengyuan 3Q profit soars to RM557.95 million",
+    "note": "The KLCI opened higher on Thursday, moved between 1,563.15 and 1,584.96 and closed up 8.69 points, tracking upbeat regional markets as buying in selected financial services and consumer products and services heavyweights lent support. Losers still outnumbered gainers, while turnover rose to RM3.29 billion from Wednesday's RM2.36 billion.",
     "items": [
      {
       "tagEn": "IPO",
