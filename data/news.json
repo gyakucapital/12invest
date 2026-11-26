@@ -2,6 +2,151 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "date": "2026-11-27",
+   "title": "马股涨8.69点收1,570.98点；云顶第三季转亏，国油化学核心盈利挫83%",
+   "market": {
+    "index": "FBM KLCI",
+    "date": "2026-11-26",
+    "close": "1,570.98",
+    "change": "+8.69（+0.55%）",
+    "breadth": "涨 412 / 跌 703 / 平 408",
+    "turnover": "33.5亿股，RM3.29 billion",
+    "note": "综指周四跟随区域股市走高，盘中在1,563.15至1,584.96点之间波动，终场涨8.69点，金融服务及消费领域部分重量股获买盘。不过跌股仍多于涨股，成交额增至 RM3.29 billion。",
+    "source": {
+     "name": "Focus Malaysia（Bernama）",
+     "url": "https://focusmalaysia.my/bursa-malaysia-ends-higher-in-line-with-upbeat-regional-markets/"
+    }
+   },
+   "items": [
+    {
+     "tag": "业绩",
+     "title": "云顶第三季营收增7.3%，但转为净亏 RM161.4 million",
+     "text": "云顶（Genting）截至9月30日第三季营收增7.3%至 RM8.02 billion，但录得净亏 RM161.4 million，去年同期净赚 RM30.3 million。旗下云顶大马（Genting Malaysia）同季营收增29.1%至 RM4.34 billion，净利则跌66.1%至 RM40.6 million，公司对短期前景保持谨慎。",
+     "tickers": [
+      "GENTING",
+      "GENM"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/26/genting039s-3q-revenue-rises-73-to-rm802bil"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "国油化学第三季核心盈利挫83%，遭至少四家券商降级",
+     "text": "国油化学（PChem）第三季核心盈利大跌83%至 RM99 million，单日内至少四家券商下调其评级。分析员警告，全球供应过剩及需求疲弱或在未来两年继续拖累盈利。",
+     "tickers": [
+      "PCHEM"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/26/petronas-chemicals-hit-by-four-downgrades-as-core-profit-plunges"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "大马银行上半年净利 RM1.06 billion，派息15仙",
+     "text": "大马银行（AMMB）2027财年上半年净利 RM1.06 billion，略高于去年同期的 RM1.05 billion；净利息收入按年增5.9%至 RM1.96 billion。公司宣布派发15仙中期股息，12月10日除权，12月24日派发。",
+     "tickers": [
+      "AMBANK"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/26/ambank-posts-improved-1h-net-profit-of-rm106bil-15c-divshare"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "森那美首季净利增至 RM416 million，营收下滑",
+     "text": "森那美（Sime Darby）首季净利 RM416 million，高于去年同期的 RM355 million；营收则由 RM18.03 billion 降至 RM16.7 billion。旗下 UMW 税前盈利增65.5%至 RM432 million，汽车业务因中国市场竞争激烈而走低。",
+     "tickers": [
+      "SIME"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/26/sime-darby-records-higher-earnings-of-rm416mil-in-1q"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "IOI产业首季营收增16%，未入账销售 RM2.46 billion",
+     "text": "IOI产业（IOI Properties）截至9月30日首季营收增16.19%至 RM1.1 billion，盈利按年跌8.25%至 RM609.5 million，主要因去年同期有 RM502.8 million 的重估收益。未入账销售达 RM2.46 billion，接近纪录水平，公司对前景保持乐观。",
+     "tickers": [
+      "IOIPG"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://thestar.com.my/business/business-news/2026/11/26/ioi-properties-upbeat-on-outlook-backed-by-healthy-unbilled-sales"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "大马回教保险第三季净利增10.8%至 RM127.9 million",
+     "text": "大马回教保险（Takaful Malaysia）第三季净利由 RM115.4 million 增至 RM127.9 million，营收增25.2%至 RM1.32 billion。首九个月净利 RM317.7 million，按年增8.1%。",
+     "tickers": [
+      "TAKAFUL"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/26/takaful-malaysia039s-3q-net-profit-rises-to-rm1279mil"
+     }
+    },
+    {
+     "tag": "扩张",
+     "title": "Lianson Fleet 斥 RM65.88 million 购散货船，第三季净利增至 RM32.88 million",
+     "text": "Lianson Fleet（LFG）向无关第三方以 RM65.88 million 收购一艘超灵便型散货船，以扩展海运业务、降低对海事支援船的依赖。公司第三季净利 RM32.88 million，去年同期 RM24.24 million；营收 RM91.61 million，并派发1仙中期股息。",
+     "tickers": [
+      "LFG"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/26/lianson-fleet-acquires-bulk-carrier-for-rm6588mil"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI up 8.69 points at 1,570.98; Genting swings to 3Q loss, PChem core profit plunges 83%",
+    "note": "The KLCI tracked upbeat regional markets on Thursday, moving between 1,563.15 and 1,584.96 before closing 8.69 points higher on buying in selected financial services and consumer heavyweights. Losers still outnumbered gainers, while turnover rose to RM3.29 billion.",
+    "items": [
+     {
+      "tagEn": "Results",
+      "title": "Genting 3Q revenue up 7.3% but swings to RM161.4 million net loss",
+      "text": "Genting's third-quarter revenue rose 7.3% to RM8.02 billion, but it posted a net loss of RM161.4 million against a net profit of RM30.3 million a year earlier. Unit Genting Malaysia grew revenue 29.1% to RM4.34 billion while net profit fell 66.1% to RM40.6 million; it remains cautious on near-term prospects."
+     },
+     {
+      "tagEn": "Results",
+      "title": "PChem 3Q core profit plunges 83%, hit by at least four downgrades",
+      "text": "Petronas Chemicals' third-quarter core profit fell 83% to RM99 million, and at least four brokerages downgraded the stock in one day. Analysts warn global oversupply and weak demand could weigh on earnings for the next two years."
+     },
+     {
+      "tagEn": "Results",
+      "title": "AmBank 1H net profit at RM1.06 billion, 15 sen dividend",
+      "text": "AMMB Holdings posted 1HFY27 net profit of RM1.06 billion, slightly above RM1.05 billion a year earlier, with net interest income up 5.9% to RM1.96 billion. It declared a 15 sen interim dividend, going ex on Dec 10 and payable Dec 24."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Sime Darby 1Q net profit rises to RM416 million on lower revenue",
+      "text": "Sime Darby's first-quarter net profit rose to RM416 million from RM355 million, while revenue fell to RM16.7 billion from RM18.03 billion. UMW's pre-tax profit jumped 65.5% to RM432 million; the motors division was weaker on intense competition in China."
+     },
+     {
+      "tagEn": "Results",
+      "title": "IOI Properties 1Q revenue up 16%, unbilled sales at RM2.46 billion",
+      "text": "IOI Properties' first-quarter revenue rose 16.19% to RM1.1 billion, while earnings fell 8.25% to RM609.5 million as the year-ago quarter included a RM502.8 million remeasurement gain. Unbilled sales stood near record levels at RM2.46 billion, and management says the outlook remains positive."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Takaful Malaysia 3Q net profit up 10.8% to RM127.9 million",
+      "text": "Takaful Malaysia's third-quarter net profit rose to RM127.9 million from RM115.4 million, with revenue up 25.2% to RM1.32 billion. Nine-month net profit was RM317.7 million, up 8.1% year on year."
+     },
+     {
+      "tagEn": "Expansion",
+      "title": "Lianson Fleet buys bulk carrier for RM65.88 million; 3Q profit rises to RM32.88 million",
+      "text": "Lianson Fleet is buying a Supramax bulk carrier from an unrelated party for RM65.88 million to expand its marine transport business beyond offshore support vessels. Its third-quarter net profit rose to RM32.88 million from RM24.24 million on revenue of RM91.61 million, and it declared a 1 sen interim dividend."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-26",
    "title": "马股涨8.69点收1,570.98点；Yes Group 今日挂牌，恒源第三季净利飙至 RM557.95 million",
    "market": {
