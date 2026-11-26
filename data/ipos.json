@@ -486,9 +486,12 @@
     "oversub": 2.8,
     "sources": [
      "https://www.dagangnews.com/article/terkini/ipo-yes-group-catat-kadar-langganan-280-kali-menjelang-penyenaraian-26-nov-2026-77737",
-     "https://www.dagangnews.com/article/terkini/saham-yes-group-dibuka-185-sen-pada-penampilan-sulung-di-pasaran-ace-78300"
+     "https://www.dagangnews.com/article/terkini/saham-yes-group-dibuka-185-sen-pada-penampilan-sulung-di-pasaran-ace-78300",
+     "https://freemalaysiatoday.com/category/business/2026/11/26/bursa-ends-higher-in-line-with-upbeat-regional-markets",
+     "https://www.financialcontent.com/article/accwirecq-2026-11-26-yes-group-management-berhad-marks-new-chapter-with-successful-ace-market-listing"
     ],
-    "open": 0.185
+    "open": 0.185,
+    "close": 0.18
    }
   },
   {
@@ -538,6 +541,23 @@
    ],
    "checked": "2026-11-26",
    "code": "0487"
+  },
+  {
+   "ticker": "KKMART",
+   "name": "KK Mart",
+   "company": "KK Mart Retail Berhad",
+   "board": "主板",
+   "price": "最高 RM0.55",
+   "cap": "约 RM1.9b",
+   "open": "2026-11-26",
+   "close": "2026-12-02",
+   "listing": "2026-12-15",
+   "sources": [
+    "https://www.thestar.com.my/business/business-news/2026/11/26/main-market-bound-kk-mart-aims-to-raise-rm1155mil-from-ipo",
+    "https://theedgemalaysia.com/node/827364",
+    "https://ciscom.ai/ipos/kk-mart-retail"
+   ],
+   "checked": "2026-11-26"
   },
   {
    "ticker": "EMPG",
