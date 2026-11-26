@@ -134,7 +134,7 @@ const stepsHTML = i => `<ol class="steps">${STEPS.filter(([k]) => i[k]).map(([k,
 const V = { css: hash("assets/site.css"), js: hash("assets/app.js") };
 const CSP = [
   "default-src 'none'", "script-src 'self'", "style-src 'self'",
-  `img-src 'self' data: https://hits.sh${GC ? " " + GC : ""}`, "font-src 'self'", "connect-src 'self' https://docs.google.com",
+  `img-src 'self' data: https://hits.sh${GC ? " " + GC : ""}`, "font-src 'self'", "media-src 'self'", "connect-src 'self' https://docs.google.com",
   "base-uri 'none'", "form-action 'self'", "object-src 'none'", "manifest-src 'self'", "worker-src 'self'", "upgrade-insecure-requests"
 ].join("; ");
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Crect x='1' y='2' width='10' height='8' fill='%23F4C24F'/%3E%3Crect x='3' y='1' width='6' height='10' fill='%23F4C24F'/%3E%3Crect x='3' y='7' width='1' height='2' fill='%23081230'/%3E%3Crect x='5' y='5' width='1' height='4' fill='%23081230'/%3E%3Crect x='7' y='3' width='1' height='6' fill='%23081230'/%3E%3C/svg%3E";
@@ -772,6 +772,7 @@ self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Pr
 self.addEventListener("fetch", e => {
   const r = e.request, u = new URL(r.url);
   if (r.method !== "GET" || u.origin !== location.origin || !u.pathname.startsWith(BASE)) return;
+  if (r.headers.has("range") || u.pathname.startsWith(BASE + "media/")) return; // video: let the browser stream it (range requests), never cache
   if (r.mode === "navigate" || (r.headers.get("accept") || "").includes("text/html")) {
     e.respondWith(fetch(r, { cache: "no-cache" }).then(res => { const c = res.clone(); caches.open(V).then(x => x.put(r, c)); return res; })
       .catch(() => caches.match(r).then(m => m || caches.match(BASE + "offline.html"))));
