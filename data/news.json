@@ -3,18 +3,18 @@
  "days": [
   {
    "date": "2026-11-27",
-   "title": "马股涨8.69点收1,570.98点；云顶第三季转亏，国油化学核心盈利挫83%",
+   "title": "马股涨18.26点收1,589.24点；云顶第三季转亏，国油化学核心盈利挫83%",
    "market": {
     "index": "FBM KLCI",
-    "date": "2026-11-26",
-    "close": "1,570.98",
-    "change": "+8.69（+0.55%）",
-    "breadth": "涨 412 / 跌 703 / 平 408",
-    "turnover": "33.5亿股，RM3.29 billion",
-    "note": "综指周四跟随区域股市走高，盘中在1,563.15至1,584.96点之间波动，终场涨8.69点，金融服务及消费领域部分重量股获买盘。不过跌股仍多于涨股，成交额增至 RM3.29 billion。",
+    "date": "2026-11-27",
+    "close": "1,589.24",
+    "change": "+18.26（+1.16%）",
+    "breadth": "涨 727 / 跌 363 / 平 474",
+    "turnover": "31.7亿股，RM2.64 billion",
+    "note": "综指周五跟随区域股市走高，盘中在1,564.52至1,592.45点之间波动，终场涨18.26点，工业产品与服务及公用事业领域部分重量股获买盘。涨股明显多于跌股，成交额则降至 RM2.64 billion。",
     "source": {
      "name": "Focus Malaysia（Bernama）",
-     "url": "https://focusmalaysia.my/bursa-malaysia-ends-higher-in-line-with-upbeat-regional-markets/"
+     "url": "https://focusmalaysia.my/bursa-malaysia-ends-higher-ci-up-1-16-in-sync-with-regional-gains/"
     }
    },
    "items": [
@@ -105,8 +105,8 @@
     }
    ],
    "en": {
-    "title": "KLCI up 8.69 points at 1,570.98; Genting swings to 3Q loss, PChem core profit plunges 83%",
-    "note": "The KLCI tracked upbeat regional markets on Thursday, moving between 1,563.15 and 1,584.96 before closing 8.69 points higher on buying in selected financial services and consumer heavyweights. Losers still outnumbered gainers, while turnover rose to RM3.29 billion.",
+    "title": "KLCI up 18.26 points at 1,589.24; Genting swings to 3Q loss, PChem core profit plunges 83%",
+    "note": "The KLCI tracked upbeat regional markets on Friday, moving between 1,564.52 and 1,592.45 before closing 18.26 points higher on buying in selected industrial products and services and utilities heavyweights. Gainers clearly outnumbered losers, while turnover eased to RM2.64 billion.",
     "items": [
      {
       "tagEn": "Results",
