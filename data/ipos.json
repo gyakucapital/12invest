@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27",
+ "updated": "2026-11-28",
  "note": "Malaysian IPO calendar. Dates are Malaysia time from prospectus / company press releases / news. Keep every entry sourced.",
  "ipos": [
   {
@@ -125,7 +125,8 @@
      "https://www.bernamabiz.com/news.php?id=2610439",
      "https://www.businesstoday.com.my/2026/10/01/gb-bond-gains-2-on-ace-market-debut/",
      "https://theedgemalaysia.com/node/820054",
-     "https://www.thestar.com.my/business/business-news/2026/10/02/gb-bond-expects-new-factory-to-enhance-output-by-35"
+     "https://www.thestar.com.my/business/business-news/2026/10/02/gb-bond-expects-new-factory-to-enhance-output-by-35",
+     "https://www.nst.com.my/amp/business/corporate/2026/10/1545446/gb-bond-shares-lose-grip-after-opening-2pct-premium"
     ],
     "close": 0.205
    },
@@ -210,7 +211,7 @@
     "open": 0.145,
     "close": 0.135
    },
-   "checked": "2026-11-04",
+   "checked": "2026-11-28",
    "code": "0472 (ECOGRP)",
    "open": "2026-09-24",
    "close": "2026-10-05",
@@ -237,7 +238,7 @@
     ],
     "close": 0.2
    },
-   "checked": "2026-11-04",
+   "checked": "2026-11-28",
    "code": "0478",
    "open": "2026-09-29",
    "close": "2026-10-09",
@@ -264,7 +265,7 @@
     ],
     "oversub": 85.28
    },
-   "checked": "2026-11-04",
+   "checked": "2026-11-28",
    "code": "0479 (RPLANET)",
    "open": "2026-09-28",
    "close": "2026-10-08",
@@ -293,12 +294,13 @@
      "https://theedgemalaysia.com/node/823813",
      "https://www.thestar.com.my/business/business-news/2026/10/29/ska-capitals-ace-market-ipo-oversubscribed-8042-times",
      "https://www.thestar.com.my/business/business-news/2026/11/11/ska-capital-eyes-larger-projects-aims-to-deepen-capabilities-after-ace-market-listing",
-     "https://www.bernama.com/en/market/news.php?id=2632870"
+     "https://www.bernama.com/en/market/news.php?id=2632870",
+     "https://theedgemalaysia.com/node/825240"
     ],
     "open": 0.51,
     "close": 0.495
    },
-   "checked": "2026-11-12"
+   "checked": "2026-11-28"
   },
   {
    "ticker": "KEB",
@@ -512,7 +514,7 @@
     "Emits Berhad prospectus dated 6 November 2026",
     "https://www.klsescreener.com/v2/stocks/view/0486/emits-berhad"
    ],
-   "checked": "2026-11-27",
+   "checked": "2026-11-28",
    "code": "0486",
    "result": {
     "oversub": 6.43,
@@ -539,7 +541,7 @@
     "https://www.thestar.com.my/business/business-news/2026/11/18/sca-solutions-expects-to-raise-rm3192mil-from-ipo-for-business-expansion",
     "https://rates.my/ipo/sca-solutions"
    ],
-   "checked": "2026-11-27",
+   "checked": "2026-11-28",
    "code": "0487"
   },
   {
@@ -555,10 +557,12 @@
    "sources": [
     "https://www.thestar.com.my/business/business-news/2026/11/26/main-market-bound-kk-mart-aims-to-raise-rm1155mil-from-ipo",
     "https://theedgemalaysia.com/node/827364",
-    "https://ciscom.ai/ipos/kk-mart-retail"
+    "https://ciscom.ai/ipos/kk-mart-retail",
+    "https://www.businesstoday.com.my/2026/11/26/kk-mart-launches-ipo-at-rm0-55-sen-targets-dec-15-main-market-listing/"
    ],
-   "checked": "2026-11-27",
-   "code": "5360"
+   "checked": "2026-11-28",
+   "code": "5360",
+   "ballot": "2026-12-04"
   },
   {
    "ticker": "EMPG",
@@ -577,7 +581,7 @@
     "https://thesun.my/business/empgs-28-sen-ipo-to-raise-rm34-05m-for-retail-expansion/",
     "https://www.thestar.com.my/business/business-news/2026/10/01/empg-group-signs-underwriting-deal-for-ace-market-ipo"
    ],
-   "checked": "2026-11-27",
+   "checked": "2026-11-28",
    "ballot": "2026-12-04"
   }
  ]
