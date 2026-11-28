@@ -2,6 +2,203 @@
  "note": "每日马股速报。每天由排程任务根据公开新闻整理，摘要为 12Invest 自行撰写，每条附来源。",
  "days": [
   {
+   "kind": "weekly",
+   "date": "2026-11-28",
+   "title": "马股本周涨32.73点收1,589.24点，结束两周跌势；业绩季高峰，国油化学、云顶表现受压",
+   "market": {
+    "index": "FBM KLCI",
+    "range": "11月23日–11月27日",
+    "close": "1,589.24",
+    "change": "+32.73（+2.10%）",
+    "note": "综指周一续跌后连涨四个交易日，周五收1,589.24点，较上周五的1,556.51点上涨32.73点，结束连续两周的跌势。美股周初强劲反弹带动区域情绪回暖，周五工业产品与服务及公用事业重量股获买盘，不过本周多家大型股业绩欠佳，令吉亦一度走软至近五个月低位。",
+    "source": {
+     "name": "Focus Malaysia（Bernama）",
+     "url": "https://focusmalaysia.my/bursa-malaysia-ends-higher-ci-up-1-16-in-sync-with-regional-gains/"
+    }
+   },
+   "items": [
+    {
+     "tag": "IPO",
+     "title": "本周新股：Impact Capital 首日开高45%收微涨，IOIPG REIT 略低于发售价，Yes Group 平收",
+     "text": "Impact Capital 周一登陆 ACE 市场，以32仙开盘，较22仙招股价高45.5%，终场收22.5仙，仍高出2.3%；IOIPG Malaysia REIT 周三在主板以87仙开盘，收90.5仙，略低于91仙发售价；Yes Group 周四以18.5仙开盘、收18仙，与招股价持平。Emits 公众部分获6.43倍超购，12月1日上市；SCA Solutions 申购周四截止、11月30日抽签；EMPG（28仙）及 KK Mart（最高55仙）本周开放申购，均于12月2日截止。",
+     "tickers": [
+      "IMPACT",
+      "IOIPGREIT",
+      "YESGROUP",
+      "EMITS",
+      "SCA",
+      "EMPG",
+      "KKMART"
+     ],
+     "source": {
+      "name": "Dagang News",
+      "url": "https://www.dagangnews.com/article/terkini/saham-impact-capital-dibuka-32-sen-premium-4545-pada-penampilan-sulung-di-pasaran-ace-78133"
+     }
+    },
+    {
+     "tag": "环球",
+     "title": "黄仁勋重掌辉达，美股周一反弹纳指飙6.51%",
+     "text": "美股上周五重挫后，周一（11月23日）全面反弹，纳斯达克指数涨6.51%，道指涨3.01%；辉达董事部重新委任黄仁勋为总裁兼首席执行员，股价飙升逾31%。区域股市情绪随之回暖，马股周二结束五连跌，科技股领涨，不过芯片股周中再度回落。",
+     "tickers": [],
+     "source": {
+      "name": "Fox Business",
+      "url": "https://www.foxbusiness.com/markets/stocks-november-23-2026"
+     }
+    },
+    {
+     "tag": "大市",
+     "title": "令吉兑美元跌至4.1220，创6月底以来最弱",
+     "text": "令吉兑美元本周初走软至4.1220，为2026年6月底以来最低水平，外围不确定因素令马股交投偏向谨慎。正值业绩季，交易员认为个股走势更多取决于财报表现。",
+     "tickers": [],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/23/bursa-malaysia-sees-sea-of-red-as-over-850-stocks-tumble"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "马银行第三季净利增至 RM2.74 billion",
+     "text": "马银行第三季净利由去年同期的 RM2.62 billion 增至 RM2.74 billion，净营运收入按年增0.5%至 RM7.5 billion；首九个月净利 RM7.92 billion，去年同期为 RM7.84 billion。",
+     "tickers": [
+      "MAYBANK"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/23/maybank-registers-higher-net-profit-of-rm274bil-in-3q"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "国油化学第三季转盈 RM179 million，仍遭多家券商降级",
+     "text": "国油化学第三季净利 RM179 million，去年同期净亏 RM289 million，营收增至 RM7.62 billion，边佳兰业务贡献提高带动销量。不过核心盈利大幅下滑，至少四家券商下调评级，分析员担心全球供应过剩及需求疲弱将持续拖累盈利。",
+     "tickers": [
+      "PCHEM"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/24/petronas-chemicals-records-rm179mil-net-profit-in-3q"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "云顶第三季转亏 RM161.4 million，云顶大马净利跌66%",
+     "text": "云顶第三季营收增7.3%至 RM8.02 billion，但录得净亏 RM161.4 million，去年同期净赚 RM30.3 million。云顶大马同季营收增29.1%至 RM4.34 billion，净利则跌66.1%至 RM40.6 million，公司对短期前景保持谨慎。",
+     "tickers": [
+      "GENTING",
+      "GENM"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/26/genting039s-3q-revenue-rises-73-to-rm802bil"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "恒源第三季净利跃升至 RM557.95 million",
+     "text": "恒源第三季净利 RM557.95 million，去年同期仅 RM21.04 million，营收增51.4%至 RM5.48 billion；首九个月净利 RM1.68 billion，去年同期净亏 RM332.65 million。公司指主要产品售价走高，并预计燃料供应将维持紧张。",
+     "tickers": [
+      "HENGYUAN"
+     ],
+     "source": {
+      "name": "The Star（Bernama）",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/25/hengyuan-3q-net-profit-jumps-to-rm55795mil"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "马电讯第三季净利跌28%至 RM494 million，派息10仙",
+     "text": "马电讯第三季净利由去年同期的 RM686.3 million 降至 RM494 million，主要因去年同期有一次性投资公允值收益，营收微增0.3%至 RM3 billion。公司派发10仙中期股息，并把资本开支占营收比例下调至16%至18%。",
+     "tickers": [
+      "TM"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/25/tm039s-3q-net-profit-falls-28-to-rm494mil-on-absence-of-one-off-gain"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "双威建筑订单创 RM12.45 billion 新高，第三季营收增18%",
+     "text": "双威第三季营收增18%至 RM3.03 billion，净利则由 RM338.14 million 降至 RM314.06 million。建筑业务今年迄今获 RM9.8 billion 新订单，超出全年目标，未完成订单达 RM12.45 billion 的新高。",
+     "tickers": [
+      "SUNWAY"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/25/sunway-upbeat-as-construction-order-book-hits-record-rm1245bil"
+     }
+    },
+    {
+     "tag": "业绩",
+     "title": "亚航集团第三季净亏 RM175.11 million",
+     "text": "亚航集团第三季净亏 RM175.11 million，营收 RM4.66 billion；首九个月净亏 RM857.16 million。集团指西亚冲突推高航空燃油价格，加上区域货币兑美元走软，冲击业绩。",
+     "tickers": [
+      "AAGB"
+     ],
+     "source": {
+      "name": "The Star",
+      "url": "https://www.thestar.com.my/business/business-news/2026/11/23/airasia-group-posts-rm17511mil-3q-net-loss-due-to-elevated-jet-fuel-prices"
+     }
+    }
+   ],
+   "en": {
+    "title": "KLCI gains 32.73 points this week to 1,589.24, ending a two-week slide; results season peaks as Petronas Chemicals and Genting disappoint",
+    "note": "The KLCI fell on Monday and then rose for four straight sessions to close Friday at 1,589.24, up 32.73 points from the previous Friday's 1,556.51 and ending two straight weekly losses. A strong early-week rebound on Wall Street lifted regional sentiment and Friday saw buying in industrial products and utilities heavyweights, although several big companies reported weak results and the ringgit briefly fell to a near five-month low.",
+    "items": [
+     {
+      "tagEn": "IPO",
+      "title": "IPO round-up: Impact Capital opens 45% higher and ends slightly up; IOIPG REIT closes just below offer price, Yes Group flat",
+      "text": "Impact Capital debuted on the ACE Market on Monday at 32 sen, 45.5% above its 22 sen IPO price, and closed at 22.5 sen, still 2.3% higher. IOIPG Malaysia REIT opened on the Main Market on Wednesday at 87 sen and closed at 90.5 sen, just under its 91 sen final price, while Yes Group opened at 18.5 sen on Thursday and closed at its 18 sen IPO price. Emits' public portion was oversubscribed 6.43 times ahead of its 1 December listing; SCA Solutions closed applications on Thursday with balloting on 30 November; EMPG (28 sen) and KK Mart (up to 55 sen) opened their offers this week, both closing on 2 December."
+     },
+     {
+      "tagEn": "Global",
+      "title": "Jensen Huang returns to lead Nvidia; US stocks rebound on Monday with the Nasdaq up 6.51%",
+      "text": "After last Friday's heavy losses, US stocks rebounded across the board on Monday (23 November), with the Nasdaq up 6.51% and the Dow up 3.01%, after Nvidia's board reappointed Jensen Huang as president and CEO and its shares jumped more than 31%. Regional sentiment improved and the KLCI snapped a five-day losing streak on Tuesday led by tech stocks, though chip stocks slipped again mid-week."
+     },
+     {
+      "tagEn": "Market",
+      "title": "Ringgit weakens to 4.1220 against the US dollar, its weakest since end-June",
+      "text": "The ringgit weakened to 4.1220 against the US dollar early in the week, its lowest level since end-June 2026, and external uncertainty kept trading on Bursa cautious. With results season under way, traders said individual stocks would move mainly on their earnings."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Maybank's third-quarter net profit rises to RM2.74 billion",
+      "text": "Maybank's third-quarter net profit rose to RM2.74 billion from RM2.62 billion a year earlier, with net operating income up 0.5% to RM7.5 billion. Nine-month net profit was RM7.92 billion, against RM7.84 billion a year earlier."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Petronas Chemicals swings to RM179 million third-quarter profit but draws broker downgrades",
+      "text": "Petronas Chemicals posted a third-quarter net profit of RM179 million against a RM289 million net loss a year earlier, with revenue rising to RM7.62 billion as a bigger contribution from Pengerang lifted volumes. Its core profit fell sharply, however, and at least four brokers cut their ratings, with analysts worried that global oversupply and weak demand will keep weighing on earnings."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Genting slips to RM161.4 million third-quarter loss; Genting Malaysia's profit falls 66%",
+      "text": "Genting's third-quarter revenue rose 7.3% to RM8.02 billion, but it posted a net loss of RM161.4 million against a RM30.3 million profit a year earlier. Genting Malaysia's revenue grew 29.1% to RM4.34 billion while its net profit fell 66.1% to RM40.6 million, and the group is cautious on the near-term outlook."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Hengyuan's third-quarter net profit jumps to RM557.95 million",
+      "text": "Hengyuan earned RM557.95 million in the third quarter, up from just RM21.04 million a year earlier, as revenue grew 51.4% to RM5.48 billion. Nine-month net profit was RM1.68 billion against a RM332.65 million loss a year earlier; the refiner cited higher product prices and expects fuel supply to stay tight."
+     },
+     {
+      "tagEn": "Results",
+      "title": "TM's third-quarter net profit falls 28% to RM494 million; 10 sen dividend declared",
+      "text": "TM's third-quarter net profit fell to RM494 million from RM686.3 million a year earlier, mainly because the earlier quarter included a one-off fair value gain on investments, while revenue edged up 0.3% to RM3 billion. It declared a 10 sen interim dividend and lowered its capex guidance to 16% to 18% of revenue."
+     },
+     {
+      "tagEn": "Results",
+      "title": "Sunway's construction order book hits a record RM12.45 billion; third-quarter revenue up 18%",
+      "text": "Sunway's third-quarter revenue rose 18% to RM3.03 billion, while net profit eased to RM314.06 million from RM338.14 million. Its construction arm has won RM9.8 billion of new jobs so far this year, above its full-year target, taking the outstanding order book to a record RM12.45 billion."
+     },
+     {
+      "tagEn": "Results",
+      "title": "AirAsia Group posts RM175.11 million third-quarter net loss",
+      "text": "AirAsia Group posted a third-quarter net loss of RM175.11 million on revenue of RM4.66 billion, taking its nine-month net loss to RM857.16 million. It blamed jet fuel prices pushed up by the West Asia conflict and weaker regional currencies against the US dollar."
+     }
+    ]
+   }
+  },
+  {
    "date": "2026-11-27",
    "title": "马股涨18.26点收1,589.24点；云顶第三季转亏，国油化学核心盈利挫83%",
    "market": {
